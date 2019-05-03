@@ -1,0 +1,361 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+    overflow: hidden;
+    background-color: #131313;
+    color: #e9e9e9;
+    font-family: 'nHelvi77';
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* General Style */
+
+.transitionWrap {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.theRed {
+    color: red;
+}
+
+.fixedWidth {
+    position: absolute;
+    width: 100%;
+}
+
+/* MenuButton */
+
+#menuButtonWrapper {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    background-color: #f3f3f3f3;
+}
+
+/* Container */
+
+#app {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+/* Pages */
+
+
+.theLine {
+    position: absolute;
+    bottom: 10%;
+    display: block;
+    width: 100%;
+    border-bottom: 0.1em solid #e9e9e9;
+    border-radius: 100% 50%;
+}
+
+/* LineFancy */
+
+path {
+    fill: none;
+    stroke: #ddd;
+    stroke-width: 2px;
+    vector-effect: non-scaling-stroke;
+    shape-rendering: auto;
+}
+
+.placeBottom {
+    bottom: 0px;
+}
+
+/* Menu */
+
+.sideNav {
+    height: auto;
+    width: auto;
+    padding: 10px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.25s;
+    margin-top: 25%;
+    transform: translateX(-250px)
+}
+
+.sideNav.open {
+    transform: translateX(0px)
+}
+
+.sideNav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    color: #818181;
+    display: block;
+    transition: 0.25s;
+}
+
+.sideNav a:hover {
+    color: #f1f1f1;
+}
+
+.sideav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* Hamburger */
+
+.hamburger {
+    cursor: pointer;
+    position: absolute;
+    width: 96px;
+    height: 48px;
+    top: 20px;
+    transition: all 0.25s;
+}
+
+.hamburger__top-bun, .hamburger__bottom-bun {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 30px;
+    width: 45px;
+    height: 2px;
+    background: #f1f1f1;
+    transform: rotate(0);
+    transition: all 0.25s;
+}
+
+.hamburger:hover [class*="-bun"] {
+    background: #818181;
+}
+
+.hamburger__top-bun {
+    top: 23px;
+    transform: translateY(-6px);
+}
+
+.hamburger__bottom-bun {
+    bottom: 23px;
+    transform: translateY(6px);
+}
+
+.openH {
+    transform: rotate(90deg);
+}
+
+.openH .hamburger__top-bun {
+    transform: rotate(45deg) translateY(0px);
+}
+
+.openH .hamburger__bottom-bun {
+    transform: rotate(-45deg) translateY(0px);
+}
+
+/* Fontsizes */
+@font-face {
+    font-family: 'nHelvi77';
+    src: url('../fonts/neuehelveticacondensedbq-roman-webfont.woff2') format('woff2'),
+         url('../fonts/neuehelveticacondensedbq-roman-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.pageHeadline {
+    font-family: folio-condensed, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 10em;
+}
+
+.bigFontSize {
+    font-size: 3.5em;
+}
+
+.midFontSize {
+    font-size: 2.5em;
+}
+
+.smallFontSize {
+    font-size: 2em;
+}
+
+.coming {
+    color: #ffffff80;
+    font-size: 0.5em;
+    text-align: center;
+    padding-top: 1em;
+    font-family: 'nHelvi77';
+}
+
+/* Media Querys */
+
+/* Big */
+
+@media only screen and (max-width: 1024px) {
+    .pageHeadline {
+        font-size: 7.5em;
+    }
+    .bigFontSize {
+        font-size: 3.5em;
+    }
+    .midFontSize {
+        font-size: 2.5em;
+    }
+    .smallFontSize {
+        font-size: 2em;
+    }
+}
+
+/* Mid */
+
+@media only screen and (max-width: 768px) {
+    .pageHeadline {
+        font-size: 5.5em;
+    }
+    .bigFontSize {
+        font-size: 3em;
+    }
+    .midFontSize {
+        font-size: 2.25em;
+    }
+    .smallFontSize {
+        font-size: 1.5em;
+    }
+}
+
+/* Small */
+
+@media only screen and (max-width: 500px) {
+    .pageHeadline {
+        font-size: 3.5em;
+    }
+    .bigFontSize {
+        font-size: 2.5em;
+    }
+    .midFontSize {
+        font-size: 1.5em;
+    }
+    .smallFontSize {
+        font-size: 1em;
+    }
+    /* Menu */
+    .hamburger {
+        width: 48px;
+        top: 10px;
+    }
+    .hamburger__top-bun, .hamburger__bottom-bun {
+        left: 15px;
+        width: 18px;
+        height: 1px;
+    }
+    .hamburger__top-bun {
+        transform: translateY(-3px);
+    }
+    .hamburger__bottom-bun {
+        transform: translateY(3px);
+    }
+}
+
+/* Very Small */
+
+@media only screen and (max-width: 400px) {
+    .pageHeadline {
+        font-size: 2em;
+    }
+}
+
+/* Enter and leave animations can use different */
+
+/* durations and timing functions.              */
+
+.slideTopBot-enter-active, .slideBotTop-enter-active, .slideSwitch-enter-active {
+    transition: all 2s linear;
+}
+
+.slideTopBot-leave-active, .slideBotTop-leave-active, .slideSwitch-leave-active {
+    transition: all 2s linear;
+}
+
+/* .slide-fade-leave-active below version 2.1.8 */
+
+.slideTopBot-enter {
+    transform: translateY(-100%);
+}
+
+.slideTopBot-enter-to, .slideBotTop-enter-to {
+    transform: translateY(0);
+}
+
+.slideTopBot-leave, .slideBotTop-leave {
+    transform: translateY(0);
+}
+
+.slideTopBot-leave-to {
+    transform: translateY(100%);
+}
+
+/* backwards */
+
+.slideBotTop-enter {
+    transform: translateY(100%);
+}
+
+.slideBotTop-leave-to {
+    transform: translateY(-100%);
+}
+
+/* else case */
+
+.slideSwitch-enter {
+    opacity: 0;
+}
+
+.slideSwitch-enter-to {
+    opacity: 1;
+}
+
+.slideSwitch-leave {
+    opacity: 0;
+}
+
+.slideSwitch-leave-to {
+    opacity: 1;
+}
