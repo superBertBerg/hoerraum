@@ -21,7 +21,7 @@
 }
 </style>
 <script>
-import LineFancy from "./LineFancy.vue";
+import LineFancy from "../components/LineFancy.vue";
 
 export default {
   props: ['id'],

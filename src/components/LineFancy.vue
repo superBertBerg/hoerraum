@@ -9,7 +9,7 @@
       <filter id="blur">
         <feGaussianBlur in="SourceGraphic" stdDeviation="0.2"></feGaussianBlur>
       </filter>
-    </defs> -->
+    </defs>-->
   </svg>
 </template>
 
@@ -26,29 +26,25 @@ svg {
 export default {
   data: function() {
     return {
+      framesPerSecond: 24,
       ampl: 10,
       minSpeed: 40,
-      maxSpeed: 90
+      maxSpeed: 90,
+      numberOfLines: 3,
+      lineDataArr: [],
+      newPathEl: document.createElementNS("http://www.w3.org/2000/svg", "path")
     };
   },
-  mounted: function() {
-    var svgEl = document.querySelector(".animated-lines");
-    var framesPerSecond = 24;
-    var randomRange = function(min, max) {
-      return ~~(Math.random() * (max - min + 1)) + min;
-    };
-    var numberOfLines = 3,
-      lineDataArr = [];
-
-    var createPathString = function(ampl) {
+  methods: {
+    createPathString: function() {
       var completedPath = "",
         comma = ",";
-      for (var i = 0; i < numberOfLines; i++) {
-        var path = lineDataArr[i];
+      for (var i = 0; i < this.numberOfLines; i++) {
+        var path = this.lineDataArr[i];
 
         var current = {
-          x: ampl * Math.sin(path.counter / path.sin) + path.startX,
-          y: ampl * Math.cos(path.counter / path.cos) + path.startY
+          x: this.ampl * Math.sin(path.counter / path.sin) + path.startX,
+          y: this.ampl * Math.cos(path.counter / path.cos) + path.startY
         };
 
         var newPathSection =
@@ -81,52 +77,53 @@ export default {
       }
 
       return completedPath;
-    };
-
-    var createLines = function(ampl, minSpeed, maxSpeed) {
-      var newPathEl = document.createElementNS(
-          "http://www.w3.org/2000/svg",
-          "path"
-        )
-        // higher is slower
-        // minS = minSpeed,
-        // maxS = maxSpeed;
-
-      // create an arr which contains objects for all lines
-      // createPathString() will use this array
-      for (var i = 0; i < numberOfLines; i++) {
+    },
+    animLoop: function() {
+      var scope = this;
+      setTimeout(function() {
+        scope.newPathEl.setAttribute("d", scope.createPathString());
+        requestAnimationFrame(function() {
+          scope.animLoop();
+        });
+      }, 1000 / this.framesPerSecond);
+    },
+    createLines: function() {
+      var svgEl = document.querySelector(".animated-lines");
+      for (var i = 0; i < this.numberOfLines; i++) {
         var lineDataObj = {
-          counter: randomRange(1, 500), // a broad counter range ensures lines start at different cycles (will look more random)
+          counter: this.randomRange(1, 500), // a broad counter range ensures lines start at different cycles (will look more random)
           startX: -20,
           startY: 90,
           endX: 220, // viewbox = 200
-          endY: 90, // viewbox = 120
-          sin: randomRange(minSpeed, maxSpeed),
-          cos: randomRange(minSpeed, maxSpeed),
-          pointX: randomRange(50, 50),
-          centerX: randomRange(75, 125),
+          endY: 80, // viewbox = 120
+          sin: this.randomRange(this.minSpeed, this.maxSpeed),
+          cos: this.randomRange(this.minSpeed, this.maxSpeed),
+          pointX: this.randomRange(50, 50),
+          centerX: this.randomRange(75, 125),
           centerY: 80
         };
 
-        lineDataArr.push(lineDataObj);
-      }
-
-      function animLoop(ampl) {
-        setTimeout(function() {
-          newPathEl.setAttribute("d", createPathString(ampl));
-          requestAnimationFrame(function() {
-            animLoop(ampl);
-          });
-        }, 1000 / framesPerSecond);
+        this.lineDataArr.push(lineDataObj);
       }
 
       // once the path elements are created, start the animation loop
-      svgEl.appendChild(newPathEl);
-     // newPathEl.setAttribute("style", "filter:url(#blur)");
-      animLoop(ampl);
-    };
-
-    createLines(this.ampl, this.minSpeed, this.maxSpeed);
+      svgEl.appendChild(this.newPathEl);
+      // newPathEl.setAttribute("style", "filter:url(#blur)");
+      this.animLoop();
+    },
+    randomRange: function(min, max) {
+      return ~~(Math.random() * (max - min + 1)) + min;
+    },
+    impactWater: function() {
+      this.lineDataArr.forEach(element => {
+        element.sin = this.randomRange(5, 15);
+        element.cos = this.randomRange(5, 15);
+      });
+      this.ampl = this.randomRange(20, 30);
+    }
+  },
+  mounted: function() {
+    this.createLines();
   }
 };
 </script>

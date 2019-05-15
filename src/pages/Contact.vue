@@ -1,5 +1,9 @@
 <template>
-  <div id="dive">dive</div>
+  <div id="contact" class="transitionWrap">
+    <div class="flexWrap">
+      <div class="flexCenter bigFontSize">Contact</div>
+    </div>
+  </div>
 </template>
 
 
@@ -15,6 +19,6 @@
 
 <script>
 export default {
-  props: ['id'],
+  props: ["id"]
 };
 </script>

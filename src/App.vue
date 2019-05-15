@@ -2,6 +2,7 @@
   <div>
     <!-- <router-link class="button" to="/"><div id="menuButtonWrapper"></div></router-link> -->
     <div :id="transitonEffect"></div>
+    <!-- <Test></Test> -->
     <transition :name="transitonEffect">
       <router-view></router-view>
     </transition>
@@ -10,25 +11,35 @@
 </template>
 
 <script>
-import Landing from "./Landing.vue";
-import Dive from "./Dive.vue";
-import Diver from "./Diver.vue";
-import Menu from "./Menu.vue";
+import Landing from "./pages/Landing.vue";
+import Dive from "./pages/Dive.vue";
+import Landscape from "./pages/Landscape.vue";
+import Menu from "./components/Menu.vue";
+import Portfolio from "./pages/Portfolio.vue"
+import Contact from "./pages/Contact.vue"
+import Imag from "./pages/Imag.vue"
+
+// test ugly
+import Test from "./components/Test.vue";
 
 export default {
   components: {
     Landing,
     Dive,
-    Diver,
-    Menu
+    Landscape,
+    Menu,
+    Test
   },
   data: function() {
     return {
       ['/']: 0,
       ['/dive']: 1,
-      ['/diver']: 2,
+      ['/landscape']: 2,
+      ['/portfolio']: 3,
+      ['/contact']: 4,
+      ['/imag']: 5,
       current: 0,
-      transitonEffect: 'slideTopBot'
+      transitonEffect: 'slideSwitch'
     }
   },
   methods: {
@@ -52,11 +63,11 @@ export default {
       if( Math.abs(jumpCalc) == 1 && jumpCalc>0) {
         //forward
         console.log('case1')
-        this.transitonEffect = 'slideBotTop'
+        this.transitonEffect = 'slideSwitch'
       } else if(Math.abs(jumpCalc) == 1 && jumpCalc<0) {
         //backward
         console.log('case2')
-        this.transitonEffect = 'slideTopBot'
+        this.transitonEffect = 'slideSwitch'
       } else {
         console.log('case3')
         this.transitonEffect = 'slideSwitch'
