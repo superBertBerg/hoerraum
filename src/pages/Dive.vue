@@ -1,5 +1,5 @@
 <template>
-  <div id="dive">
+  <div id="dive" class="transitionWrap">
     <div class="textRight">
       <div class="flexWrap">
         <div class="flexCenter">

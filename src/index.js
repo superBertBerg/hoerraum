@@ -2,7 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import App from './App.vue'
 import '../assets/css/style.css'
-import VueAnime from 'vue-animejs';
+import VueAnime from 'vue-animejs'
+
 
 
 
@@ -14,6 +15,7 @@ import Landscape from "./pages/Landscape.vue"
 import Portfolio from "./pages/Portfolio.vue"
 import Contact from "./pages/Contact.vue"
 import Imag from "./pages/Imag.vue"
+import Ellipse from './three/ellips';
 
 Vue.use(VueRouter)
 Vue.use(VueAnime)
@@ -48,12 +50,17 @@ Vue.directive('click-outside', {
 });
 
 
+let tres = new Ellipse()
 
 new Vue({
     el: '#app',
     router,
-    render: h => h(App),
+    render: h => h(App, {
+        props: {
+            three: tres
+        }
+    }),
     mounted: function() {
-        console.log(this)
+        // console.log(this)
     }
 })
