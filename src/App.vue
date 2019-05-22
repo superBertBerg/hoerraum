@@ -84,27 +84,37 @@ export default {
     },
     animation: function(to, from) {
       switch (this[to]) {
+        case 0:
+          this.$props.three.line.start();
+          this.$props.three.ellipse.hide(true);
+          break;
         case 1:
-          this.$props.three.hide(true);
+          this.$props.three.ellipse.hide(true);
+          this.$props.three.line.hide(true);
           break;
         case 2:
-          this.$props.three.hide(true);
+          // console.log("stop");
+          this.$props.three.ellipse.hide(true);
+          this.$props.three.line.hide(true);
           break;
         case 3:
-          console.log("stop");
-          this.$props.three.hide(true);
+          this.$props.three.ellipse.hide(true);
+          this.$props.three.line.hide(true);
           break;
         case 4:
-          this.$props.three.start();
+          this.$props.three.ellipse.start();
+          this.$props.three.line.hide(true);
           break;
         case 5:
-          this.$props.three.hide(true);
+          this.$props.three.ellipse.hide(true);
+          this.$props.three.line.hide(true);
           break;
         case 6:
-          this.$props.three.hide(true);
+          this.$props.three.ellipse.hide(true);
+          this.$props.three.line.hide(true);
           break;
         default:
-          this.$props.three.hide(true);
+          this.$props.three.ellipse.hide(true);
           // clear anymation
           break;
       }

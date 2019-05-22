@@ -1,46 +1,20 @@
+//merge parts of init PLEASE!!
+
 import * as THREE from 'three';
 import { TweenLite } from 'gsap'
-var TrackballControls = require('three-trackballcontrols');
 
+const glslify = require('glslify');
 
 export default class Ellipse {
-    constructor() {
-        this.container = new THREE.Object3D();
-        this.container.name = 'ellips'
-        this.initThree()
-        this.initTrack()
-        this.initElips()
+
+    constructor(controler) {
+        this.controler = controler
+
+        this.init()
             // this.animate()
     }
 
-    initThree() {
-        this.scene = new THREE.Scene();
-
-        this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-        this.renderer.setSize(window.innerWidth, window.innerHeight);
-        document.getElementById('host').appendChild(this.renderer.domElement);
-        this.camera = new THREE.PerspectiveCamera(
-            40, window.innerWidth / window.innerHeight, 1, 10000);
-        this.camera.position.z = 50;
-        this.light = new THREE.PointLight(0xffffff, 1, Infinity);
-        this.camera.add(this.light);
-
-        this.scene.add(this.light);
-    }
-    initTrack() {
-        this.controls = new TrackballControls(this.camera, this.renderer.domElement);
-        this.controls.rotateSpeed = 5.0; // need to speed it up a little
-        window.addEventListener('resize', this.onWindowResize.bind(this), false);
-    }
-
-    onWindowResize() {
-        this.camera.aspect = window.innerWidth / window.innerHeight;
-        this.camera.updateProjectionMatrix();
-
-        this.renderer.setSize(window.innerWidth, window.innerHeight);
-    }
-
-    initElips() {
+    init() {
         var instances = 200
         var xfact = 12
         var yfact = 5
@@ -96,7 +70,7 @@ export default class Ellipse {
             diffuses.push(xdiffuse, ydiffuse, zdiffuse)
         }
 
-        var cubeGeo = new THREE.InstancedBufferGeometry()
+        var square = new THREE.InstancedBufferGeometry()
 
         // blueprint actual geometry
         const positions = new THREE.BufferAttribute(new Float32Array(4 * 3), 3);
@@ -104,7 +78,7 @@ export default class Ellipse {
         positions.setXYZ(1, 0.5, 0.5, 0.0);
         positions.setXYZ(2, -0.5, -0.5, 0.0);
         positions.setXYZ(3, 0.5, -0.5, 0.0);
-        cubeGeo.addAttribute('position', positions);
+        square.addAttribute('position', positions);
 
         // uvs
         const uvs = new THREE.BufferAttribute(new Float32Array(4 * 2), 2);
@@ -112,27 +86,27 @@ export default class Ellipse {
         uvs.setXYZ(1, 1.0, 0.0);
         uvs.setXYZ(2, 0.0, 1.0);
         uvs.setXYZ(3, 1.0, 1.0);
-        cubeGeo.addAttribute('uv', uvs);
+        square.addAttribute('uv', uvs);
 
-        cubeGeo.setIndex(
+        square.setIndex(
             new THREE.BufferAttribute(new Uint16Array([0, 2, 1, 2, 3, 1]), 1));
-        cubeGeo.addAttribute(
+        square.addAttribute(
             'cubePos',
             new THREE.InstancedBufferAttribute(new Float32Array(offsets), 3))
-        cubeGeo.addAttribute(
+        square.addAttribute(
             'color',
             new THREE.InstancedBufferAttribute(new Float32Array(colors), 3))
-        cubeGeo.addAttribute(
+        square.addAttribute(
             'diffuse',
             new THREE.InstancedBufferAttribute(new Float32Array(diffuses), 3))
-        cubeGeo.addAttribute(
+        square.addAttribute(
             'speed',
             new THREE.InstancedBufferAttribute(new Float32Array(speeds), 1))
-        cubeGeo.addAttribute(
+        square.addAttribute(
             'start',
             new THREE.InstancedBufferAttribute(new Float32Array(starts), 1))
 
-        cubeGeo.maxInstancedCount = 200;
+        square.maxInstancedCount = 200;
 
         var vertexShader = [
             'precision highp float;', '', 'uniform mat4 modelViewMatrix;',
@@ -175,84 +149,66 @@ export default class Ellipse {
             yfact: { value: yfact },
             zfact: { value: zfact }
         }
+        console.log(uniforms)
 
         var mat = new THREE.RawShaderMaterial({
             uniforms: uniforms,
             vertexShader: vertexShader,
+            // vertexShader: glslify(require('./shaders/ellipsVert.vert')),
             fragmentShader: fragmentShader,
+            // fragmentShader: glslify(require('./shaders/ellipsFrag.frag')),
             depthTest: false,
             transparent: true
         });
-        this.object3D = new THREE.Mesh(cubeGeo, mat);
-        this.container.add(this.object3D)
-        this.scene.add(this.container);
-        // var axesHelper = new THREE.AxesHelper(5);
-        // this.scene.add(axesHelper);
-    }
-    render() {
-        this.renderer.render(this.scene, this.camera);
-        //   stats.update();
-    }
-    start() {
-        if (this.object3D) {
-            this.container.add(this.object3D)
-            this.animate()
-            this.show()
-        }
-    }
-    animate() {
-        if (!this.container.children[0]) return;
-        var time = Date.now() % 1000000 * 0.0005;
-        this.container.children[0].material.uniforms.time.value = time;
-        // var diffuse = cubeGeo.attributes.diffuse.array;
-        // cubeGeo.attributes.diffuse.needsUpdate = true;
-        this.controls.update();
-        this.render();
-        requestAnimationFrame(this.animate.bind(this));
+        this.mesh = new THREE.Mesh(square, mat);
+        this.mesh.name = 'ellipse';
     }
 
-    // try direct reeference
+    update() {
+        if (!this.controler.scene.getObjectByName('ellipse')) return;
+
+        // CHANGE
+        var time = Date.now() % 1000000 * 0.0005;
+        // CHANGE
+        this.controler['ellipse'].mesh.material.uniforms.time.value = time;
+        // var diffuse = square.attributes.diffuse.array;
+        // square.attributes.diffuse.needsUpdate = true;
+        // this.controls.update();
+    }
+
     hide(_destroy, time = 0.8) {
-        if (!this.container.children[0]) return;
+        if (!this.controler.scene.getObjectByName('ellipse')) return;
         return new Promise((resolve, reject) => {
-            TweenLite.to(this.container.children[0].material.uniforms.xfact, time, {
+            TweenLite.to(this.mesh.material.uniforms.xfact, time, {
                 value: 500.0,
                 onComplete: () => {
                     if (_destroy) this.stop();
                     resolve();
                 }
             });
-            TweenLite.to(this.container.children[0].material.uniforms.yfact, time, { value: 500.0 });
-            TweenLite.to(this.container.children[0].material.uniforms.zfact, time * 0.8, { value: -500.0 });
+            TweenLite.to(this.mesh.material.uniforms.yfact, time, { value: 500.0 });
+            TweenLite.to(this.mesh.material.uniforms.zfact, time * 0.8, { value: -500.0 });
 
         });
     }
     show(time = 0.8) {
-        if (!this.object3D) return;
+        if (!this.mesh) return;
         return new Promise((resolve, reject) => {
-            TweenLite.to(this.container.children[0].material.uniforms.xfact, time, { value: this.x });
-            TweenLite.to(this.container.children[0].material.uniforms.yfact, time, { value: this.y });
-            TweenLite.to(this.container.children[0].material.uniforms.zfact, time * 0.8, { value: this.z });
-
+            TweenLite.to(this.mesh.material.uniforms.xfact, time, { value: this.x });
+            TweenLite.to(this.mesh.material.uniforms.yfact, time, { value: this.y });
+            TweenLite.to(this.mesh.material.uniforms.zfact, time * 0.8, { value: this.z });
         });
     }
     stop() {
-
-        this.object3D.parent.remove(this.object3D);
-        // var selectedObject = this.scene.getObjectByName(this.object3D.name);
-        // console.log(selectedObject)
-        // this.scene.remove(selectedObject);
-        // console.log(this.scene)
-        // animate();
+        if (!this.controler.scene.getObjectByName('ellipse')) return;
+        this.mesh.parent.remove(this.mesh);
     }
 
-    destroy() {
-        if (!this.object3D) return;
-
-        this.object3D.parent.remove(this.object3D);
-        this.object3D.geometry.dispose();
-        this.object3D.material.dispose();
-        this.object3D = null;
+    start() {
+        if (this.mesh) {
+            this.controler.scene.add(this.mesh)
+            this.controler.animate()
+            this.show()
+        }
     }
-
 }

@@ -16,8 +16,7 @@ module.exports = {
         './src/index.js'
     ],
     module: {
-        rules: [
-            {
+        rules: [{
                 test: /\.vue$/,
                 use: 'vue-loader'
             },
@@ -31,6 +30,14 @@ module.exports = {
             {
                 test: /\.js$/,
                 use: 'babel-loader'
+            },
+            {
+                test: /\.(glsl|frag|vert)$/,
+                use: ['glslify-import-loader', 'raw-loader', 'glslify-loader']
+            },
+            {
+                test: /three\/examples\/js/,
+                use: 'imports-loader?THREE=three'
             },
             // {
             //     test: /\.(js|vue)$/,
