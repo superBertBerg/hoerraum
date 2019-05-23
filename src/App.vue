@@ -87,31 +87,44 @@ export default {
         case 0:
           this.$props.three.line.start();
           this.$props.three.ellipse.hide(true);
+          this.$props.three.face.hide(true);
+          console.log(this[to], "  ", this.$props.three)
           break;
         case 1:
           this.$props.three.ellipse.hide(true);
           this.$props.three.line.hide(true);
+          this.$props.three.face.hide(true);
+          console.log(this[to], "  ", this.$props.three)
           break;
         case 2:
-          // console.log("stop");
+          console.log("stop");
           this.$props.three.ellipse.hide(true);
           this.$props.three.line.hide(true);
+          this.$props.three.face.hide(true);
+          console.log(this[to], "  ", this.$props.three)
           break;
         case 3:
           this.$props.three.ellipse.hide(true);
           this.$props.three.line.hide(true);
+          this.$props.three.face.hide(true);
+          console.log(this[to], "  ", this.$props.three)
           break;
         case 4:
           this.$props.three.ellipse.start();
           this.$props.three.line.hide(true);
+          this.$props.three.face.hide(true);
+          console.log(this[to], "  ", this.$props.three)
           break;
         case 5:
           this.$props.three.ellipse.hide(true);
           this.$props.three.line.hide(true);
+          this.$props.three.face.start();
+          console.log(this[to], "  ", this.$props.three)
           break;
         case 6:
           this.$props.three.ellipse.hide(true);
           this.$props.three.line.hide(true);
+          console.log(this[to], "  ", this.$props.three)
           break;
         default:
           this.$props.three.ellipse.hide(true);

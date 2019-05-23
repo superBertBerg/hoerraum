@@ -53,15 +53,18 @@ Vue.directive('click-outside', {
 
 let control3 = new Controler()
 
-new Vue({
-    el: '#app',
-    router,
-    render: h => h(App, {
-        props: {
-            three: control3
+
+setTimeout(() => {
+    new Vue({
+        el: '#app',
+        router,
+        render: h => h(App, {
+            props: {
+                three: control3
+            }
+        }),
+        mounted: function() {
+            // console.log(this)
         }
-    }),
-    mounted: function() {
-        // console.log(this)
-    }
-})
+    })
+}, 100);

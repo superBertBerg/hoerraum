@@ -1,10 +1,10 @@
 <template>
   <div class="transitionWrap">
-    <!-- <div class="centered pageHeadline">
+    <div class="centered pageHeadline">
       HO<span class="theRed">3</span>RRAUM
       <br>
       <div class="coming"> COMING SOON </div>
-    </div> -->
+    </div>
     <!-- <div class="placeBottom fixedWidth">
       <LineFancy></LineFancy>
     </div> -->
