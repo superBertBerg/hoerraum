@@ -2,7 +2,8 @@ import * as THREE from 'three';
 import { TweenLite } from 'gsap';
 import Ellipse from './ellipse';
 import Line from './line';
-import Face from './faces'
+import Face from './faces';
+import Star from './stars'
 // import TouchTexture from './TouchTexture';
 
 var TrackballControls = require('three-trackballcontrols');
@@ -12,10 +13,11 @@ export default class Controler {
     constructor() {
         this.initThree()
         this.initTrack()
-        this.line = new Line(this)
-        this.ellipse = new Ellipse(this)
         this.face = new Face(this, 105);
         this.face.init('static/images/markus-150.png')
+        this.line = new Line(this)
+        this.ellipse = new Ellipse(this)
+        this.star = new Star(this)
     }
 
     initThree() {
@@ -36,8 +38,8 @@ export default class Controler {
     }
 
     initTrack() {
-        // this.controls = new TrackballControls(this.camera, this.renderer.domElement);
-        // this.controls.rotateSpeed = 5.0;
+        this.controls = new TrackballControls(this.camera, this.renderer.domElement);
+        this.controls.rotateSpeed = 5.0;
     }
 
     initTouch() {
@@ -65,9 +67,10 @@ export default class Controler {
         this.ellipse.update(this.time);
         this.line.update(this.time);
         this.face.update(this.timer);
+        this.star.update(this.time);
         // console.log(this.line.uniline.yf)
         // console.log(this)
-        // this.controls.update();
+        this.controls.update();
         this.render()
             // console.log('asdf')
         requestAnimationFrame(this.animate.bind(this));
@@ -91,7 +94,10 @@ export default class Controler {
 
     addToScene() {
         // // this.scene.add(this.Ellipse.mesh)
-        // var axesHelper = new THREE.AxesHelper(5);
+        // var axesHelper = new THREE.AxesHelper(110);
+        // // axesHelper.size = 100
         // this.scene.add(axesHelper);
+        // console.log(axesHelper)
+
     }
 }

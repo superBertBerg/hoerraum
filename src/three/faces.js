@@ -22,7 +22,6 @@ export default class Face {
 
             this.width = texture.image.width;
             this.height = texture.image.height;
-            console.log("asdf", this)
             this.initPoints(true, x, y);
             // this.initHitArea();
             // this.initTouch();

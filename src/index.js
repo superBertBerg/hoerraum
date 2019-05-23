@@ -67,4 +67,4 @@ setTimeout(() => {
             // console.log(this)
         }
     })
-}, 100);
+}, 500);

@@ -68,63 +68,76 @@ export default {
       var jumpCalc = this[to] - this[from];
       if (Math.abs(jumpCalc) == 1 && jumpCalc > 0) {
         //forward
-        console.log("case1");
+        // console.log("case1");
         // this.$props.three.start();
         this.transitonEffect = "slideSwitch";
       } else if (Math.abs(jumpCalc) == 1 && jumpCalc < 0) {
         //backward
-        console.log("case2");
+        // console.log("case2");
         this.transitonEffect = "slideSwitch";
       } else {
-        console.log("case3");
+        // console.log("case3");
         // this.$props.three.hide(true);
         this.transitonEffect = "slideSwitch";
         //abort all animation switch to site
       }
     },
+    hideAllAnimation: function() {
+      this.$props.three.ellipse.hide(true);
+      this.$props.three.line.hide(true);
+      this.$props.three.face.hide(true);
+      this.$props.three.star.hide(true);
+    },
     animation: function(to, from) {
       switch (this[to]) {
         case 0:
-          this.$props.three.line.start();
           this.$props.three.ellipse.hide(true);
           this.$props.three.face.hide(true);
-          console.log(this[to], "  ", this.$props.three)
+          this.$props.three.star.hide(true);
+          this.$props.three.line.start();
+          console.log(this[to], "  ", this.$props.three);
           break;
         case 1:
           this.$props.three.ellipse.hide(true);
           this.$props.three.line.hide(true);
           this.$props.three.face.hide(true);
-          console.log(this[to], "  ", this.$props.three)
+          this.$props.three.star.start();
+          console.log(this[to], "  ", this.$props.three);
           break;
         case 2:
-          console.log("stop");
           this.$props.three.ellipse.hide(true);
           this.$props.three.line.hide(true);
           this.$props.three.face.hide(true);
-          console.log(this[to], "  ", this.$props.three)
+          this.$props.three.star.start();
+          console.log(this[to], "  ", this.$props.three);
           break;
         case 3:
           this.$props.three.ellipse.hide(true);
           this.$props.three.line.hide(true);
           this.$props.three.face.hide(true);
-          console.log(this[to], "  ", this.$props.three)
+          this.$props.three.star.hide(true);
+          console.log(this[to], "  ", this.$props.three);
           break;
         case 4:
-          this.$props.three.ellipse.start();
           this.$props.three.line.hide(true);
           this.$props.three.face.hide(true);
-          console.log(this[to], "  ", this.$props.three)
+          this.$props.three.star.hide(true);
+          this.$props.three.ellipse.start();
+          console.log(this[to], "  ", this.$props.three);
           break;
         case 5:
           this.$props.three.ellipse.hide(true);
           this.$props.three.line.hide(true);
+          this.$props.three.star.hide(true);
           this.$props.three.face.start();
-          console.log(this[to], "  ", this.$props.three)
+          console.log(this[to], "  ", this.$props.three);
           break;
         case 6:
           this.$props.three.ellipse.hide(true);
           this.$props.three.line.hide(true);
-          console.log(this[to], "  ", this.$props.three)
+          this.$props.three.face.hide(true);
+          this.$props.three.star.hide(true);
+          console.log(this[to], "  ", this.$props.three);
           break;
         default:
           this.$props.three.ellipse.hide(true);
