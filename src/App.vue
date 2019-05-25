@@ -94,6 +94,9 @@ export default {
           this.$props.three.ellipse.hide(true);
           this.$props.three.face.hide(true);
           this.$props.three.star.hide(true);
+          this.$props.three.bigLand.hide(0.8, -2300);
+          this.$props.three.midLand.hide(0.8, -2300);
+          this.$props.three.smallLand.hide(0.8, -2300);
           this.$props.three.line.start();
           console.log(this[to], "  ", this.$props.three);
           break;
@@ -101,6 +104,9 @@ export default {
           this.$props.three.ellipse.hide(true);
           this.$props.three.line.hide(true);
           this.$props.three.face.hide(true);
+          this.$props.three.bigLand.hide(0.8, -2300);
+          this.$props.three.midLand.hide(0.8, -2300);
+          this.$props.three.smallLand.hide(0.8, -2300);
           this.$props.three.star.start();
           console.log(this[to], "  ", this.$props.three);
           break;
@@ -109,6 +115,9 @@ export default {
           this.$props.three.line.hide(true);
           this.$props.three.face.hide(true);
           this.$props.three.star.start();
+          this.$props.three.bigLand.start(0.8, -2300, -2140);
+          this.$props.three.midLand.start(0.8, -2300, -2100);
+          this.$props.three.smallLand.start(0.8, -2300, -2070);
           console.log(this[to], "  ", this.$props.three);
           break;
         case 3:
@@ -116,12 +125,18 @@ export default {
           this.$props.three.line.hide(true);
           this.$props.three.face.hide(true);
           this.$props.three.star.hide(true);
+          this.$props.three.bigLand.hide(0.8, -2300);
+          this.$props.three.midLand.hide(0.8, -2300);
+          this.$props.three.smallLand.hide(0.8, -2300);
           console.log(this[to], "  ", this.$props.three);
           break;
         case 4:
           this.$props.three.line.hide(true);
           this.$props.three.face.hide(true);
           this.$props.three.star.hide(true);
+          this.$props.three.bigLand.hide(0.8, -2300);
+          this.$props.three.midLand.hide(0.8, -2300);
+          this.$props.three.smallLand.hide(0.8, -2300);
           this.$props.three.ellipse.start();
           console.log(this[to], "  ", this.$props.three);
           break;
@@ -129,6 +144,9 @@ export default {
           this.$props.three.ellipse.hide(true);
           this.$props.three.line.hide(true);
           this.$props.three.star.hide(true);
+          this.$props.three.bigLand.hide(0.8, -2300);
+          this.$props.three.midLand.hide(0.8, -2300);
+          this.$props.three.smallLand.hide(0.8, -2300);
           this.$props.three.face.start();
           console.log(this[to], "  ", this.$props.three);
           break;

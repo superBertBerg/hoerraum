@@ -4,6 +4,7 @@ const webpack = require('webpack')
 const { VueLoaderPlugin } = require('vue-loader')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
+const CompressionPlugin = require('compression-webpack-plugin');
 const path = require('path')
 
 function resolve(dir) {
@@ -17,7 +18,7 @@ module.exports = {
         rules: [
             { test: /\.vue$/, use: 'vue-loader' },
             { test: /\.css$/, use: ['vue-style-loader', 'css-loader'] },
-            { test: /\.js$/, use: 'babel-loader' },
+            { test: /\.js$/, use: 'babel-loader', exclude: /node_modules/ },
             { test: /three\/examples\/js/, use: 'imports-loader?THREE=three' }, {
                 test: /\.(glsl|vert|frag)$/,
                 loader: 'shader-loader',
@@ -42,6 +43,7 @@ module.exports = {
         new HtmlWebpackPlugin({ filename: 'index.html', template: 'index.html', inject: true }),
         new CopyWebpackPlugin([
             { from: resolve('static/'), to: resolve('dist/static/'), toType: 'dir' }
-        ])
+        ]),
+        new CompressionPlugin()
     ]
 }

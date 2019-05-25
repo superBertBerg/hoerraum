@@ -6,15 +6,17 @@ export default class Stars {
 
     constructor(controler) {
         this.controler = controler
+        console.log(100 + Math.tan(0.7853982) * 100)
+        console.log(-(100 + (Math.abs(-100) * Math.tan(0.7853982))) / 2)
 
         this.init()
     }
 
     init() {
-        var instances = 1000
+        var instances = 2000
         var viewHeight = 220
         var viewWidth = 220 * this.controler.camera.aspect
-        var depth = 100
+        var depth = 300
 
         this.x = 1.0
         this.y = 1.0
@@ -32,12 +34,12 @@ export default class Stars {
         }
 
         function starInit() {
-            var dep = getRandomArbitrary(-depth, depth)
+            var dep = getRandomArbitrary(-depth, 0)
             return {
-                x: getRandomArbitrary(0, viewWidth) - (viewWidth / 2),
-                y: getRandomArbitrary(0, viewHeight) - (viewHeight / 2),
-                // x: getRandomArbitrary(0, viewWidth + Math.tan(100) * depth) - (viewWidth / 2) * (depth / Math.tan(100)),
-                // y: getRandomArbitrary(0, viewHeight + Math.tan(100) * depth) - (viewHeight / 2) * (depth / Math.tan(100)),
+                // x: getRandomArbitrary(0, viewWidth) - (viewWidth / 2),
+                // y: getRandomArbitrary(0, viewHeight) - (viewHeight / 2),
+                x: getRandomArbitrary(0, viewWidth + Math.tan(0.7853982) * Math.abs(depth)) - (viewWidth + (Math.abs(depth) * Math.tan(0.7853982))) / 2,
+                y: getRandomArbitrary(0, viewHeight + Math.tan(0.7853982) * Math.abs(depth)) - (viewHeight + (Math.abs(depth) * Math.tan(0.7853982))) / 2,
                 z: dep
             }
         }
@@ -64,7 +66,7 @@ export default class Stars {
             // index
             starts.push(i);
             // Size
-            sizes.push(getRandomArbitrary(0.1, 2))
+            sizes.push(getRandomArbitrary(0.1, 2.5))
                 // sizes.push(1)
         }
 
@@ -76,7 +78,7 @@ export default class Stars {
             uniforms: this.ufStar,
             vertexShader: require('./shaders/star.vert'),
             fragmentShader: require('./shaders/star.frag'),
-            depthTest: false,
+            depthTest: true,
             transparent: true
         });
         this.mesh = new THREE.Mesh(square, mat);

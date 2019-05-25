@@ -3,7 +3,8 @@ import { TweenLite } from 'gsap';
 import Ellipse from './ellipse';
 import Line from './line';
 import Face from './faces';
-import Star from './stars'
+import Star from './stars';
+import Landscape from './landscape';
 // import TouchTexture from './TouchTexture';
 
 var TrackballControls = require('three-trackballcontrols');
@@ -18,6 +19,41 @@ export default class Controler {
         this.line = new Line(this)
         this.ellipse = new Ellipse(this)
         this.star = new Star(this)
+
+        var bigland = {
+            amplitude: 140,
+            wavelength: 140,
+            octaves: 8,
+            divisor: 2,
+            strokes: 10000,
+            fact: 2100,
+            color: 0x203a49
+        }
+
+        var midland = {
+            amplitude: 60,
+            wavelength: 60,
+            octaves: 4,
+            divisor: 2,
+            strokes: 10000,
+            fact: 2050,
+            color: 0x212a31
+        }
+
+        var smallland = {
+            amplitude: 30,
+            wavelength: 30,
+            octaves: 4,
+            divisor: 1,
+            strokes: 5000,
+            fact: 2000,
+            color: 0x000000
+        }
+
+        this.bigLand = new Landscape(this, bigland, 'bigland')
+        this.midLand = new Landscape(this, midland, 'midland')
+        this.smallLand = new Landscape(this, smallland, 'smallland')
+
     }
 
     initThree() {
@@ -68,6 +104,9 @@ export default class Controler {
         this.line.update(this.time);
         this.face.update(this.timer);
         this.star.update(this.time);
+        this.bigLand.update(-0.00001);
+        this.midLand.update(0.000008);
+        this.smallLand.update(-0.000005);
         // console.log(this.line.uniline.yf)
         // console.log(this)
         this.controls.update();
