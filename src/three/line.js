@@ -4,8 +4,9 @@ import { initSquares } from './components/constructsquares'
 
 export default class Line {
 
-    constructor(controler) {
+    constructor(controler, name) {
         this.controler = controler
+        this.name = name
 
         this.init()
     }
@@ -103,24 +104,18 @@ export default class Line {
             transparent: true
         });
         this.mesh = new THREE.Mesh(square, mat);
-        this.mesh.name = 'line';
+        this.mesh.name = this.name;
         this.mesh.scale.set(6, 6, 1)
     }
     getRandom(min, max) {
         return Math.random() * (max - min) + min;
     }
     update(delta) {
-        if (!this.controler.scene.getObjectByName('line')) return;
-
         this.uniline.time.value = delta * 0.00025;
-        // this.uniline.yf.value = time % (Math.PI * 2) * 2
-        // var diffuse = square.attributes.diffuse.array;
-        // square.attributes.diffuse.needsUpdate = true;
-        // this.controls.update();
     }
 
     hide(_destroy, time = 0.8) {
-        if (!this.controler.scene.getObjectByName('line')) return;
+        if (!this.controler.scene.getObjectByName(this.name)) return;
         return new Promise((resolve, reject) => {
             TweenLite.to(this.uniline.xf, time, {
                 // value: 500.0,
@@ -134,32 +129,20 @@ export default class Line {
 
         });
     }
-    show(time = 0.8) {
-        if (!this.mesh) return;
-        this.wavy()
-        return new Promise((resolve, reject) => {
-            // TweenLite.fromTo(this.uniline.xf, time, { value: 500.0 }, { value: this.x });
-            TweenLite.fromTo(this.uniline.yf, time, { value: 500.0 }, { value: this.y });
-            TweenLite.fromTo(this.uniline.zf, time * 0.8, { value: 500.0 }, { value: this.z });
-        });
-    }
-    wavy(time = 0.8) {
-        // var t =
-    }
-    addAnimation(val = 1) {
-        // TweenLite.fromTo(this.uniline.yf, 1, { value: this.uniline.yf }, { value: val * Math.PI, ease: Linear.easeNone, onComplete: this.addAnimation(this.uniline.yf) });
-        // this.animation.progress(0.5).play();
-    }
+
     stop() {
-        if (!this.controler.scene.getObjectByName('line')) return;
+        if (!this.controler.scene.getObjectByName(this.name)) return;
         this.mesh.parent.remove(this.mesh);
     }
 
-    start() {
+    start(time = 0.8) {
         if (this.mesh) {
             this.controler.scene.add(this.mesh)
-            this.controler.animate()
-            this.show()
+            return new Promise((resolve, reject) => {
+                // TweenLite.fromTo(this.uniline.xf, time, { value: 500.0 }, { value: this.x });
+                TweenLite.fromTo(this.uniline.yf, time, { value: 500.0 }, { value: this.y });
+                TweenLite.fromTo(this.uniline.zf, time * 0.8, { value: 500.0 }, { value: this.z });
+            });
         }
     }
 }

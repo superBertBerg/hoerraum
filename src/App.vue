@@ -94,10 +94,12 @@ export default {
           this.$props.three.ellipse.hide(true);
           this.$props.three.face.hide(true);
           this.$props.three.star.hide(true);
+          this.$props.three.bigStars.hide();
           this.$props.three.bigLand.hide(0.8, -2300);
           this.$props.three.midLand.hide(0.8, -2300);
           this.$props.three.smallLand.hide(0.8, -2300);
           this.$props.three.line.start();
+          this.$props.three.head.hide()
           console.log(this[to], "  ", this.$props.three);
           break;
         case 1:
@@ -107,13 +109,17 @@ export default {
           this.$props.three.bigLand.hide(0.8, -2300);
           this.$props.three.midLand.hide(0.8, -2300);
           this.$props.three.smallLand.hide(0.8, -2300);
-          this.$props.three.star.start();
+          this.$props.three.star.hide(true);
+          this.$props.three.bigStars.start();
+          this.$props.three.head.hide()
           console.log(this[to], "  ", this.$props.three);
           break;
         case 2:
           this.$props.three.ellipse.hide(true);
           this.$props.three.line.hide(true);
           this.$props.three.face.hide(true);
+          this.$props.three.bigStars.hide();
+          this.$props.three.head.start()
           this.$props.three.star.start();
           this.$props.three.bigLand.start(0.8, -2300, -2140);
           this.$props.three.midLand.start(0.8, -2300, -2100);
@@ -125,36 +131,44 @@ export default {
           this.$props.three.line.hide(true);
           this.$props.three.face.hide(true);
           this.$props.three.star.hide(true);
+          this.$props.three.bigStars.hide();
           this.$props.three.bigLand.hide(0.8, -2300);
           this.$props.three.midLand.hide(0.8, -2300);
           this.$props.three.smallLand.hide(0.8, -2300);
+          this.$props.three.head.hide()
           console.log(this[to], "  ", this.$props.three);
           break;
         case 4:
           this.$props.three.line.hide(true);
           this.$props.three.face.hide(true);
           this.$props.three.star.hide(true);
+          this.$props.three.bigStars.hide();
           this.$props.three.bigLand.hide(0.8, -2300);
           this.$props.three.midLand.hide(0.8, -2300);
           this.$props.three.smallLand.hide(0.8, -2300);
           this.$props.three.ellipse.start();
+          this.$props.three.head.hide()
           console.log(this[to], "  ", this.$props.three);
           break;
         case 5:
           this.$props.three.ellipse.hide(true);
           this.$props.three.line.hide(true);
           this.$props.three.star.hide(true);
+          this.$props.three.bigStars.hide();
           this.$props.three.bigLand.hide(0.8, -2300);
           this.$props.three.midLand.hide(0.8, -2300);
           this.$props.three.smallLand.hide(0.8, -2300);
           this.$props.three.face.start();
+          this.$props.three.head.hide()
           console.log(this[to], "  ", this.$props.three);
           break;
         case 6:
           this.$props.three.ellipse.hide(true);
           this.$props.three.line.hide(true);
           this.$props.three.face.hide(true);
+          this.$props.three.bigStars.hide();
           this.$props.three.star.hide(true);
+          this.$props.three.head.hide()
           console.log(this[to], "  ", this.$props.three);
           break;
         default:

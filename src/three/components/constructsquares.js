@@ -28,6 +28,7 @@ export function initSquares(offsets, starts, speeds, diffuses, colors, size) {
 
     square.setIndex(
         new THREE.BufferAttribute(new Uint16Array([0, 2, 1, 2, 3, 1]), 1));
+
     square.addAttribute(
         'offset',
         new THREE.InstancedBufferAttribute(new Float32Array(offsets), 3))
@@ -36,10 +37,14 @@ export function initSquares(offsets, starts, speeds, diffuses, colors, size) {
             'diffuse',
             new THREE.InstancedBufferAttribute(new Float32Array(diffuses), 3))
     }
-    square.addAttribute(
-        'speed', new THREE.InstancedBufferAttribute(new Float32Array(speeds), 1))
-    square.addAttribute(
-        'start', new THREE.InstancedBufferAttribute(new Float32Array(starts), 1))
+    if (speeds != null) {
+        square.addAttribute(
+            'speed', new THREE.InstancedBufferAttribute(new Float32Array(speeds), 1))
+    }
+    if (starts != null) {
+        square.addAttribute(
+            'start', new THREE.InstancedBufferAttribute(new Float32Array(starts), 1))
+    }
     if (size != null) {
         square.addAttribute(
             'size', new THREE.InstancedBufferAttribute(new Float32Array(size), 1))

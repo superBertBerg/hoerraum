@@ -5,6 +5,9 @@ import Line from './line';
 import Face from './faces';
 import Star from './stars';
 import Landscape from './landscape';
+import FractalTree from './fractal';
+import ImgOnPlane from './image';
+import BigStars from './bigStar';
 // import TouchTexture from './TouchTexture';
 
 var TrackballControls = require('three-trackballcontrols');
@@ -12,14 +15,6 @@ var TrackballControls = require('three-trackballcontrols');
 
 export default class Controler {
     constructor() {
-        this.initThree()
-        this.initTrack()
-        this.face = new Face(this, 105);
-        this.face.init('static/images/markus-150.png')
-        this.line = new Line(this)
-        this.ellipse = new Ellipse(this)
-        this.star = new Star(this)
-
         var bigland = {
             amplitude: 140,
             wavelength: 140,
@@ -50,10 +45,38 @@ export default class Controler {
             color: 0x000000
         }
 
+        var animationImage = {
+            xfrom: 0,
+            xto: 0,
+            yfrom: 0,
+            yto: -90,
+            zfrom: 5,
+            zto: -1000,
+            opacityfrom: 0,
+            opacityto: 1,
+            time: 2
+        }
+
+
+        this.initThree()
+        this.initTrack()
+            // this.fracTree = new FractalTree(this)
+        this.face = new Face(this, 105, 0, 'mark');
+        this.face.init('static/images/markus-150.png')
+        this.line = new Line(this)
+        this.ellipse = new Ellipse(this, 'ellipse')
+        this.star = new Star(this, 'stars')
+        this.head = new ImgOnPlane(this, 'static/images/head.png', 'head', animationImage)
+        this.bigStars = new BigStars(this, 'bigStars');
+        // this.addToScene(this.bigStars.mesh)
+        // this.addToScene(this.head.mesh)
+
+
         this.bigLand = new Landscape(this, bigland, 'bigland')
         this.midLand = new Landscape(this, midland, 'midland')
         this.smallLand = new Landscape(this, smallland, 'smallland')
 
+        this.animate()
     }
 
     initThree() {
@@ -63,7 +86,7 @@ export default class Controler {
             40, window.innerWidth / window.innerHeight, 1, 10000);
         this.renderer.setSize(window.innerWidth, window.innerHeight);
         this.camera.position.z = 300;
-        this.addToScene()
+
         document.getElementById('host').appendChild(this.renderer.domElement);
         window.addEventListener('resize', this.onWindowResize.bind(this), false);
 
@@ -93,7 +116,7 @@ export default class Controler {
     }
 
     animate() {
-        if (this.scene.children.length == 0) return;
+        // if (this.scene.children.length == 0) return;
         // if(!this.['ellipse'])
 
 
@@ -107,8 +130,10 @@ export default class Controler {
         this.bigLand.update(-0.00001);
         this.midLand.update(0.000008);
         this.smallLand.update(-0.000005);
-        // console.log(this.line.uniline.yf)
-        // console.log(this)
+        this.bigStars.update(this.time)
+            // console.log(this.head.mesh.position)
+            // console.log(this.line.uniline.yf)
+            // console.log(this)
         this.controls.update();
         this.render()
             // console.log('asdf')
@@ -131,12 +156,13 @@ export default class Controler {
         if (this.face) this.face.resize();
     }
 
-    addToScene() {
-        // // this.scene.add(this.Ellipse.mesh)
-        // var axesHelper = new THREE.AxesHelper(110);
-        // // axesHelper.size = 100
-        // this.scene.add(axesHelper);
-        // console.log(axesHelper)
+    addToScene(toAdd) {
+        this.scene.add(toAdd)
+            // // this.scene.add(this.Ellipse.mesh)
+            // var axesHelper = new THREE.AxesHelper(110);
+            // // axesHelper.size = 100
+            // this.scene.add(axesHelper);
+            // console.log(axesHelper)
 
     }
 }

@@ -4,10 +4,11 @@ import TouchTexture from './TouchTexture';
 
 export default class Face {
 
-    constructor(controler, x, y) {
+    constructor(controler, x, y, name) {
         this.controler = controler;
-        // this.init()
+        this.name = name
         this.x = x
+        this.y = y
     }
 
     init(src, x, y) {
@@ -125,7 +126,7 @@ export default class Face {
         square.addAttribute('angle', new THREE.InstancedBufferAttribute(angles, 1, false));
 
         this.mesh = new THREE.Mesh(square, material);
-        this.mesh.name = 'face';
+        this.mesh.name = this.name;
         this.mesh.scale.set(0.7, 0.7, 1)
         this.mesh.translateX(this.x)
     }
@@ -165,9 +166,12 @@ export default class Face {
     // ---------------------------------------------------------------------------------------------
 
     update(delta) {
-        if (!this.controler.scene.getObjectByName('face')) return;
+        // if (!this.controler.scene.getObjectByName('face')) return;
         // if (this.touch) this.touch.update();
-        this.uFace.uTime.value = delta;
+        if (this.mesh) {
+
+            this.uFace.uTime.value = delta;
+        }
     }
 
     show(time = 1.0) {
@@ -180,6 +184,7 @@ export default class Face {
     }
 
     hide(_destroy, time = 0.8) {
+        if (!this.controler.scene.getObjectByName(this.name)) return;
         return new Promise((resolve, reject) => {
             TweenLite.to(this.uFace.uRandom, time, {
                 value: 5.0,
@@ -196,7 +201,7 @@ export default class Face {
     }
 
     stop() {
-        if (!this.controler.scene.getObjectByName('face')) return;
+        if (!this.controler.scene.getObjectByName(this.name)) return;
         this.mesh.parent.remove(this.mesh);
     }
 
@@ -204,7 +209,6 @@ export default class Face {
         // console.log(this.mesh)
         if (this.mesh) {
             this.controler.scene.add(this.mesh)
-            this.controler.animate()
             this.show()
         }
     }

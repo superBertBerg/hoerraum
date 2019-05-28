@@ -7,9 +7,9 @@ import { initSquares } from './components/constructsquares'
 
 export default class Ellipse {
 
-    constructor(controler) {
+    constructor(controler, name) {
         this.controler = controler
-
+        this.name = name
         this.init()
     }
 
@@ -86,11 +86,11 @@ export default class Ellipse {
             transparent: true
         });
         this.mesh = new THREE.Mesh(square, mat);
-        this.mesh.name = 'ellipse';
+        this.mesh.name = this.name;
     }
 
     update(delta) {
-        if (!this.controler.scene.getObjectByName('ellipse')) return;
+        // if (!this.controler.scene.getObjectByName('ellipse')) return;
 
         this.uniforms.time.value = delta * 0.0005;
         // var diffuse = square.attributes.diffuse.array;
@@ -99,7 +99,7 @@ export default class Ellipse {
     }
 
     hide(_destroy, time = 0.8) {
-        if (!this.controler.scene.getObjectByName('ellipse')) return;
+        if (!this.controler.scene.getObjectByName(this.name)) return;
         return new Promise((resolve, reject) => {
             TweenLite.to(this.uniforms.xfact, time, {
                 value: 1500.0,
@@ -113,24 +113,20 @@ export default class Ellipse {
 
         });
     }
-    show(time = 0.8) {
-        if (!this.mesh) return;
-        return new Promise((resolve, reject) => {
-            TweenLite.fromTo(this.uniforms.xfact, time, { value: 1500.0 }, { value: this.x });
-            TweenLite.fromTo(this.uniforms.yfact, time, { value: 1500.0 }, { value: this.y });
-            TweenLite.fromTo(this.uniforms.zfact, time * 0.8, { value: 1500.0 }, { value: this.z });
-        });
-    }
+
     stop() {
-        if (!this.controler.scene.getObjectByName('ellipse')) return;
+        if (!this.controler.scene.getObjectByName(this.name)) return;
         this.mesh.parent.remove(this.mesh);
     }
 
-    start() {
+    start(time = 0.8) {
         if (this.mesh) {
             this.controler.scene.add(this.mesh)
-            this.controler.animate()
-            this.show()
+            return new Promise((resolve, reject) => {
+                TweenLite.fromTo(this.uniforms.xfact, time, { value: 1500.0 }, { value: this.x });
+                TweenLite.fromTo(this.uniforms.yfact, time, { value: 1500.0 }, { value: this.y });
+                TweenLite.fromTo(this.uniforms.zfact, time * 0.8, { value: 1500.0 }, { value: this.z });
+            });
         }
     }
 }

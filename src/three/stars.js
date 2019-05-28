@@ -4,11 +4,9 @@ import { initSquares } from './components/constructsquares'
 
 export default class Stars {
 
-    constructor(controler) {
+    constructor(controler, name) {
         this.controler = controler
-        console.log(100 + Math.tan(0.7853982) * 100)
-        console.log(-(100 + (Math.abs(-100) * Math.tan(0.7853982))) / 2)
-
+        this.name = name
         this.init()
     }
 
@@ -82,17 +80,17 @@ export default class Stars {
             transparent: true
         });
         this.mesh = new THREE.Mesh(square, mat);
-        this.mesh.name = 'stars';
+        this.mesh.name = this.name;
     }
 
     update(delta) {
-        if (!this.controler.scene.getObjectByName('stars')) return;
+        if (!this.controler.scene.getObjectByName(this.name)) return;
 
         this.ufStar.time.value = delta * 0.0012;
     }
 
     hide(_destroy, time = 0.8) {
-        if (!this.controler.scene.getObjectByName('stars')) return;
+        if (!this.controler.scene.getObjectByName(this.name)) return;
         return new Promise((resolve, reject) => {
             TweenLite.to(this.ufStar.zfact, time, {
                 value: 50.0,
@@ -105,28 +103,20 @@ export default class Stars {
             TweenLite.to(this.ufStar.yfact, time, { value: 50.0 });
         });
     }
-    show(time = 0.8) {
-        if (!this.mesh) return;
-        return new Promise((resolve, reject) => {
-            TweenLite.fromTo(this.ufStar.zfact, time, { value: 40.0 }, { value: this.z });
-            TweenLite.fromTo(this.ufStar.xfact, time, { value: 40.0 }, { value: this.z });
-            TweenLite.fromTo(this.ufStar.yfact, time, { value: 40.0 }, { value: this.z });
-        });
-    }
+
     stop() {
-        if (!this.controler.scene.getObjectByName('stars')) return;
+        if (!this.controler.scene.getObjectByName(this.name)) return;
         this.mesh.parent.remove(this.mesh);
     }
 
-    start() {
+    start(time = 0.8) {
         if (this.mesh) {
-            if (this.controler.scene.getObjectByName('stars')) {
-                console.log('already in scene')
-                return;
-            }
             this.controler.scene.add(this.mesh)
-            this.show()
-            this.controler.animate()
+            return new Promise((resolve, reject) => {
+                TweenLite.fromTo(this.ufStar.zfact, time, { value: 40.0 }, { value: this.z });
+                TweenLite.fromTo(this.ufStar.xfact, time, { value: 40.0 }, { value: this.z });
+                TweenLite.fromTo(this.ufStar.yfact, time, { value: 40.0 }, { value: this.z });
+            });
         }
     }
 }

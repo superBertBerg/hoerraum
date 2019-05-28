@@ -64,7 +64,6 @@ export default class Landscape {
         if (this.mesh) {
             if (this.controler.scene.getObjectByName(this.name)) return;
             this.controler.scene.add(this.mesh)
-            this.controler.animate()
             return new Promise((resolve, reject) => {
                 TweenLite.fromTo(this.mesh.position, time, { y: fromY }, { y: toY });
             });

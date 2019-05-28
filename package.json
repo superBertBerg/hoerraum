@@ -51,8 +51,11 @@
     },
     "dependencies": {
         "domready": "^1.0.8",
+        "extrude-polyline": "^1.0.6",
         "gsap": "^2.1.2",
         "three": "^0.104.0",
+        "three-simplicial-complex": "^69.0.6",
+        "three-svg-loader": "^0.2.4",
         "three-trackballcontrols": "0.0.7",
         "vue": "^2.6.10",
         "vue-animejs": "^2.1.1",
