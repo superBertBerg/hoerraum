@@ -41,6 +41,11 @@ export default {
       ["/portfolio"]: 3,
       ["/contact"]: 4,
       ["/imag"]: 5,
+      ["/portfolio/das_versunkene_schiff"]: 10,
+      ["/portfolio/die_schwarze_katze"]: 11,
+      ["/portfolio/der_dreiaeugige_totenkopf"]: 12,
+      ["röferHotifot"]: 13,
+
       current: 0,
       transitonEffect: "slideSwitch"
     };
@@ -93,6 +98,7 @@ export default {
         case 0:
           this.$props.three.ellipse.hide(true);
           this.$props.three.face.hide(true);
+          this.$props.three.face2.hide(true);
           this.$props.three.star.hide(true);
           this.$props.three.bigStars.hide();
           this.$props.three.bigLand.hide(0.8, -2300);
@@ -106,6 +112,7 @@ export default {
           this.$props.three.ellipse.hide(true);
           this.$props.three.line.hide(true);
           this.$props.three.face.hide(true);
+          this.$props.three.face2.hide(true);
           this.$props.three.bigLand.hide(0.8, -2300);
           this.$props.three.midLand.hide(0.8, -2300);
           this.$props.three.smallLand.hide(0.8, -2300);
@@ -118,6 +125,7 @@ export default {
           this.$props.three.ellipse.hide(true);
           this.$props.three.line.hide(true);
           this.$props.three.face.hide(true);
+          this.$props.three.face2.hide(true);
           this.$props.three.bigStars.hide();
           this.$props.three.head.start()
           this.$props.three.star.start();
@@ -130,6 +138,7 @@ export default {
           this.$props.three.ellipse.hide(true);
           this.$props.three.line.hide(true);
           this.$props.three.face.hide(true);
+          this.$props.three.face2.hide(true);
           this.$props.three.star.hide(true);
           this.$props.three.bigStars.hide();
           this.$props.three.bigLand.hide(0.8, -2300);
@@ -141,6 +150,7 @@ export default {
         case 4:
           this.$props.three.line.hide(true);
           this.$props.three.face.hide(true);
+          this.$props.three.face2.hide(true);
           this.$props.three.star.hide(true);
           this.$props.three.bigStars.hide();
           this.$props.three.bigLand.hide(0.8, -2300);
@@ -159,6 +169,7 @@ export default {
           this.$props.three.midLand.hide(0.8, -2300);
           this.$props.three.smallLand.hide(0.8, -2300);
           this.$props.three.face.start();
+          this.$props.three.face2.start();
           this.$props.three.head.hide()
           console.log(this[to], "  ", this.$props.three);
           break;
@@ -166,6 +177,7 @@ export default {
           this.$props.three.ellipse.hide(true);
           this.$props.three.line.hide(true);
           this.$props.three.face.hide(true);
+          this.$props.three.face2.hide(true);
           this.$props.three.bigStars.hide();
           this.$props.three.star.hide(true);
           this.$props.three.head.hide()

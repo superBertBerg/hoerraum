@@ -149,6 +149,10 @@ table {
     color: red;
 }
 
+.theBlue {
+    color: #009fe3;
+}
+
 .fixedWidth {
     position: absolute;
     width: 100%;
@@ -185,6 +189,28 @@ table {
     border-bottom: 0.1em solid #e9e9e9;
     border-radius: 100% 50%;
 }
+
+
+/* SubPages */
+
+.imgContainer {
+    max-width: 40%;
+}
+
+.subFlex {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+.subFlex.Pa {
+    padding-left: 20%;
+    padding-right: 20%;
+    text-align: center;
+}
+
+.subLink {}
 
 
 /* LineFancy */
@@ -229,7 +255,7 @@ path {
 
 .midFontSize {
     font-family: folio-condensed, sans-serif;
-    font-size: 1.2em;
+    font-size: 1.3em;
 }
 
 .smallFontSize {
