@@ -2,7 +2,7 @@ import * as THREE from 'three'
 
 
 
-export function initSquares(offsets, starts, speeds, diffuses, colors, size) {
+export function initSquares(offsets, starts, speeds, diffuses, colors, size, linex) {
     var square = new THREE.InstancedBufferGeometry()
 
 
@@ -28,10 +28,11 @@ export function initSquares(offsets, starts, speeds, diffuses, colors, size) {
 
     square.setIndex(
         new THREE.BufferAttribute(new Uint16Array([0, 2, 1, 2, 3, 1]), 1));
-
-    square.addAttribute(
-        'offset',
-        new THREE.InstancedBufferAttribute(new Float32Array(offsets), 3))
+    if (offsets != null) {
+        square.addAttribute(
+            'offset',
+            new THREE.InstancedBufferAttribute(new Float32Array(offsets), 3))
+    }
     if (diffuses != null) {
         square.addAttribute(
             'diffuse',
@@ -53,6 +54,11 @@ export function initSquares(offsets, starts, speeds, diffuses, colors, size) {
         square.addAttribute(
             'color',
             new THREE.InstancedBufferAttribute(new Float32Array(colors), 3))
+    }
+    if (linex != null) {
+        square.addAttribute(
+            'linex',
+            new THREE.InstancedBufferAttribute(new Float32Array(linex), 1))
     }
 
     return square

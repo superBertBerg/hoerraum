@@ -12,18 +12,15 @@ export default class Line {
     }
 
     init() {
-        // TODO CHECK VARS NEED NOT NEED! (VERTEX SHADER)
         var instances = 2000;
         var waves = 3
-        var divider = 40
-        var xProgress = -40
+        var divider = 60
+        var xProgress = -60
         var xfact = 1.8
         var yfact = 3.5
         var zfact = 0.5
         var diffStart = 0.8
         var diffDest = 1.2
-            // var verticalDisplace = -12
-        var verticalDisplace = -100
 
         this.x = xfact
         this.y = yfact
@@ -38,29 +35,12 @@ export default class Line {
             yversch: { value: -15 }
         }
 
-        // this.uniline.xfact = xfact
-        // this.uniline.yfact = yfact
-        // this.uniline.zfact = zfact
-
-
         function getRandomArbitrary(min, max) {
             return Math.random() * (max - min) + min;
         }
-
-        function lineInit(time, zdiffuse) {
-            // console.log((Math.abs(xProgress) * 2) / instances)
-            xProgress += (divider * 2) / (instances / waves)
-            return {
-                x: xProgress,
-                // y: yfact * Math.sin(time) + verticalDisplace,
-                // z: zfact * zdiffuse
-            }
-        }
-
-
         // spark coordinates
-        let offsets = []
-            // spark colors ?? all diffrent
+        let linex = []
+            // speed z axe
         let speeds = []
             // index get pix start pos
         let starts = []
@@ -76,9 +56,9 @@ export default class Line {
                 var ydiffuse = getRandomArbitrary(diffStart, diffStart)
                 var zdiffuse = getRandomArbitrary(diffStart, diffDest)
 
-                var obj = lineInit(wave, zdiffuse);
                 // coordinates
-                offsets.push(obj.x, obj.y, obj.z);
+                linex.push(xProgress += (divider * 2) / (instances / waves));
+                // console.log(obj.x, obj.y)
                 // speed
                 speeds.push(Math.random());
                 // index
@@ -89,11 +69,10 @@ export default class Line {
                 wave += (howwavy * Math.PI / 1000)
                     // console.log(wave)
             }
-            // console.log(xProgress)
             wave = Math.random()
             xProgress = -divider
         }
-        var square = initSquares(offsets, starts, speeds, diffuses)
+        var square = initSquares(null, starts, speeds, diffuses, null, null, linex)
         square.maxInstancedCount = instances;
 
         var mat = new THREE.RawShaderMaterial({

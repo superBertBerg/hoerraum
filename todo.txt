@@ -1,40 +1,38 @@
+Allgemeines: 
+Steuerung tasten/scrollen
+
+
 Animationen:
-Kopf in der Landschaft,
-Grosse Sterne,
+SVGTaucher
 Fractalbaeume
 
-PORTFOLIO??
 
-
-Website:
-Allen Text bekommen, Englisch??
-
-Anordnung des Textes in:
-Portfolio,
+Seiten:
 Contact/Impressum/About?
 
 Mobile variante
 
 
--- SEO
+-- SEO:
+sidmap etc.
 grob schauen ob alles geladen wird!
+Bilder alt tags
+
+
+
+
+FRAGEN/NEED:
+
+Website:
+Allen Text bekommen, Englisch??
+Text Matthias/Markus
 
 
 
 REFRACTORING des TODES!
 
 
-
-
-
-
-
-
-
 BUGS:
-
-line sollte auf width und nicht auf height skalieren!
-
 
 --
 Settimeout fuer init ist unbefridiegent
