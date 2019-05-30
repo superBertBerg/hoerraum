@@ -13,6 +13,7 @@ import Landing from './pages/Landing.vue'
 import Landscape from './pages/Landscape.vue'
 import Portfolio from './pages/Portfolio.vue'
 // Components
+import GFslide from './components/GFslide.vue'
 import Schiff from './components/Schiff.vue'
 import DreiAuge from './components/DreiAuge.vue'
 import Katze from './components/Katze.vue'
@@ -39,7 +40,14 @@ const router = new VueRouter({
             ]
         },
         { path: '/contact', component: Contact },
-        { path: '/imag', component: Imag }
+        // { path: '/imag', component: Imag },
+        {
+            path: '/imag/',
+            component: Imag,
+            children: [
+                { path: 'gf/:id', component: GFslide }
+            ]
+        }
     ]
 })
 

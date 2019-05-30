@@ -61,10 +61,10 @@ export default class Controler {
         this.initThree()
         this.initTrack()
             // this.fracTree = new FractalTree(this)
-        this.face = new Face(this, 105, 0, 'mark');
-        this.face.init('static/images/markus-150.png');
-        this.face2 = new Face(this, -105, 0, 'mattias');
-        this.face2.init('static/images/markus-flip.png');
+        this.matthias = new Face(this, 105, 0, 'matthias');
+        this.matthias.init('static/images/markus-150.png');
+        this.markus = new Face(this, -105, 0, 'mark');
+        this.markus.init('static/images/markus-flip.png');
         this.line = new Line(this)
         this.ellipse = new Ellipse(this, 'ellipse')
         this.star = new Star(this, 'stars')
@@ -127,8 +127,8 @@ export default class Controler {
 
         this.ellipse.update(this.time);
         this.line.update(this.time);
-        this.face.update(this.timer);
-        this.face2.update(this.timer)
+        this.matthias.update(this.timer);
+        this.markus.update(this.timer)
         this.star.update(this.time);
         this.bigLand.update(-0.00001);
         this.midLand.update(0.000008);

@@ -41,6 +41,8 @@ export default {
       ["/portfolio"]: 3,
       ["/contact"]: 4,
       ["/imag"]: 5,
+      ["/imag/gf/markus_schaefer"]: 6,
+      ["/imag/gf/matthias_krause"]: 7,
       ["/portfolio/das_versunkene_schiff"]: 10,
       ["/portfolio/die_schwarze_katze"]: 11,
       ["/portfolio/der_dreiaeugige_totenkopf"]: 12,
@@ -88,17 +90,13 @@ export default {
       }
     },
     hideAllAnimation: function() {
-      this.$props.three.ellipse.hide(true);
-      this.$props.three.line.hide(true);
-      this.$props.three.face.hide(true);
-      this.$props.three.star.hide(true);
     },
     animation: function(to, from) {
       switch (this[to]) {
         case 0:
           this.$props.three.ellipse.hide(true);
-          this.$props.three.face.hide(true);
-          this.$props.three.face2.hide(true);
+          this.$props.three.matthias.hide(true);
+          this.$props.three.markus.hide(true);
           this.$props.three.star.hide(true);
           this.$props.three.bigStars.hide();
           this.$props.three.bigLand.hide(0.8, -2300);
@@ -106,51 +104,59 @@ export default {
           this.$props.three.smallLand.hide(0.8, -2300);
           this.$props.three.line.start();
           this.$props.three.head.hide()
+          this.$props.three.matthias.moveToStart()
+          this.$props.three.markus.moveToStart()
           console.log(this[to], "  ", this.$props.three);
           break;
         case 1:
           this.$props.three.ellipse.hide(true);
           this.$props.three.line.hide(true);
-          this.$props.three.face.hide(true);
-          this.$props.three.face2.hide(true);
+          this.$props.three.matthias.hide(true);
+          this.$props.three.markus.hide(true);
           this.$props.three.bigLand.hide(0.8, -2300);
           this.$props.three.midLand.hide(0.8, -2300);
           this.$props.three.smallLand.hide(0.8, -2300);
           this.$props.three.star.hide(true);
           this.$props.three.bigStars.start();
           this.$props.three.head.hide()
+          this.$props.three.matthias.moveToStart()
+          this.$props.three.markus.moveToStart()
           console.log(this[to], "  ", this.$props.three);
           break;
         case 2:
           this.$props.three.ellipse.hide(true);
           this.$props.three.line.hide(true);
-          this.$props.three.face.hide(true);
-          this.$props.three.face2.hide(true);
+          this.$props.three.matthias.hide(true);
+          this.$props.three.markus.hide(true);
           this.$props.three.bigStars.hide();
           this.$props.three.head.start()
           this.$props.three.star.start();
           this.$props.three.bigLand.start(0.8, -2300, -2140);
           this.$props.three.midLand.start(0.8, -2300, -2100);
           this.$props.three.smallLand.start(0.8, -2300, -2070);
+          this.$props.three.matthias.moveToStart()
+          this.$props.three.markus.moveToStart()
           console.log(this[to], "  ", this.$props.three);
           break;
         case 3:
           this.$props.three.ellipse.hide(true);
           this.$props.three.line.hide(true);
-          this.$props.three.face.hide(true);
-          this.$props.three.face2.hide(true);
+          this.$props.three.matthias.hide(true);
+          this.$props.three.markus.hide(true);
           this.$props.three.star.hide(true);
           this.$props.three.bigStars.hide();
           this.$props.three.bigLand.hide(0.8, -2300);
           this.$props.three.midLand.hide(0.8, -2300);
           this.$props.three.smallLand.hide(0.8, -2300);
           this.$props.three.head.hide()
+          this.$props.three.matthias.moveToStart()
+          this.$props.three.markus.moveToStart()
           console.log(this[to], "  ", this.$props.three);
           break;
         case 4:
           this.$props.three.line.hide(true);
-          this.$props.three.face.hide(true);
-          this.$props.three.face2.hide(true);
+          this.$props.three.matthias.hide(true);
+          this.$props.three.markus.hide(true);
           this.$props.three.star.hide(true);
           this.$props.three.bigStars.hide();
           this.$props.three.bigLand.hide(0.8, -2300);
@@ -158,6 +164,8 @@ export default {
           this.$props.three.smallLand.hide(0.8, -2300);
           this.$props.three.ellipse.start();
           this.$props.three.head.hide()
+          this.$props.three.matthias.moveToStart()
+          this.$props.three.markus.moveToStart()
           console.log(this[to], "  ", this.$props.three);
           break;
         case 5:
@@ -168,19 +176,35 @@ export default {
           this.$props.three.bigLand.hide(0.8, -2300);
           this.$props.three.midLand.hide(0.8, -2300);
           this.$props.three.smallLand.hide(0.8, -2300);
-          this.$props.three.face.start();
-          this.$props.three.face2.start();
+          this.$props.three.matthias.start();
+          this.$props.three.markus.start();
           this.$props.three.head.hide()
+          this.$props.three.matthias.moveToStart()
+          this.$props.three.markus.moveToStart()
           console.log(this[to], "  ", this.$props.three);
           break;
         case 6:
           this.$props.three.ellipse.hide(true);
           this.$props.three.line.hide(true);
-          this.$props.three.face.hide(true);
-          this.$props.three.face2.hide(true);
           this.$props.three.bigStars.hide();
           this.$props.three.star.hide(true);
           this.$props.three.head.hide()
+          this.$props.three.matthias.hide();
+          this.$props.three.markus.start();
+          this.$props.three.markus.move(100, 0)
+          this.$props.three.matthias.moveToStart()
+          console.log(this[to], "  ", this.$props.three);
+          break;
+        case 7:
+          this.$props.three.ellipse.hide(true);
+          this.$props.three.line.hide(true);
+          this.$props.three.bigStars.hide();
+          this.$props.three.star.hide(true);
+          this.$props.three.head.hide()
+          this.$props.three.markus.hide();
+          this.$props.three.matthias.start();
+          this.$props.three.matthias.move(-100, 0)
+          this.$props.three.markus.moveToStart()
           console.log(this[to], "  ", this.$props.three);
           break;
         default:

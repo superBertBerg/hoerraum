@@ -175,7 +175,6 @@ export default class Face {
     }
 
     show(time = 1.0) {
-        // reset
         TweenLite.fromTo(this.uFace.uSize, time, { value: 0.1 }, { value: .8 });
         TweenLite.to(this.uFace.uRandom, time, { value: 3.0 });
         TweenLite.fromTo(this.uFace.uDepth, time * 1.5, { value: 40.0 }, { value: 4.0 });
@@ -183,13 +182,13 @@ export default class Face {
         // this.addListeners();
     }
 
-    hide(_destroy, time = 0.8) {
+    hide(time = 0.8) {
         if (!this.controler.scene.getObjectByName(this.name)) return;
         return new Promise((resolve, reject) => {
             TweenLite.to(this.uFace.uRandom, time, {
                 value: 5.0,
                 onComplete: () => {
-                    if (_destroy) this.stop();
+                    this.stop();
                     resolve();
                 }
             });
@@ -208,9 +207,21 @@ export default class Face {
     start() {
         // console.log(this.mesh)
         if (this.mesh) {
+            // if (this.controler.scene.getObjectByName(this.name)) return;
             this.controler.scene.add(this.mesh)
             this.show()
         }
+    }
+
+    move(xto, yto, time = 0.8) {
+        if (!this.mesh) return;
+        TweenLite.to(this.mesh.position, time, { x: xto });
+        TweenLite.to(this.mesh.position, time, { y: yto });
+    }
+    moveToStart(time = 0.8) {
+        if (!this.mesh) return;
+        TweenLite.to(this.mesh.position, time, { x: this.x });
+        TweenLite.to(this.mesh.position, time, { y: this.y });
     }
 
     // ---------------------------------------------------------------------------------------------
