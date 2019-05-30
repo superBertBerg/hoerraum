@@ -218,6 +218,10 @@ table {
     text-align: center;
 }
 
+.bottomMarg {
+    margin-bottom: 0px
+}
+
 .subLink {}
 
 
@@ -323,7 +327,7 @@ path {
 
 @media only screen and (max-width: 500px) {
     .pageHeadline {
-        font-size: 3.5em;
+        font-size: 4.5em;
     }
     .bigFontSize {
         font-size: 2.5em;
@@ -334,6 +338,21 @@ path {
     .smallFontSize {
         font-size: 1em;
     }
+    /* refrac */
+    .imgContainer {
+        max-width: 90%;
+    }
+    .transitionWrap {
+        overflow-y: auto;
+    }
+    .subFlex.Pa {
+        padding-left: 10%;
+        padding-right: 10%;
+        text-align: center;
+    }
+    .bottomMarg {
+        margin-bottom: 100px
+    }
 }
 
 
@@ -341,7 +360,7 @@ path {
 
 @media only screen and (max-width: 400px) {
     .pageHeadline {
-        font-size: 2em;
+        font-size: 3.5em;
     }
 }
 
@@ -413,57 +432,3 @@ path {
 .slideSwitch-leave-to {
     opacity: 0;
 }
-
-
-/* test */
-
-.dot {
-    position: absolute;
-    height: 5px;
-    width: 5px;
-    background-color: #bbb;
-    border-radius: 50%;
-    /* transform:translateX(150px); */
-    display: inline-block;
-    -webkit-filter: blur(1px);
-    filter: blur(2px);
-    /* -webkit-transform: translateZ(0);
-   -moz-transform: translateZ(0);
-   -ms-transform: translateZ(0);
-   -o-transform: translateZ(0);
-   transform: translateZ(0);
-   -webkit-backface-visibility: hidden;
-   -moz-backface-visibility: hidden;
-   -ms-backface-visibility: hidden;
-   backface-visibility: hidden;
-
-   -webkit-perspective: 1000;
-   -moz-perspective: 1000;
-   -ms-perspective: 1000;
-   perspective: 1000;
-    -webkit-animation: myOrbit 4s linear infinite; 
-       -moz-animation: myOrbit 4s linear infinite; 
-         -o-animation: myOrbit 4s linear infinite; 
-            animation: myOrbit 4s linear infinite; */
-}
-
-
-/* @-webkit-keyframes myOrbit {
-    from { -webkit-transform: rotate(0deg) translateX(150px) rotate(0deg); }
-    to   { -webkit-transform: rotate(360deg) translateX(150px) rotate(-360deg); }
-}
-
-@-moz-keyframes myOrbit {
-    from { -moz-transform: rotate(0deg) translateX(150px) rotate(0deg); }
-    to   { -moz-transform: rotate(360deg) translateX(150px) rotate(-360deg); }
-}
-
-@-o-keyframes myOrbit {
-    from { -o-transform: rotate(0deg) translateX(150px) rotate(0deg); }
-    to   { -o-transform: rotate(360deg) translateX(150px) rotate(-360deg); }
-}
-
-@keyframes myOrbit {
-    from { transform: rotate(0deg) translateX(150px) rotate(0deg); }
-    to   { transform: rotate(360deg) translateX(150px) rotate(-360deg); }
-} */

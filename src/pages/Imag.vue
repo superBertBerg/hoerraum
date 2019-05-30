@@ -36,6 +36,15 @@
 .end {
   justify-content: flex-end;
 }
+
+@media only screen and (max-width: 500px) {
+  .flexLMR {
+    width: 5%;
+  }
+  .centerImag {
+    width: 90%;
+  }
+}
 </style>
 
 

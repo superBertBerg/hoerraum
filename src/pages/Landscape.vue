@@ -23,6 +23,16 @@
   left: 0;
   bottom: 0;
 }
+@media only screen and (max-width: 500px) {
+    .textLeft {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+    }
+}
 </style>
 
 

@@ -5,11 +5,11 @@
     </div>
 
     <div class="subFlex Pa midFontSize">
-      <h2 v-html="message.h2" class="midFontSize"></h2>
+      <h2 v-html="message.h2"></h2>
     </div>
 
-    <div class="subFlex Pa midFontSize">
-      <p v-html="message.p" class="midFontSize"></p>
+    <div class="subFlex Pa midFontSize bottomMarg">
+      <p v-html="message.p"></p>
     </div>
   </div>
 </template>

@@ -1,13 +1,13 @@
 <template>
   <div id="contact" class="transitionWrap">
-    <div class="height midFontSize textCenter">
-      <div v-if="contact.show" class="verticalyHoriontalyFlex">
+    <div class="height textCenter">
+      <div v-if="contact.show" class="verticalyHoriontalyFlex midFontSize">
         <h1 class="padding">Hoerraum Media GbR • Bindestr. 24 • 20146 Hamburg</h1>
         <p class="padding">+49 40 244 37 132</p>
         <p class="padding">ms@hoerraum.media</p>
       </div>
 
-      <div v-if="imprint.show" class="verticalyHoriontalyFlex">
+      <div v-if="imprint.show" class="verticalyHoriontalyFlex smallFontSize">
         <h1>Impressum</h1>
         <p class="padding">Inhaltlich verantwortlich i.S. des Presserechtes bzw. des Telemediengesetzes (§ 5 TMG):</p>
         <p>Hoerraum Media GbR • Bindestr. 24 • 20146 Hamburg</p>

@@ -5,17 +5,35 @@
     </div>
 
     <div class="subFlex Pa midFontSize">
-      <h2 v-html="message.h2" class="midFontSize"></h2>
+      <h2 v-html="message.h2"></h2>
     </div>
 
-    <div class="subFlex Pa midFontSize">
-      <p v-html="message.p" class="midFontSize"></p>
+    <div class="subFlex Pa midFontSize bottomMarg">
+      <p v-html="message.p"></p>
     </div>
   </div>
 </template>
 
 
 <style scoped>
+@media only screen and (max-width: 500px) {
+    .imgContainer {
+    max-width: 90%;
+}
+
+.subFlex {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+.subFlex.Pa {
+    padding-left: 20%;
+    padding-right: 20%;
+    text-align: center;
+}
+}
 </style>
 
 
