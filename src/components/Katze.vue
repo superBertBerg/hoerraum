@@ -39,7 +39,7 @@ export default {
       eng: { h2: "", p: "" }
     };
   },
-  mounted: function() {
+  cr: function() {
     this.message.h2 = this.ger.h2;
     this.message.p = this.ger.p;
   }

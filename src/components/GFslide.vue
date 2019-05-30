@@ -73,7 +73,7 @@ export default {
     };
   },
   methods: {
-    who: function() {
+    changeContent: function() {
       if (this.$route.params.id === "markus_schaefer") {
         this.message.h2 = this.markus.ger.h2;
         this.message.p = this.markus.ger.p;
@@ -87,7 +87,7 @@ export default {
     }
   },
   created: function() {
-    this.who();
+    this.changeContent();
   }
 };
 </script>

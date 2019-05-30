@@ -118,9 +118,6 @@ export default class Controler {
     }
 
     animate() {
-        // if (this.scene.children.length == 0) return;
-        // if(!this.['ellipse'])
-
 
         this.time = Date.now() % 1000000;
         this.timer += this.clock.getDelta()
@@ -134,12 +131,10 @@ export default class Controler {
         this.midLand.update(0.000008);
         this.smallLand.update(-0.000005);
         this.bigStars.update(this.time)
-            // console.log(this.head.mesh.position)
-            // console.log(this.line.uniline.yf)
-            // console.log(this)
+
         this.controls.update();
         this.render()
-            // console.log('asdf')
+
         requestAnimationFrame(this.animate.bind(this));
     }
 

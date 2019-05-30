@@ -90,12 +90,7 @@ export default class Ellipse {
     }
 
     update(delta) {
-        // if (!this.controler.scene.getObjectByName('ellipse')) return;
-
         this.uniforms.time.value = delta * 0.0005;
-        // var diffuse = square.attributes.diffuse.array;
-        // square.attributes.diffuse.needsUpdate = true;
-        // this.controls.update();
     }
 
     hide(_destroy, time = 0.8) {
@@ -110,7 +105,6 @@ export default class Ellipse {
             });
             TweenLite.to(this.uniforms.yfact, time, { value: 1500.0 });
             TweenLite.to(this.uniforms.zfact, time * 0.8, { value: -500.0 });
-
         });
     }
 
@@ -121,6 +115,7 @@ export default class Ellipse {
 
     start(time = 0.8) {
         if (this.mesh) {
+            if (this.controler.scene.getObjectByName(this.name)) return;
             this.controler.scene.add(this.mesh)
             return new Promise((resolve, reject) => {
                 TweenLite.fromTo(this.uniforms.xfact, time, { value: 1500.0 }, { value: this.x });
@@ -128,5 +123,27 @@ export default class Ellipse {
                 TweenLite.fromTo(this.uniforms.zfact, time * 0.8, { value: 1500.0 }, { value: this.z });
             });
         }
+    }
+    spread(xspreadfact, yspreadfact, time = 0.8) {
+        return new Promise((resolve, reject) => {
+            TweenLite.fromTo(this.uniforms.xfact, time, { value: this.x }, {
+                value: this.x * xspreadfact,
+                onComplete: () => {
+                    resolve()
+                }
+            });
+            TweenLite.fromTo(this.uniforms.yfact, time, { value: this.y }, { value: this.y * yspreadfact });
+        });
+    }
+    deSpread(xspreadfact, yspreadfact, time = 0.8) {
+        return new Promise((resolve, reject) => {
+            TweenLite.fromTo(this.uniforms.xfact, time, { value: this.x * xspreadfact }, {
+                value: this.x,
+                onComplete: () => {
+                    resolve()
+                }
+            });
+            TweenLite.fromTo(this.uniforms.yfact, time, { value: this.y * yspreadfact }, { value: this.y });
+        });
     }
 }

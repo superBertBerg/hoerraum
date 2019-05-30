@@ -39,7 +39,13 @@ const router = new VueRouter({
                 // { path: '', component: Schiff}
             ]
         },
-        { path: '/contact', component: Contact },
+        {
+            path: '/contact/',
+            component: Contact,
+            children: [
+                { path: 'detail/:id' }
+            ]
+        },
         // { path: '/imag', component: Imag },
         {
             path: '/imag/',

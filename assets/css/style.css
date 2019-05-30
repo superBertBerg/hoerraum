@@ -169,6 +169,14 @@ table {
     padding: 20px;
 }
 
+.height {
+    height: 100%;
+}
+
+.textCenter {
+    text-align: center;
+}
+
 
 /* Container */
 

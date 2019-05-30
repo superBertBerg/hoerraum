@@ -43,6 +43,8 @@ export default {
       ["/imag"]: 5,
       ["/imag/gf/markus_schaefer"]: 6,
       ["/imag/gf/matthias_krause"]: 7,
+      ["/contact/detail/imprint"]: 8,
+      ["/contact/detail/contact"]: 9,
       ["/portfolio/das_versunkene_schiff"]: 10,
       ["/portfolio/die_schwarze_katze"]: 11,
       ["/portfolio/der_dreiaeugige_totenkopf"]: 12,
@@ -206,6 +208,36 @@ export default {
           this.$props.three.matthias.move(-100, 0)
           this.$props.three.markus.moveToStart()
           console.log(this[to], "  ", this.$props.three);
+          break;
+        case 8:
+          this.$props.three.line.hide(true);
+          this.$props.three.matthias.hide(true);
+          this.$props.three.markus.hide(true);
+          this.$props.three.star.hide(true);
+          this.$props.three.bigStars.hide();
+          this.$props.three.bigLand.hide(0.8, -2300);
+          this.$props.three.midLand.hide(0.8, -2300);
+          this.$props.three.smallLand.hide(0.8, -2300);
+          this.$props.three.ellipse.start();
+          this.$props.three.ellipse.spread(2,2);
+          this.$props.three.head.hide()
+          this.$props.three.matthias.moveToStart()
+          this.$props.three.markus.moveToStart()
+          break;
+        case 9:
+          this.$props.three.line.hide(true);
+          this.$props.three.matthias.hide(true);
+          this.$props.three.markus.hide(true);
+          this.$props.three.star.hide(true);
+          this.$props.three.bigStars.hide();
+          this.$props.three.bigLand.hide(0.8, -2300);
+          this.$props.three.midLand.hide(0.8, -2300);
+          this.$props.three.smallLand.hide(0.8, -2300);
+          this.$props.three.ellipse.start();
+          this.$props.three.ellipse.deSpread();
+          this.$props.three.head.hide()
+          this.$props.three.matthias.moveToStart()
+          this.$props.three.markus.moveToStart()
           break;
         default:
           this.$props.three.ellipse.hide(true);

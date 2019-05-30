@@ -7,7 +7,6 @@ uniform float yf;
 uniform float zf;
 uniform float xversch;
 uniform float yversch;
-// attribute vec2 versch;
 attribute vec3 position;
 attribute vec3 diffuse;
 attribute vec2 uv;
@@ -20,13 +19,10 @@ float rand(vec2 co) {
 }
 void main() {
   vUv = uv;
-  //    float dist = normalize(distance(offset, position));
-  //    dist = 1.0/distance(offset, position);    gl_PointSize = 30.0;
   float abc = linex;
   vec3 displace = vec3(abc, 1.0, 1.0);
   displace.x += xversch + sin(start + time) * xf * diffuse.x;
   displace.y = yversch + sin(start + time * 1.5) * yf * diffuse.y;
-  //    displace.y = yfact * sin(start+time*speed);
   displace.z = zf * sin(start + time * speed) * diffuse.z;
   vec3 scale = vec3(0.2, 0.2, 0.2);
   gl_Position = projectionMatrix * modelViewMatrix * vec4(position * scale + displace, 1.0);
