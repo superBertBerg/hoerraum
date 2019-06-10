@@ -35,38 +35,49 @@ export default {
   },
   data: function() {
     return {
-      ["/"]: 0,
-      ["/dive"]: 1,
-      ["/landscape"]: 2,
-      ["/portfolio"]: 3,
-      ["/contact"]: 4,
-      ["/imag"]: 5,
-      ["/imag/gf/markus_schaefer"]: 6,
-      ["/imag/gf/matthias_krause"]: 7,
-      ["/contact/detail/imprint"]: 8,
-      ["/contact/detail/contact"]: 9,
-      ["/portfolio/das_versunkene_schiff"]: 10,
-      ["/portfolio/die_schwarze_katze"]: 11,
-      ["/portfolio/der_dreiaeugige_totenkopf"]: 12,
-      ["röferHotifot"]: 13,
-
+      routes: {
+        ["/"]: 0,
+        ["/dive"]: 1,
+        ["/landscape"]: 2,
+        ["/portfolio"]: 3,
+        ["/contact"]: 4,
+        ["/imag"]: 5,
+        ["/imag/gf/markus_schaefer"]: 6,
+        ["/imag/gf/matthias_krause"]: 7,
+        ["/contact/detail/imprint"]: 8,
+        ["/contact/detail/contact"]: 9,
+        ["/portfolio/das_versunkene_schiff"]: 10,
+        ["/portfolio/die_schwarze_katze"]: 11,
+        ["/portfolio/der_dreiaeugige_totenkopf"]: 12,
+        ["röferHotifot"]: 13
+      },
       current: 0,
-      transitonEffect: "slideSwitch"
+      transitonEffect: "slideSwitch",
+
+      maxScrollDepth: 6,
+      scrolled: false,
+      touchSwipe: {
+        startX: 0,
+        startY: 0,
+        threshold: 150,
+        restraint: 100,
+        allowedTime: 300,
+        startTime: 0
+      }
     };
   },
   methods: {
     init: function() {
       var cur = this.$router.currentRoute.path;
-      if (this[cur] !== undefined) {
-        this.current = cur;
+      if (this.routes[cur] !== undefined) {
+        this.current = this.routes[cur];
         this.animation(cur);
       } else {
         this.$router.replace("/");
       }
-      console.log();
     },
     validPath: function(to, from) {
-      if (this[to] !== undefined) {
+      if (this.routes[to] !== undefined) {
         this.transitionCalc(to, from);
         this.animation(to, from);
       } else {
@@ -74,7 +85,7 @@ export default {
       }
     },
     transitionCalc: function(to, from) {
-      var jumpCalc = this[to] - this[from];
+      var jumpCalc = this.routes[to] - this[from];
       if (Math.abs(jumpCalc) == 1 && jumpCalc > 0) {
         //forward
         // console.log("case1");
@@ -91,10 +102,9 @@ export default {
         //abort all animation switch to site
       }
     },
-    hideAllAnimation: function() {
-    },
+    hideAllAnimation: function() {},
     animation: function(to, from) {
-      switch (this[to]) {
+      switch (this.routes[to]) {
         case 0:
           this.$props.three.ellipse.hide(true);
           this.$props.three.matthias.hide(true);
@@ -105,10 +115,10 @@ export default {
           this.$props.three.midLand.hide(0.8, -2300);
           this.$props.three.smallLand.hide(0.8, -2300);
           this.$props.three.line.start();
-          this.$props.three.head.hide()
-          this.$props.three.matthias.moveToStart()
-          this.$props.three.markus.moveToStart()
-          console.log(this[to], "  ", this.$props.three);
+          this.$props.three.head.hide();
+          this.$props.three.matthias.moveToStart();
+          this.$props.three.markus.moveToStart();
+          console.log(this.routes[to], "  ", this.$props.three);
           break;
         case 1:
           this.$props.three.ellipse.hide(true);
@@ -120,10 +130,10 @@ export default {
           this.$props.three.smallLand.hide(0.8, -2300);
           this.$props.three.star.hide(true);
           this.$props.three.bigStars.start();
-          this.$props.three.head.hide()
-          this.$props.three.matthias.moveToStart()
-          this.$props.three.markus.moveToStart()
-          console.log(this[to], "  ", this.$props.three);
+          this.$props.three.head.hide();
+          this.$props.three.matthias.moveToStart();
+          this.$props.three.markus.moveToStart();
+          console.log(this.routes[to], "  ", this.$props.three);
           break;
         case 2:
           this.$props.three.ellipse.hide(true);
@@ -131,14 +141,14 @@ export default {
           this.$props.three.matthias.hide(true);
           this.$props.three.markus.hide(true);
           this.$props.three.bigStars.hide();
-          this.$props.three.head.start()
+          this.$props.three.head.start();
           this.$props.three.star.start();
           this.$props.three.bigLand.start(0.8, -2300, -2140);
           this.$props.three.midLand.start(0.8, -2300, -2100);
           this.$props.three.smallLand.start(0.8, -2300, -2070);
-          this.$props.three.matthias.moveToStart()
-          this.$props.three.markus.moveToStart()
-          console.log(this[to], "  ", this.$props.three);
+          this.$props.three.matthias.moveToStart();
+          this.$props.three.markus.moveToStart();
+          console.log(this.routes[to], "  ", this.$props.three);
           break;
         case 3:
           this.$props.three.ellipse.hide(true);
@@ -150,10 +160,10 @@ export default {
           this.$props.three.bigLand.hide(0.8, -2300);
           this.$props.three.midLand.hide(0.8, -2300);
           this.$props.three.smallLand.hide(0.8, -2300);
-          this.$props.three.head.hide()
-          this.$props.three.matthias.moveToStart()
-          this.$props.three.markus.moveToStart()
-          console.log(this[to], "  ", this.$props.three);
+          this.$props.three.head.hide();
+          this.$props.three.matthias.moveToStart();
+          this.$props.three.markus.moveToStart();
+          console.log(this.routes[to], "  ", this.$props.three);
           break;
         case 4:
           this.$props.three.line.hide(true);
@@ -165,10 +175,10 @@ export default {
           this.$props.three.midLand.hide(0.8, -2300);
           this.$props.three.smallLand.hide(0.8, -2300);
           this.$props.three.ellipse.start();
-          this.$props.three.head.hide()
-          this.$props.three.matthias.moveToStart()
-          this.$props.three.markus.moveToStart()
-          console.log(this[to], "  ", this.$props.three);
+          this.$props.three.head.hide();
+          this.$props.three.matthias.moveToStart();
+          this.$props.three.markus.moveToStart();
+          console.log(this.routes[to], "  ", this.$props.three);
           break;
         case 5:
           this.$props.three.ellipse.hide(true);
@@ -180,34 +190,34 @@ export default {
           this.$props.three.smallLand.hide(0.8, -2300);
           this.$props.three.matthias.start();
           this.$props.three.markus.start();
-          this.$props.three.head.hide()
-          this.$props.three.matthias.moveToStart()
-          this.$props.three.markus.moveToStart()
-          console.log(this[to], "  ", this.$props.three);
+          this.$props.three.head.hide();
+          this.$props.three.matthias.moveToStart();
+          this.$props.three.markus.moveToStart();
+          console.log(this.routes[to], "  ", this.$props.three);
           break;
         case 6:
           this.$props.three.ellipse.hide(true);
           this.$props.three.line.hide(true);
           this.$props.three.bigStars.hide();
           this.$props.three.star.hide(true);
-          this.$props.three.head.hide()
+          this.$props.three.head.hide();
           this.$props.three.matthias.hide();
           this.$props.three.markus.start();
-          this.$props.three.markus.move(100, 0)
-          this.$props.three.matthias.moveToStart()
-          console.log(this[to], "  ", this.$props.three);
+          this.$props.three.markus.move(100, 0);
+          this.$props.three.matthias.moveToStart();
+          console.log(this.routes[to], "  ", this.$props.three);
           break;
         case 7:
           this.$props.three.ellipse.hide(true);
           this.$props.three.line.hide(true);
           this.$props.three.bigStars.hide();
           this.$props.three.star.hide(true);
-          this.$props.three.head.hide()
+          this.$props.three.head.hide();
           this.$props.three.markus.hide();
           this.$props.three.matthias.start();
-          this.$props.three.matthias.move(-100, 0)
-          this.$props.three.markus.moveToStart()
-          console.log(this[to], "  ", this.$props.three);
+          this.$props.three.matthias.move(-100, 0);
+          this.$props.three.markus.moveToStart();
+          console.log(this.routes[to], "  ", this.$props.three);
           break;
         case 8:
           this.$props.three.line.hide(true);
@@ -219,10 +229,10 @@ export default {
           this.$props.three.midLand.hide(0.8, -2300);
           this.$props.three.smallLand.hide(0.8, -2300);
           this.$props.three.ellipse.start();
-          this.$props.three.ellipse.spread(2,2);
-          this.$props.three.head.hide()
-          this.$props.three.matthias.moveToStart()
-          this.$props.three.markus.moveToStart()
+          this.$props.three.ellipse.spread(2, 2);
+          this.$props.three.head.hide();
+          this.$props.three.matthias.moveToStart();
+          this.$props.three.markus.moveToStart();
           break;
         case 9:
           this.$props.three.line.hide(true);
@@ -235,15 +245,75 @@ export default {
           this.$props.three.smallLand.hide(0.8, -2300);
           this.$props.three.ellipse.start();
           this.$props.three.ellipse.deSpread();
-          this.$props.three.head.hide()
-          this.$props.three.matthias.moveToStart()
-          this.$props.three.markus.moveToStart()
+          this.$props.three.head.hide();
+          this.$props.three.matthias.moveToStart();
+          this.$props.three.markus.moveToStart();
           break;
         default:
           this.$props.three.ellipse.hide(true);
           // clear anymation
           break;
       }
+    },
+    keyCalc(event) {
+      if (event.key === "ArrowUp" || event.key === "PageUp") {
+        this.handleScroll(-100);
+      } else if (event.key === "ArrowDown" || event.key === "PageDown") {
+        this.handleScroll(100);
+      }
+    },
+    touchStart: function(event) {
+      let touchobj = event.changedTouches[0];
+      this.touchSwipe.startX = touchobj.pageX;
+      this.touchSwipe.startY = touchobj.pageY;
+      this.touchSwipe.startTime = new Date().getTime();
+    },
+    touchEnd: function(event) {
+      let touchobj = event.changedTouches[0];
+      let time = new Date().getTime() - this.touchSwipe.startTime;
+      let distX = touchobj.pageX - this.touchSwipe.startX;
+      let distY = touchobj.pageY - this.touchSwipe.startY;
+      let swipedir = 0;
+      if (this.touchSwipe.allowedTime > time) {
+        if (
+          Math.abs(distY) > this.touchSwipe.threshold &&
+          Math.abs(distX) < this.touchSwipe.restraint
+        ) {
+          // 2nd condition for horizontal swipe met
+          swipedir = distX < 0 ? -100 : 100; // if dist traveled is negative, it indicates left swipe
+        }
+      }
+      this.handleScroll(swipedir);
+    },
+    mod: function(n, m) {
+      var remain = n % m;
+      return Math.floor(remain >= 0 ? remain : remain + m);
+    },
+    handleScroll: function(event) {
+      if (!this.scrolled) {
+        if (event > 0) {
+          this.current = this.mod(this.current + 1, this.maxScrollDepth);
+          this.$router.push({
+            path: this.getKeyByValue(this.routes, this.current)
+          });
+          this.scrolled = true;
+        } else if (event < 0) {
+          this.current = this.mod(this.current - 1, this.maxScrollDepth);
+          this.$router.push({
+            path: this.getKeyByValue(this.routes, this.current)
+          });
+          this.scrolled = true;
+        }
+        setTimeout(() => {
+          this.scrollThrottle();
+        }, 1500);
+      }
+    },
+    scrollThrottle: function() {
+      this.scrolled = false;
+    },
+    getKeyByValue(object, value) {
+      return Object.keys(object).find(key => object[key] === value);
     }
   },
   watch: {
@@ -255,6 +325,18 @@ export default {
   },
   mounted: function() {
     this.init();
+  },
+  created() {
+    console.log("happend", this);
+    window.addEventListener("wheel", event => this.handleScroll(event.deltaY));
+    window.addEventListener("keyup", this.keyCalc);
+    window.addEventListener("touchstart", this.touchStart);
+    window.addEventListener("touchend", this.touchEnd);
+  },
+  destroyed() {
+    window.removeEventListener("touchstart");
+    window.removeEventListener("touchend");
+    window.removeEventListener("wheel");
   }
 };
 </script>
