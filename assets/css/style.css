@@ -138,6 +138,11 @@ table {
 
 /* General Style */
 
+.translateMain {
+    transition: all 1s;
+    transform: translateX(250px)
+}
+
 .transitionWrap {
     position: absolute;
     top: 0;
@@ -261,7 +266,7 @@ path {
 }
 
 .bigFontSize {
-    /* font-family: folio-condensed, sans-serif; */
+    font-family: folio-condensed, sans-serif;
     font-size: 3.5em;
 }
 
@@ -297,7 +302,7 @@ path {
         font-size: 3.5em;
     }
     .midFontSize {
-        font-size: 2.5em;
+        font-size: 2em;
     }
     .smallFontSize {
         font-size: 2em;
@@ -312,10 +317,10 @@ path {
         font-size: 5.5em;
     }
     .bigFontSize {
-        font-size: 3em;
+        font-size: 2.5em;
     }
     .midFontSize {
-        font-size: 2.25em;
+        font-size: 1.5em;
     }
     .smallFontSize {
         font-size: 1.5em;
@@ -330,10 +335,10 @@ path {
         font-size: 4.5em;
     }
     .bigFontSize {
-        font-size: 2.5em;
+        font-size: 2em;
     }
     .midFontSize {
-        font-size: 1.5em;
+        font-size: 1.3em;
     }
     .smallFontSize {
         font-size: 1em;

@@ -223,6 +223,9 @@ export default class Face {
         TweenLite.to(this.mesh.position, time, { x: this.x });
         TweenLite.to(this.mesh.position, time, { y: this.y });
     }
+    setScale(sym) {
+        this.mesh.scale.set(sym, sym, 1);
+    }
 
     // ---------------------------------------------------------------------------------------------
     // EVENT HANDLERS

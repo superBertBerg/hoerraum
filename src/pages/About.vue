@@ -1,9 +1,9 @@
 <template>
-  <div id="imag" class="transitionWrap">
+  <div id="about" class="transitionWrap">
     <transition name="slideSwitch">
-      <div class="flexWrap" v-if="visible">
-        <router-link class="midFontSize flexLMR start" to="/imag/gf/markus_schaefer"></router-link>
-        <div class="flexCenter midFontSize centerImag">
+      <div class="flexWrapImag" v-if="visible">
+        <router-link class="bigFontSize flexLMR start link" to="/about/gf/markus_schaefer"><h2 class="display">Markus Schäfer</h2></router-link>
+        <div class="midFontSize flexCenter centerImag">
           <p>
             „An keinem anderen Ort kann man gemeinschaftlich so gut in andere Welten
             eintauchen, wie unter der Kuppel eines Planetariums. Der dreidimensionale Sound gibt uns dort die Möglichkeit,
@@ -11,7 +11,7 @@
             erklären Krauße und Schäfer.
           </p><h1>HO<span class="theRed">3</span>RRAUM</h1>
         </div>
-        <router-link class="midFontSize flexLMR end" to="/imag/gf/matthias_krause"></router-link>
+        <router-link class="bigFontSize flexLMR end link" to="/about/gf/matthias_krause"><h2 class="display">Matthias Krause</h2></router-link>
       </div>
     </transition>
     <transition name="slideSwitch">
@@ -36,13 +36,46 @@
 .end {
   justify-content: flex-end;
 }
+.flexWrapImag {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+.link {
+  text-decoration: none;
+  color: #818181;
+  text-align: center;
+  transition: 0.25s;
+}
+.link:hover {
+  color: #f1f1f1;
+}
+
+.display {
+  display: none;
+}
 
 @media only screen and (max-width: 500px) {
   .flexLMR {
     width: 5%;
   }
   .centerImag {
+    display: none;
     width: 90%;
+  }
+  .flexWrapImag {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .flexLMR {
+    width: 80%;
+    height: 48%;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  .display {
+    display: block;
   }
 }
 </style>

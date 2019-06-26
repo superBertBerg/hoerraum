@@ -1,15 +1,15 @@
 Allgemeines: 
-Steuerung tasten/scrollen
+Steuerung tasten/scrollen rich kacka grad
 
 
 Animationen:
-SVGTaucher
-Fractalbaeume
+SVGTaucher      ---> Op.    
+Fractalbaeume   ---> Op.
 
 
 Seiten:
-
-Mobile variante
+Extra Slide in mobile für about
+Mobile variante optimieren!
 
 
 -- SEO:
@@ -17,7 +17,8 @@ sidmap etc.
 grob schauen ob alles geladen wird!
 Bilder alt tags
 
-
+portfolio:
+mehr like wie prodoziert nur 2 unterschiedliche räuber und ???
 
 
 FRAGEN/NEED:
@@ -28,11 +29,15 @@ Text Matthias/Markus
 
 
 
-REFRACTORING des TODES!
+REFRACTORING des TODES!!!
 
 
 BUGS:
 
 --
+RESIZE!!z
+Bug up down swipe inside portfolio kacka
+imag head position when width<height>
+face save remove take  schau ob auch anderes nicht entfernt wird aus der scene
 Settimeout fuer init ist unbefridiegent
 Resize ist unbefridiegent

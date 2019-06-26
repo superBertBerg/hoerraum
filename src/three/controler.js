@@ -57,14 +57,13 @@ export default class Controler {
             time: 2
         }
 
-
         this.initThree()
-        this.initTrack()
+            // this.initTrack()
             // this.fracTree = new FractalTree(this)
         this.matthias = new Face(this, 105, 0, 'matthias');
-        this.matthias.init('static/images/markus-150.png');
+        this.matthias.init('static/images/matthiasNew200.png');
         this.markus = new Face(this, -105, 0, 'mark');
-        this.markus.init('static/images/markus-flip.png');
+        this.markus.init('static/images/markNew200.png');
         this.line = new Line(this)
         this.ellipse = new Ellipse(this, 'ellipse')
         this.star = new Star(this, 'stars')
@@ -132,7 +131,7 @@ export default class Controler {
         this.smallLand.update(-0.000005);
         this.bigStars.update(this.time)
 
-        this.controls.update();
+        // this.controls.update();
         this.render()
 
         requestAnimationFrame(this.animate.bind(this));
@@ -158,7 +157,7 @@ export default class Controler {
         this.scene.add(toAdd)
             // // this.scene.add(this.Ellipse.mesh)
             // var axesHelper = new THREE.AxesHelper(110);
-            // // axesHelper.size = 100
+            // axesHelper.size = 100
             // this.scene.add(axesHelper);
             // console.log(axesHelper)
 

@@ -1,8 +1,8 @@
 <template>
   <div id="gfslide" class="transitionWrap">
     <div :class="{reverseD: isMatt}" class="verticalFlex Pa midFontSize">
-      <p v-html="message.p" class="leftImag midFontSize"></p>
-      <router-link class="leftImagHead midFontSize" to="/imag"><h2 v-html="message.h2"></h2></router-link>
+      <p v-html="message.p" class="leftImag"></p>
+      <router-link class="leftImagHead" to="/about"><h2 class="display" v-html="message.h2"></h2></router-link>
     </div>
   </div>
 </template>
@@ -26,15 +26,41 @@
   padding-right: 10%;
 }
 .leftImagHead {
+  display: flex;
+  justify-content: center;
+  height: 100%;
   text-decoration: none;
   color: #818181;
   width: 30%;
-  text-align: center;
-  padding-top: 40%;
   transition: 0.25s;
 }
 .leftImagHead:hover {
   color: #f1f1f1;
+}
+.display {
+  margin-bottom: 50%;
+  align-self: flex-end;
+}
+@media only screen and (max-width: 500px) {
+  .leftImag {
+    width: 70%;
+    padding: 0px;
+  }
+  .leftImagHead {
+    width: 90%;
+    height: 50%;
+    padding: 0px;
+  }
+  .verticalFlex {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .reverseD {
+    flex-direction: column-reverse;
+  }
+  .display {
+    display: none;
+  }
 }
 </style>
 

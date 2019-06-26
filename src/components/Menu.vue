@@ -1,9 +1,6 @@
 <template>
   <div id="menu" v-click-outside="closeMenu">
-    <div class="hamburger" v-on:click="toggleNav()" v-bind:class="{openH: toggled}">
-      <span class="hamburger__top-bun"></span>
-      <span class="hamburger__bottom-bun"></span>
-    </div>
+    
     <!-- <span style="font-size:30px;cursor:pointer" v-on:click="toggleNav()">&#9776;</span> -->
     <div class="sideNav midFontSize" v-bind:class="{open: toggled}">
       <!-- <a href="#" class="closebtn" v-on:click="closeNav(this)">&times;</a> -->
@@ -11,12 +8,15 @@
       <router-link to="/dive">Dive</router-link>
       <router-link to="/landscape">Landscape</router-link>
       <router-link to="/portfolio">Portfolio</router-link>
+      <router-link to="/about">About</router-link>
       <router-link to="/contact">Contact</router-link>
-      <router-link to="/imag">Imag</router-link>
+    </div>
+    <div class="hamburger" v-on:click="toggleNav()" v-bind:class="{openH: toggled}">
+      <span class="hamburger__top-bun"></span>
+      <span class="hamburger__bottom-bun"></span>
     </div>
   </div>
 </template>
-
 
 
 <style scoped>
@@ -25,6 +25,7 @@
 .hamburger {
     cursor: pointer;
     position: absolute;
+    z-index: 2;
     width: 96px;
     height: 48px;
     top: 20px;
@@ -73,16 +74,20 @@
 /* Menu */
 
 .sideNav {
-    height: auto;
-    width: auto;
-    padding: 10px;
     position: fixed;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: black;
+    height: 100%;
+    width: auto;
+
+    padding: 10px;
     z-index: 1;
     top: 0;
     left: 0;
     overflow-x: hidden;
     transition: 0.25s;
-    margin-top: 200px;
     transform: translateX(-250px)
 }
 

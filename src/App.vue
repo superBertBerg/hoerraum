@@ -17,7 +17,7 @@ import Landscape from "./pages/Landscape.vue";
 import Menu from "./components/Menu.vue";
 import Portfolio from "./pages/Portfolio.vue";
 import Contact from "./pages/Contact.vue";
-import Imag from "./pages/Imag.vue";
+import Imag from "./pages/About.vue";
 
 // test ugly
 import Test from "./components/Test.vue";
@@ -40,10 +40,10 @@ export default {
         ["/dive"]: 1,
         ["/landscape"]: 2,
         ["/portfolio"]: 3,
-        ["/contact"]: 4,
-        ["/imag"]: 5,
-        ["/imag/gf/markus_schaefer"]: 6,
-        ["/imag/gf/matthias_krause"]: 7,
+        ["/about"]: 4,
+        ["/contact"]: 5,
+        ["/about/gf/markus_schaefer"]: 6,
+        ["/about/gf/matthias_krause"]: 7,
         ["/contact/detail/imprint"]: 8,
         ["/contact/detail/contact"]: 9,
         ["/portfolio/das_versunkene_schiff"]: 10,
@@ -54,12 +54,13 @@ export default {
       current: 0,
       transitonEffect: "slideSwitch",
 
+      mob: false,
       maxScrollDepth: 6,
       scrolled: false,
       touchSwipe: {
         startX: 0,
         startY: 0,
-        threshold: 150,
+        threshold: window.innerHeight*0.2,
         restraint: 100,
         allowedTime: 300,
         startTime: 0
@@ -68,6 +69,7 @@ export default {
   },
   methods: {
     init: function() {
+      this.onResize();
       var cur = this.$router.currentRoute.path;
       if (this.routes[cur] !== undefined) {
         this.current = this.routes[cur];
@@ -166,6 +168,24 @@ export default {
           console.log(this.routes[to], "  ", this.$props.three);
           break;
         case 4:
+          this.$props.three.ellipse.hide(true);
+          this.$props.three.line.hide(true);
+          this.$props.three.star.hide(true);
+          this.$props.three.bigStars.hide();
+          this.$props.three.bigLand.hide(0.8, -2300);
+          this.$props.three.midLand.hide(0.8, -2300);
+          this.$props.three.smallLand.hide(0.8, -2300);
+          this.$props.three.matthias.start();
+          this.$props.three.markus.start();
+          this.$props.three.head.hide();
+          if (this.mob) {
+            this.moveFaces(0, -50, 0, 55);
+          } else {
+            this.moveFaces(100, 0, -100, 0);
+          }
+          console.log(this.routes[to], "  ", this.$props.three);
+          break;
+        case 5:
           this.$props.three.line.hide(true);
           this.$props.three.matthias.hide(true);
           this.$props.three.markus.hide(true);
@@ -180,30 +200,20 @@ export default {
           this.$props.three.markus.moveToStart();
           console.log(this.routes[to], "  ", this.$props.three);
           break;
-        case 5:
-          this.$props.three.ellipse.hide(true);
-          this.$props.three.line.hide(true);
-          this.$props.three.star.hide(true);
-          this.$props.three.bigStars.hide();
-          this.$props.three.bigLand.hide(0.8, -2300);
-          this.$props.three.midLand.hide(0.8, -2300);
-          this.$props.three.smallLand.hide(0.8, -2300);
-          this.$props.three.matthias.start();
-          this.$props.three.markus.start();
-          this.$props.three.head.hide();
-          this.$props.three.matthias.moveToStart();
-          this.$props.three.markus.moveToStart();
-          console.log(this.routes[to], "  ", this.$props.three);
-          break;
         case 6:
           this.$props.three.ellipse.hide(true);
           this.$props.three.line.hide(true);
           this.$props.three.bigStars.hide();
           this.$props.three.star.hide(true);
           this.$props.three.head.hide();
+
           this.$props.three.matthias.hide();
           this.$props.three.markus.start();
-          this.$props.three.markus.move(100, 0);
+          if (this.mob) {
+            this.moveFaces(0, 55, 0, -50);
+          } else {
+            this.moveFaces(100, 0, 100, 0);
+          }
           this.$props.three.matthias.moveToStart();
           console.log(this.routes[to], "  ", this.$props.three);
           break;
@@ -213,9 +223,15 @@ export default {
           this.$props.three.bigStars.hide();
           this.$props.three.star.hide(true);
           this.$props.three.head.hide();
+
           this.$props.three.markus.hide();
           this.$props.three.matthias.start();
-          this.$props.three.matthias.move(-100, 0);
+
+          if (this.mob) {
+            this.moveFaces(0, 55, 0, 55);
+          } else {
+            this.moveFaces(-100, 0, -100, 0);
+          }
           this.$props.three.markus.moveToStart();
           console.log(this.routes[to], "  ", this.$props.three);
           break;
@@ -253,6 +269,14 @@ export default {
           this.$props.three.ellipse.hide(true);
           // clear anymation
           break;
+      }
+    },
+    moveFaces: function(xMat, yMat, xMark, yMark) {
+      this.$props.three.matthias.move(xMat, yMat);
+      this.$props.three.markus.move(xMark, yMark);
+      if (this.mob) {
+        this.$props.three.matthias.setScale(0.57);
+        this.$props.three.markus.setScale(0.57);
       }
     },
     keyCalc(event) {
@@ -312,6 +336,11 @@ export default {
     scrollThrottle: function() {
       this.scrolled = false;
     },
+    onResize: function() {
+      if (window.innerWidth < 501) {
+        this.mob = true;
+      }
+    },
     getKeyByValue(object, value) {
       return Object.keys(object).find(key => object[key] === value);
     }
@@ -328,15 +357,22 @@ export default {
   },
   created() {
     console.log("happend", this);
+    window.addEventListener("resize", this.onResize);
+
     window.addEventListener("wheel", event => this.handleScroll(event.deltaY));
     window.addEventListener("keyup", this.keyCalc);
     window.addEventListener("touchstart", this.touchStart);
     window.addEventListener("touchend", this.touchEnd);
   },
   destroyed() {
-    window.removeEventListener("touchstart");
-    window.removeEventListener("touchend");
-    window.removeEventListener("wheel");
+    window.removeEventListener("resize", this.onResize);
+
+    window.removeEventListener("wheel", event =>
+      this.handleScroll(event.deltaY)
+    );
+    window.removeEventListener("keyup", this.keyCalc);
+    window.removeEventListener("touchstart", this.touchStart);
+    window.removeEventListener("touchend", this.touchEnd);
   }
 };
 </script>

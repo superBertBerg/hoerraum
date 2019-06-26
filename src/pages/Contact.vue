@@ -2,9 +2,9 @@
   <div id="contact" class="transitionWrap">
     <div class="height textCenter">
       <div v-if="contact.show" class="verticalyHoriontalyFlex midFontSize">
-        <h1 class="padding">Hoerraum Media GbR • Bindestr. 24 • 20146 Hamburg</h1>
+        <h1 class="padding">Hoerraum Media GbR • Binderstr. 24 • 20146 Hamburg</h1>
         <p class="padding">+49 40 244 37 132</p>
-        <p class="padding">ms@hoerraum.media</p>
+        <p class="padding">info@hoerraum.media</p>
       </div>
 
       <div v-if="imprint.show" class="verticalyHoriontalyFlex smallFontSize">
@@ -55,7 +55,8 @@
   top: 0;
   right: 0;
   height: 100%;
-  padding: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 .stickRight a {
   text-decoration: none;

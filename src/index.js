@@ -8,7 +8,7 @@ import App from './App.vue'
 
 import Contact from './pages/Contact.vue'
 import Dive from './pages/Dive.vue'
-import Imag from './pages/Imag.vue'
+import About from './pages/About.vue'
 import Landing from './pages/Landing.vue'
 import Landscape from './pages/Landscape.vue'
 import Portfolio from './pages/Portfolio.vue'
@@ -48,8 +48,8 @@ const router = new VueRouter({
         },
         // { path: '/imag', component: Imag },
         {
-            path: '/imag/',
-            component: Imag,
+            path: '/about/',
+            component: About,
             children: [
                 { path: 'gf/:id', component: GFslide }
             ]
