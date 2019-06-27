@@ -7,19 +7,13 @@ import { initSquares } from './components/constructsquares'
 
 export default class Ellipse {
 
-    constructor(controler, name) {
+    constructor(controler, name, config) {
         this.controler = controler
         this.name = name
-        this.init()
+        this.init(config.instances, config.xfact, config.yfact, config.zfact, config.diffStart, config.diffDest)
     }
 
-    init() {
-        var instances = 200
-        var xfact = 100
-        var yfact = 45
-        var zfact = -60
-        var diffStart = 0.6
-        var diffDest = 1.4
+    init(instances, xfact, yfact, zfact, diffStart, diffDest) {
 
         this.x = xfact
         this.y = yfact
@@ -93,13 +87,13 @@ export default class Ellipse {
         this.uniforms.time.value = delta * 0.0005;
     }
 
-    hide(_destroy, time = 0.8) {
+    hide(time = 0.8) {
         if (!this.controler.scene.getObjectByName(this.name)) return;
         return new Promise((resolve, reject) => {
             TweenLite.to(this.uniforms.xfact, time, {
                 value: 1500.0,
                 onComplete: () => {
-                    if (_destroy) this.stop();
+                    this.stop();
                     resolve();
                 }
             });

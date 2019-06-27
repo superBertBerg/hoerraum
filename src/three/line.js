@@ -4,23 +4,15 @@ import { initSquares } from './components/constructsquares'
 
 export default class Line {
 
-    constructor(controler, name) {
+    constructor(controler, name, config) {
         this.controler = controler
         this.name = name
 
-        this.init()
+        this.init(config.instances, config.waves, config.width, config.xfact, config.yfact, config.zfact, config.diffStart, config.diffDest)
     }
 
-    init() {
-        var instances = 2000;
-        var waves = 3
-        var divider = 60
-        var xProgress = -60
-        var xfact = 1.8
-        var yfact = 3.5
-        var zfact = 0.5
-        var diffStart = 0.8
-        var diffDest = 1.2
+    init(instances, waves, width, xfact, yfact, zfact, diffStart, diffDest) {
+        var xProgress = -width
 
         this.x = xfact
         this.y = yfact
@@ -57,7 +49,7 @@ export default class Line {
                 var zdiffuse = getRandomArbitrary(diffStart, diffDest)
 
                 // coordinates
-                linex.push(xProgress += (divider * 2) / (instances / waves));
+                linex.push(xProgress += (width * 2) / (instances / waves));
                 // console.log(obj.x, obj.y)
                 // speed
                 speeds.push(Math.random());
@@ -70,7 +62,7 @@ export default class Line {
                     // console.log(wave)
             }
             wave = Math.random()
-            xProgress = -divider
+            xProgress = -width
         }
         var square = initSquares(null, starts, speeds, diffuses, null, null, linex)
         square.maxInstancedCount = instances;
@@ -93,13 +85,13 @@ export default class Line {
         this.uniline.time.value = delta * 0.00025;
     }
 
-    hide(_destroy, time = 0.8) {
+    hide(time = 0.8) {
         if (!this.controler.scene.getObjectByName(this.name)) return;
         return new Promise((resolve, reject) => {
             TweenLite.to(this.uniline.xf, time, {
                 // value: 500.0,
                 onComplete: () => {
-                    if (_destroy) this.stop();
+                    this.stop();
                     resolve();
                 }
             });

@@ -8,6 +8,7 @@ import Landscape from './landscape';
 import FractalTree from './fractal';
 import ImgOnPlane from './image';
 import BigStars from './bigStar';
+import * as config from './config/config.json'
 // import TouchTexture from './TouchTexture';
 
 var TrackballControls = require('three-trackballcontrols');
@@ -15,6 +16,7 @@ var TrackballControls = require('three-trackballcontrols');
 
 export default class Controler {
     constructor() {
+        console.log('asdf', config.line)
         var bigland = {
             amplitude: 140,
             wavelength: 140,
@@ -57,25 +59,26 @@ export default class Controler {
             time: 2
         }
 
+
         this.initThree()
+        this.line = new Line(this, 'line', config.line)
+        this.bigStars = new BigStars(this, 'bigStars', config.bigStars);
+        this.bigLand = new Landscape(this, 'bigland', config.bigland)
+        this.midLand = new Landscape(this, 'midland', config.midland)
+        this.smallLand = new Landscape(this, 'smallland', config.smallland)
+        this.matthias = new Face(this, 'matthias', config.matthias);
+        this.markus = new Face(this, 'mark', config.markus);
+        this.matthias.init(config.matthias.imgPath);
+        this.markus.init(config.markus.imgPath);
+        this.ellipse = new Ellipse(this, 'ellipse', config.ellipse)
+        this.star = new Star(this, 'stars', config.stars)
+        this.head = new ImgOnPlane(this, 'head', config.head)
             // this.initTrack()
             // this.fracTree = new FractalTree(this)
-        this.matthias = new Face(this, 105, 0, 'matthias');
-        this.matthias.init('static/images/matthiasNew200.png');
-        this.markus = new Face(this, -105, 0, 'mark');
-        this.markus.init('static/images/markNew200.png');
-        this.line = new Line(this)
-        this.ellipse = new Ellipse(this, 'ellipse')
-        this.star = new Star(this, 'stars')
-        this.head = new ImgOnPlane(this, 'static/images/head.png', 'head', animationImage)
-        this.bigStars = new BigStars(this, 'bigStars');
-        // this.addToScene(this.bigStars.mesh)
-        // this.addToScene(this.head.mesh)
+            // this.addToScene(this.bigStars.mesh)
+            // this.addToScene(this.head.mesh)
 
 
-        this.bigLand = new Landscape(this, bigland, 'bigland')
-        this.midLand = new Landscape(this, midland, 'midland')
-        this.smallLand = new Landscape(this, smallland, 'smallland')
 
         this.animate()
     }

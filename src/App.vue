@@ -51,6 +51,18 @@ export default {
         ["/portfolio/der_dreiaeugige_totenkopf"]: 12,
         ["röferHotifot"]: 13
       },
+      hide: [
+        ["line", 0],
+        ["bigStars", 1],
+        ["star", 2],
+        ["bigLand", 2],
+        ["midLand", 2],
+        ["smallLand", 2],
+        ["head", 2],
+        ["matthias", 4, 7],
+        ["markus", 4, 6],
+        ["ellipse", 5, 8, 9]           
+      ],
       current: 0,
       transitonEffect: "slideSwitch",
 
@@ -104,45 +116,36 @@ export default {
         //abort all animation switch to site
       }
     },
-    hideAllAnimation: function() {},
+    hideAllAnimation: function(currentSlide) {
+      var tempPoniter = this.$props.three;
+      for(var i = 0; i<this.hide.length; ++i) {
+        var toHide = true
+        for(var j = 1; j<this.hide[i].length; ++j) {
+          if(this.hide[i][j] == currentSlide) {
+            toHide = false;
+          }
+        }
+        if(toHide) {
+          tempPoniter[this.hide[i][0]]["hide"]()
+        }
+      }
+    },
     animation: function(to, from) {
+      this.hideAllAnimation(this.routes[to]);
       switch (this.routes[to]) {
         case 0:
-          this.$props.three.ellipse.hide(true);
-          this.$props.three.matthias.hide(true);
-          this.$props.three.markus.hide(true);
-          this.$props.three.star.hide(true);
-          this.$props.three.bigStars.hide();
-          this.$props.three.bigLand.hide(0.8, -2300);
-          this.$props.three.midLand.hide(0.8, -2300);
-          this.$props.three.smallLand.hide(0.8, -2300);
           this.$props.three.line.start();
-          this.$props.three.head.hide();
           this.$props.three.matthias.moveToStart();
           this.$props.three.markus.moveToStart();
           console.log(this.routes[to], "  ", this.$props.three);
           break;
         case 1:
-          this.$props.three.ellipse.hide(true);
-          this.$props.three.line.hide(true);
-          this.$props.three.matthias.hide(true);
-          this.$props.three.markus.hide(true);
-          this.$props.three.bigLand.hide(0.8, -2300);
-          this.$props.three.midLand.hide(0.8, -2300);
-          this.$props.three.smallLand.hide(0.8, -2300);
-          this.$props.three.star.hide(true);
           this.$props.three.bigStars.start();
-          this.$props.three.head.hide();
           this.$props.three.matthias.moveToStart();
           this.$props.three.markus.moveToStart();
           console.log(this.routes[to], "  ", this.$props.three);
           break;
         case 2:
-          this.$props.three.ellipse.hide(true);
-          this.$props.three.line.hide(true);
-          this.$props.three.matthias.hide(true);
-          this.$props.three.markus.hide(true);
-          this.$props.three.bigStars.hide();
           this.$props.three.head.start();
           this.$props.three.star.start();
           this.$props.three.bigLand.start(0.8, -2300, -2140);
@@ -153,31 +156,13 @@ export default {
           console.log(this.routes[to], "  ", this.$props.three);
           break;
         case 3:
-          this.$props.three.ellipse.hide(true);
-          this.$props.three.line.hide(true);
-          this.$props.three.matthias.hide(true);
-          this.$props.three.markus.hide(true);
-          this.$props.three.star.hide(true);
-          this.$props.three.bigStars.hide();
-          this.$props.three.bigLand.hide(0.8, -2300);
-          this.$props.three.midLand.hide(0.8, -2300);
-          this.$props.three.smallLand.hide(0.8, -2300);
-          this.$props.three.head.hide();
           this.$props.three.matthias.moveToStart();
           this.$props.three.markus.moveToStart();
           console.log(this.routes[to], "  ", this.$props.three);
           break;
         case 4:
-          this.$props.three.ellipse.hide(true);
-          this.$props.three.line.hide(true);
-          this.$props.three.star.hide(true);
-          this.$props.three.bigStars.hide();
-          this.$props.three.bigLand.hide(0.8, -2300);
-          this.$props.three.midLand.hide(0.8, -2300);
-          this.$props.three.smallLand.hide(0.8, -2300);
           this.$props.three.matthias.start();
           this.$props.three.markus.start();
-          this.$props.three.head.hide();
           if (this.mob) {
             this.moveFaces(0, -50, 0, 55);
           } else {
@@ -186,28 +171,12 @@ export default {
           console.log(this.routes[to], "  ", this.$props.three);
           break;
         case 5:
-          this.$props.three.line.hide(true);
-          this.$props.three.matthias.hide(true);
-          this.$props.three.markus.hide(true);
-          this.$props.three.star.hide(true);
-          this.$props.three.bigStars.hide();
-          this.$props.three.bigLand.hide(0.8, -2300);
-          this.$props.three.midLand.hide(0.8, -2300);
-          this.$props.three.smallLand.hide(0.8, -2300);
           this.$props.three.ellipse.start();
-          this.$props.three.head.hide();
           this.$props.three.matthias.moveToStart();
           this.$props.three.markus.moveToStart();
           console.log(this.routes[to], "  ", this.$props.three);
           break;
         case 6:
-          this.$props.three.ellipse.hide(true);
-          this.$props.three.line.hide(true);
-          this.$props.three.bigStars.hide();
-          this.$props.three.star.hide(true);
-          this.$props.three.head.hide();
-
-          this.$props.three.matthias.hide();
           this.$props.three.markus.start();
           if (this.mob) {
             this.moveFaces(0, 55, 0, -50);
@@ -218,15 +187,7 @@ export default {
           console.log(this.routes[to], "  ", this.$props.three);
           break;
         case 7:
-          this.$props.three.ellipse.hide(true);
-          this.$props.three.line.hide(true);
-          this.$props.three.bigStars.hide();
-          this.$props.three.star.hide(true);
-          this.$props.three.head.hide();
-
-          this.$props.three.markus.hide();
           this.$props.three.matthias.start();
-
           if (this.mob) {
             this.moveFaces(0, 55, 0, 55);
           } else {
@@ -236,37 +197,18 @@ export default {
           console.log(this.routes[to], "  ", this.$props.three);
           break;
         case 8:
-          this.$props.three.line.hide(true);
-          this.$props.three.matthias.hide(true);
-          this.$props.three.markus.hide(true);
-          this.$props.three.star.hide(true);
-          this.$props.three.bigStars.hide();
-          this.$props.three.bigLand.hide(0.8, -2300);
-          this.$props.three.midLand.hide(0.8, -2300);
-          this.$props.three.smallLand.hide(0.8, -2300);
           this.$props.three.ellipse.start();
           this.$props.three.ellipse.spread(2, 2);
-          this.$props.three.head.hide();
           this.$props.three.matthias.moveToStart();
           this.$props.three.markus.moveToStart();
           break;
         case 9:
-          this.$props.three.line.hide(true);
-          this.$props.three.matthias.hide(true);
-          this.$props.three.markus.hide(true);
-          this.$props.three.star.hide(true);
-          this.$props.three.bigStars.hide();
-          this.$props.three.bigLand.hide(0.8, -2300);
-          this.$props.three.midLand.hide(0.8, -2300);
-          this.$props.three.smallLand.hide(0.8, -2300);
           this.$props.three.ellipse.start();
-          this.$props.three.ellipse.deSpread();
-          this.$props.three.head.hide();
+          this.$props.three.ellipse.deSpread(2, 2);
           this.$props.three.matthias.moveToStart();
           this.$props.three.markus.moveToStart();
           break;
         default:
-          this.$props.three.ellipse.hide(true);
           // clear anymation
           break;
       }
@@ -356,9 +298,7 @@ export default {
     this.init();
   },
   created() {
-    console.log("happend", this);
     window.addEventListener("resize", this.onResize);
-
     window.addEventListener("wheel", event => this.handleScroll(event.deltaY));
     window.addEventListener("keyup", this.keyCalc);
     window.addEventListener("touchstart", this.touchStart);
@@ -366,7 +306,6 @@ export default {
   },
   destroyed() {
     window.removeEventListener("resize", this.onResize);
-
     window.removeEventListener("wheel", event =>
       this.handleScroll(event.deltaY)
     );

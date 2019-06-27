@@ -4,11 +4,12 @@ import TouchTexture from './TouchTexture';
 
 export default class Face {
 
-    constructor(controler, x, y, name) {
+    constructor(controler, name, config) {
         this.controler = controler;
         this.name = name
-        this.x = x
-        this.y = y
+        this.x = config.x
+        this.y = config.y
+        this.threshold = config.threshold
     }
 
     init(src, x, y) {

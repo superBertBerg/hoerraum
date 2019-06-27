@@ -3,7 +3,7 @@ import { TweenLite } from 'gsap';
 import { CombineNoise, GenerateNoise } from './components/perlinGeneric'
 
 export default class Landscape {
-    constructor(controler, landscape, name) {
+    constructor(controler, name, landscape) {
         this.controler = controler
         this.name = name
 
@@ -16,7 +16,7 @@ export default class Landscape {
         let landscape = new THREE.ShapeBufferGeometry(this.generateLandscape(strokes - 1, fact, circleDisplacmentArr));
 
         let material = new THREE.MeshBasicMaterial({
-            color: color,
+            color: parseInt(color, 16),
         })
 
         this.mesh = new THREE.Mesh(landscape, material)
@@ -42,7 +42,7 @@ export default class Landscape {
         // console.log(delta)
         this.mesh.rotation.z += delta;
     }
-    hide(time = 0.8, to = 2400) {
+    hide(time = 0.8, to = -2300) {
         if (!this.controler.scene.getObjectByName(this.name)) return;
         return new Promise((resolve, reject) => {
             TweenLite.to(this.mesh.position, time, {

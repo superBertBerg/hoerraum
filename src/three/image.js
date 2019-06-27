@@ -4,11 +4,11 @@ import { TweenLite } from 'gsap';
 
 
 export default class ImgOnPlane {
-    constructor(controler, imgPath, name, animation) {
+    constructor(controler, name, config) {
         this.controler = controler
         this.name = name
-        this.init(imgPath)
-        this.animation = animation
+        this.init(config.imgPath)
+        this.animation = config
     }
 
     init(imgPath) {

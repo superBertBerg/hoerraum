@@ -4,17 +4,15 @@ import { initSquares } from './components/constructsquares'
 
 export default class Stars {
 
-    constructor(controler, name) {
+    constructor(controler, name, config) {
         this.controler = controler
         this.name = name
-        this.init()
+        this.init(config.instances, config.viewHeight, config.viewWidth, config.depth)
     }
 
-    init() {
-        var instances = 2000
-        var viewHeight = 220
-        var viewWidth = 220 * this.controler.camera.aspect
-        var depth = 300
+    init(instances, viewHeight, viewWidt, depth) {
+        var viewWidth = viewWidt * this.controler.camera.aspect
+
 
         this.x = 1.0
         this.y = 1.0
@@ -89,13 +87,13 @@ export default class Stars {
         this.ufStar.time.value = delta * 0.0012;
     }
 
-    hide(_destroy, time = 0.8) {
+    hide(time = 0.8) {
         if (!this.controler.scene.getObjectByName(this.name)) return;
         return new Promise((resolve, reject) => {
             TweenLite.to(this.ufStar.zfact, time, {
                 value: 50.0,
                 onComplete: () => {
-                    if (_destroy) this.stop();
+                    this.stop();
                     resolve();
                 }
             });

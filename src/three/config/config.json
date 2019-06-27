@@ -1,0 +1,93 @@
+{
+    "line": {
+        "instances": 2000,
+        "waves": 3,
+        "width": 60,
+        "xfact": 1.8,
+        "yfact": 3.5,
+        "zfact": 0.5,
+        "diffStart": 0.8,
+        "diffDest": 1.2
+    },
+    "bigStars": [{
+            "size": 500,
+            "x": 110,
+            "y": 70
+        },
+        {
+            "size": 800,
+            "x": -50,
+            "y": -50
+        },
+        {
+            "size": 500,
+            "x": -110,
+            "y": 40
+        }
+    ],
+    "smallland": {
+        "amplitude": 30,
+        "wavelength": 30,
+        "octaves": 4,
+        "divisor": 1,
+        "strokes": 5000,
+        "fact": 2000,
+        "color": "0x000000"
+    },
+    "midland": {
+        "amplitude": 60,
+        "wavelength": 60,
+        "octaves": 4,
+        "divisor": 2,
+        "strokes": 10000,
+        "fact": 2050,
+        "color": "0x212a31"
+    },
+    "bigland": {
+        "amplitude": 140,
+        "wavelength": 140,
+        "octaves": 8,
+        "divisor": 2,
+        "strokes": 10000,
+        "fact": 2100,
+        "color": "0x203a49"
+    },
+    "stars": {
+        "instances": 2000,
+        "viewHeight": 220,
+        "viewWidth": 220,
+        "depth": 300
+    },
+    "head": {
+        "imgPath": "static/images/head.png",
+        "xfrom": 0,
+        "xto": 0,
+        "yfrom": 0,
+        "yto": -90,
+        "zfrom": 5,
+        "zto": -1000,
+        "opacityfrom": 0,
+        "opacityto": 1,
+        "time": 2
+    },
+    "matthias": {
+        "x": 105,
+        "y": 0,
+        "threshold": 0,
+        "imgPath": "static/images/matthiasNew200.png"
+    },
+    "markus": {
+        "x": -105,
+        "y": 0,
+        "threshold": 0,
+        "imgPath": "static/images/markNew200.png"
+    },
+    "ellipse": {
+        "instances": 200,
+        "xfact": 100,
+        "yfact": 45,
+        "zfact": -60,
+        "diffStart": 0.6,
+        "diffDest": 1.4
+    }
+}

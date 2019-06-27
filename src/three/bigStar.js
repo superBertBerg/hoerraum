@@ -4,14 +4,11 @@ import * as THREE from 'three'
 import { initSquares } from './components/constructsquares'
 
 export default class BigStars {
-    constructor(controler, name) {
+    constructor(controler, name, config) {
         this.controler = controler;
         this.name = name;
 
-        this.positions = [
-            { size: 500, x: 110, y: 70 }, { size: 800, x: -50, y: -50 },
-            { size: 500, x: -110, y: 40 }
-        ];
+        this.positions = config
         this.init()
     }
 

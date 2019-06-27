@@ -31,6 +31,9 @@ Text Matthias/Markus
 
 REFRACTORING des TODES!!!
 
+Steigung berge weniger
+
+Text Desktop größer
 
 BUGS:
 
@@ -41,3 +44,9 @@ imag head position when width<height>
 face save remove take  schau ob auch anderes nicht entfernt wird aus der scene
 Settimeout fuer init ist unbefridiegent
 Resize ist unbefridiegent
+
+
+
+
+Sehr Optional:
+punkte von gesichtern im Mobilen view veringern
