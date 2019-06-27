@@ -22,11 +22,13 @@
         <p>Markus Schäfer, Matthias Krauße</p>
         <p class="padding">Streitschlichtung:</p>
         <p>
-          Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr">https://ec.europa.eu/consumers/odr</a>.
+          Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
+          <a
+            href="https://ec.europa.eu/consumers/odr"
+          >https://ec.europa.eu/consumers/odr</a>.
           Unsere E-Mail-Adresse finden Sie oben im Impressum.
           Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
         </p>
-
         <p class="padding">Haftung für Inhalte:</p>
         <p>
           Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
@@ -45,9 +47,9 @@
       </div>
     </div>
     <div class="stickRight">
-      <div class="flexer">
-        <router-link class="subLink midFontSize" to="/contact/detail/imprint">Impressum</router-link>
-        <router-link class="subLink midFontSize" to="/contact/detail/contact">Kontakt</router-link>
+      <div class="flexer midFontSize">
+        <router-link class="size" to="/contact/detail/imprint">Impressum</router-link>
+        <router-link class="size" to="/contact/detail/contact">Kontakt</router-link>
       </div>
     </div>
   </div>
@@ -93,6 +95,35 @@
   height: 100%;
   padding-left: 20px;
   padding-right: 20px;
+}
+@media only screen and (max-width: 500px) {
+  .verticalyHoriontalyFlex1 {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  .verticalyHoriontalyFlex2 {
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  .stickRight {
+    position: absolute;
+    top: auto;
+    right: auto;
+    height: auto;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0;
+  }
+  .flexer {
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  .size {
+    width: 30%;
+    padding: 10px;
+  }
 }
 </style>
 

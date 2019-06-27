@@ -267,8 +267,6 @@ a:hover {
     margin-bottom: 0px
 }
 
-.subLink {}
-
 
 /* LineFancy */
 
@@ -388,7 +386,7 @@ path {
         max-width: 90%;
     }
     .transitionWrap {
-        overflow-y: auto;
+        /* overflow-y: auto; */
     }
     .subFlex.Pa {
         padding-left: 10%;
