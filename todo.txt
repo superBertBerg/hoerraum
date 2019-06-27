@@ -30,6 +30,7 @@ Text Matthias/Markus
 
 
 REFRACTORING des TODES!!!
+- Faces allerdings vlt. nachder interaktivität!
 
 Steigung berge weniger
 

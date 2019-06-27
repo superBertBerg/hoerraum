@@ -16,49 +16,6 @@ var TrackballControls = require('three-trackballcontrols');
 
 export default class Controler {
     constructor() {
-        console.log('asdf', config.line)
-        var bigland = {
-            amplitude: 140,
-            wavelength: 140,
-            octaves: 8,
-            divisor: 2,
-            strokes: 10000,
-            fact: 2100,
-            color: 0x203a49
-        }
-
-        var midland = {
-            amplitude: 60,
-            wavelength: 60,
-            octaves: 4,
-            divisor: 2,
-            strokes: 10000,
-            fact: 2050,
-            color: 0x212a31
-        }
-
-        var smallland = {
-            amplitude: 30,
-            wavelength: 30,
-            octaves: 4,
-            divisor: 1,
-            strokes: 5000,
-            fact: 2000,
-            color: 0x000000
-        }
-
-        var animationImage = {
-            xfrom: 0,
-            xto: 0,
-            yfrom: 0,
-            yto: -90,
-            zfrom: 5,
-            zto: -1000,
-            opacityfrom: 0,
-            opacityto: 1,
-            time: 2
-        }
-
 
         this.initThree()
         this.line = new Line(this, 'line', config.line)

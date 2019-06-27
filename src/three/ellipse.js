@@ -1,15 +1,14 @@
 import * as THREE from 'three'
 import { TweenLite } from 'gsap'
 import { initSquares } from './components/constructsquares'
-
-
-// TODO NEEDS SIZE ATTRIBUTE
+import { getRandomArbitrary } from './utils/helpers.utils'
 
 export default class Ellipse {
 
     constructor(controler, name, config) {
         this.controler = controler
         this.name = name
+
         this.init(config.instances, config.xfact, config.yfact, config.zfact, config.diffStart, config.diffDest)
     }
 
@@ -26,11 +25,7 @@ export default class Ellipse {
             zfact: { value: zfact }
         }
 
-        function getRandomArbitrary(min, max) {
-            return Math.random() * (max - min) + min;
-        }
-
-        function elipseInit(time, xdiffuse, ydiffuse, zdiffuse) {
+        function createDot(time, xdiffuse, ydiffuse, zdiffuse) {
             return {
                 x: xfact * Math.cos(time) * xdiffuse,
                 y: yfact * Math.sin(time) * ydiffuse,
@@ -56,7 +51,7 @@ export default class Ellipse {
             var ydiffuse = getRandomArbitrary(diffStart, diffDest)
             var zdiffuse = getRandomArbitrary(diffStart, diffDest)
 
-            var obj = elipseInit(i, xdiffuse, ydiffuse, zdiffuse);
+            var obj = createDot(i, xdiffuse, ydiffuse, zdiffuse);
             // coordinates
             offsets.push(obj.x, obj.y, obj.z);
             // Math.random()); colors

@@ -1,4 +1,4 @@
-import { Elastic, TweenLite } from 'gsap'
+import { TweenLite } from 'gsap'
 import * as THREE from 'three'
 
 import { initSquares } from './components/constructsquares'
@@ -22,7 +22,7 @@ export default class BigStars {
             size.push(this.positions[i].size)
         }
 
-        this.bigStarUni = {
+        this.ufBigStars = {
             time: { value: 0 },
             color: { value: new THREE.Color(0xF5F5F5) }
         }
@@ -32,7 +32,7 @@ export default class BigStars {
 
         let material = new THREE
             .RawShaderMaterial({
-                uniforms: this.bigStarUni,
+                uniforms: this.ufBigStars,
                 vertexShader: require('./shaders/bigStar.vert'),
                 fragmentShader: require('./shaders/bigStar.frag'),
                 depthTest: false,
@@ -44,6 +44,7 @@ export default class BigStars {
     }
     update(delta) {
         if (!this.controler.scene.getObjectByName(this.name)) return;
+        // TODO ugly, false when animation end
         this.mesh.geometry.attributes.size.needsUpdate = true;
     }
     hide(time = 0.8) {

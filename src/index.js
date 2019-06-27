@@ -17,7 +17,6 @@ import GFslide from './components/GFslide.vue'
 import Schiff from './components/Schiff.vue'
 import DreiAuge from './components/DreiAuge.vue'
 import Katze from './components/Katze.vue'
-// import Ellipse from './three/ellipse';
 import Controler from './three/controler'
 
 

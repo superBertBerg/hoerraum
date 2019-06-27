@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import { TweenLite } from 'gsap';
 import { initSquares } from './components/constructsquares'
+import { getRandomArbitrary } from './utils/helpers.utils'
 
 export default class Line {
 
@@ -27,9 +28,6 @@ export default class Line {
             yversch: { value: -15 }
         }
 
-        function getRandomArbitrary(min, max) {
-            return Math.random() * (max - min) + min;
-        }
         // spark coordinates
         let linex = []
             // speed z axe
