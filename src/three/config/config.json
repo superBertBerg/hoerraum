@@ -74,12 +74,14 @@
         "x": 105,
         "y": 0,
         "threshold": 0,
+        "scale": 0.7,
         "imgPath": "static/images/matthiasNew200.png"
     },
     "markus": {
         "x": -105,
         "y": 0,
         "threshold": 0,
+        "scale": 0.7,
         "imgPath": "static/images/markNew200.png"
     },
     "ellipse": {

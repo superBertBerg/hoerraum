@@ -10,6 +10,7 @@ export default class Face {
         this.x = config.x
         this.y = config.y
         this.threshold = config.threshold
+        this.scaleing = config.scale
     }
 
     init(src, x, y) {
@@ -128,7 +129,7 @@ export default class Face {
 
         this.mesh = new THREE.Mesh(square, material);
         this.mesh.name = this.name;
-        this.mesh.scale.set(0.7, 0.7, 1)
+        this.mesh.scale.set(this.scaleing, this.scaleing, 1)
         this.mesh.translateX(this.x)
     }
 

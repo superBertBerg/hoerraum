@@ -2,7 +2,9 @@
   <div id="gfslide" class="transitionWrap">
     <div :class="{reverseD: isMatt}" class="verticalFlex Pa midFontSize">
       <p v-html="message.p" class="leftImag"></p>
-      <router-link class="leftImagHead" to="/about"><h2 class="display" v-html="message.h2"></h2></router-link>
+      <router-link class="leftImagHead" to="/about">
+        <h2 class="display" v-html="message.h2"></h2>
+      </router-link>
     </div>
   </div>
 </template>
@@ -29,13 +31,7 @@
   display: flex;
   justify-content: center;
   height: 100%;
-  text-decoration: none;
-  color: #818181;
   width: 30%;
-  transition: 0.25s;
-}
-.leftImagHead:hover {
-  color: #f1f1f1;
 }
 .display {
   margin-bottom: 50%;
@@ -78,10 +74,12 @@ export default {
         ger: {
           h2: "Markus Schäfer",
           p:
-            'Liegt tatsächlich ein alter Goldschatz vor der Küste des Ferienortes von Justus, Peter und Bob? Prompt vergessen die drei ?<span class="theRed">?</span><span class="theBlue">?</span> ' +
-            "ihren Ärger über den verregneten Urlaub und nehmen die Jagd nach den versunkenen Reichtümern auf. " +
-            " Sie tauchen ein in die geheimnisvolle Geschichte des berühmtesten Dorfbewohners und heben ein dunkles " +
-            "Geheimnis… <br>Autor André Marx, Hörspielbearbeitung Kai Schwind"
+            "• Werbekaufmann, Diplom-Betriebswirt, Marketing- und Content-Experte<br><br>" +
+            "• arbeitet seit mehr als 30 Jahren in den Bereichen Content, Marken und Medien<br><br>" +
+            "• war angestellt bei BMG Ariola, The Walt Disney Company EMEA, [PIAS] Recordings<br><br>" +
+            "• als selbstständiger Unternehmer seit 2002 u.a. tätig für OTTO Group, InBev, STAGE Entertainment, G+J, Warner Strategic Marketing, Union Investment, Reeperbahnfestival<br><br>" +
+            "• hat 2013 the content dome GmbH gegründet und „Tabaluga und die Zeichen der Zeit“ als 360°-Erlebnis produziert<br><br>" +
+            "• und hat noch einiges vor ! ..."
         },
         eng: { h2: "", p: "" }
       },

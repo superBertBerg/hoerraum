@@ -2,16 +2,23 @@
   <div id="about" class="transitionWrap">
     <transition name="slideSwitch">
       <div class="flexWrapImag" v-if="visible">
-        <router-link class="bigFontSize flexLMR start link" to="/about/gf/markus_schaefer"><h2 class="display">Markus Schäfer</h2></router-link>
+        <router-link class="bigFontSize flexLMR start link" to="/about/gf/markus_schaefer">
+          <h2 class="display">Markus Schäfer</h2>
+        </router-link>
         <div class="midFontSize flexCenter centerImag">
           <p>
             „An keinem anderen Ort kann man gemeinschaftlich so gut in andere Welten
             eintauchen, wie unter der Kuppel eines Planetariums. Der dreidimensionale Sound gibt uns dort die Möglichkeit,
             das Hörspiel auf eine neue Erlebnisebene zu bringen. Der Zuhörer fühlt sich mittendrin statt nur dabei“,
             erklären Krauße und Schäfer.
-          </p><h1>HO<span class="theRed">3</span>RRAUM</h1>
+          </p>
+          <h1>
+            HO<span class="theRed">3</span>RRAUM
+          </h1>
         </div>
-        <router-link class="bigFontSize flexLMR end link" to="/about/gf/matthias_krause"><h2 class="display">Matthias Krause</h2></router-link>
+        <router-link class="bigFontSize flexLMR end link" to="/about/gf/matthias_krause">
+          <h2 class="display">Matthias Krause</h2>
+        </router-link>
       </div>
     </transition>
     <transition name="slideSwitch">
@@ -41,16 +48,6 @@
   justify-content: center;
   height: 100%;
 }
-.link {
-  text-decoration: none;
-  color: #818181;
-  text-align: center;
-  transition: 0.25s;
-}
-.link:hover {
-  color: #f1f1f1;
-}
-
 .display {
   display: none;
 }

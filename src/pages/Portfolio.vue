@@ -54,15 +54,6 @@
   height: 100%;
   padding: 20px;
 }
-.stickRight a {
-  text-decoration: none;
-  color: #818181;
-  display: block;
-  transition: 0.25s;
-}
-.stickRight a:hover {
-  color: #f1f1f1;
-}
 .self {
   align-self: center;
 }

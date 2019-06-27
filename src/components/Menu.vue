@@ -90,23 +90,9 @@
     transition: 0.25s;
     transform: translateX(-250px)
 }
-
 .sideNav.open {
     transform: translateX(0px)
 }
-
-.sideNav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    color: #818181;
-    display: block;
-    transition: 0.25s;
-}
-
-.sideNav a:hover {
-    color: #f1f1f1;
-}
-
 .sideav .closebtn {
     position: absolute;
     top: 0;
@@ -114,8 +100,6 @@
     font-size: 36px;
     margin-left: 50px;
 }
-
-
 @media only screen and (max-width: 500px) {
     /* Menu */
     .hamburger {

@@ -138,6 +138,46 @@ table {
 
 /* General Style */
 
+
+/* width */
+
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+
+/* Track */
+
+ ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0);
+}
+
+
+/* Handle */
+
+ ::-webkit-scrollbar-thumb {
+    background: #818181;
+    border-radius: 0px;
+}
+
+
+/* Handle on hover */
+
+ ::-webkit-scrollbar-thumb:hover {
+    background: #f1f1f1;
+}
+
+a {
+    text-decoration: none;
+    color: #818181;
+    text-align: center;
+    transition: 0.25s;
+}
+
+a:hover {
+    color: #f1f1f1;
+}
+
 .translateMain {
     transition: all 1s;
     transform: translateX(250px)

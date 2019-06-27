@@ -1,24 +1,47 @@
 <template>
   <div id="contact" class="transitionWrap">
-    <div class="height textCenter">
-      <div v-if="contact.show" class="verticalyHoriontalyFlex midFontSize">
+    <div class="height textCenter flexBoxCon">
+      <div v-if="contact.show" class="verticalyHoriontalyFlex1 midFontSize">
         <h1 class="padding">Hoerraum Media GbR • Binderstr. 24 • 20146 Hamburg</h1>
-        <p class="padding">+49 40 244 37 132</p>
+        <p class="padding">
+          Telefon: +49 40 244 37 131
+          <br>Telefax: +49 40 244 37 133
+        </p>
         <p class="padding">info@hoerraum.media</p>
       </div>
 
-      <div v-if="imprint.show" class="verticalyHoriontalyFlex smallFontSize">
+      <div v-if="imprint.show" class="verticalyHoriontalyFlex2 smallFontSize">
         <h1>Impressum</h1>
-        <p class="padding">Inhaltlich verantwortlich i.S. des Presserechtes bzw. des Telemediengesetzes (§ 5 TMG):</p>
-        <p>Hoerraum Media GbR • Bindestr. 24 • 20146 Hamburg</p>
+        <p class="padding">Angaben gemäß § 5 TMG:</p>
+        <p>HO3RRAUM Media GbR • Matthias Krauße & the content dome Gesellschaft für immersive Medien mbH • Binderstr. 24 • 20146 Hamburg</p>
         <p class="padding">
-          GF: Markus Schäfer, Matthias Krause
-          <br>HRB: XXXXXX | USt-IdNr.: XXXXXXXXXXX
+          GF: Markus Schäfer, Matthias Krauße
+          <br>USt-IdNr.: DE295596354
         </p>
-        <p class="padding">HAFTUNGSAUSSCHLUSS</p>
-        <p>Trotz sorgfältiger inhaltlicher Kontrolle übernehmn wir keine Haftung 
-          für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind
-           ausschließlich deren Betreiber verantwortlich. Alle Inhalte unterliegen dem Urheberrecht.</p>
+        <p class="padding">Verantwortlicher i.S.d. Presserechts:</p>
+        <p>Markus Schäfer, Matthias Krauße</p>
+        <p class="padding">Streitschlichtung:</p>
+        <p>
+          Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr">https://ec.europa.eu/consumers/odr</a>.
+          Unsere E-Mail-Adresse finden Sie oben im Impressum.
+          Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+        </p>
+
+        <p class="padding">Haftung für Inhalte:</p>
+        <p>
+          Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
+          Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.
+        </p>
+        <p class="padding">Haftung für Links:</p>
+        <p>
+          Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar.
+          Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.
+        </p>
+        <p class="padding">Urheberrecht:</p>
+        <p>
+          Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Schrankenbestimmungen der $$ 44a bis 63a UrhG bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind ausschließlich für den privaten, nicht kommerziellen Gebrauch gestattet.
+          Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.
+        </p>
       </div>
     </div>
     <div class="stickRight">
@@ -30,14 +53,27 @@
   </div>
 </template>
 
-
 <style scoped>
-.verticalyHoriontalyFlex {
+.flexBoxCon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.verticalyHoriontalyFlex1 {
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 50%;
   justify-content: center;
   align-items: center;
+  overflow-y: auto;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+.verticalyHoriontalyFlex2 {
+  display: flex;
+  flex-direction: column;
+  height: 50%;
+  overflow-y: auto;
   margin-left: 25%;
   margin-right: 25%;
 }
@@ -57,15 +93,6 @@
   height: 100%;
   padding-left: 20px;
   padding-right: 20px;
-}
-.stickRight a {
-  text-decoration: none;
-  color: #818181;
-  display: block;
-  transition: 0.25s;
-}
-.stickRight a:hover {
-  color: #f1f1f1;
 }
 </style>
 
