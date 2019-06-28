@@ -1,7 +1,7 @@
 <template>
   <div id="contact" class="transitionWrap">
     <div class="height textCenter flexBoxCon">
-      <div v-if="contact.show" class="preventSwipe infoFlex1 midFontSize">
+      <div v-if="contact.show" class="infoFlex1 midFontSize">
         <h1 class="padding">Hoerraum Media GbR • Binderstr. 24 • 20146 Hamburg</h1>
         <p class="padding">
           Telefon: +49 40 244 37 131
@@ -150,20 +150,24 @@ export default {
         this.contact.show = false;
       }
     },
+    stopPropagate: function(e) {
+      e.stopPropagation();
+    },
     preventSwipe: function() {
       var elements = document.getElementsByClassName('preventSwipe');
       Array.from(elements).forEach((el) => {
-        el.addEventListener("wheel", event => {
-          event.stopPropagation();
-        })
+        el.addEventListener("wheel", this.stopPropagate)
+        el.addEventListener("touchstart", this.stopPropagate);
+        el.addEventListener("touchend", this.stopPropagate);
+        
       })
     },
     removePrevent: function() {
       var elements = document.getElementsByClassName('preventSwipe');
       Array.from(elements).forEach((el) => {
-        el.removeEventListener("wheel", event => {
-          event.stopPropagation();
-        })
+        el.removeEventListener("wheel", this.stopPropagate)
+        el.removeEventListener("touchstart", this.stopPropagate);
+        el.removeEventListener("touchend", this.stopPropagate);
       })
     }
   },

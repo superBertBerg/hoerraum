@@ -45,7 +45,7 @@ Bug up down swipe inside portfolio kacka
 imag head position when width<height>
 face save remove take  schau ob auch anderes nicht entfernt wird aus der scene
 Settimeout fuer init ist unbefridiegent
-Resize ist unbefridiegent
+Resize ist nur befridigend
 
 
 

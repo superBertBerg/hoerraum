@@ -1,7 +1,7 @@
 <template>
   <div id="gfslide" class="transitionWrap">
     <div :class="{reverseD: isMatt}" class="gfWrapFlex midFontSize">
-      <p v-html="message.p" class="gfTextWrap"></p>
+      <p v-html="message.p" class="preventSwipe gfTextWrap"></p>
       <router-link class="gfClickWrap" to="/about">
         <h2 class="display" v-html="message.h2"></h2>
       </router-link>
@@ -116,10 +116,35 @@ export default {
         this.message.h2 = this.matthias.ger.h2;
         this.isMatt = true;
       }
+    },
+    stopPropagate: function(e) {
+      e.stopPropagation();
+    },
+    preventSwipe: function() {
+      var elements = document.getElementsByClassName('preventSwipe');
+      Array.from(elements).forEach((el) => {
+        el.addEventListener("wheel", this.stopPropagate)
+        el.addEventListener("touchstart", this.stopPropagate);
+        el.addEventListener("touchend", this.stopPropagate);
+        
+      })
+    },
+    removePrevent: function() {
+      var elements = document.getElementsByClassName('preventSwipe');
+      Array.from(elements).forEach((el) => {
+        el.removeEventListener("wheel", this.stopPropagate)
+        el.removeEventListener("touchstart", this.stopPropagate);
+        el.removeEventListener("touchend", this.stopPropagate);
+      })
     }
   },
   created: function() {
     this.changeContent();
+  },
+  mounted: function() {
+    this.preventSwipe();
+  }, destroyed() {
+    this.removePrevent();
   }
 };
 </script>

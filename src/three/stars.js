@@ -9,10 +9,10 @@ export default class Stars {
         this.controler = controler
         this.name = name
 
-        this.init(config.instances, config.viewHeight, config.viewWidth, config.depth)
+        this.init(config.instances, config.viewHeight, config.viewWidth, config.depth, config.minSize, config.maxSize)
     }
 
-    init(instances, viewHeight, viewWidt, depth) {
+    init(instances, viewHeight, viewWidt, depth, minSize, maxSize) {
         var viewWidth = viewWidt * this.controler.camera.aspect
 
         this.x = 1.0
@@ -57,7 +57,7 @@ export default class Stars {
             // index
             starts.push(i);
             // Size
-            sizes.push(getRandomArbitrary(0.1, 2.5))
+            sizes.push(getRandomArbitrary(minSize, maxSize))
                 // sizes.push(1)
         }
 

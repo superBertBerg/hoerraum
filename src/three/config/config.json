@@ -56,7 +56,9 @@
         "instances": 2000,
         "viewHeight": 220,
         "viewWidth": 220,
-        "depth": 300
+        "depth": 300,
+        "minSize": 0.1,
+        "maxSize": 2.5
     },
     "head": {
         "imgPath": "static/images/head.png",
