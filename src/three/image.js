@@ -7,9 +7,9 @@ export default class ImgOnPlane {
     constructor(controler, name, config) {
         this.controler = controler
         this.name = name
-        this.init(config.imgPath)
         this.animation = config
         this.scaling = config.scale
+        this.init(config.imgPath)
     }
 
     init(imgPath) {
@@ -23,6 +23,7 @@ export default class ImgOnPlane {
             })
             // this.mesh.position.set(0, 0, 0)
         this.mesh = new THREE.Mesh(geometry, material)
+        console.log("asdfasdf", this.scaling)
         this.mesh.scale.set(this.scaling, this.scaling, 1)
         this.mesh.name = this.name
     }

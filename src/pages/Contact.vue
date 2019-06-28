@@ -151,10 +151,20 @@ export default {
       }
     },
     preventSwipe: function() {
-      elements = document.getElementsByClassName('preventSwipe');
-      // Array.from(elements).forEach((el) => {
-      //   el.zccr
-      // })
+      var elements = document.getElementsByClassName('preventSwipe');
+      Array.from(elements).forEach((el) => {
+        el.addEventListener("wheel", event => {
+          event.stopPropagation();
+        })
+      })
+    },
+    removePrevent: function() {
+      var elements = document.getElementsByClassName('preventSwipe');
+      Array.from(elements).forEach((el) => {
+        el.removeEventListener("wheel", event => {
+          event.stopPropagation();
+        })
+      })
     }
   },
   beforeRouteUpdate(to, from, next) {
@@ -163,10 +173,11 @@ export default {
   },
   created: function() {
     this.changeContent(this.$route.params.id);
-    // this.preventSwipe()
   },
   mounted: function() {
-    this.preventSwipe()
+    this.preventSwipe();
+  }, destroyed() {
+    this.removePrevent();
   }
 };
 </script>
