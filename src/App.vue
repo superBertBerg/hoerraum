@@ -279,7 +279,7 @@ export default {
       this.scrolled = false;
     },
     onResize: function() {
-      if (window.innerWidth < 501) {
+      if (window.innerWidth < 769) {
         this.mob = true;
       }
     },

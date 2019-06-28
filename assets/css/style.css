@@ -305,17 +305,17 @@ path {
 
 .bigFontSize {
     font-family: folio-condensed, sans-serif;
-    font-size: 3.5em;
+    font-size: 4em;
 }
 
 .midFontSize {
     font-family: folio-condensed, sans-serif;
-    font-size: 1.3em;
+    font-size: 1.5em;
 }
 
 .smallFontSize {
     font-family: folio-condensed, sans-serif;
-    font-size: 1.2em;
+    font-size: 1.3em;
 }
 
 .coming {
@@ -339,11 +339,8 @@ path {
     .bigFontSize {
         font-size: 3.5em;
     }
-    .midFontSize {
-        font-size: 2em;
-    }
     .smallFontSize {
-        font-size: 2em;
+        font-size: 1.2em;
     }
 }
 
@@ -352,16 +349,16 @@ path {
 
 @media only screen and (max-width: 768px) {
     .pageHeadline {
-        font-size: 5.5em;
+        font-size: 5em;
     }
     .bigFontSize {
         font-size: 2.5em;
     }
     .midFontSize {
-        font-size: 1.5em;
+        font-size: 1.3em;
     }
     .smallFontSize {
-        font-size: 1.5em;
+        font-size: 1em;
     }
 }
 
@@ -370,7 +367,7 @@ path {
 
 @media only screen and (max-width: 500px) {
     .pageHeadline {
-        font-size: 4.5em;
+        font-size: 4em;
     }
     .bigFontSize {
         font-size: 2em;

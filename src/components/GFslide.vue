@@ -1,8 +1,8 @@
 <template>
   <div id="gfslide" class="transitionWrap">
-    <div :class="{reverseD: isMatt}" class="verticalFlex Pa midFontSize">
-      <p v-html="message.p" class="leftImag"></p>
-      <router-link class="leftImagHead" to="/about">
+    <div :class="{reverseD: isMatt}" class="gfWrapFlex midFontSize">
+      <p v-html="message.p" class="gfTextWrap"></p>
+      <router-link class="gfClickWrap" to="/about">
         <h2 class="display" v-html="message.h2"></h2>
       </router-link>
     </div>
@@ -12,7 +12,7 @@
 
 
 <style scoped>
-.verticalFlex {
+.gfWrapFlex {
   display: flex;
   align-items: center;
   height: 100%;
@@ -22,12 +22,14 @@
 .reverseD {
   flex-direction: row-reverse;
 }
-.leftImag {
-  width: 60%;
+.gfTextWrap {
+  overflow-y: auto;
+  width: 45%;
+  height: 50%;
   padding-left: 10%;
   padding-right: 10%;
 }
-.leftImagHead {
+.gfClickWrap {
   display: flex;
   justify-content: center;
   height: 100%;
@@ -37,17 +39,23 @@
   margin-bottom: 50%;
   align-self: flex-end;
 }
-@media only screen and (max-width: 500px) {
-  .leftImag {
+@media only screen and (max-width: 1024px) {
+  .gfTextWrap {
+    width: 55%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .gfTextWrap {
     width: 70%;
+    height: 40%;
     padding: 0px;
   }
-  .leftImagHead {
+  .gfClickWrap {
     width: 90%;
     height: 50%;
     padding: 0px;
   }
-  .verticalFlex {
+  .gfWrapFlex {
     flex-direction: column;
     justify-content: center;
   }
@@ -74,12 +82,12 @@ export default {
         ger: {
           h2: "Markus Schäfer",
           p:
-            "• Werbekaufmann, Diplom-Betriebswirt, Marketing- und Content-Experte<br><br>" +
+            "<br>• Werbekaufmann, Diplom-Betriebswirt, Marketing- und Content-Experte<br><br>" +
             "• arbeitet seit mehr als 30 Jahren in den Bereichen Content, Marken und Medien<br><br>" +
             "• war angestellt bei BMG Ariola, The Walt Disney Company EMEA, [PIAS] Recordings<br><br>" +
             "• als selbstständiger Unternehmer seit 2002 u.a. tätig für OTTO Group, InBev, STAGE Entertainment, G+J, Warner Strategic Marketing, Union Investment, Reeperbahnfestival<br><br>" +
             "• hat 2013 the content dome GmbH gegründet und „Tabaluga und die Zeichen der Zeit“ als 360°-Erlebnis produziert<br><br>" +
-            "• und hat noch einiges vor ! ..."
+            "• und hat noch einiges vor ! ...<br><br><br>"
         },
         eng: { h2: "", p: "" }
       },

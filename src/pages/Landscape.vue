@@ -23,7 +23,7 @@
   left: 0;
   bottom: 0;
 }
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 768px) {
     .textLeft {
       display: flex;
       flex-direction: column;

@@ -52,7 +52,7 @@
   display: none;
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 768px) {
   .flexLMR {
     width: 5%;
   }
