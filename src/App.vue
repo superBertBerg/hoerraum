@@ -41,11 +41,10 @@ export default {
         ["/landscape"]: 2,
         ["/portfolio"]: 3,
         ["/about"]: 4,
-        ["/contact"]: 5,
+        ["/info/detail/contact"]: 5,
         ["/about/gf/markus_schaefer"]: 6,
         ["/about/gf/matthias_krause"]: 7,
-        ["/contact/detail/imprint"]: 8,
-        ["/contact/detail/contact"]: 9,
+        ["/info/detail/imprint"]: 8,
         ["/portfolio/das_versunkene_schiff"]: 10,
         ["/portfolio/die_schwarze_katze"]: 11,
         ["/portfolio/der_dreiaeugige_totenkopf"]: 12,
@@ -172,6 +171,7 @@ export default {
           break;
         case 5:
           this.$props.three.ellipse.start();
+          this.$props.three.ellipse.deSpread(2, 2);
           this.$props.three.matthias.moveToStart();
           this.$props.three.markus.moveToStart();
           console.log(this.routes[to], "  ", this.$props.three);
@@ -199,12 +199,6 @@ export default {
         case 8:
           this.$props.three.ellipse.start();
           this.$props.three.ellipse.spread(2, 2);
-          this.$props.three.matthias.moveToStart();
-          this.$props.three.markus.moveToStart();
-          break;
-        case 9:
-          this.$props.three.ellipse.start();
-          this.$props.three.ellipse.deSpread(2, 2);
           this.$props.three.matthias.moveToStart();
           this.$props.three.markus.moveToStart();
           break;

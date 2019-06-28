@@ -9,7 +9,7 @@
       <router-link to="/landscape">Landscape</router-link>
       <router-link to="/portfolio">Portfolio</router-link>
       <router-link to="/about">About</router-link>
-      <router-link to="/contact">Contact</router-link>
+      <router-link to="/info/detail/contact">Contact</router-link>
     </div>
     <div class="hamburger" v-on:click="toggleNav()" v-bind:class="{openH: toggled}">
       <span class="hamburger__top-bun"></span>

@@ -39,7 +39,7 @@ const router = new VueRouter({
             ]
         },
         {
-            path: '/contact/',
+            path: '/info/',
             component: Contact,
             children: [
                 { path: 'detail/:id' }

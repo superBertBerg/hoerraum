@@ -48,8 +48,8 @@
     </div>
     <div class="stickRight">
       <div class="flexer midFontSize">
-        <router-link class="size" to="/contact/detail/imprint">Impressum</router-link>
-        <router-link class="size" to="/contact/detail/contact">Kontakt</router-link>
+        <router-link class="size" to="/info/detail/imprint">Impressum</router-link>
+        <router-link class="size" to="/info/detail/contact">Kontakt</router-link>
       </div>
     </div>
   </div>
