@@ -1,7 +1,7 @@
 <template>
   <div id="contact" class="transitionWrap">
     <div class="height textCenter flexBoxCon">
-      <div v-if="contact.show" class="infoFlex1 midFontSize">
+      <div v-show="cshow" class="infoFlex1 midFontSize">
         <h1 class="padding">Hoerraum Media GbR • Binderstr. 24 • 20146 Hamburg</h1>
         <p class="padding">
           Telefon: +49 40 244 37 131
@@ -9,8 +9,7 @@
         </p>
         <p class="padding">info@hoerraum.media</p>
       </div>
-
-      <div v-if="imprint.show" class="preventSwipe infoFlex2 smallFontSize">
+      <div v-show="ishow" class="preventSwipe infoFlex2 smallFontSize">
         <h1>Impressum</h1>
         <p class="padding">Angaben gemäß § 5 TMG:</p>
         <p>HO3RRAUM Media GbR • Matthias Krauße & the content dome Gesellschaft für immersive Medien mbH • Binderstr. 24 • 20146 Hamburg</p>
@@ -132,22 +131,25 @@
 export default {
   data: function() {
     return {
-      imprint: {
-        show: false
-      },
-      contact: {
-        show: true
-      }
+        ishow: false,
+        cshow: true
     };
+  },
+  computed: {
+    prevent: function() {
+      if(this.ishow) {
+        this.preventSwipe()
+      }
+    }
   },
   methods: {
     changeContent: function(id) {
       if (id === "contact") {
-        this.imprint.show = false;
-        this.contact.show = true;
+        this.ishow = false;
+        this.cshow = true;
       } else if (id === "imprint") {
-        this.imprint.show = true;
-        this.contact.show = false;
+        this.ishow = true;
+        this.cshow = false;
       }
     },
     stopPropagate: function(e) {
@@ -161,6 +163,7 @@ export default {
         el.addEventListener("touchend", this.stopPropagate);
         
       })
+      return true;
     },
     removePrevent: function() {
       var elements = document.getElementsByClassName('preventSwipe');
@@ -178,9 +181,10 @@ export default {
   created: function() {
     this.changeContent(this.$route.params.id);
   },
-  mounted: function() {
+  mounted() {
     this.preventSwipe();
-  }, destroyed() {
+  },
+  destroyed() {
     this.removePrevent();
   }
 };
