@@ -84,35 +84,18 @@ export default {
       var cur = this.$router.currentRoute.path;
       if (this.routes[cur] !== undefined) {
         this.current = this.routes[cur];
-        this.animation(cur);
+        this.animation(this.current);
       } else {
         this.$router.replace("/");
       }
     },
     validPath: function(to, from) {
-      if (this.routes[to] !== undefined) {
-        this.transitionCalc(to, from);
-        this.animation(to, from);
+      var routeNumber = this.routes[to]
+      if (routeNumber !== undefined) {
+        this.current = routeNumber;
+        this.animation(routeNumber);
       } else {
         this.$router.replace("/");
-      }
-    },
-    transitionCalc: function(to, from) {
-      var jumpCalc = this.routes[to] - this[from];
-      if (Math.abs(jumpCalc) == 1 && jumpCalc > 0) {
-        //forward
-        // console.log("case1");
-        // this.$props.three.start();
-        this.transitonEffect = "slideSwitch";
-      } else if (Math.abs(jumpCalc) == 1 && jumpCalc < 0) {
-        //backward
-        // console.log("case2");
-        this.transitonEffect = "slideSwitch";
-      } else {
-        // console.log("case3");
-        // this.$props.three.hide(true);
-        this.transitonEffect = "slideSwitch";
-        //abort all animation switch to site
       }
     },
     hideAllAnimation: function(currentSlide) {
@@ -129,20 +112,20 @@ export default {
         }
       }
     },
-    animation: function(to, from) {
-      this.hideAllAnimation(this.routes[to]);
-      switch (this.routes[to]) {
+    animation: function(to) {
+      this.hideAllAnimation(to);
+      switch (to) {
         case 0:
           this.$props.three.line.start();
           this.$props.three.matthias.moveToStart();
           this.$props.three.markus.moveToStart();
-          console.log(this.routes[to], "  ", this.$props.three);
+          // console.log(to, "  ", this.$props.three);
           break;
         case 1:
           this.$props.three.bigStars.start();
           this.$props.three.matthias.moveToStart();
           this.$props.three.markus.moveToStart();
-          console.log(this.routes[to], "  ", this.$props.three);
+          // console.log(to, "  ", this.$props.three);
           break;
         case 2:
           this.$props.three.head.start();
@@ -152,12 +135,12 @@ export default {
           this.$props.three.smallLand.start(0.8, -2300, -2070);
           this.$props.three.matthias.moveToStart();
           this.$props.three.markus.moveToStart();
-          console.log(this.routes[to], "  ", this.$props.three);
+          // console.log(to, "  ", this.$props.three);
           break;
         case 3:
           this.$props.three.matthias.moveToStart();
           this.$props.three.markus.moveToStart();
-          console.log(this.routes[to], "  ", this.$props.three);
+          // console.log(to, "  ", this.$props.three);
           break;
         case 4:
           this.$props.three.matthias.start();
@@ -167,14 +150,14 @@ export default {
           } else {
             this.moveFaces(100, 0, -100, 0);
           }
-          console.log(this.routes[to], "  ", this.$props.three);
+          // console.log(to, "  ", this.$props.three);
           break;
         case 5:
           this.$props.three.ellipse.start();
           this.$props.three.ellipse.deSpread(2, 2);
           this.$props.three.matthias.moveToStart();
           this.$props.three.markus.moveToStart();
-          console.log(this.routes[to], "  ", this.$props.three);
+          // console.log(to, "  ", this.$props.three);
           break;
         case 6:
           this.$props.three.markus.start();
@@ -184,7 +167,7 @@ export default {
             this.moveFaces(100, 0, 100, 0);
           }
           this.$props.three.matthias.moveToStart();
-          console.log(this.routes[to], "  ", this.$props.three);
+          // console.log(to, "  ", this.$props.three);
           break;
         case 7:
           this.$props.three.matthias.start();
@@ -194,7 +177,7 @@ export default {
             this.moveFaces(-100, 0, -100, 0);
           }
           this.$props.three.markus.moveToStart();
-          console.log(this.routes[to], "  ", this.$props.three);
+          // console.log(to, "  ", this.$props.three);
           break;
         case 8:
           this.$props.three.ellipse.start();
@@ -213,6 +196,9 @@ export default {
       if (this.mob) {
         this.$props.three.matthias.setScale(0.57);
         this.$props.three.markus.setScale(0.57);
+      } else {
+        this.$props.three.matthias.setScale(0.7);
+        this.$props.three.markus.setScale(0.7);
       }
     },
     keyCalc(event) {
@@ -275,7 +261,10 @@ export default {
     onResize: function() {
       if (window.innerWidth < 769) {
         this.mob = true;
+      } else {
+        this.mob = false;
       }
+      this.animation(this.current)
     },
     getKeyByValue(object, value) {
       return Object.keys(object).find(key => object[key] === value);
