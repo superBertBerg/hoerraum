@@ -1,7 +1,7 @@
 <template>
   <div id="contact" class="transitionWrap">
     <div class="height textCenter flexBoxCon">
-      <div v-if="contact.show" class="verticalyHoriontalyFlex1 midFontSize">
+      <div v-if="contact.show" class="preventSwipe infoFlex1 midFontSize">
         <h1 class="padding">Hoerraum Media GbR • Binderstr. 24 • 20146 Hamburg</h1>
         <p class="padding">
           Telefon: +49 40 244 37 131
@@ -10,7 +10,7 @@
         <p class="padding">info@hoerraum.media</p>
       </div>
 
-      <div v-if="imprint.show" class="verticalyHoriontalyFlex2 smallFontSize">
+      <div v-if="imprint.show" class="preventSwipe infoFlex2 smallFontSize">
         <h1>Impressum</h1>
         <p class="padding">Angaben gemäß § 5 TMG:</p>
         <p>HO3RRAUM Media GbR • Matthias Krauße & the content dome Gesellschaft für immersive Medien mbH • Binderstr. 24 • 20146 Hamburg</p>
@@ -61,7 +61,7 @@
   align-items: center;
   justify-content: center;
 }
-.verticalyHoriontalyFlex1 {
+.infoFlex1 {
   display: flex;
   flex-direction: column;
   height: 50%;
@@ -71,7 +71,7 @@
   margin-left: 25%;
   margin-right: 25%;
 }
-.verticalyHoriontalyFlex2 {
+.infoFlex2 {
   display: flex;
   flex-direction: column;
   height: 50%;
@@ -97,11 +97,11 @@
   padding-right: 20px;
 }
 @media only screen and (max-width: 500px) {
-  .verticalyHoriontalyFlex1 {
+  .infoFlex1 {
     margin-left: 10%;
     margin-right: 10%;
   }
-  .verticalyHoriontalyFlex2 {
+  .infoFlex2 {
     margin-left: 10%;
     margin-right: 10%;
   }
@@ -149,6 +149,12 @@ export default {
         this.imprint.show = true;
         this.contact.show = false;
       }
+    },
+    preventSwipe: function() {
+      elements = document.getElementsByClassName('preventSwipe');
+      // Array.from(elements).forEach((el) => {
+      //   el.zccr
+      // })
     }
   },
   beforeRouteUpdate(to, from, next) {
@@ -157,6 +163,10 @@ export default {
   },
   created: function() {
     this.changeContent(this.$route.params.id);
+    // this.preventSwipe()
+  },
+  mounted: function() {
+    this.preventSwipe()
   }
 };
 </script>
