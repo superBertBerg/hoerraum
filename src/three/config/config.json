@@ -60,6 +60,7 @@
     },
     "head": {
         "imgPath": "static/images/head.png",
+        "scale": 1,
         "xfrom": 0,
         "xto": 0,
         "yfrom": 0,
