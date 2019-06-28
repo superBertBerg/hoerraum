@@ -92,7 +92,7 @@ export default {
     validPath: function(to, from) {
       var routeNumber = this.routes[to]
       if (routeNumber !== undefined) {
-        this.current = routeNumber;
+        if(this.maxScrollDepth>routeNumber) this.current = routeNumber;
         this.animation(routeNumber);
       } else {
         this.$router.replace("/");
@@ -237,6 +237,7 @@ export default {
     },
     handleScroll: function(event) {
       if (!this.scrolled) {
+      console.log("handle",this.current)
         if (event > 0) {
           this.current = this.mod(this.current + 1, this.maxScrollDepth);
           this.$router.push({
