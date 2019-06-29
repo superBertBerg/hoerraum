@@ -14,6 +14,7 @@ attribute vec2 uv;
 attribute float linex;
 attribute float speed;
 attribute float start;
+attribute float size;
 varying vec2 vUv;
 varying vec3 vColor;
 float rand(vec2 co) {
@@ -27,6 +28,6 @@ void main() {
   displace.x += xversch + sin(start + time) * xf * diffuse.x;
   displace.y = yversch + sin(start + time * 1.5) * yf * diffuse.y;
   displace.z = zf * sin(start + time * speed) * diffuse.z;
-  vec3 scale = vec3(0.2, 0.2, 0.2);
+  vec3 scale = vec3(size, size, 0.2);
   gl_Position = projectionMatrix * modelViewMatrix * vec4(position * scale + displace, 1.0);
 }
