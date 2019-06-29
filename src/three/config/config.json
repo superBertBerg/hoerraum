@@ -26,30 +26,30 @@
         }
     ],
     "smallland": {
-        "amplitude": 30,
+        "amplitude": 35,
         "wavelength": 30,
-        "octaves": 4,
-        "divisor": 1,
-        "strokes": 5000,
-        "fact": 2000,
+        "octaves": 2,
+        "divisor": 10,
+        "strokes": 7000,
+        "fact": 2035,
         "color": "0x000000"
     },
     "midland": {
-        "amplitude": 60,
-        "wavelength": 60,
+       "amplitude": 38,
+        "wavelength": 20,
         "octaves": 4,
-        "divisor": 2,
-        "strokes": 10000,
-        "fact": 2050,
+        "divisor": 5,
+        "strokes": 5000,
+        "fact": 2085,
         "color": "0x212a31"
     },
     "bigland": {
-        "amplitude": 140,
-        "wavelength": 140,
-        "octaves": 8,
-        "divisor": 2,
-        "strokes": 10000,
-        "fact": 2100,
+        "amplitude": 40,
+        "wavelength": 20,
+        "octaves": 5,
+        "divisor": 5,
+        "strokes": 5500,
+        "fact": 2140,
         "color": "0x203a49"
     },
     "stars": {
@@ -57,35 +57,35 @@
         "viewHeight": 220,
         "viewWidth": 220,
         "depth": 300,
-        "minSize": 0.1,
-        "maxSize": 2.5
+        "minSize": 0.06,
+        "maxSize": 1.8
     },
     "head": {
         "imgPath": "static/images/head.png",
-        "scale": 1,
+        "scale": 1.8,
         "xfrom": 0,
         "xto": 0,
         "yfrom": 0,
-        "yto": -90,
+        "yto": -80,
         "zfrom": 5,
-        "zto": -1000,
+        "zto": 0,
         "opacityfrom": 0,
         "opacityto": 1,
-        "time": 2
+        "time": 3
     },
     "matthias": {
         "x": 105,
         "y": 0,
         "threshold": 0,
         "scale": 0.7,
-        "imgPath": "static/images/matthiasNew200.png"
+        "imgPath": "static/images/matthias_final.png"
     },
     "markus": {
         "x": -105,
         "y": 0,
         "threshold": 0,
         "scale": 0.7,
-        "imgPath": "static/images/markNew200.png"
+        "imgPath": "static/images/markus_final.png"
     },
     "ellipse": {
         "instances": 200,

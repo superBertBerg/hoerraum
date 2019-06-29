@@ -101,13 +101,13 @@ export default class Stars {
         this.mesh.parent.remove(this.mesh);
     }
 
-    start(time = 0.8) {
+    start(time = 2.8) {
         if (this.mesh) {
             this.controler.scene.add(this.mesh)
             return new Promise((resolve, reject) => {
-                TweenLite.fromTo(this.ufStars.zfact, time, { value: 40.0 }, { value: this.z });
-                TweenLite.fromTo(this.ufStars.xfact, time, { value: 40.0 }, { value: this.z });
-                TweenLite.fromTo(this.ufStars.yfact, time, { value: 40.0 }, { value: this.z });
+                TweenLite.fromTo(this.ufStars.zfact, time, { value: 18.0 }, { value: this.z });
+                TweenLite.fromTo(this.ufStars.xfact, time, { value: 18.0 }, { value: this.z });
+                TweenLite.fromTo(this.ufStars.yfact, time, { value: 18.0 }, { value: this.z });
             });
         }
     }
