@@ -43,7 +43,7 @@ export default class Line {
                 // console.log(howwavy)
             for (var i = 0; i < instances / waves; ++i) {
                 var xdiffuse = getRandomArbitrary(diffStart, diffDest)
-                var ydiffuse = getRandomArbitrary(diffStart, diffStart)
+                var ydiffuse = getRandomArbitrary(diffStart, diffDest)
                 var zdiffuse = getRandomArbitrary(diffStart, diffDest)
 
                 // coordinates

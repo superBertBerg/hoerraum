@@ -35,7 +35,7 @@
         "color": "0x000000"
     },
     "midland": {
-       "amplitude": 38,
+        "amplitude": 38,
         "wavelength": 20,
         "octaves": 4,
         "divisor": 5,
