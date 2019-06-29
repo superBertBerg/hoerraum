@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { TweenLite } from 'gsap';
 import { initSquares } from './components/constructsquares'
 import { getRandomArbitrary } from './utils/helpers.utils'
+import { cpus } from 'os';
 
 export default class Line {
 
@@ -34,6 +35,8 @@ export default class Line {
         let speeds = []
             // index get pix start pos
         let starts = []
+            // colors
+        let colors = []
             // diffuse
         let diffuses = []
 
@@ -55,13 +58,15 @@ export default class Line {
                 // diffusion
                 diffuses.push(xdiffuse, ydiffuse, zdiffuse)
 
+                colors.push(Math.random(), Math.random(), Math.random(), Math.random());
+
                 wave += (howwavy * Math.PI / 1000)
                     // console.log(wave)
             }
             wave = Math.random()
             xProgress = -width
         }
-        var square = initSquares(null, starts, speeds, diffuses, null, null, linex)
+        var square = initSquares(null, starts, speeds, diffuses, colors, null, linex)
         square.maxInstancedCount = instances;
 
         var mat = new THREE.RawShaderMaterial({

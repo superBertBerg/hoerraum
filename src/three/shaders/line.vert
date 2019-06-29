@@ -9,16 +9,19 @@ uniform float xversch;
 uniform float yversch;
 attribute vec3 position;
 attribute vec3 diffuse;
+attribute vec3 color;
 attribute vec2 uv;
 attribute float linex;
 attribute float speed;
 attribute float start;
 varying vec2 vUv;
+varying vec3 vColor;
 float rand(vec2 co) {
   return fract(sin(dot(co.xy, vec2(12.9898, 78.233))) * 43758.5453);
 }
 void main() {
   vUv = uv;
+  vColor = color;
   float abc = linex;
   vec3 displace = vec3(abc, 1.0, 1.0);
   displace.x += xversch + sin(start + time) * xf * diffuse.x;
