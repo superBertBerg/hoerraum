@@ -93,13 +93,14 @@ export default class Ellipse {
                 }
             });
             TweenLite.to(this.uniforms.yfact, time, { value: 1500.0 });
-            TweenLite.to(this.uniforms.zfact, time * 0.8, { value: -500.0 });
+            TweenLite.to(this.uniforms.zfact, time, { value: -1500.0 });
         });
     }
 
     stop() {
         if (!this.controler.scene.getObjectByName(this.name)) return;
         this.mesh.parent.remove(this.mesh);
+        console.log("ellipse stoped")
     }
 
     start(time = 0.8) {
@@ -109,7 +110,7 @@ export default class Ellipse {
             return new Promise((resolve, reject) => {
                 TweenLite.fromTo(this.uniforms.xfact, time, { value: 1500.0 }, { value: this.x });
                 TweenLite.fromTo(this.uniforms.yfact, time, { value: 1500.0 }, { value: this.y });
-                TweenLite.fromTo(this.uniforms.zfact, time * 0.8, { value: 1500.0 }, { value: this.z });
+                TweenLite.fromTo(this.uniforms.zfact, time, { value: -1500.0 }, { value: this.z });
             });
         }
     }
@@ -125,14 +126,16 @@ export default class Ellipse {
         });
     }
     deSpread(xspreadfact, yspreadfact, time = 0.8) {
-        return new Promise((resolve, reject) => {
-            TweenLite.fromTo(this.uniforms.xfact, time, { value: this.x * xspreadfact }, {
-                value: this.x,
-                onComplete: () => {
-                    resolve()
-                }
+        if (this.uniforms.xfact.value == this.x * xspreadfact) {
+            return new Promise((resolve, reject) => {
+                TweenLite.fromTo(this.uniforms.xfact, time, { value: this.x * xspreadfact }, {
+                    value: this.x,
+                    onComplete: () => {
+                        resolve()
+                    }
+                });
+                TweenLite.fromTo(this.uniforms.yfact, time, { value: this.y * yspreadfact }, { value: this.y });
             });
-            TweenLite.fromTo(this.uniforms.yfact, time, { value: this.y * yspreadfact }, { value: this.y });
-        });
+        }
     }
 }

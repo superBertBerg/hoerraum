@@ -17,13 +17,11 @@ export default class ImgOnPlane {
         let loader = new THREE.TextureLoader();
 
         let material = new THREE.MeshBasicMaterial({
-                map: loader.load(imgPath),
-                color: new THREE.Color(0xf5f5f5),
-                transparent: true
-            })
-            // this.mesh.position.set(0, 0, 0)
+            map: loader.load(imgPath),
+            color: new THREE.Color(0xf5f5f5),
+            transparent: true
+        })
         this.mesh = new THREE.Mesh(geometry, material)
-        console.log("asdfasdf", this.scaling)
         this.mesh.scale.set(this.scaling, this.scaling, 1)
         this.mesh.name = this.name
     }

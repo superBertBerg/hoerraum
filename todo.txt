@@ -1,54 +1,43 @@
-Allgemeines: 
-Steuerung tasten/scrollen rich kacka grad
-
-
-Animationen:
-SVGTaucher      ---> Op.    
-Fractalbaeume   ---> Op.
-
-
 Seiten:
-Extra Slide in mobile für about
-Mobile variante optimieren!
+    Extra Slide in mobile für about
 
+SEO:
+    sidmap etc.
+    grob schauen ob alles geladen wird!
+    Bilder alt tags
 
--- SEO:
-sidmap etc.
-grob schauen ob alles geladen wird!
-Bilder alt tags
-
-portfolio:
-mehr like wie prodoziert nur 2 unterschiedliche räuber und ???
-
-
-FRAGEN/NEED:
-
-Website:
-Allen Text bekommen, Englisch??
-Text Matthias/Markus
-
-
+Content:
+    Text Matthias
+Animationen:
+    Fractalbaeume
 
 REFRACTORING des TODES!!!
+- Scoped CSS
 - Faces allerdings vlt. nachder interaktivität!
-- R
-
-Steigung berge weniger
-
-Text Desktop größer
 
 BUGS:
 
---
-RESIZE!!z
-Bug up down swipe inside portfolio kacka
-imag head position when width<height>
-face save remove take  schau ob auch anderes nicht entfernt wird aus der scene
-Settimeout fuer init ist unbefridiegent
-Resize ist nur befridigend
+    High pri--
+    face save remove take schau ob auch anderes nicht entfernt wird aus der scene
+    Settimeout fuer init ist unbefridiegent
+
+    Low pri--
+    Resize ist nur befridigend
+    wenn man auf einen seite ist die höher als seite 5 ist neulät und navigiert landet man auf der falschen seite!
 
 
 
 
 Sehr Optional:
 punkte von gesichtern im Mobilen view veringern
+
+
+
+Nächste Iteration:
+
+Animationen:
+    SVGTaucher      ---> Op.    
+    
+
+Content:
+    Englische Texte

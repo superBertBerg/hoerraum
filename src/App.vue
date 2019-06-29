@@ -18,6 +18,7 @@ import Menu from "./components/Menu.vue";
 import Portfolio from "./pages/Portfolio.vue";
 import Contact from "./pages/Contact.vue";
 import Imag from "./pages/About.vue";
+import * as routeConf from './three/config/routes.json'
 
 // test ugly
 import Test from "./components/Test.vue";
@@ -35,43 +36,19 @@ export default {
   },
   data: function() {
     return {
-      routes: {
-        ["/"]: 0,
-        ["/dive"]: 1,
-        ["/landscape"]: 2,
-        ["/portfolio"]: 3,
-        ["/about"]: 4,
-        ["/info/detail/contact"]: 5,
-        ["/about/gf/markus_schaefer"]: 6,
-        ["/about/gf/matthias_krause"]: 7,
-        ["/info/detail/imprint"]: 8,
-        ["/portfolio/das_versunkene_schiff"]: 10,
-        ["/portfolio/die_schwarze_katze"]: 11,
-        ["/portfolio/der_dreiaeugige_totenkopf"]: 12,
-        ["röferHotifot"]: 13
-      },
-      hide: [
-        ["line", 0],
-        ["bigStars", 1],
-        ["star", 2],
-        ["bigLand", 2],
-        ["midLand", 2],
-        ["smallLand", 2],
-        ["head", 2],
-        ["matthias", 4, 7],
-        ["markus", 4, 6],
-        ["ellipse", 5, 8, 9]           
-      ],
-      current: 0,
+      routes: routeConf.desktop,
+      hide: routeConf.desktop.hide,
+      maxNavDepth: 6,
+      currentNavigate: 0,
+      currentAnimation: 0,
       transitonEffect: "slideSwitch",
 
       mob: false,
-      maxScrollDepth: 6,
       scrolled: false,
       touchSwipe: {
         startX: 0,
         startY: 0,
-        threshold: window.innerHeight*0.2,
+        threshold: window.innerHeight*0.1,
         restraint: 100,
         allowedTime: 300,
         startTime: 0
@@ -79,21 +56,35 @@ export default {
     };
   },
   methods: {
+    calcRoutes: function() {
+      if(this.mob) {
+        this.routes = routeConf.mobile
+        this.hide = routeConf.mobile.hide
+        this.maxNavDepth = routeConf.mobile.maxNavDepth
+      } else {
+        this.routes = routeConf.desktop
+        this.hide = routeConf.desktop.hide
+        this.maxNavDepth = routeConf.desktop.maxNavDepth
+      }
+    },
     init: function() {
       this.onResize();
       var cur = this.$router.currentRoute.path;
-      if (this.routes[cur] !== undefined) {
-        this.current = this.routes[cur];
-        this.animation(this.current);
+      var curRoute = this.routes[cur]
+      if (curRoute[0] !== undefined) {
+        this.currentNavigate = curRoute[0];
+        this.currentAnimation = curRoute[1]
+        this.animation(this.currentAnimation);
       } else {
         this.$router.replace("/");
       }
     },
     validPath: function(to, from) {
-      var routeNumber = this.routes[to]
-      if (routeNumber !== undefined) {
-        this.current = routeNumber;
-        this.animation(routeNumber);
+      var route = this.routes[to]
+      if (route[0] !== undefined) {
+        this.currentNavigate  = route[0]
+        this.currentAnimation = route[1]
+        this.animation(route[1]);
       } else {
         this.$router.replace("/");
       }
@@ -140,7 +131,7 @@ export default {
         case 3:
           this.$props.three.matthias.moveToStart();
           this.$props.three.markus.moveToStart();
-          // console.log(to, "  ", this.$props.three);
+          console.log(to, "  ", this.$props.three);
           break;
         case 4:
           this.$props.three.matthias.start();
@@ -150,7 +141,7 @@ export default {
           } else {
             this.moveFaces(100, 0, -100, 0);
           }
-          // console.log(to, "  ", this.$props.three);
+          console.log(to, "  ", this.$props.three);
           break;
         case 5:
           this.$props.three.ellipse.start();
@@ -225,28 +216,28 @@ export default {
           Math.abs(distY) > this.touchSwipe.threshold &&
           Math.abs(distX) < this.touchSwipe.restraint
         ) {
-          // 2nd condition for horizontal swipe met
-          swipedir = distX < 0 ? -100 : 100; // if dist traveled is negative, it indicates left swipe
+          swipedir = distY < 0 ? 100 : -100; 
         }
       }
       this.handleScroll(swipedir);
     },
+    // REFRAC
     mod: function(n, m) {
       var remain = n % m;
       return Math.floor(remain >= 0 ? remain : remain + m);
     },
+    // REFRAC
     handleScroll: function(event) {
       if (!this.scrolled) {
         if (event > 0) {
-          this.current = this.mod(this.current + 1, this.maxScrollDepth);
           this.$router.push({
-            path: this.getKeyByValue(this.routes, this.current)
+            path: this.getKeyByValue(this.routes, this.mod(this.currentNavigate + 1, this.maxNavDepth))
           });
           this.scrolled = true;
         } else if (event < 0) {
-          this.current = this.mod(this.current - 1, this.maxScrollDepth);
+
           this.$router.push({
-            path: this.getKeyByValue(this.routes, this.current)
+            path: this.getKeyByValue(this.routes, this.mod(this.currentNavigate - 1, this.maxNavDepth))
           });
           this.scrolled = true;
         }
@@ -264,11 +255,14 @@ export default {
       } else {
         this.mob = false;
       }
-      this.animation(this.current)
+      this.calcRoutes()
+      this.animation(this.currentAnimation)
     },
+    // REFRAC
     getKeyByValue(object, value) {
-      return Object.keys(object).find(key => object[key] === value);
+      return Object.keys(object).find(key => object[key][0] === value);
     }
+    // REFRAC
   },
   watch: {
     $route(to, from) {
