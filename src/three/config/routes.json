@@ -1,0 +1,55 @@
+{
+    "desktop": {
+        "/": [0, 0],
+        "/dive": [1, 1],
+        "/landscape": [2, 2],
+        "/portfolio": [3, 3],
+        "/about": [4, 4],
+        "/about/gf/markus_schaefer": [4, 6],
+        "/about/gf/matthias_krause": [4, 7],
+        "/info/detail/contact": [5, 5],
+        "/info/detail/imprint": [5, 8],
+        "/portfolio/das_versunkene_schiff": [3, 10],
+        "/portfolio/die_schwarze_katze": [3, 11],
+        "/portfolio/der_dreiaeugige_totenkopf": [3, 12],
+        "röferHotifot": [3, 13],
+        "hide": [
+            ["line", 0],
+            ["bigStars", 1],
+            ["star", 2],
+            ["bigLand", 2],
+            ["midLand", 2],
+            ["smallLand", 2],
+            ["head", 2],
+            ["matthias", 4, 7],
+            ["markus", 4, 6],
+            ["ellipse", 5, 8, 9]
+        ],
+        "maxNavDepth": 6
+    },
+    "mobile": {
+        "/": [0, 0],
+        "/dive": [1, 1],
+        "/landscape": [2, 2],
+        "/portfolio": [3, 3],
+        "/about/detail": [4, 10],
+        "/about": [5, 4],
+        "/info/detail/contact": [6, 0],
+        "/about/gf/markus_schaefer": [4, 6],
+        "/about/gf/matthias_krause": [4, 7],
+        "/info/detail/imprint": [6, 8],
+        "hide": [
+            ["line", 0],
+            ["bigStars", 1],
+            ["star", 2],
+            ["bigLand", 2],
+            ["midLand", 2],
+            ["smallLand", 2],
+            ["head", 2],
+            ["matthias", 4, 7],
+            ["markus", 4, 6],
+            ["ellipse", 5, 8, 9]
+        ],
+        "maxNavDepth": 7
+    }
+}
