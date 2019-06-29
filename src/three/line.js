@@ -9,10 +9,10 @@ export default class Line {
         this.controler = controler
         this.name = name
 
-        this.init(config.instances, config.waves, config.width, config.xfact, config.yfact, config.zfact, config.diffStart, config.diffDest)
+        this.init(config.instances, config.waves, config.width, config.xfact, config.yfact, config.zfact, config.xDiffStart, config.xDiffDest, config.yDiffStart, config.yDiffDest, config.zDiffStart, config.zDiffDest)
     }
 
-    init(instances, waves, width, xfact, yfact, zfact, diffStart, diffDest) {
+    init(instances, waves, width, xfact, yfact, zfact, xDiffStart, xDiffDest, yDiffStart, yDiffDest, zDiffStart, zDiffDest) {
         var xProgress = -width
 
         this.x = xfact
@@ -42,11 +42,10 @@ export default class Line {
             var howwavy = getRandomArbitrary(2, 7)
                 // console.log(howwavy)
             for (var i = 0; i < instances / waves; ++i) {
-                var xdiffuse = getRandomArbitrary(diffStart, diffDest)
-                var ydiffuse = getRandomArbitrary(diffStart, diffDest)
-                var zdiffuse = getRandomArbitrary(diffStart, diffDest)
-
-                // coordinates
+                var xdiffuse = getRandomArbitrary(xDiffStart, xDiffDest)
+                var ydiffuse = getRandomArbitrary(yDiffStart, yDiffDest)
+                var zdiffuse = getRandomArbitrary(zDiffStart, zDiffDest)
+                    // coordinates
                 linex.push(xProgress += (width * 2) / (instances / waves));
                 // console.log(obj.x, obj.y)
                 // speed

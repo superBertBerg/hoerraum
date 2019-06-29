@@ -6,8 +6,12 @@
         "xfact": 1.8,
         "yfact": 3.5,
         "zfact": 0.5,
-        "diffStart": 0.8,
-        "diffDest": 1.2
+        "xDiffStart": 0.8,
+        "xDiffDest": 1.2,
+        "yDiffStart": 0.8,
+        "yDiffDest": 1.2,
+        "zDiffStart": 0.8,
+        "zDiffDest": 1.2
     },
     "bigStars": [{
             "size": 500,
