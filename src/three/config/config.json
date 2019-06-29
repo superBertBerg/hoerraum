@@ -30,7 +30,7 @@
         "wavelength": 30,
         "octaves": 2,
         "divisor": 10,
-        "strokes": 7000,
+        "strokes": 9000,
         "fact": 2035,
         "color": "0x000000"
     },
