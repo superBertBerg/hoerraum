@@ -80,15 +80,17 @@
         "time": 3
     },
     "matthias": {
-        "x": 105,
+        "x": 125,
         "y": 0,
+        "pointDivisor": 3,
         "threshold": 0,
         "scale": 0.7,
         "imgPath": "static/images/matthias_final.png"
     },
     "markus": {
-        "x": -105,
+        "x": -125,
         "y": 0,
+        "pointDivisor": 3,
         "threshold": 0,
         "scale": 0.7,
         "imgPath": "static/images/markus_final.png"

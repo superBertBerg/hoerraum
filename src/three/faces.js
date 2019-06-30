@@ -9,11 +9,13 @@ export default class Face {
         this.name = name
         this.x = config.x
         this.y = config.y
+        console.log(this.x, this.y)
+        this.divisor = config.pointDivisor
         this.threshold = config.threshold
         this.scaleing = config.scale
     }
 
-    init(src, x, y) {
+    init(src) {
         const loader = new THREE.TextureLoader();
 
 
@@ -25,7 +27,7 @@ export default class Face {
 
             this.width = texture.image.width;
             this.height = texture.image.height;
-            this.initPoints(true, x, y);
+            this.initPoints(true);
             // this.initHitArea();
             // this.initTouch();
             // this.resize();
@@ -69,7 +71,10 @@ export default class Face {
             originalColors = Float32Array.from(imgData.data);
 
             for (let i = 0; i < this.numPoints; i++) {
-                if (originalColors[i * 4 + 0] > threshold) numVisible++;
+                if (originalColors[i * 4 + 0] > threshold) {
+                    if (i % 2 == 0) numVisible++;
+                }
+
             }
 
             // console.log('numVisible', numVisible, this.numPoints);
@@ -109,9 +114,8 @@ export default class Face {
         const offsets = new Float32Array(numVisible * 3);
         const angles = new Float32Array(numVisible);
 
-
         for (let i = 0, j = 0; i < this.numPoints; i++) {
-            if (discard && originalColors[i * 4 + 0] <= threshold) continue;
+            if ((discard && originalColors[i * 4 + 0] <= threshold) || !(i % this.divisor == 0)) continue;
 
             offsets[j * 3 + 0] = i % this.width;
             offsets[j * 3 + 1] = Math.floor(i / this.width);
@@ -119,10 +123,8 @@ export default class Face {
             indices[j] = i;
 
             angles[j] = Math.random() * Math.PI;
-
             j++;
         }
-
         square.addAttribute('pindex', new THREE.InstancedBufferAttribute(indices, 1, false));
         square.addAttribute('offset', new THREE.InstancedBufferAttribute(offsets, 3, false));
         square.addAttribute('angle', new THREE.InstancedBufferAttribute(angles, 1, false));
@@ -130,7 +132,7 @@ export default class Face {
         this.mesh = new THREE.Mesh(square, material);
         this.mesh.name = this.name;
         this.mesh.scale.set(this.scaleing, this.scaleing, 1)
-        this.mesh.translateX(this.x)
+            // this.mesh.translateX(this.x)
     }
 
     // initTouch() {

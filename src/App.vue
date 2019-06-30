@@ -139,7 +139,7 @@ export default {
           if (this.mob) {
             this.moveFaces(0, -50, 0, 55);
           } else {
-            this.moveFaces(100, 0, -100, 0);
+            this.moveFaces(125, 0, -125, 0);
           }
           console.log(to, "  ", this.$props.three);
           break;
@@ -155,7 +155,7 @@ export default {
           if (this.mob) {
             this.moveFaces(0, 55, 0, -50);
           } else {
-            this.moveFaces(100, 0, 100, 0);
+            this.moveFaces(125, 0, 125, 0);
           }
           this.$props.three.matthias.moveToStart();
           // console.log(to, "  ", this.$props.three);
@@ -165,7 +165,7 @@ export default {
           if (this.mob) {
             this.moveFaces(0, 55, 0, 55);
           } else {
-            this.moveFaces(-100, 0, -100, 0);
+            this.moveFaces(-125, 0, -125, 0);
           }
           this.$props.three.markus.moveToStart();
           // console.log(to, "  ", this.$props.three);
@@ -185,11 +185,11 @@ export default {
       this.$props.three.matthias.move(xMat, yMat);
       this.$props.three.markus.move(xMark, yMark);
       if (this.mob) {
-        this.$props.three.matthias.setScale(0.57);
-        this.$props.three.markus.setScale(0.57);
+        this.$props.three.matthias.setScale(0.3);
+        this.$props.three.markus.setScale(0.3);
       } else {
-        this.$props.three.matthias.setScale(0.7);
-        this.$props.three.markus.setScale(0.7);
+        this.$props.three.matthias.setScale(0.5);
+        this.$props.three.markus.setScale(0.5);
       }
     },
     keyCalc(event) {

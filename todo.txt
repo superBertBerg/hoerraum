@@ -1,5 +1,5 @@
 Seiten:
-    Extra Slide in mobile für about
+    Extra Slide in mobile für about zwischen portfolio und about
 
 SEO:
     sidmap etc.
@@ -12,6 +12,7 @@ Animationen:
     Fractalbaeume
 
 REFRACTORING des TODES!!!
+- ver/frag shader combine
 - Scoped CSS
 - Faces allerdings vlt. nachder interaktivität!
 
@@ -29,6 +30,7 @@ BUGS:
 
 
 Sehr Optional:
+fading out von scrollboxen
 punkte von gesichtern im Mobilen view veringern
 
 
