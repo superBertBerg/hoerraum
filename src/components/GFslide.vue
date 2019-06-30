@@ -36,7 +36,7 @@
   width: 30%;
 }
 .display {
-  margin-bottom: 50%;
+  margin-bottom: 50px;
   align-self: flex-end;
 }
 @media only screen and (max-width: 1024px) {

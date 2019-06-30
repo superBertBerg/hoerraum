@@ -9,11 +9,11 @@ export default class Line {
     constructor(controler, name, config) {
         this.controler = controler
         this.name = name
-
-        this.init(config.instances, config.waves, config.width, config.xfact, config.yfact, config.zfact, config.xDiffStart, config.xDiffDest, config.yDiffStart, config.yDiffDest, config.zDiffStart, config.zDiffDest)
+        this.conf = config
+        this.init(config.instances, config.waves, config.width, config.xfact, config.yfact, config.zfact, config.xDiffStart, config.xDiffDest, config.yDiffStart, config.yDiffDest, config.zDiffStart, config.zDiffDest, config.sizeMin, config.sizeMax)
     }
 
-    init(instances, waves, width, xfact, yfact, zfact, xDiffStart, xDiffDest, yDiffStart, yDiffDest, zDiffStart, zDiffDest) {
+    init(instances, waves, width, xfact, yfact, zfact, xDiffStart, xDiffDest, yDiffStart, yDiffDest, zDiffStart, zDiffDest, sizeMin, sizeMax) {
         var xProgress = -width
 
         this.x = xfact
@@ -39,6 +39,7 @@ export default class Line {
         let colors = []
             // diffuse
         let diffuses = []
+        let size = []
 
         var wave = 0
         for (var j = 0; j < waves; ++j) {
@@ -57,7 +58,7 @@ export default class Line {
                 starts.push(wave);
                 // diffusion
                 diffuses.push(xdiffuse, ydiffuse, zdiffuse)
-
+                size.push(getRandomArbitrary(sizeMin, sizeMax))
                 colors.push(Math.random(), Math.random(), Math.random(), Math.random());
 
                 wave += (howwavy * Math.PI / 1000)
@@ -66,7 +67,7 @@ export default class Line {
             wave = Math.random()
             xProgress = -width
         }
-        var square = initSquares(null, starts, speeds, diffuses, colors, null, linex)
+        var square = initSquares(null, starts, speeds, diffuses, colors, size, linex)
         square.maxInstancedCount = instances;
 
         var mat = new THREE.RawShaderMaterial({

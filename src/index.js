@@ -12,6 +12,7 @@ import About from './pages/About.vue'
 import Landing from './pages/Landing.vue'
 import Landscape from './pages/Landscape.vue'
 import Portfolio from './pages/Portfolio.vue'
+import AboutOut from './pages/AboutOutline.vue'
 // Components
 import GFslide from './components/GFslide.vue'
 import Schiff from './components/Schiff.vue'
@@ -52,6 +53,10 @@ const router = new VueRouter({
             children: [
                 { path: 'gf/:id', component: GFslide }
             ]
+        },
+        {
+            path: '/about/outline/',
+            component: AboutOut
         }
     ]
 })

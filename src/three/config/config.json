@@ -11,7 +11,9 @@
         "yDiffStart": 0.8,
         "yDiffDest": 1.2,
         "zDiffStart": 0.8,
-        "zDiffDest": 1.2
+        "zDiffDest": 1.2,
+        "sizeMin": 0.2,
+        "sizeMax": 1
     },
     "bigStars": [{
             "size": 500,
@@ -78,15 +80,17 @@
         "time": 3
     },
     "matthias": {
-        "x": 105,
+        "x": 125,
         "y": 0,
+        "pointDivisor": 3,
         "threshold": 0,
         "scale": 0.7,
         "imgPath": "static/images/matthias_final.png"
     },
     "markus": {
-        "x": -105,
+        "x": -125,
         "y": 0,
+        "pointDivisor": 3,
         "threshold": 0,
         "scale": 0.7,
         "imgPath": "static/images/markus_final.png"
