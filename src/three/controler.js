@@ -43,6 +43,7 @@ export default class Controler {
     initThree() {
         this.scene = new THREE.Scene();
         this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        this.scene.background = new THREE.Color(0xff0000);
         this.camera = new THREE.PerspectiveCamera(
             40, window.innerWidth / window.innerHeight, 1, 10000);
         this.renderer.setSize(window.innerWidth, window.innerHeight);
