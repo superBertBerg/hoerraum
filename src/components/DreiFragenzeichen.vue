@@ -55,11 +55,16 @@
     text-align: right;
 }
 .roundedImg {
-    width: 30%;
+    width: 145px;
     border-radius: 50%;
-    padding: 2%;
-    margin: 1%;
+    padding: 10px;
+    margin: 10px;
     border: 1px solid white;
+}
+@media only screen and (max-width: 1100px) {
+    .roundedImg {
+        width: 90px;
+    }
 }
 @media only screen and (max-width: 768px) {
     .portDetFlexItem {

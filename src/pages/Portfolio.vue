@@ -1,7 +1,7 @@
 <template>
   <div id="portfolio" class="transitionWrap">
     <div class="portFlexWrap">
-      <div class="portFlexItem bigFontSize"> 
+      <div class="portFlexItem width bigFontSize"> 
         <div class="portFlexProduct borderRight"> 
           <router-link to="/portfolio/die_drei_fragezeichen">Die drei ?<span class="theRed">?</span><span class="theBlue">?</span> </router-link>
         </div>
