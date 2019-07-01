@@ -1,0 +1,165 @@
+<template>
+  <div id="dreiFragezeichen" class="transitionWrap">
+    <div class="portDetFlexWrap">
+        <div class="portDetFlexItem bigFontSize">
+            <h1 v-html="message.h1"></h1>
+        </div>
+        <div class="portDetFlexItem overFlow preventSwipe midFontSize">
+            <div class="portDetFlexSubItem">
+                <p v-html="message.p"></p>    
+            </div>
+            <div class="imgContainer">
+                <img class="roundedImg" src="/static/images/portfolio/HO3RRAUM_Das-Grab-der-Inka-Mumie.png" alt="">
+                <img class="roundedImg" src="/static/images/portfolio/HO3RRAUM_Das-kalte-Auge.png" alt="">
+                <img class="roundedImg" src="/static/images/portfolio/HO3RRAUM_Das-versunkene-Schiff.png" alt="">
+                <img class="roundedImg" src="/static/images/portfolio/HO3RRAUM_Der-dreiaeugige-Totenkopf.png" alt="">
+                <img class="roundedImg" src="/static/images/portfolio/HO3RRAUM_Die-Schwarze-Katze.png" alt="">
+                <img class="roundedImg" src="/static/images/portfolio/HO3RRAUM_und-der-Tornadojäger.png" alt="">
+            </div>
+        </div>
+    </div>
+  </div>
+</template>
+
+
+<style scoped>
+.portDetFlexWrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+}
+.portDetFlexItem {
+  display: flex;
+  justify-content: center;
+  width: 90%;
+  padding: 5%;
+  margin-bottom: 50px;
+  flex-direction: row;
+}
+.portDetFlexItem.overFlow {
+  overflow-y: auto;
+}
+.portDetFlexSubItem {
+    display: flex;
+    text-align: left;
+    align-items: center;
+    padding-right: 50px;
+    width: 50%;
+}
+.imgContainer {
+    width: 50%;
+    height: 100%;
+    text-align: right;
+}
+.roundedImg {
+    width: 30%;
+    border-radius: 50%;
+    padding: 2%;
+    margin: 1%;
+    border: 1px solid white;
+}
+@media only screen and (max-width: 768px) {
+    .portDetFlexItem {
+        display: flex;
+        justify-content: flex-start;
+        width: 90%;
+        padding: 5%;
+        margin-bottom: 50px;
+        flex-direction: column;
+    }
+    .portDetFlexSubItem {
+        width: 90%;
+        padding-left: 5%;
+        padding-right: 5%;
+        align-items:flex-start;
+    }
+    .imgContainer {
+        width: 90%;
+        padding-top: 20px;
+        padding-left: 5%;
+        padding-right: 5%;
+        height: 100%;
+        text-align: center;
+    }
+}
+</style>
+
+
+<script>
+export default {
+  data: function() {
+    return {
+      message: {
+        h1: "",
+        p: ""
+      },
+      ger: {
+        h1: "Die drei ?<span class=\"theRed\">?</span><span class=\"theBlue\">?</span>",
+        p:
+          "3 berühmte Detektive, 3 unveröffentlichte Geschichten, 3-dimesionaler Sound!" +
+          " – mit diesen USP-Bausteinen haben wir mittlerweile 2 Staffeln produziert, g" +
+          "emeinsam mit dem EUROPA-Label von Sony Music. In einer Art Evolutionsprozess" +
+          " haben wir mit unseren Produktionen dabei eine neue Format-Kategorie geschaf" +
+          "fen: Das immersive, illustrierte Hörspiel. Was als reine 3D-Audioproduktion " +
+          "unterm Sternenhimmel begann, ist heute visuell von 360°-Projektionen begleit" +
+          "et. Das sieht mal abstrakt künstlerisch, mal mysteriös nebelig, mal semi-rea" +
+          "listisch aus, aber nie „filmisch“. So bleibt der Fokus immer auf dem Hörerle" +
+          "bnis, das Justus Jonas, Peter Shaw und Bob Andrews schon vor langer Zeit zu " +
+          "Kultfiguren gemacht hat. Weit über 200.000 Fans der drei ??? haben die bisla" +
+          "ng 6 Folgen in 7 deutschen Planetarien besucht."
+      },
+      eng: { h2: "", p: "" }
+    };
+  },
+  methods: {
+    changeContent: function(id) {
+      if (id === "contact") {
+        this.ishow = false;
+        this.cshow = true;
+      } else if (id === "imprint") {
+        this.ishow = true;
+        this.cshow = false;
+      }
+    },
+    stopPropagate: function(e) {
+      e.stopPropagation();
+    },
+    preventSwipe: function() {
+      var elements = document.getElementsByClassName('preventSwipe');
+      Array.from(elements).forEach((el) => {
+        el.addEventListener("wheel", this.stopPropagate)
+        el.addEventListener("touchstart", this.stopPropagate);
+        el.addEventListener("touchend", this.stopPropagate);
+        
+      })
+      return true;
+    },
+    removePrevent: function() {
+      var elements = document.getElementsByClassName('preventSwipe');
+      Array.from(elements).forEach((el) => {
+        el.removeEventListener("wheel", this.stopPropagate)
+        el.removeEventListener("touchstart", this.stopPropagate);
+        el.removeEventListener("touchend", this.stopPropagate);
+      })
+    }
+  },
+  beforeRouteUpdate(to, from, next) {
+    this.changeContent(to.params.id);
+    next();
+  },
+  created: function() {
+    this.message.h1 = this.ger.h1;
+    this.message.p = this.ger.p;
+    this.changeContent(this.$route.params.id);
+  },
+  mounted() {
+    this.preventSwipe();
+  },
+  destroyed() {
+    this.removePrevent();
+  }
+};
+</script>

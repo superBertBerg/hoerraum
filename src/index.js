@@ -15,9 +15,10 @@ import Portfolio from './pages/Portfolio.vue'
 import AboutOut from './pages/AboutOutline.vue'
 // Components
 import GFslide from './components/GFslide.vue'
-import Schiff from './components/Schiff.vue'
-import DreiAuge from './components/DreiAuge.vue'
-import Katze from './components/Katze.vue'
+import DreiFragenzeichen from './components/DreiFragenzeichen.vue'
+import Hotzenplotz from './components/Hotzenplotz.vue'
+// import DreiAuge from './components/DreiAuge.vue'
+// import Katze from './components/Katze.vue'
 import Controler from './three/controler'
 
 
@@ -32,12 +33,12 @@ const router = new VueRouter({
         { path: '/landscape', component: Landscape }, {
             path: '/portfolio/',
             component: Portfolio,
-            children: [
-                { path: 'das_versunkene_schiff', component: Schiff },
-                { path: 'die_schwarze_katze', component: Katze },
-                { path: 'der_dreiaeugige_totenkopf', component: DreiAuge },
-                // { path: '', component: Schiff}
-            ]
+        }, {
+            path: '/portfolio/die_drei_fragezeichen',
+            component: DreiFragenzeichen,
+        }, {
+            path: '/portfolio/der_raeuber_hotzenplotz',
+            component: Hotzenplotz,
         },
         {
             path: '/info/',

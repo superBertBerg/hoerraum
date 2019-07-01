@@ -1,25 +1,30 @@
 <template>
   <div class="transitionWrap">
-    <div class="centered pageHeadline">
-      HO<span class="theRed">3</span>RRAUM
-      <br>
-      <div class="coming"> Wir produzieren Content für gemeinschaftliche Erlebnisse bei denen das Visuelle mal nicht die erste Geige spielt </div>
+    <div class="landingFlexWrap">
+      <div class="pageHeadline">
+        HO<span class="theRed">3</span>RRAUM
+      </div>
+      <div class="midFontSize">
+        <div class="coming"> Wir produzieren Content für gemeinschaftliche Erlebnisse bei denen das Visuelle mal nicht die erste Geige spielt </div>
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-.centered {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+.landingFlexWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column ;
+  height: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  }
 .coming {
-    font-size: 0.1em;
-    text-align: center;
-    padding-top: -5em;
-    font-family: 'nHelvi77';
+  padding-top: 20px;
+    /* font-family: 'nHelvi77'; */
 }
 </style>
 <script>
