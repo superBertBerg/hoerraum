@@ -48,8 +48,10 @@
   max-width: 100%;
 }
 @media only screen and (max-width: 768px) {
+  #hotzenplotz {
+  display: block;
+ }
   .portDetFlexItem {
-    display: block;
     width: 100%;
     margin-bottom: 20px;
   }

@@ -1,16 +1,34 @@
 <template>
   <div id="dreiFragezeichen" class="portDetFlexItem overFlow preventSwipe midFontSize">
-            <div class="portDetFlexSubItem">
-                <p class="paddigText" v-html="message.p"></p>    
-            </div>
-            <div class="imgContainer paddigText">
-                <img class="roundedImg" src="/static/images/portfolio/HO3RRAUM_Das-Grab-der-Inka-Mumie.png" alt="">
-                <img class="roundedImg" src="/static/images/portfolio/HO3RRAUM_Das-kalte-Auge.png" alt="">
-                <img class="roundedImg" src="/static/images/portfolio/HO3RRAUM_Das-versunkene-Schiff.png" alt="">
-                <img class="roundedImg" src="/static/images/portfolio/HO3RRAUM_Der-dreiaeugige-Totenkopf.png" alt="">
-                <img class="roundedImg" src="/static/images/portfolio/HO3RRAUM_Die-Schwarze-Katze.png" alt="">
-                <img class="roundedImg" src="/static/images/portfolio/HO3RRAUM_und-der-Tornadojäger.png" alt="">
-            </div>
+    <div class="portDetFlexSubItem">
+      <p class="paddigText" v-html="message.p"></p>
+    </div>
+    <div class="portDetFlexSubItem">
+      <div class="imgContainer paddigText">
+        <img
+          class="roundedImg"
+          src="/static/images/portfolio/HO3RRAUM_Das-Grab-der-Inka-Mumie.png"
+          alt
+        >
+        <img class="roundedImg" src="/static/images/portfolio/HO3RRAUM_Das-kalte-Auge.png" alt>
+        <img
+          class="roundedImg"
+          src="/static/images/portfolio/HO3RRAUM_Das-versunkene-Schiff.png"
+          alt
+        >
+        <img
+          class="roundedImg"
+          src="/static/images/portfolio/HO3RRAUM_Der-dreiaeugige-Totenkopf.png"
+          alt
+        >
+        <img class="roundedImg" src="/static/images/portfolio/HO3RRAUM_Die-Schwarze-Katze.png" alt>
+        <img
+          class="roundedImg"
+          src="/static/images/portfolio/HO3RRAUM_und-der-Tornadojäger.png"
+          alt
+        >
+      </div>
+    </div>
   </div>
 </template>
 
@@ -38,47 +56,51 @@
   overflow-y: auto;
 }
 .portDetFlexSubItem {
-    display: flex;
-    text-align: left;
-    align-items: center;
-    width: 50%;
+  display: flex;
+  text-align: left;
+  align-items: center;
+  width: 50%;
 }
 .imgContainer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
-    width: 50%;
-    height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  width: 50%;
+  height: 100%;
 }
 .roundedImg {
-    width: 145px;
-    height: 145px;
-    border-radius: 50%;
-    padding: 10px;
-    margin: 10px;
-    border: 1px solid white;
+  width: 145px;
+  height: 145px;
+  border-radius: 50%;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid white;
 }
 @media only screen and (max-width: 1100px) {
-    .roundedImg {
-        width: 90px;
-        height: 90px;
-    }
+  .roundedImg {
+    width: 110px;
+    height: 110px;
+  }
 }
 @media only screen and (max-width: 768px) {
-    .portDetFlexItem {
-        flex-direction: column;
-        justify-content: normal;
-    }
-    .portDetFlexSubItem {
-        width: 100%;
-        align-items: flex-start;
-    }
-    .imgContainer {
-        width: 100%;
-        padding-top: 20px;
-        align-content: normal;
-    }
+    .roundedImg {
+    width: 85px;
+    height: 85px;
+  }
+  .portDetFlexItem {
+    flex-direction: column;
+    justify-content: normal;
+  }
+  .portDetFlexSubItem {
+    width: 100%;
+    align-items: flex-start;
+  }
+  .imgContainer {
+    width: 100%;
+    padding-top: 20px;
+    align-content: normal;
+  }
 }
 </style>
 
@@ -92,7 +114,8 @@ export default {
         p: ""
       },
       ger: {
-        h1: "Die drei ?<span class=\"theRed\">?</span><span class=\"theBlue\">?</span>",
+        h1:
+          'Die drei ?<span class="theRed">?</span><span class="theBlue">?</span>',
         p:
           "3 berühmte Detektive, 3 unveröffentlichte Geschichten, 3-dimesionaler Sound!" +
           " – mit diesen USP-Bausteinen haben wir mittlerweile 2 Staffeln produziert, g" +
@@ -123,22 +146,21 @@ export default {
       e.stopPropagation();
     },
     preventSwipe: function() {
-      var elements = document.getElementsByClassName('preventSwipe');
-      Array.from(elements).forEach((el) => {
-        el.addEventListener("wheel", this.stopPropagate)
+      var elements = document.getElementsByClassName("preventSwipe");
+      Array.from(elements).forEach(el => {
+        el.addEventListener("wheel", this.stopPropagate);
         el.addEventListener("touchstart", this.stopPropagate);
         el.addEventListener("touchend", this.stopPropagate);
-        
-      })
+      });
       return true;
     },
     removePrevent: function() {
-      var elements = document.getElementsByClassName('preventSwipe');
-      Array.from(elements).forEach((el) => {
-        el.removeEventListener("wheel", this.stopPropagate)
+      var elements = document.getElementsByClassName("preventSwipe");
+      Array.from(elements).forEach(el => {
+        el.removeEventListener("wheel", this.stopPropagate);
         el.removeEventListener("touchstart", this.stopPropagate);
         el.removeEventListener("touchend", this.stopPropagate);
-      })
+      });
     }
   },
   beforeRouteUpdate(to, from, next) {
