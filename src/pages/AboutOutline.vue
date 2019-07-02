@@ -1,6 +1,6 @@
 <template>
   <div id="aboutOutline" class="transitionWrap">
-    <div class="midFontSize aboutOutFlexWrap">
+    <div class="midFontSize aboutOutFlexWrap paddigText">
       <p>
         „An keinem anderen Ort kann man gemeinschaftlich so gut in andere Welten
         eintauchen, wie unter der Kuppel eines Planetariums. Der dreidimensionale Sound gibt uns dort die Möglichkeit,
@@ -24,7 +24,6 @@
     flex-direction: column;
     text-align: center;
     height: 100%;
-    padding: 20px;
   }
 }
 </style>

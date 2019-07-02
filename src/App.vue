@@ -69,18 +69,10 @@ export default {
     },
     init: function() {
       this.onResize();
-      var cur = this.$router.currentRoute.path;
-      var curRoute = this.routes[cur]
-      if (curRoute[0] !== undefined) {
-        this.currentNavigate = curRoute[0];
-        this.currentAnimation = curRoute[1]
-        this.animation(this.currentAnimation);
-      } else {
-        this.$router.replace("/");
-      }
+      this.validPath(this.$router.currentRoute.path)
     },
     validPath: function(to, from) {
-      var route = this.routes[to]
+      var route = this.routes[to.replace(/(?<=.{2,})\/$/, "")]
       if (route[0] !== undefined) {
         this.currentNavigate  = route[0]
         this.currentAnimation = route[1]
@@ -110,12 +102,14 @@ export default {
           this.$props.three.line.start();
           this.$props.three.matthias.moveToStart();
           this.$props.three.markus.moveToStart();
-          // console.log(to, "  ", this.$props.three);
+          // this.$props.three.renderer
+          // console.log(to, "  ", this.$props.three.renderer.info);
           break;
         case 1:
           this.$props.three.bigStars.start();
           this.$props.three.matthias.moveToStart();
           this.$props.three.markus.moveToStart();
+          // console.log(to, "  ", this.$props.three.renderer.info);
           // console.log(to, "  ", this.$props.three);
           break;
         case 2:
@@ -126,12 +120,13 @@ export default {
           this.$props.three.smallLand.start(0.8, -2300, -2070);
           this.$props.three.matthias.moveToStart();
           this.$props.three.markus.moveToStart();
+          // console.log(to, "  ", this.$props.three.renderer.info);
           // console.log(to, "  ", this.$props.three);
           break;
         case 3:
           this.$props.three.matthias.moveToStart();
           this.$props.three.markus.moveToStart();
-          console.log(to, "  ", this.$props.three);
+          // console.log(to, "  ", this.$props.three);
           break;
         case 4:
           this.$props.three.matthias.start();
@@ -141,13 +136,15 @@ export default {
           } else {
             this.moveFaces(125, 0, -125, 0);
           }
-          console.log(to, "  ", this.$props.three);
+          // console.log(to, "  ", this.$props.three.renderer.info);
+          // console.log(to, "  ", this.$props.three);
           break;
         case 5:
           this.$props.three.ellipse.start();
           this.$props.three.ellipse.deSpread(2, 2);
           this.$props.three.matthias.moveToStart();
           this.$props.three.markus.moveToStart();
+          // console.log(to, "  ", this.$props.three.renderer.info);
           // console.log(to, "  ", this.$props.three);
           break;
         case 6:
@@ -158,6 +155,7 @@ export default {
             this.moveFaces(125, 0, 125, 0);
           }
           this.$props.three.matthias.moveToStart();
+          // console.log(to, "  ", this.$props.three.renderer.info);
           // console.log(to, "  ", this.$props.three);
           break;
         case 7:
@@ -168,6 +166,7 @@ export default {
             this.moveFaces(-125, 0, -125, 0);
           }
           this.$props.three.markus.moveToStart();
+          // console.log(to, "  ", this.$props.three.renderer.info);
           // console.log(to, "  ", this.$props.three);
           break;
         case 8:
@@ -175,6 +174,7 @@ export default {
           this.$props.three.ellipse.spread(2, 2);
           this.$props.three.matthias.moveToStart();
           this.$props.three.markus.moveToStart();
+          // console.log(to, "  ", this.$props.three.renderer.info);
           break;
         default:
           // clear anymation
@@ -272,7 +272,10 @@ export default {
     }
   },
   mounted: function() {
-    this.init();
+    setTimeout(() => {
+      
+      this.init();
+    }, 200);
   },
   created() {
     window.addEventListener("resize", this.onResize);

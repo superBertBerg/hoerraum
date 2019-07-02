@@ -9,7 +9,6 @@ export default class Face {
         this.name = name
         this.x = config.x
         this.y = config.y
-        console.log(this.x, this.y)
         this.divisor = config.pointDivisor
         this.threshold = config.threshold
         this.scaleing = config.scale

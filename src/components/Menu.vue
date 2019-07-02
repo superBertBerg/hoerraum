@@ -5,11 +5,11 @@
     <div class="sideNav midFontSize" v-bind:class="{open: toggled}">
       <!-- <a href="#" class="closebtn" v-on:click="closeNav(this)">&times;</a> -->
       <router-link to="/">Start</router-link>
-      <router-link to="/dive">Dive</router-link>
-      <router-link to="/landscape">Landscape</router-link>
-      <router-link to="/portfolio">Portfolio</router-link>
-      <router-link to="/about">About</router-link>
-      <router-link to="/info/detail/contact">Contact</router-link>
+      <router-link to="/dive">Konzept</router-link>
+      <router-link to="/landscape">-----</router-link>
+      <router-link to="/portfolio">Leistungen</router-link>
+      <router-link to="/about">Über uns</router-link>
+      <router-link to="/info/detail/contact">Kontakt</router-link>
     </div>
     <div class="hamburger" v-on:click="toggleNav()" v-bind:class="{openH: toggled}">
       <span class="hamburger__top-bun"></span>

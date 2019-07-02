@@ -32,13 +32,19 @@ const router = new VueRouter({
         { path: '/', component: Landing }, { path: '/dive', component: Dive },
         { path: '/landscape', component: Landscape }, {
             path: '/portfolio/',
+            name: 'portfolio',
             component: Portfolio,
-        }, {
-            path: '/portfolio/die_drei_fragezeichen',
-            component: DreiFragenzeichen,
-        }, {
-            path: '/portfolio/der_raeuber_hotzenplotz',
-            component: Hotzenplotz,
+            children: [{
+                    path: '/portfolio/die_drei_fragezeichen',
+                    name: 'dreiF',
+                    component: DreiFragenzeichen,
+                },
+                {
+                    path: '/portfolio/der_raeuber_hotzenplotz',
+                    name: 'hotzen',
+                    component: Hotzenplotz
+                }
+            ]
         },
         {
             path: '/info/',

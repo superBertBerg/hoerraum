@@ -1,14 +1,9 @@
 <template>
-  <div id="dreiFragezeichen" class="transitionWrap">
-    <div class="portDetFlexWrap">
-        <div class="portDetFlexItem bigFontSize">
-            <h1 v-html="message.h1"></h1>
-        </div>
-        <div class="portDetFlexItem overFlow preventSwipe midFontSize">
+  <div id="dreiFragezeichen" class="portDetFlexItem overFlow preventSwipe midFontSize">
             <div class="portDetFlexSubItem">
-                <p v-html="message.p"></p>    
+                <p class="paddigText" v-html="message.p"></p>    
             </div>
-            <div class="imgContainer">
+            <div class="imgContainer paddigText">
                 <img class="roundedImg" src="/static/images/portfolio/HO3RRAUM_Das-Grab-der-Inka-Mumie.png" alt="">
                 <img class="roundedImg" src="/static/images/portfolio/HO3RRAUM_Das-kalte-Auge.png" alt="">
                 <img class="roundedImg" src="/static/images/portfolio/HO3RRAUM_Das-versunkene-Schiff.png" alt="">
@@ -16,13 +11,14 @@
                 <img class="roundedImg" src="/static/images/portfolio/HO3RRAUM_Die-Schwarze-Katze.png" alt="">
                 <img class="roundedImg" src="/static/images/portfolio/HO3RRAUM_und-der-Tornadojäger.png" alt="">
             </div>
-        </div>
-    </div>
   </div>
 </template>
 
 
 <style scoped>
+#dreiFragezeichen {
+  height: 70%;
+}
 .portDetFlexWrap {
   display: flex;
   flex-direction: column;
@@ -34,9 +30,8 @@
 .portDetFlexItem {
   display: flex;
   justify-content: center;
-  width: 90%;
-  padding: 5%;
-  margin-bottom: 50px;
+  width: 100%;
+  height: 45%;
   flex-direction: row;
 }
 .portDetFlexItem.overFlow {
@@ -46,16 +41,19 @@
     display: flex;
     text-align: left;
     align-items: center;
-    padding-right: 50px;
     width: 50%;
 }
 .imgContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
     width: 50%;
     height: 100%;
-    text-align: right;
 }
 .roundedImg {
     width: 145px;
+    height: 145px;
     border-radius: 50%;
     padding: 10px;
     margin: 10px;
@@ -64,30 +62,22 @@
 @media only screen and (max-width: 1100px) {
     .roundedImg {
         width: 90px;
+        height: 90px;
     }
 }
 @media only screen and (max-width: 768px) {
     .portDetFlexItem {
-        display: flex;
-        justify-content: flex-start;
-        width: 90%;
-        padding: 5%;
-        margin-bottom: 50px;
         flex-direction: column;
+        justify-content: normal;
     }
     .portDetFlexSubItem {
-        width: 90%;
-        padding-left: 5%;
-        padding-right: 5%;
-        align-items:flex-start;
+        width: 100%;
+        align-items: flex-start;
     }
     .imgContainer {
-        width: 90%;
+        width: 100%;
         padding-top: 20px;
-        padding-left: 5%;
-        padding-right: 5%;
-        height: 100%;
-        text-align: center;
+        align-content: normal;
     }
 }
 </style>

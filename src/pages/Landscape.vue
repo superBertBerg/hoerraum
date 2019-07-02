@@ -2,17 +2,12 @@
   <div id="landscape">
     <div class="transitionWrap">
     <div class="landFlexWrap">
-        <div class="landFlexContainer">
+        <div class="landFlexContainer paddigText">
           <h3 class="midFontSize">
             Alle setzen auf Bewegtbild. Wir setzen auf die Magie der
             <span class="theRed">Töne</span>,
             <span class="theRed">Klänge</span> un des gesprochenen Wortes, die Bilder zuallererst im Kopf entstehen läßt.
           </h3>
-        </div>
-        <div class="landFlexContainer start">
-          <h2 class="midFontSize">
-            Wir stehen also für das Gegenteil von Kopfhörer, VR-Brille und Einzelerlebnis.
-          </h2>
         </div>
     </div>
     </div>
@@ -49,7 +44,6 @@
       
     }
     .landFlexContainer {
-      padding: 20px;
       width: auto;
     }
     .landFlexContainer, .landFlexContainer.start {

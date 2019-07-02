@@ -1,7 +1,7 @@
 <template>
   <div id="dive" class="transitionWrap">
     <div class="landFlexWrap">
-        <div class="landFlexContainer">
+        <div class="landFlexContainer paddigText">
         <div>
           <h2 class="bigFontSize folio">3</h2>
           <h3 class="midFontSize">
@@ -43,7 +43,6 @@
       
     }
     .landFlexContainer {
-      padding: 20px;
       width: auto;
       align-self: center;
       height: auto;

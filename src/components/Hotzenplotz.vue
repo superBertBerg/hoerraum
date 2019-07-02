@@ -1,40 +1,34 @@
 <template>
-  <div id="hotzenplotz" class="transitionWrap">
-    <div class="portDetFlexWrap">
+  <div id="hotzenplotz" class="preventSwipe overFlow">
         <div class="portDetFlexItem">
-            <div class="imgContainer">
+            <div class="imgContainer paddigText">
                 <img class="roundedImg" src="/static/images/portfolio/HO3RRAUM_Raeuber-Hotzenplotz-und-die-Mondrakete.png" alt="">
             </div>
         </div>
-        <div class="portDetFlexItem overFlow preventSwipe midFontSize">
+        <div class="portDetFlexItem midFontSize">
             <div>
-                <h1 v-html="message.h1"></h1>
-                <p v-html="message.p"></p>
+                <h1 class="paddigText" v-html="message.h1"></h1>
+                <p class="paddigText" v-html="message.p"></p>
             </div>
         </div>
-    </div>
   </div>
 </template>
 
 
 <style scoped>
-.portDetFlexWrap {
+#hotzenplotz {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  height: 100%;
-  width: 100%;
+  align-items: center;
+  height: 70%;
 }
 .portDetFlexItem {
   display: flex;
   justify-content: center;
   width: 60%;
-  padding-left: 20%;
-  padding-right: 20%;
   margin-bottom: 50px;
 }
-.portDetFlexItem.overFlow {
+.overFlow {
   overflow-y: auto;
 }
 .portDetFlexSubItem {
@@ -55,13 +49,12 @@
 }
 @media only screen and (max-width: 768px) {
   .portDetFlexItem {
-    width: 90%;
-    padding-left: 5%;
-    padding-right: 5%;
+    display: block;
+    width: 100%;
     margin-bottom: 20px;
   }
   .imgContainer {
-    width: 90%;
+    width: 100%;
     height: 100%;
     text-align: center;
   }

@@ -163,6 +163,11 @@ table {
 
 /* Handle on hover */
 
+.paddigText {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
  ::-webkit-scrollbar-thumb:hover {
     background: #f1f1f1;
 }
@@ -245,10 +250,6 @@ a:hover {
 
 
 /* SubPages */
-
-.imgContainer {
-    max-width: 40%;
-}
 
 .subFlex {
     display: flex;
@@ -351,6 +352,10 @@ path {
     }
     .smallFontSize {
         font-size: 1em;
+    }
+    .paddigText {
+        padding-left: 5%;
+        padding-right: 5%;
     }
 }
 
@@ -463,4 +468,23 @@ path {
 
 .slideSwitch-leave-to {
     opacity: 0;
+}
+
+.portfolio-enter-active,
+.portfolio-leave-active {
+    /* transition: flex 10.5s ease-out; */
+    /* flex: 100% */
+    /* width: 100%; */
+    /* transition: width 10s; */
+}
+
+.portfolio-enter,
+.portfolio-leave-to
+/* .fade-leave-active in <2.1.8 */
+
+{
+    /* flex: 0%; */
+    /* width: 0%; */
+    /* height: 0; */
+    /* opacity: 0 */
 }

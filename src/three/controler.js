@@ -18,6 +18,7 @@ export default class Controler {
     constructor() {
 
         this.initThree()
+        var t0 = performance.now();
         this.line = new Line(this, 'line', config.line)
         this.bigStars = new BigStars(this, 'bigStars', config.bigStars);
         this.bigLand = new Landscape(this, 'bigland', config.bigland)
@@ -30,10 +31,14 @@ export default class Controler {
         this.ellipse = new Ellipse(this, 'ellipse', config.ellipse)
         this.star = new Star(this, 'stars', config.stars)
         this.head = new ImgOnPlane(this, 'head', config.head)
-            // this.initTrack()
-            // this.fracTree = new FractalTree(this)
-            // this.addToScene(this.bigStars.mesh)
-            // this.addToScene(this.head.mesh)
+        var t1 = performance.now();
+        // this.initTrack()
+        // this.fracTree = new FractalTree(this)
+        // this.addToScene(this.bigStars.mesh)
+        // this.addToScene(this.head.mesh)
+
+        console.log("time to init", t1 - t0)
+
 
 
 
