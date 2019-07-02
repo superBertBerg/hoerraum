@@ -66,27 +66,27 @@
   flex-wrap: wrap;
   justify-content: center;
   align-content: center;
-  width: 50%;
+  width: 100%;
   height: 100%;
 }
 .roundedImg {
-  width: 145px;
-  height: 145px;
-  border-radius: 50%;
-  padding: 10px;
-  margin: 10px;
-  border: 1px solid white;
+  width: 200px;
+  height: 200px;
+  /* border-radius: 50%; */
+  /* padding: 10px; */
+  /* margin: 10px; */
+  /* border: 1px solid white; */
 }
 @media only screen and (max-width: 1100px) {
   .roundedImg {
-    width: 110px;
-    height: 110px;
+    width: 150px;
+    height: 150px;
   }
 }
 @media only screen and (max-width: 768px) {
     .roundedImg {
-    width: 85px;
-    height: 85px;
+    width: 130px;
+    height: 130px;
   }
   .portDetFlexItem {
     flex-direction: column;

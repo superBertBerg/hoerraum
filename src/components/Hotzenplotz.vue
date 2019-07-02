@@ -1,16 +1,20 @@
 <template>
   <div id="hotzenplotz" class="preventSwipe overFlow">
-        <div class="portDetFlexItem">
-            <div class="imgContainer paddigText">
-                <img class="roundedImg" src="/static/images/portfolio/HO3RRAUM_Raeuber-Hotzenplotz-und-die-Mondrakete.png" alt="">
-            </div>
-        </div>
-        <div class="portDetFlexItem midFontSize">
-            <div>
-                <h1 class="paddigText" v-html="message.h1"></h1>
-                <p class="paddigText" v-html="message.p"></p>
-            </div>
-        </div>
+    <div class="portDetFlexItem">
+      <div class="imgContainer paddigText">
+        <img
+          class="roundedImg"
+          src="/static/images/portfolio/HO3RRAUM_Raeuber-Hotzenplotz-und-die-Mondrakete.png"
+          alt
+        >
+      </div>
+    </div>
+    <div class="portDetFlexItem midFontSize">
+      <div>
+        <h1 class="paddigText" v-html="message.h1"></h1>
+        <p class="paddigText" v-html="message.p"></p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -32,16 +36,16 @@
   overflow-y: auto;
 }
 .portDetFlexSubItem {
-    display: flex;
-    text-align: left;
-    align-items: center;
-    padding-right: 50px;
-    width: 50%;
+  display: flex;
+  text-align: left;
+  align-items: center;
+  padding-right: 50px;
+  width: 50%;
 }
 .imgContainer {
-    width: 50%;
-    height: 100%;
-    text-align: center;
+  width: 50%;
+  height: 100%;
+  text-align: center;
 }
 .roundedImg {
   max-height: 100%;
@@ -49,8 +53,8 @@
 }
 @media only screen and (max-width: 768px) {
   #hotzenplotz {
-  display: block;
- }
+    display: block;
+  }
   .portDetFlexItem {
     width: 100%;
     margin-bottom: 20px;
@@ -61,7 +65,6 @@
     text-align: center;
   }
 }
-
 </style>
 
 
@@ -104,22 +107,21 @@ export default {
       e.stopPropagation();
     },
     preventSwipe: function() {
-      var elements = document.getElementsByClassName('preventSwipe');
-      Array.from(elements).forEach((el) => {
-        el.addEventListener("wheel", this.stopPropagate)
+      var elements = document.getElementsByClassName("preventSwipe");
+      Array.from(elements).forEach(el => {
+        el.addEventListener("wheel", this.stopPropagate);
         el.addEventListener("touchstart", this.stopPropagate);
         el.addEventListener("touchend", this.stopPropagate);
-        
-      })
+      });
       return true;
     },
     removePrevent: function() {
-      var elements = document.getElementsByClassName('preventSwipe');
-      Array.from(elements).forEach((el) => {
-        el.removeEventListener("wheel", this.stopPropagate)
+      var elements = document.getElementsByClassName("preventSwipe");
+      Array.from(elements).forEach(el => {
+        el.removeEventListener("wheel", this.stopPropagate);
         el.removeEventListener("touchstart", this.stopPropagate);
         el.removeEventListener("touchend", this.stopPropagate);
-      })
+      });
     }
   },
   beforeRouteUpdate(to, from, next) {
