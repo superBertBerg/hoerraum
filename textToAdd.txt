@@ -1,10 +1,9 @@
 Texte für Webpräsenz HO3RRAUM Media GbR
+// * Wir produzieren Content für gemeinschaftliche Erlebnisse bei denen das Visuelle mal nicht die erste Geige spielt: * START
 
-* Wir produzieren Content für gemeinschaftliche Erlebnisse bei denen das Visuelle mal nicht die erste Geige spielt:
+* Wir stehen also für das Gegenteil von Kopfhörer, VR-Brille und Einzelerlebnis. * LANDSCAPE
 
-* Wir stehen also für das Gegenteil von Kopfhörer, VR-Brille und Einzelerlebnis.
-
-* Unser Spielfeld sind sog. ‚immersive‘ Medien. Medien also, in die man wirklich eintauchen kann. Das funktioniert z. B. in Planetarien, weil man dort in der 360°-runden und 180°-gewölbten Kuppel Bild und Ton viel intensiver wahrnimmt, als vor einer Kinoleinwand oder Mattscheibe.
+* Unser Spielfeld sind sog. ‚immersive‘ Medien. Medien also, in die man wirklich eintauchen kann. Das funktioniert z. B. in Planetarien, weil man dort in der 360°-runden und 180°-gewölbten Kuppel Bild und Ton viel intensiver wahrnimmt, als vor einer Kinoleinwand oder Mattscheibe. * PORTFOLIO
 
 
 T e x t m o d u l e 

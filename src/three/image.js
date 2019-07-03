@@ -29,7 +29,7 @@ export default class ImgOnPlane {
         if (!this.controler.scene.getObjectByName(this.name)) return;
         return new Promise((resolve, reject) => {
             TweenLite.fromTo(
-                this.mesh.material, this.animation.time, { opacity: this.animation.opacityto }, {
+                this.mesh.material, this.animation.time/3, { opacity: this.animation.opacityto }, {
                     ease: Back.easeOut,
                     opacity: this.animation.opacityfrom,
                     onComplete: () => {
@@ -38,7 +38,7 @@ export default class ImgOnPlane {
                     }
                 });
             TweenLite.fromTo(
-                this.mesh.position, this.animation.time, { z: this.animation.zfrom }, {
+                this.mesh.position, this.animation.time/3, { z: this.animation.zfrom }, {
                     ease: Circ.easeOut,
                     z: this.animation.zto
                 });

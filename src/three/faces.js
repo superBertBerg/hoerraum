@@ -12,6 +12,9 @@ export default class Face {
         this.divisor = config.pointDivisor
         this.threshold = config.threshold
         this.scaleing = config.scale
+        if(window.innerWidth<769) {
+            this.divisor *= config.mobMultipyDivisor
+        }
     }
 
     init(src) {

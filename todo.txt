@@ -1,15 +1,7 @@
-Seiten:
-    Extra Slide in mobile für about zwischen portfolio und about
-
-SEO:
-    sidmap etc.
-    grob schauen ob alles geladen wird!
-    Bilder alt tags
-
 Content:
     Text Matthias
-Animationen:
-    Fractalbaeume
+
+
 
 REFRACTORING des TODES!!!
 - ver/frag shader combine
@@ -19,19 +11,16 @@ REFRACTORING des TODES!!!
 BUGS:
 
     High pri--
-    face save remove take schau ob auch anderes nicht entfernt wird aus der scene
     Settimeout fuer init ist unbefridiegent
 
     Low pri--
     Resize ist nur befridigend
-    wenn man auf einen seite ist die höher als seite 5 ist neulät und navigiert landet man auf der falschen seite!
 
 
 
 
 Sehr Optional:
 fading out von scrollboxen
-punkte von gesichtern im Mobilen view veringern
 
 
 
@@ -40,6 +29,8 @@ Nächste Iteration:
 Animationen:
     SVGTaucher      ---> Op.    
     
-
+Animationen:
+    Fractalbaeume
+    
 Content:
     Englische Texte

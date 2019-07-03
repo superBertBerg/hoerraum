@@ -83,6 +83,7 @@
         "x": 125,
         "y": 0,
         "pointDivisor": 3,
+        "mobMultipyDivisor": 2,
         "threshold": 0,
         "scale": 0.7,
         "imgPath": "static/images/matthias_final.png"
@@ -91,6 +92,7 @@
         "x": -125,
         "y": 0,
         "pointDivisor": 3,
+        "mobMultipyDivisor": 2,
         "threshold": 0,
         "scale": 0.7,
         "imgPath": "static/images/markus_final.png"
