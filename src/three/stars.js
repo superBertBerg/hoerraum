@@ -107,14 +107,14 @@ export default class Stars {
             if (this.mesh) {
                 this.controler.scene.add(this.mesh)
                 TweenLite.fromTo(this.ufStars.zfact, time, { value: 18.0 }, { 
-                    ease: Power3.easeInOut,
+                    ease: Power4.easeOut,
                     value: this.z,
                     onComplete: () => {
                         resolve()
                     } 
                 });
-                TweenLite.fromTo(this.ufStars.xfact, time, { value: 18.0 }, { ease: Power3.easeInOut, value: this.z });
-                TweenLite.fromTo(this.ufStars.yfact, time, { value: 18.0 }, { ease: Power3.easeInOut, value: this.z });
+                TweenLite.fromTo(this.ufStars.xfact, time, { value: 18.0 }, { ease: Power4.easeOut, value: this.z });
+                TweenLite.fromTo(this.ufStars.yfact, time, { value: 18.0 }, { ease: Power4.easeOut, value: this.z });
             } else {
                 reject()
             }
