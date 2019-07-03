@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import { TweenLite } from 'gsap'
+import { TweenLite, CustomEase } from 'gsap'
 import { initSquares } from './components/constructsquares'
 import { getRandomArbitrary } from './utils/helpers.utils'
 
@@ -8,9 +8,10 @@ export default class Stars {
     constructor(controler, name, config) {
         this.controler = controler
         this.name = name
-
+        // this.ease = CustomEase.create("custom", "M0,0 C0.026,0.012 0.113,0.04 0.204,0.118 0.27,0.174 0.392,0.431 0.424,0.508 0.452,0.576 0.468,0.686 0.564,0.812 0.653,0.929 0.88,1 1,1")
         this.init(config.instances, config.viewHeight, config.viewWidth, config.depth, config.minSize, config.maxSize)
     }
+    
 
     init(instances, viewHeight, viewWidt, depth, minSize, maxSize) {
         var viewWidth = viewWidt * this.controler.camera.aspect
@@ -102,13 +103,21 @@ export default class Stars {
     }
 
     start(time = 2.8) {
-        if (this.mesh) {
-            this.controler.scene.add(this.mesh)
-            return new Promise((resolve, reject) => {
-                TweenLite.fromTo(this.ufStars.zfact, time, { value: 18.0 }, { value: this.z });
-                TweenLite.fromTo(this.ufStars.xfact, time, { value: 18.0 }, { value: this.z });
-                TweenLite.fromTo(this.ufStars.yfact, time, { value: 18.0 }, { value: this.z });
+        return new Promise((resolve, reject) => {
+            if (this.mesh) {
+                this.controler.scene.add(this.mesh)
+                TweenLite.fromTo(this.ufStars.zfact, time, { value: 18.0 }, { 
+                    ease: Power3.easeInOut,
+                    value: this.z,
+                    onComplete: () => {
+                        resolve()
+                    } 
+                });
+                TweenLite.fromTo(this.ufStars.xfact, time, { value: 18.0 }, { ease: Power3.easeInOut, value: this.z });
+                TweenLite.fromTo(this.ufStars.yfact, time, { value: 18.0 }, { ease: Power3.easeInOut, value: this.z });
+            } else {
+                reject()
+            }
             });
-        }
     }
 }

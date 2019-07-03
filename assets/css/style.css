@@ -301,7 +301,7 @@ path {
     font-family: folio-condensed, sans-serif;
     font-weight: 700;
     font-style: normal;
-    font-size: 10em;
+    font-size: 15em;
 }
 
 .bigFontSize {
@@ -397,7 +397,7 @@ path {
 
 @media only screen and (max-width: 400px) {
     .pageHeadline {
-        font-size: 3.5em;
+        font-size: 4.5em;
     }
 }
 
@@ -423,13 +423,15 @@ path {
 .slideBotTopAb-enter-active,
 .slideSwitchAb-enter-active {
     /* postiton: absolute; */
-    transition: all 1s linear;
+    transition: opacity 1s ease;
+    opacity: 1;
 }
 
 .slideTopBotAb-leave-active,
 .slideBotTopAb-leave-active,
 .slideSwitchAb-leave-active {
-    transition: all 1s linear;
+    /* transition: all 1s linear; */
+    opacity: 0;
 }
 
 

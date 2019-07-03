@@ -39,7 +39,7 @@
       <div v-show="!drfshow && !hotshow" class="portFlexItem width paddigText midFontSize">
         <ul>
           <li>
-            <h1>Leistungsportfolio:</h1>
+            <h1>Unser Leistungsportfolio:</h1>
           </li>
           <li>
             <h2>Produktion</h2>

@@ -110,12 +110,16 @@ export default {
           break;
         case 2:
           this.$props.three.head.start();
-          this.$props.three.star.start();
-          this.$props.three.bigLand.start(0.8, -2300, -2140);
-          this.$props.three.midLand.start(0.8, -2300, -2100);
-          this.$props.three.smallLand.start(0.8, -2300, -2070);
+          var prom = this.$props.three.bigLand.start(4.2, -2450, -2140);
+          this.$props.three.midLand.start(2.6, -2400, -2100);
+          this.$props.three.smallLand.start(1.5, -2300, -2070);
           this.$props.three.matthias.moveToStart();
           this.$props.three.markus.moveToStart();
+          // prom.then(function() {
+          prom.then(() => {
+            this.$props.three.star.start()}
+            )
+          // })
           // console.log(to, "  ", this.$props.three.renderer.info);
           // console.log(to, "  ", this.$props.three);
           break;

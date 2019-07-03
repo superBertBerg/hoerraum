@@ -7,10 +7,10 @@ export default class Landscape {
         this.controler = controler
         this.name = name
 
-        this.init(landscape.amplitude, landscape.wavelength, landscape.octaves, landscape.divisor, landscape.strokes, landscape.fact, landscape.color)
+        this.init(landscape.amplitude, landscape.wavelength, landscape.octaves, landscape.divisor, landscape.strokes, landscape.fact, landscape.color, landscape.zposition)
     }
 
-    init(ampl, wl, oc, div, strokes, fact, color) {
+    init(ampl, wl, oc, div, strokes, fact, color, zposition) {
         let circleDisplacmentArr = CombineNoise(GenerateNoise(ampl, wl, oc, div, strokes))
 
         let landscape = new THREE.ShapeBufferGeometry(this.generateLandscape(strokes - 1, fact, circleDisplacmentArr));
@@ -20,6 +20,7 @@ export default class Landscape {
         })
 
         this.mesh = new THREE.Mesh(landscape, material)
+        this.mesh.position.set(0,0, zposition)
         this.mesh.name = this.name
     }
 
@@ -61,12 +62,20 @@ export default class Landscape {
     start(time = 0.8, fromY = -2400, toY = -2000) {
         // TODO multipleadd possible??
         // TODO multiple this.controler.animate possible?
-        if (this.mesh) {
-            if (this.controler.scene.getObjectByName(this.name)) return;
-            this.controler.scene.add(this.mesh)
-            return new Promise((resolve, reject) => {
-                TweenLite.fromTo(this.mesh.position, time, { y: fromY }, { y: toY });
+        return new Promise((resolve, reject) => {
+            if (this.mesh) {
+                if (this.controler.scene.getObjectByName(this.name)) reject();
+                this.controler.scene.add(this.mesh)
+                TweenLite.fromTo(this.mesh.position, time, { y: fromY }, {
+                    ease: Circ.easeOut, 
+                    y: toY,
+                    onComplete: () => {
+                        resolve();
+                    }
+                 });
+            } else {
+                reject()
+            }
             });
-        }
     }
 }

@@ -3,7 +3,7 @@
     <div class="landFlexWrap">
       <div class="landFlexContainer paddigText">
         <div>
-          <p class="bigFontSize folio">3</p>
+          <p class="pageHeadline folio">3</p>
           <h3 class="midFontSize">
             Sie steht u.a. für den qualitativen Anspruch unserer Produktionen: Mittels hochwertiger Technik schaffen wir dreidimensionale, räumliche Hörerlebnisse an sehr besonderen Orten - in Planetarien und Mediendomes. Dem Besucher wird so ein regelrechtes
             <span
