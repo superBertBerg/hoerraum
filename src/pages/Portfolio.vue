@@ -4,25 +4,19 @@
     <div class="portFlexWrap">
       <div class="portFlexItem width">
         <!-- <transition name="portfolio"> -->
-        <router-link
-          v-show="drfshow || !hotshow"
-          class="portFlexProduct borderRight bigFontSize"
-          :to="droute"
-        >
-          Die drei ?
-          <span class="theRed">?</span>
-          <span class="theBlue">?</span>
+        <router-link v-show="drfshow || !hotshow" class="portFlexProduct bigFontSize" :to="droute">
+          <img class="img" src="/static/images/DDF.png" alt />
         </router-link>
         <!-- </transition> -->
         <!-- <div >  -->
         <!-- <transition name="portfolio"> -->
         <router-link
           v-show="hotshow || !drfshow"
-          class="portFlexProduct borderLeft bigFontSize"
+          class="portFlexProduct bigFontSize"
+          :class="{borderLeft: !hotshow}"
           :to="hroute"
         >
-          Der Räuber
-          <br>Hotzenplotz
+          <img class="img" src="/static/images/Hotzenplotz.png" alt />
         </router-link>
         <!-- </transition> -->
         <!-- </div> -->
@@ -51,16 +45,18 @@
 .portFlexWrap {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   text-align: center;
   height: 100%;
   width: 100%;
 }
 .portFlexItem {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   width: 100%;
-  height: 30%;
+  /* margin-top: 10%; */
+  height: 20%;
 }
 .portFlexProduct {
   width: 100%;
@@ -75,10 +71,20 @@
   align-self: center;
   width: 60%;
 }
-
+.img {
+  max-height: 100%;
+  max-width: 300px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
 @media only screen and (max-width: 768px) {
   .portFlexItem.width {
     width: 90%;
+  }
+  .img {
+    max-width: 90%;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 </style>
@@ -115,13 +121,13 @@ export default {
   },
 
   beforeRouteUpdate(to, from, next) {
-    this.route(to.name)
+    this.route(to.name);
     next();
   },
   mounted() {
     this.droute = this.routershort.children[0].path;
     this.hroute = this.routershort.children[1].path;
-    this.route(this.$router.currentRoute.name)
+    this.route(this.$router.currentRoute.name);
   }
 };
 </script>

@@ -126,8 +126,9 @@ export default {
           "et. Das sieht mal abstrakt künstlerisch, mal mysteriös nebelig, mal semi-rea" +
           "listisch aus, aber nie „filmisch“. So bleibt der Fokus immer auf dem Hörerle" +
           "bnis, das Justus Jonas, Peter Shaw und Bob Andrews schon vor langer Zeit zu " +
-          "Kultfiguren gemacht hat. Weit über 200.000 Fans der drei ??? haben die bisla" +
-          "ng 6 Folgen in 7 deutschen Planetarien besucht."
+          "Kultfiguren gemacht hat. Weit über 200.000 Fans der drei ?<span class=\"theR" +
+          "ed\">?</span><span class=\"theBlue\">?</span> haben die bislang 6 Folgen in " +
+          "7 deutschen Planetarien besucht."
       },
       eng: { h2: "", p: "" }
     };
