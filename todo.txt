@@ -1,13 +1,6 @@
 Content:
     Text Matthias
 
-
-
-REFRACTORING des TODES!!!
-- ver/frag shader combine
-- Scoped CSS
-- Faces allerdings vlt. nachder interaktivität!
-
 BUGS:
 
     High pri--
@@ -19,12 +12,15 @@ BUGS:
 
 
 
-Sehr Optional:
-fading out von scrollboxen
 
 
 
 Nächste Iteration:
+
+REFRACTORING des TODES!!!
+- ver/frag shader combine
+- Scoped CSS
+- Faces allerdings vlt. nachder interaktivität!
 
 Animationen:
     SVGTaucher      ---> Op.    
@@ -34,3 +30,6 @@ Animationen:
     
 Content:
     Englische Texte
+
+Sehr Optional:
+fading out von scrollboxen
