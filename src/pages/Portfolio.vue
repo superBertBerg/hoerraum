@@ -2,7 +2,7 @@
 <template>
   <div id="portfolio" class="transitionWrap">
     <div class="portFlexWrap">
-      <div class="portFlexItem width">
+      <div class="portFlexItem width mag">
         <router-link v-show="drfshow || !hotshow" class="portFlexProduct bigFontSize" :to="droute">
           <img
             class="img"
@@ -111,9 +111,11 @@
     width: 90%;
     flex-direction: column;
   }
+  .portFlexItem.width.mag {
+    margin-top: 30px;
+  }
   .borderLeft {
     border-left: none;
-    border-top: 1px solid white;
   }
   .img {
     max-width: 70%;
