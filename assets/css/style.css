@@ -423,7 +423,7 @@ path {
 .slideBotTopAb-enter-active,
 .slideSwitchAb-enter-active {
     /* postiton: absolute; */
-    transition: opacity 1s ease;
+    transition: opacity 1s linear;
     opacity: 1;
 }
 
@@ -431,9 +431,23 @@ path {
 .slideBotTopAb-leave-active,
 .slideSwitchAb-leave-active {
     /* transition: all 1s linear; */
+    /* transition: opacity 10s ease; */
     opacity: 0;
 }
 
+.slideSwitchAb-enter {
+    position: absolute;
+    opacity: 0;
+}
+.slideSwitchAb-leave {
+    position: absolute;
+}
+.slideSwitchAb-leave-to {
+    position: absolute;
+}
+.slideSwitchAb-enter-to {
+    opacity: 1;
+}
 
 /* .slide-fade-leave-active below version 2.1.8 */
 
