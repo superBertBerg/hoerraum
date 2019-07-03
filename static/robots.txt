@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://hoerraum.media/static/sitemap.txt

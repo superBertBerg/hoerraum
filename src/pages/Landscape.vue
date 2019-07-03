@@ -6,7 +6,7 @@
           <h3 class="midFontSize">
             Alle setzen auf Bewegtbild. Wir setzen auf die Magie der
             <span class="theRed">Töne</span>,
-            <span class="theRed">Klänge</span> un des gesprochenen Wortes, die Bilder zuallererst im Kopf entstehen läßt.
+            <span class="theRed">Klänge</span> und des gesprochenen Wortes, die Bilder zuallererst im Kopf entstehen läßt.
           </h3>
         </div>
     </div>
@@ -56,6 +56,12 @@
 
 <script>
 export default {
-  props: ["id"]
+  props: ["id"],
+  metaInfo: {
+    title: 'Hoerraum - Die Magie der Töne',
+    meta: [
+      { name: 'description', content: 'Hoerraum - die Magie der Töne, Klänge und des gesprochen Wortes.'}
+    ]
+  }
 };
 </script>

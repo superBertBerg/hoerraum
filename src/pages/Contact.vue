@@ -186,6 +186,16 @@ export default {
   },
   destroyed() {
     this.removePrevent();
+  },
+  metaInfo: {
+    title: "Hoerraum - Kontakt | Impressunm",
+    meta: [
+      {
+        name: "description",
+        content:
+          "Hoerraum - Kontakt: Hoerraum Media GbR • Binderstr. 24 • 20146 Hamburg | Telefon: +49 40 244 37 131 | info at hoerraum.media"
+      }
+    ]
   }
 };
 </script>

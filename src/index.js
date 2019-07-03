@@ -1,8 +1,8 @@
 import '../assets/css/style.css'
 
 import Vue from 'vue'
-import VueAnime from 'vue-animejs'
 import VueRouter from 'vue-router'
+import VueMeta from 'vue-meta'
 
 import App from './App.vue'
 
@@ -17,13 +17,13 @@ import AboutOut from './pages/AboutOutline.vue'
 import GFslide from './components/GFslide.vue'
 import DreiFragenzeichen from './components/DreiFragenzeichen.vue'
 import Hotzenplotz from './components/Hotzenplotz.vue'
-// import DreiAuge from './components/DreiAuge.vue'
-// import Katze from './components/Katze.vue'
 import Controler from './three/controler'
 
 
 Vue.use(VueRouter)
-Vue.use(VueAnime)
+Vue.use(VueMeta, {
+    refreshOnceOnNavigation: true
+})
 
 
 
@@ -53,7 +53,6 @@ const router = new VueRouter({
                 { path: 'detail/:id' }
             ]
         },
-        // { path: '/imag', component: Imag },
         {
             path: '/about/',
             component: About,
@@ -99,4 +98,4 @@ setTimeout(
             }
         })
     },
-    500);
+500);

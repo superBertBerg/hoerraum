@@ -13,7 +13,8 @@
             erklären Krauße und Schäfer.
           </p>
           <h1>
-            HO<span class="theRed">3</span>RRAUM
+            HO
+            <span class="theRed">3</span>RRAUM
           </h1>
         </div>
         <router-link class="bigFontSize flexLMR end link" to="/about/gf/matthias_krause">
@@ -101,6 +102,16 @@ export default {
   },
   created() {
     this.init(this.$route.params.id);
+  },
+  metaInfo: {
+    title: "Hoerraum - Über Uns",
+    meta: [
+      {
+        name: "description",
+        content:
+          "Hoerraum - Der dreidimensionale Sound gibt uns dort die Möglichkeit, das Hörspiel auf eine neue Erlebnisebene zu bringen. Der Zuhörer fühlt sich mittendrin statt nur dabei. - Markus Schäfer - Matthias Krauße"
+      }
+    ]
   }
 };
 </script>

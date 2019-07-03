@@ -30,5 +30,16 @@
 
 
 <script>
-export default {};
+export default {
+  metaInfo: {
+    title: "Hoerraum - Über Uns",
+    meta: [
+      {
+        name: "description",
+        content:
+          "Hoerraum - Der dreidimensionale Sound gibt uns dort die Möglichkeit, das Hörspiel auf eine neue Erlebnisebene zu bringen. Der Zuhörer fühlt sich mittendrin statt nur dabei. - Markus Schäfer - Matthias Krauße"
+      }
+    ]
+  }
+};
 </script>

@@ -20,9 +20,6 @@ import Contact from "./pages/Contact.vue";
 import Imag from "./pages/About.vue";
 import * as routeConf from './three/config/routes.json'
 
-// test ugly
-import Test from "./components/Test.vue";
-
 export default {
   props: {
     three: null
@@ -31,8 +28,7 @@ export default {
     Landing,
     Dive,
     Landscape,
-    Menu,
-    Test
+    Menu
   },
   data: function() {
     return {

@@ -23,4 +23,11 @@
   }
 </style>
 <script>
+export default {
+  metaInfo: {
+    meta: [
+      { name: 'description', content: 'Hoerraum - Produziert Content für gemeinschaftliche Erlebnisse. 360Grad Hörerlebnisse in Planetarien und Mediendomes'}
+    ]
+  }
+}
 </script>
