@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- <router-link class="button" to="/"><div id="menuButtonWrapper"></div></router-link> -->
-    <div :id="transitonEffect"></div>
+    <!-- <div :id="transitonEffect"></div> -->
     <!-- <Test></Test> -->
     <transition :name="transitonEffect">
       <router-view></router-view>

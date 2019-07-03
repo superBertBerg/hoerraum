@@ -1,42 +1,46 @@
 <!-- TODO routelink toggle -->
 <template>
   <div id="portfolio" class="transitionWrap">
-    <div class="portFlexWrap">
-      <div class="portFlexItem width">
-        <!-- <transition name="portfolio"> -->
-        <router-link v-show="drfshow || !hotshow" class="portFlexProduct bigFontSize" :to="droute">
-          <img class="img" src="/static/images/DDF.png" alt />
-        </router-link>
-        <!-- </transition> -->
-        <!-- <div >  -->
-        <!-- <transition name="portfolio"> -->
-        <router-link
-          v-show="hotshow || !drfshow"
-          class="portFlexProduct bigFontSize"
-          :class="{borderLeft: !hotshow}"
-          :to="hroute"
-        >
-          <img class="img" src="/static/images/Hotzenplotz.png" alt />
-        </router-link>
-        <!-- </transition> -->
-        <!-- </div> -->
+      <div class="portFlexWrap">
+        <div class="portFlexItem width">
+          <router-link
+            v-show="drfshow || !hotshow"
+            class="portFlexProduct bigFontSize"
+            :to="droute"
+          >
+            <img class="img" :class="{expand: drfshow}" src="/static/images/DDF.png" alt="Die drei Fragezeichen, Hoerraum" />
+          </router-link>
+          <!-- <transition name="portfolio"> -->
+          <!-- <div >  -->
+          <router-link
+            v-show="hotshow || !drfshow"
+            class="portFlexProduct bigFontSize"
+            :class="{borderLeft: !hotshow}"
+            :to="hroute"
+          >
+            <img class="img" :class="{expand: drfshow}" src="/static/images/Hotzenplotz.png" alt="Der Räuber Hotzenplotz, Hoerraum" />
+          </router-link>
+          <!-- </transition> -->
+          <!-- </div> -->
+        </div>
+    <transition name="slideSwitchAb">
+        <router-view></router-view>
+    </transition>
+        <h3
+          v-show="!drfshow && !hotshow"
+          class="portFlexItem width paddigText midFontSize"
+        >Unser Spielfeld sind sog. ‚immersive‘ Medien. Medien also, in die man wirklich eintauchen kann. Das funktioniert z. B. in Planetarien, weil man dort in der 360°-runden und 180°-gewölbten Kuppel Bild und Ton viel intensiver wahrnimmt, als vor einer Kinoleinwand oder Mattscheibe.</h3>
+        <div v-show="!drfshow && !hotshow" class="portFlexItem width paddigText midFontSize">
+          <ul>
+            <li><h1>Leistungsportfolio:</h1></li>
+            <li><h2>Produktion</h2></li>
+            <li><h2>Marketing</h2></li>
+            <li><h2>Vertrieb</h2></li>
+            <li><h2>Lizenzierung</h2></li>
+            <li><h2>Beratung</h2></li>
+          </ul>
+        </div>
       </div>
-      <router-view></router-view>
-      <div
-        v-show="!drfshow && !hotshow"
-        class="portFlexItem width paddigText midFontSize"
-      >Unser Spielfeld sind sog. ‚immersive‘ Medien. Medien also, in die man wirklich eintauchen kann. Das funktioniert z. B. in Planetarien, weil man dort in der 360°-runden und 180°-gewölbten Kuppel Bild und Ton viel intensiver wahrnimmt, als vor einer Kinoleinwand oder Mattscheibe.</div>
-      <div v-show="!drfshow && !hotshow" class="portFlexItem width paddigText midFontSize">
-        <ul>
-          <li>Leistungsportfolio:</li>
-          <li>Produktion</li>
-          <li>Marketing</li>
-          <li>Vertrieb</li>
-          <li>Lizenzierung</li>
-          <li>Beratung</li>
-        </ul>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -77,6 +81,9 @@
   padding-left: 50px;
   padding-right: 50px;
 }
+.expand {
+  width: 60%;
+}
 @media only screen and (max-width: 768px) {
   .portFlexItem.width {
     width: 90%;
@@ -85,6 +92,9 @@
     max-width: 90%;
     padding-left: 0px;
     padding-right: 0px;
+  }
+  .img .expand {
+    width: 60%;
   }
 }
 </style>

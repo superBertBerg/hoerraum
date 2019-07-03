@@ -5,7 +5,7 @@
         <img
           class="roundedImg"
           src="/static/images/portfolio/HO3RRAUM_Raeuber-Hotzenplotz-und-die-Mondrakete.png"
-          alt
+          alt="Mediendom, Planetarium, Hoerraum, Räuber-Hotzenplotz-und-die-Mondrakete"
         >
       </div>
     </div>
@@ -24,7 +24,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 70%;
+  height: 80%;
 }
 .portDetFlexItem {
   display: flex;

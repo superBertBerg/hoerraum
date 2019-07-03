@@ -29,8 +29,8 @@ Vue.use(VueAnime)
 
 const router = new VueRouter({
     routes: [
-        { path: '/', component: Landing }, { path: '/dive', component: Dive },
-        { path: '/landscape', component: Landscape }, {
+        { path: '/', component: Landing }, { path: '/info', component: Dive },
+        { path: '/info/dream', component: Landscape }, {
             path: '/portfolio/',
             name: 'portfolio',
             component: Portfolio,

@@ -1,32 +1,53 @@
 <template>
   <div id="dreiFragezeichen" class="portDetFlexItem overFlow preventSwipe midFontSize">
     <div class="portDetFlexSubItem">
+      <h1 v-html="message.h1" style="display: none"></h1>
       <p class="paddigText" v-html="message.p"></p>
     </div>
     <div class="portDetFlexSubItem">
       <div class="imgContainer paddigText">
+        <a target="_blank" rel="noopener noreferrer" href="https://dreifragezeichen.de/live/planetarium">
         <img
           class="roundedImg"
           src="/static/images/portfolio/HO3RRAUM_Das-Grab-der-Inka-Mumie.png"
-          alt
-        >
-        <img class="roundedImg" src="/static/images/portfolio/HO3RRAUM_Das-kalte-Auge.png" alt>
+          alt="Die-Drei-Fragezeichen, Mediendom, Planetarium, Hoerraum, Das-Grab-der-Inka-Mumie"
+        />
+        </a>
+        <a target="_blank" rel="noopener noreferrer" href="https://dreifragezeichen.de/live/planetarium">
+        <img
+          class="roundedImg"
+          src="/static/images/portfolio/HO3RRAUM_Das-kalte-Auge.png"
+          alt="Die-Drei-Fragezeichen, Mediendom, Planetarium, Hoerraum, Das-kalte-Auge"
+        />
+        </a>
+        <a target="_blank" rel="noopener noreferrer" href="https://dreifragezeichen.de/live/planetarium">
         <img
           class="roundedImg"
           src="/static/images/portfolio/HO3RRAUM_Das-versunkene-Schiff.png"
-          alt
-        >
+          alt="Die-Drei-Fragezeichen, Mediendom, Planetarium, Hoerraum, Das-versunkene-Schiff"
+        />
+        </a>
+        <a target="_blank" rel="noopener noreferrer" href="https://dreifragezeichen.de/live/planetarium">
         <img
           class="roundedImg"
           src="/static/images/portfolio/HO3RRAUM_Der-dreiaeugige-Totenkopf.png"
-          alt
-        >
-        <img class="roundedImg" src="/static/images/portfolio/HO3RRAUM_Die-Schwarze-Katze.png" alt>
+          alt="Die-Drei-Fragezeichen, Mediendom, Planetarium, Hoerraum, Der-dreiaeugige-Totenkopf"
+        />
+        </a>
+        <a target="_blank" rel="noopener noreferrer" href="https://dreifragezeichen.de/live/planetarium">
+        <img
+          class="roundedImg"
+          src="/static/images/portfolio/HO3RRAUM_Die-Schwarze-Katze.png"
+          alt="Die-Drei-Fragezeichen, Mediendom, Planetarium, Hoerraum, Die-Schwarze-Katze"
+        />
+        </a>
+        <a target="_blank" rel="noopener noreferrer" href="https://dreifragezeichen.de/live/planetarium">
         <img
           class="roundedImg"
           src="/static/images/portfolio/HO3RRAUM_und-der-Tornadojäger.png"
-          alt
-        >
+          alt="Die-Drei-Fragezeichen, Mediendom, Planetarium, Hoerraum, und-der-Tornadojäger"
+        />
+        </a>
       </div>
     </div>
   </div>
@@ -35,7 +56,7 @@
 
 <style scoped>
 #dreiFragezeichen {
-  height: 70%;
+  height: 80%;
 }
 .portDetFlexWrap {
   display: flex;
@@ -84,7 +105,7 @@
   }
 }
 @media only screen and (max-width: 768px) {
-    .roundedImg {
+  .roundedImg {
     width: 130px;
     height: 130px;
   }
@@ -114,8 +135,7 @@ export default {
         p: ""
       },
       ger: {
-        h1:
-          'Die drei ?<span class="theRed">?</span><span class="theBlue">?</span>',
+        h1: "Die drei ???",
         p:
           "3 berühmte Detektive, 3 unveröffentlichte Geschichten, 3-dimesionaler Sound!" +
           " – mit diesen USP-Bausteinen haben wir mittlerweile 2 Staffeln produziert, g" +
@@ -126,8 +146,8 @@ export default {
           "et. Das sieht mal abstrakt künstlerisch, mal mysteriös nebelig, mal semi-rea" +
           "listisch aus, aber nie „filmisch“. So bleibt der Fokus immer auf dem Hörerle" +
           "bnis, das Justus Jonas, Peter Shaw und Bob Andrews schon vor langer Zeit zu " +
-          "Kultfiguren gemacht hat. Weit über 200.000 Fans der drei ?<span class=\"theR" +
-          "ed\">?</span><span class=\"theBlue\">?</span> haben die bislang 6 Folgen in " +
+          'Kultfiguren gemacht hat. Weit über 200.000 Fans der drei ?<span class="theR' +
+          'ed">?</span><span class="theBlue">?</span> haben die bislang 6 Folgen in ' +
           "7 deutschen Planetarien besucht."
       },
       eng: { h2: "", p: "" }

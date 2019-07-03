@@ -5,8 +5,8 @@
     <div class="sideNav midFontSize" v-bind:class="{open: toggled}">
       <!-- <a href="#" class="closebtn" v-on:click="closeNav(this)">&times;</a> -->
       <router-link to="/">Start</router-link>
-      <router-link to="/dive">Konzept</router-link>
-      <router-link to="/landscape">-----</router-link>
+      <router-link to="/info">Info</router-link>
+      <router-link to="/info/dream">----</router-link>
       <router-link to="/portfolio">Leistungen</router-link>
       <router-link to="/about">Über uns</router-link>
       <router-link to="/info/detail/contact">Kontakt</router-link>

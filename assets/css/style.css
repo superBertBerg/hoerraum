@@ -419,6 +419,19 @@ path {
     transition: all 1s linear;
 }
 
+.slideTopBotAb-enter-active,
+.slideBotTopAb-enter-active,
+.slideSwitchAb-enter-active {
+    /* postiton: absolute; */
+    transition: all 1s linear;
+}
+
+.slideTopBotAb-leave-active,
+.slideBotTopAb-leave-active,
+.slideSwitchAb-leave-active {
+    transition: all 1s linear;
+}
+
 
 /* .slide-fade-leave-active below version 2.1.8 */
 
