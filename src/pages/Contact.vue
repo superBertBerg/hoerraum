@@ -99,8 +99,8 @@
   padding: 0;
 }
 .size {
-  width: 30%;
-  padding: 10px;
+  width: 376px;
+  padding-bottom: 25px;
 }
 .highlight {
   color: #e9e9e9;
