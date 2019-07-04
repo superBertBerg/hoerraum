@@ -15,6 +15,8 @@ uniform float uTime;
 uniform float uRandom;
 uniform float uDepth;
 uniform float uSize;
+uniform float uX;
+uniform float uY;
 uniform vec2 uTextureSize;
 uniform sampler2D uTexture;
 uniform sampler2D uTouch;
@@ -122,6 +124,10 @@ void main() {
 	displaced.z += t * 20.0 * rndz;
 	displaced.x += cos(angle) * t * 20.0 * rndz;
 	displaced.y += sin(angle) * t * 20.0 * rndz;
+
+  // displaced.z *= 10.0;
+	displaced.x *= uX;
+	displaced.y *= uY;
 
 	// particle size
 	float psize = (snoise(vec2(uTime, pindex) * 0.5) + 2.0);

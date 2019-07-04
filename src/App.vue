@@ -18,7 +18,7 @@ import Menu from "./components/Menu.vue";
 import Portfolio from "./pages/Portfolio.vue";
 import Contact from "./pages/Contact.vue";
 import Imag from "./pages/About.vue";
-import * as routeConf from './three/config/routes.json'
+import * as routeConf from "./three/config/routes.json";
 
 export default {
   props: {
@@ -44,7 +44,7 @@ export default {
       touchSwipe: {
         startX: 0,
         startY: 0,
-        threshold: window.innerHeight*0.1,
+        threshold: window.innerHeight * 0.1,
         restraint: 100,
         allowedTime: 300,
         startTime: 0
@@ -53,25 +53,25 @@ export default {
   },
   methods: {
     calcRoutes: function() {
-      if(this.mob) {
-        this.routes = routeConf.mobile
-        this.hide = routeConf.mobile.hide
-        this.maxNavDepth = routeConf.mobile.maxNavDepth
+      if (this.mob) {
+        this.routes = routeConf.mobile;
+        this.hide = routeConf.mobile.hide;
+        this.maxNavDepth = routeConf.mobile.maxNavDepth;
       } else {
-        this.routes = routeConf.desktop
-        this.hide = routeConf.desktop.hide
-        this.maxNavDepth = routeConf.desktop.maxNavDepth
+        this.routes = routeConf.desktop;
+        this.hide = routeConf.desktop.hide;
+        this.maxNavDepth = routeConf.desktop.maxNavDepth;
       }
     },
     init: function() {
       this.onResize();
-      this.validPath(this.$router.currentRoute.path)
+      this.validPath(this.$router.currentRoute.path);
     },
     validPath: function(to, from) {
-      var route = this.routes[to.replace(/(?<=.{2,})\/$/, "")]
+      var route = this.routes[to.replace(/(?<=.{2,})\/$/, "")];
       if (route[0] !== undefined) {
-        this.currentNavigate  = route[0]
-        this.currentAnimation = route[1]
+        this.currentNavigate = route[0];
+        this.currentAnimation = route[1];
         this.animation(route[1]);
       } else {
         this.$router.replace("/");
@@ -79,102 +79,119 @@ export default {
     },
     hideAllAnimation: function(currentSlide) {
       var tempPoniter = this.$props.three;
-      for(var i = 0; i<this.hide.length; ++i) {
-        var toHide = true
-        for(var j = 1; j<this.hide[i].length; ++j) {
-          if(this.hide[i][j] == currentSlide) {
+      for (var i = 0; i < this.hide.length; ++i) {
+        var toHide = true;
+        for (var j = 1; j < this.hide[i].length; ++j) {
+          if (this.hide[i][j] == currentSlide) {
             toHide = false;
           }
         }
-        if(toHide) {
-          tempPoniter[this.hide[i][0]]["hide"]()
+        if (toHide) {
+          tempPoniter[this.hide[i][0]]["hide"]();
         }
       }
     },
     animation: function(to) {
       this.hideAllAnimation(to);
+      let anime = this.$props.three;
       switch (to) {
         case 0:
-          this.$props.three.line.start();
-          this.$props.three.matthias.moveToStart();
-          this.$props.three.markus.moveToStart();
-          // this.$props.three.renderer
-          // console.log(to, "  ", this.$props.three.renderer.info);
+          anime.line.start();
+          anime.matthias.moveToStart();
+          anime.markus.moveToStart();
+          anime.men.moveToStart();
+          // anime.renderer
+          // console.log(to, "  ", anime.renderer.info);
           break;
         case 1:
-          this.$props.three.bigStars.start();
-          this.$props.three.matthias.moveToStart();
-          this.$props.three.markus.moveToStart();
-          // console.log(to, "  ", this.$props.three.renderer.info);
-          // console.log(to, "  ", this.$props.three);
+          // anime.bigStars.start();
+          if (this.mob) {
+            anime.men.start(1.4);
+          } else {
+            anime.men.start();
+          }
+          anime.matthias.moveToStart();
+          anime.markus.moveToStart();
+          anime.men.move(0, -70, 2);
+          
+          console.log(to, "  ", anime.renderer.info);
+          console.log(to, "  ", anime);
           break;
         case 2:
-          this.$props.three.head.start();
-          var prom = this.$props.three.bigLand.start(4.2, -2450, -2140);
-          this.$props.three.midLand.start(2.6, -2400, -2100);
-          this.$props.three.smallLand.start(1.5, -2300, -2070);
-          this.$props.three.matthias.moveToStart();
-          this.$props.three.markus.moveToStart();
+          anime.men.dispose()
+          anime.head.start();
+          var prom = anime.bigLand.start(4.2, -2450, -2140);
+          anime.midLand.start(2.6, -2400, -2100);
+          anime.smallLand.start(1.5, -2300, -2070);
+          anime.matthias.moveToStart();
+          anime.markus.moveToStart();
+          // anime.men.moveToStart();
           // prom.then(function() {
           prom.then(() => {
-            this.$props.three.star.start()}
-            )
+            anime.star.start();
+          });
           // })
-          // console.log(to, "  ", this.$props.three.renderer.info);
-          // console.log(to, "  ", this.$props.three);
+          // console.log(to, "  ", anime.renderer.info);
+          // console.log(to, "  ", anime);
           break;
         case 3:
-          this.$props.three.matthias.moveToStart();
-          this.$props.three.markus.moveToStart();
-          // console.log(to, "  ", this.$props.three);
+          anime.matthias.moveToStart();
+          anime.markus.moveToStart();
+          anime.men.moveToStart();
+          // console.log(to, "  ", anime);
           break;
         case 4:
-          this.$props.three.matthias.start();
-          this.$props.three.markus.start();
+          anime.matthias.start();
+          anime.markus.start();
+          anime.men.moveToStart();
           if (this.mob) {
             this.moveFaces(0, -45, 0, 55);
           } else {
             this.moveFaces(125, 0, -125, 0);
           }
-          // console.log(to, "  ", this.$props.three.renderer.info);
-          // console.log(to, "  ", this.$props.three);
+          // console.log(to, "  ", anime.renderer.info);
+          // console.log(to, "  ", anime);
           break;
         case 5:
-          this.$props.three.ellipse.start();
-          this.$props.three.ellipse.deSpread(2, 2);
-          this.$props.three.matthias.moveToStart();
-          this.$props.three.markus.moveToStart();
-          // console.log(to, "  ", this.$props.three.renderer.info);
-          // console.log(to, "  ", this.$props.three);
+          anime.ellipse.start();
+          anime.ellipse.deSpread(2, 2);
+          anime.matthias.moveToStart();
+          anime.markus.moveToStart();
+          anime.men.moveToStart();
+          // console.log(to, "  ", anime.renderer.info);
+          // console.log(to, "  ", anime);
           break;
         case 6:
-          this.$props.three.markus.start();
+          anime.markus.start();
           if (this.mob) {
             this.moveFaces(0, 55, 0, 55);
           } else {
             this.moveFaces(125, 0, 125, 0);
           }
-          this.$props.three.matthias.moveToStart();
-          // console.log(to, "  ", this.$props.three.renderer.info);
-          // console.log(to, "  ", this.$props.three);
+          anime.matthias.moveToStart();
+          anime.men.moveToStart();
+          // console.log(to, "  ", anime.renderer.info);
+          // console.log(to, "  ", anime);
           break;
         case 7:
-          this.$props.three.matthias.start();
+          anime.matthias.start();
           if (this.mob) {
             this.moveFaces(0, 55, 0, 55);
           } else {
             this.moveFaces(-125, 0, -125, 0);
           }
-          this.$props.three.markus.moveToStart();
-          // console.log(to, "  ", this.$props.three.renderer.info);
-          // console.log(to, "  ", this.$props.three);
+          anime.markus.moveToStart();
+          anime.men.moveToStart();
+          // console.log(to, "  ", anime.renderer.info);
+          // console.log(to, "  ", anime);
           break;
         case 8:
-          this.$props.three.ellipse.start();
-          this.$props.three.ellipse.spread(2, 2);
-          this.$props.three.matthias.moveToStart();
-          this.$props.three.markus.moveToStart();
-          // console.log(to, "  ", this.$props.three.renderer.info);
+          anime.ellipse.start();
+          anime.ellipse.spread(2, 2);
+          anime.matthias.moveToStart();
+          anime.markus.moveToStart();
+          anime.men.moveToStart();
+          // console.log(to, "  ", anime.renderer.info);
           break;
         default:
           // clear anymation
@@ -182,14 +199,15 @@ export default {
       }
     },
     moveFaces: function(xMat, yMat, xMark, yMark) {
-      this.$props.three.matthias.move(xMat, yMat);
-      this.$props.three.markus.move(xMark, yMark);
+      let anime = this.$props.three;
+      anime.matthias.move(xMat, yMat);
+      anime.markus.move(xMark, yMark);
       if (this.mob) {
-        this.$props.three.matthias.setScale(0.3);
-        this.$props.three.markus.setScale(0.3);
+        anime.matthias.setScale(0.3);
+        anime.markus.setScale(0.3);
       } else {
-        this.$props.three.matthias.setScale(0.5);
-        this.$props.three.markus.setScale(0.5);
+        anime.matthias.setScale(0.5);
+        anime.markus.setScale(0.5);
       }
     },
     keyCalc(event) {
@@ -216,7 +234,7 @@ export default {
           Math.abs(distY) > this.touchSwipe.threshold &&
           Math.abs(distX) < this.touchSwipe.restraint
         ) {
-          swipedir = distY < 0 ? 100 : -100; 
+          swipedir = distY < 0 ? 100 : -100;
         }
       }
       this.handleScroll(swipedir);
@@ -231,13 +249,18 @@ export default {
       if (!this.scrolled) {
         if (event > 0) {
           this.$router.push({
-            path: this.getKeyByValue(this.routes, this.mod(this.currentNavigate + 1, this.maxNavDepth))
+            path: this.getKeyByValue(
+              this.routes,
+              this.mod(this.currentNavigate + 1, this.maxNavDepth)
+            )
           });
           this.scrolled = true;
         } else if (event < 0) {
-
           this.$router.push({
-            path: this.getKeyByValue(this.routes, this.mod(this.currentNavigate - 1, this.maxNavDepth))
+            path: this.getKeyByValue(
+              this.routes,
+              this.mod(this.currentNavigate - 1, this.maxNavDepth)
+            )
           });
           this.scrolled = true;
         }
@@ -255,8 +278,8 @@ export default {
       } else {
         this.mob = false;
       }
-      this.calcRoutes()
-      this.animation(this.currentAnimation)
+      this.calcRoutes();
+      this.animation(this.currentAnimation);
     },
     // REFRAC
     getKeyByValue(object, value) {
@@ -273,7 +296,6 @@ export default {
   },
   mounted: function() {
     setTimeout(() => {
-      
       this.init();
     }, 200);
   },

@@ -2,7 +2,7 @@
 <template>
   <div id="portfolio" class="transitionWrap">
     <div class="portFlexWrap">
-      <div class="portFlexItem width mag">
+      <div v-show="!hotshow" class="portFlexItem width mag">
         <router-link v-show="drfshow || !hotshow" class="portFlexProduct bigFontSize" :to="droute">
           <img
             class="img"

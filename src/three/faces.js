@@ -50,6 +50,8 @@ export default class Face {
             uRandom: { value: 1.0 },
             uDepth: { value: 2.0 },
             uSize: { value: 5.0 },
+            uX: { value: 1.0 },
+            uY: { value: 1.0 },
             uTextureSize: { value: new THREE.Vector2(this.width, this.height) },
             uTexture: { value: this.texture },
             uTouch: { value: null },
@@ -134,6 +136,7 @@ export default class Face {
         this.mesh = new THREE.Mesh(square, material);
         this.mesh.name = this.name;
         this.mesh.scale.set(this.scaleing, this.scaleing, 1)
+        this.mesh.position.set(this.x,this.y,0)
             // this.mesh.translateX(this.x)
     }
 
@@ -180,8 +183,8 @@ export default class Face {
         }
     }
 
-    show(time = 1.0) {
-        TweenLite.fromTo(this.uFace.uSize, time, { value: 0.1 }, { value: .8 });
+    show(size = 0.8, time = 1.0) {
+        TweenLite.fromTo(this.uFace.uSize, time, { value: 0.1 }, { value: size });
         TweenLite.to(this.uFace.uRandom, time, { value: 3.0 });
         TweenLite.fromTo(this.uFace.uDepth, time * 1.5, { value: 40.0 }, { value: 4.0 });
 
@@ -201,7 +204,6 @@ export default class Face {
             TweenLite.to(this.uFace.uDepth, time, { value: -20.0, ease: Quad.easeIn });
             TweenLite.to(this.uFace.uSize, time * 0.8, { value: 0.0 });
 
-            // this.removeListeners();
         });
     }
 
@@ -210,12 +212,15 @@ export default class Face {
         this.mesh.parent.remove(this.mesh);
     }
 
-    start() {
-        // console.log(this.mesh)
+    start(size = 0.8) {
+
         if (this.mesh) {
-            // if (this.controler.scene.getObjectByName(this.name)) return;
+
+            this.uFace.uSize.value = 5.0;
+            this.uFace.uX.value = 1.0;
+            this.uFace.uY.value = 1.0;
             this.controler.scene.add(this.mesh)
-            this.show()
+            this.show(size)
         }
     }
 
@@ -226,11 +231,37 @@ export default class Face {
     }
     moveToStart(time = 0.8) {
         if (!this.mesh) return;
+        if (this.mesh.position.x = this.x) return;
         TweenLite.to(this.mesh.position, time, { x: this.x });
         TweenLite.to(this.mesh.position, time, { y: this.y });
     }
     setScale(sym) {
         this.mesh.scale.set(sym, sym, 1);
+    }
+    dispose(x = 0.2, y=0.2, size=15, time = 0.8) {
+        return new Promise((resolve, reject) => {
+            if (this.mesh) {
+                if (!this.controler.scene.getObjectByName(this.name)) reject();
+                TweenLite.fromTo(this.uFace.uSize, time, { value: 5.0 }, {
+                    ease: Circ.easeOut, 
+                    value: 10.0,
+                    onComplete: () => {
+                        resolve();
+                    }
+                 });
+                 TweenLite.fromTo(this.uFace.uX, time, { value: 1.0 }, {
+                    ease: Circ.easeOut, 
+                    value: 0.01
+                 });
+                 TweenLite.fromTo(this.uFace.uY, time, { value: 1.0 }, {
+                    ease: Circ.easeOut, 
+                    value: 0.01
+                 });
+            } else {
+                reject()
+            }
+            });
+
     }
 
     // ---------------------------------------------------------------------------------------------

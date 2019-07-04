@@ -22,15 +22,24 @@
         },
         {
             "size": 800,
-            "x": -50,
+            "x": -120,
             "y": -50
         },
         {
             "size": 500,
-            "x": -110,
+            "x": -160,
             "y": 40
         }
     ],
+    "men": {
+        "x": 0,
+        "y": 100,
+        "pointDivisor": 3,
+        "mobMultipyDivisor": 2,
+        "threshold": 0,
+        "scale": 0.5,
+        "imgPath": "static/images/Menneken3.png"
+    },
     "smallland": {
         "amplitude": 35,
         "wavelength": 30,

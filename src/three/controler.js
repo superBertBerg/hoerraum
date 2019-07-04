@@ -26,8 +26,10 @@ export default class Controler {
         this.smallLand = new Landscape(this, 'smallland', config.smallland)
         this.matthias = new Face(this, 'matthias', config.matthias);
         this.markus = new Face(this, 'mark', config.markus);
+        this.men = new Face(this, 'men', config.men)
         this.matthias.init(config.matthias.imgPath);
         this.markus.init(config.markus.imgPath);
+        this.men.init(config.men.imgPath)
         this.ellipse = new Ellipse(this, 'ellipse', config.ellipse)
         this.star = new Star(this, 'stars', config.stars)
         this.head = new ImgOnPlane(this, 'head', config.head)
@@ -89,7 +91,8 @@ export default class Controler {
         this.ellipse.update(this.time);
         this.line.update(this.time);
         this.matthias.update(this.timer);
-        this.markus.update(this.timer)
+        this.markus.update(this.timer);
+        this.men.update(this.timer);
         this.star.update(this.time);
         this.bigLand.update(-0.00001);
         this.midLand.update(0.000008);

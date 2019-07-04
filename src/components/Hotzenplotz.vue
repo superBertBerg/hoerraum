@@ -59,7 +59,7 @@
 @media only screen and (max-width: 768px) {
   #hotzenplotz {
     display: block;
-    height: 75%;
+    height: 95%;
     margin-bottom: 5%;
   }
   .portDetFlexItem {
