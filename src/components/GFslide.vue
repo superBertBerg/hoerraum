@@ -2,7 +2,7 @@
   <div id="gfslide" class="transitionWrap">
     <div :class="{reverseD: isMatt}" class="gfWrapFlex midFontSize">
       <router-link class="gfClickWrap" to="/about">
-        <!-- <h2 class="display" v-html="message.h2"></h2> -->
+        <h2 class="display" v-html="message.h2"></h2>
       </router-link>
       <h2 class="name" v-html="message.h2"></h2>
       <p v-html="message.p" class="preventSwipe gfTextWrap"></p>
@@ -19,9 +19,10 @@
   height: 100%;
   width: 100%;
   /* padding-left: 100px; */
+  flex-direction: row-reverse;
 }
 .reverseD {
-  /* flex-direction: row-reverse; */
+  flex-direction: row;
 }
 .gfTextWrap {
   overflow-y: auto;
@@ -34,19 +35,16 @@
   display: flex;
   justify-content: center;
   height: 100%;
-  width: 30%;
+  width: 60%;
 }
 .display {
-  /* margin-bottom: 50px; */
-  
+  margin-bottom: 50px;
+
   /* padding: 5%; */
   align-self: flex-end;
 }
 .name {
-  display: flex;
-  height: 10%;
-  justify-content: center;
-  align-items: center;
+  display: none;
 }
 @media only screen and (max-width: 1024px) {
   .gfTextWrap {
@@ -69,10 +67,16 @@
     justify-content: center;
   }
   .reverseD {
-    /* flex-direction: column-reverse; */
+    flex-direction: column;
   }
   .display {
     display: none;
+  }
+  .name {
+    display: flex;
+    height: 10%;
+    justify-content: center;
+    align-items: center;
   }
 }
 </style>
@@ -95,7 +99,7 @@ export default {
             "• arbeitet seit mehr als 30 Jahren in den Bereichen Content, Marken und Medien<br><br>" +
             "• war angestellt bei BMG Ariola, The Walt Disney Company EMEA, [PIAS] Recordings<br><br>" +
             "• als selbstständiger Unternehmer seit 2002 u.a. tätig für OTTO Group, InBev, STAGE Entertainment, G+J, Warner Strategic Marketing, Union Investment, Reeperbahnfestival<br><br>" +
-            "• hat 2013 <a href=\"https://www.thecontentdome.de/#/\">the content dome GmbH</a> gegründet und „Tabaluga und die Zeichen der Zeit“ als 360°-Erlebnis produziert<br><br>" +
+            '• hat 2013 <a href="https://www.thecontentdome.de/#/">the content dome GmbH</a> gegründet und „Tabaluga und die Zeichen der Zeit“ als 360°-Erlebnis produziert<br><br>' +
             "• und hat noch einiges vor ! ...<br><br><br>"
         },
         eng: { h2: "", p: "" }
@@ -130,21 +134,20 @@ export default {
       e.stopPropagation();
     },
     preventSwipe: function() {
-      var elements = document.getElementsByClassName('preventSwipe');
-      Array.from(elements).forEach((el) => {
-        el.addEventListener("wheel", this.stopPropagate)
+      var elements = document.getElementsByClassName("preventSwipe");
+      Array.from(elements).forEach(el => {
+        el.addEventListener("wheel", this.stopPropagate);
         el.addEventListener("touchstart", this.stopPropagate);
         el.addEventListener("touchend", this.stopPropagate);
-        
-      })
+      });
     },
     removePrevent: function() {
-      var elements = document.getElementsByClassName('preventSwipe');
-      Array.from(elements).forEach((el) => {
-        el.removeEventListener("wheel", this.stopPropagate)
+      var elements = document.getElementsByClassName("preventSwipe");
+      Array.from(elements).forEach(el => {
+        el.removeEventListener("wheel", this.stopPropagate);
         el.removeEventListener("touchstart", this.stopPropagate);
         el.removeEventListener("touchend", this.stopPropagate);
-      })
+      });
     }
   },
   created: function() {
@@ -152,7 +155,8 @@ export default {
   },
   mounted: function() {
     this.preventSwipe();
-  }, destroyed() {
+  },
+  destroyed() {
     this.removePrevent();
   }
 };
