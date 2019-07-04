@@ -100,11 +100,8 @@ export default {
           anime.matthias.moveToStart();
           anime.markus.moveToStart();
           anime.men.moveToStart();
-          // anime.renderer
-          // console.log(to, "  ", anime.renderer.info);
           break;
         case 1:
-          // anime.bigStars.start();
           if (this.mob) {
             anime.men.start(1.4);
           } else {
@@ -113,32 +110,28 @@ export default {
           anime.matthias.moveToStart();
           anime.markus.moveToStart();
           anime.men.move(0, -70, 2);
-          
-          console.log(to, "  ", anime.renderer.info);
-          console.log(to, "  ", anime);
           break;
         case 2:
-          anime.men.dispose()
+          anime.men.dispose().then(() => {
+          }).catch(e => {
+    console.log(e);
+});
           anime.head.start();
-          var prom = anime.bigLand.start(4.2, -2450, -2140);
+          var prom = anime.bigLand.start(4.2, -2450, -2140).then(() => {
+            anime.star.start();
+          }).catch(e => {
+    console.log(e);
+});
           anime.midLand.start(2.6, -2400, -2100);
           anime.smallLand.start(1.5, -2300, -2070);
           anime.matthias.moveToStart();
           anime.markus.moveToStart();
-          // anime.men.moveToStart();
-          // prom.then(function() {
-          prom.then(() => {
-            anime.star.start();
-          });
-          // })
-          // console.log(to, "  ", anime.renderer.info);
-          // console.log(to, "  ", anime);
+          // prom
           break;
         case 3:
           anime.matthias.moveToStart();
           anime.markus.moveToStart();
           anime.men.moveToStart();
-          // console.log(to, "  ", anime);
           break;
         case 4:
           anime.matthias.start();
@@ -149,8 +142,6 @@ export default {
           } else {
             this.moveFaces(125, 0, -125, 0);
           }
-          // console.log(to, "  ", anime.renderer.info);
-          // console.log(to, "  ", anime);
           break;
         case 5:
           anime.ellipse.start();
@@ -158,8 +149,6 @@ export default {
           anime.matthias.moveToStart();
           anime.markus.moveToStart();
           anime.men.moveToStart();
-          // console.log(to, "  ", anime.renderer.info);
-          // console.log(to, "  ", anime);
           break;
         case 6:
           anime.markus.start();
@@ -170,8 +159,6 @@ export default {
           }
           anime.matthias.moveToStart();
           anime.men.moveToStart();
-          // console.log(to, "  ", anime.renderer.info);
-          // console.log(to, "  ", anime);
           break;
         case 7:
           anime.matthias.start();
@@ -182,8 +169,6 @@ export default {
           }
           anime.markus.moveToStart();
           anime.men.moveToStart();
-          // console.log(to, "  ", anime.renderer.info);
-          // console.log(to, "  ", anime);
           break;
         case 8:
           anime.ellipse.start();
@@ -191,10 +176,11 @@ export default {
           anime.matthias.moveToStart();
           anime.markus.moveToStart();
           anime.men.moveToStart();
-          // console.log(to, "  ", anime.renderer.info);
           break;
         default:
-          // clear anymation
+          anime.matthias.moveToStart();
+          anime.markus.moveToStart();
+          anime.men.moveToStart();
           break;
       }
     },

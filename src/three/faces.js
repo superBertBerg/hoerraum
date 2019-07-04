@@ -240,25 +240,24 @@ export default class Face {
     }
     dispose(x = 0.2, y=0.2, size=15, time = 0.8) {
         return new Promise((resolve, reject) => {
-            if (this.mesh) {
-                if (!this.controler.scene.getObjectByName(this.name)) reject();
-                TweenLite.fromTo(this.uFace.uSize, time, { value: 5.0 }, {
-                    ease: Circ.easeOut, 
+            if (this.mesh && this.controler.scene.getObjectByName(this.name)) {
+                TweenLite.fromTo(this.uFace.uSize, time, { value: this.uFace.uSize.value }, {
+                    ease: Power4.easeIn, 
                     value: 10.0,
                     onComplete: () => {
                         resolve();
                     }
                  });
                  TweenLite.fromTo(this.uFace.uX, time, { value: 1.0 }, {
-                    ease: Circ.easeOut, 
+                    ease: Power4.easeIn, 
                     value: 0.01
                  });
                  TweenLite.fromTo(this.uFace.uY, time, { value: 1.0 }, {
-                    ease: Circ.easeOut, 
+                    ease: Power4.easeIn, 
                     value: 0.01
                  });
             } else {
-                reject()
+                reject("no mesh for dispose")
             }
             });
 
