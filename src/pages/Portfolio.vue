@@ -35,7 +35,7 @@
       <transition name="slideSwitchAb">
       <h3
         v-show="!drfshow && !hotshow"
-        class="portFlexItem width paddigText midFontSize"
+        class="portFlexItem width extrawurst paddigText midFontSize"
       >Unser Spielfeld sind sog. ‚immersive‘ Medien. Medien also, in die man wirklich eintauchen kann. Das funktioniert z. B. in Planetarien, weil man dort in der 360°-runden und 180°-gewölbten Kuppel Bild und Ton viel intensiver wahrnimmt, als vor einer Kinoleinwand oder Mattscheibe.</h3>
       </transition>
       <div v-show="!drfshow && !hotshow" class="portFlexItem width paddigText midFontSize">
@@ -97,6 +97,9 @@
   align-self: center;
   width: 70%;
 }
+.portFlexItem.width.extrawurst {
+  width: 556px;
+}
 .img {
   max-height: 100%;
   max-width: 300px;
@@ -110,6 +113,9 @@
   .portFlexItem.width {
     width: 90%;
     flex-direction: column;
+  }
+  .portFlexItem.width.extrawurst {
+    width: 90%;
   }
   .portFlexItem.width.mag {
     margin-top: 30px;

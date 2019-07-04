@@ -78,7 +78,7 @@
 }
 .portDetFlexSubItem {
   display: flex;
-  text-align: left;
+  text-align: center;
   align-items: center;
   width: 50%;
 }

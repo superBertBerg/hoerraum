@@ -11,7 +11,7 @@
     </div>
     <div class="portDetFlexItem midFontSize">
       <div>
-        <h1 class="paddigText" v-html="message.h1"></h1>
+        <h1 class="paddigText dis" v-html="message.h1"></h1>
         <p class="paddigText" v-html="message.p"></p>
       </div>
     </div>
@@ -25,6 +25,9 @@
   flex-direction: column;
   align-items: center;
   height: 80%;
+}
+.dis {
+  display: none;
 }
 .portDetFlexItem {
   display: flex;
