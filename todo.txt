@@ -4,6 +4,7 @@ Content:
 BUGS:
 
     High pri--
+    name not in mid below pic
     Settimeout fuer init ist unbefridiegent
 
     Low pri--

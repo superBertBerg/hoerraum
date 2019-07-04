@@ -47,8 +47,8 @@
     </div>
     <div class="stickRight">
       <div class="flexer midFontSize">
-        <router-link class="size" to="/info/detail/imprint">Impressum</router-link>
-        <router-link class="size" to="/info/detail/contact">Kontakt</router-link>
+        <router-link class="size" :class="{highlight: ishow}" to="/info/detail/imprint">Impressum</router-link>
+        <router-link class="size" :class="{highlight: cshow}" to="/info/detail/contact">Kontakt</router-link>
       </div>
     </div>
   </div>
@@ -94,6 +94,9 @@
   height: 100%;
   padding-left: 20px;
   padding-right: 20px;
+}
+.highlight {
+  color: #e9e9e9;
 }
 @media only screen and (max-width: 500px) {
   .infoFlex1 {

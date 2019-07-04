@@ -96,11 +96,11 @@ export default {
           h2: "Markus Schäfer",
           p:
             "<br>• Werbekaufmann, Diplom-Betriebswirt, Marketing- und Content-Experte<br><br>" +
-            "• arbeitet seit mehr als 30 Jahren in den Bereichen Content, Marken und Medien<br><br>" +
-            "• war angestellt bei BMG Ariola, The Walt Disney Company EMEA, [PIAS] Recordings<br><br>" +
-            "• als selbstständiger Unternehmer seit 2002 u.a. tätig für OTTO Group, InBev, STAGE Entertainment, G+J, Warner Strategic Marketing, Union Investment, Reeperbahnfestival<br><br>" +
-            '• hat 2013 <a href="https://www.thecontentdome.de/#/">the content dome GmbH</a> gegründet und „Tabaluga und die Zeichen der Zeit“ als 360°-Erlebnis produziert<br><br>' +
-            "• und hat noch einiges vor ! ...<br><br><br>"
+            "• Arbeitet seit mehr als 30 Jahren in den Bereichen Content, Marken und Medien<br><br>" +
+            "• War angestellt bei BMG Ariola, The Walt Disney Company EMEA, [PIAS] Recordings<br><br>" +
+            "• Als selbstständiger Unternehmer seit 2002 u.a. tätig für OTTO Group, InBev, STAGE Entertainment, G+J, Warner Strategic Marketing, Union Investment, Reeperbahnfestival<br><br>" +
+            '• Hat 2013 <a href="https://www.thecontentdome.de/#/">the content dome GmbH</a> gegründet und „Tabaluga und die Zeichen der Zeit“ als 360°-Erlebnis produziert<br><br>' +
+            "• Und hat noch einiges vor ! ...<br><br><br>"
         },
         eng: { h2: "", p: "" }
       },
