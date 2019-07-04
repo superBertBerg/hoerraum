@@ -33,6 +33,9 @@
 .landFlexContainer.start {
   align-self: flex-start;
 }
+.landFlexContainer.paddigText {
+  padding-left: 10%;
+}
 @media only screen and (max-width: 768px) {
     .landFlexWrap {
       display: flex;
@@ -49,6 +52,9 @@
     .landFlexContainer, .landFlexContainer.start {
       align-self: center;
       height: auto;
+    }
+    .landFlexContainer.paddigText {
+      padding-left: 5%;
     }
 }
 </style>

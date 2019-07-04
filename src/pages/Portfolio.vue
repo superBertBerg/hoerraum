@@ -14,7 +14,7 @@
         <!-- <transition name="portfolio"> -->
         <!-- <div >  -->
         <router-link
-          v-show="hotshow || !drfshow"
+          v-show="!hotshow && !drfshow"
           class="portFlexProduct bigFontSize"
           :class="{borderLeft: !hotshow}"
           :to="hroute"
@@ -71,7 +71,7 @@
 .portFlexWrap {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   text-align: center;
   height: 100%;
   width: 100%;
@@ -110,6 +110,9 @@
   width: 70%;
 }
 @media only screen and (max-width: 768px) {
+  .portFlexWrap { 
+    justify-content: space-around;
+  }
   .portFlexItem.width {
     width: 90%;
     flex-direction: column;

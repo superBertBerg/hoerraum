@@ -2,11 +2,13 @@
   <div id="hotzenplotz" class="preventSwipe overFlow">
     <div class="portDetFlexItem">
       <div class="imgContainer paddigText">
+        <router-link to="/portfolio">
         <img
           class="roundedImg"
           src="/static/images/portfolio/HO3RRAUM_Raeuber-Hotzenplotz-und-die-Mondrakete.png"
           alt="Mediendom, Planetarium, Hoerraum, Räuber-Hotzenplotz-und-die-Mondrakete"
         >
+        </router-link>
       </div>
     </div>
     <div class="portDetFlexItem midFontSize">
