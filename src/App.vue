@@ -68,14 +68,13 @@ export default {
       this.validPath(this.$router.currentRoute.path);
     },
     validPath: function(to, from) {
-      var route = this.routes[to.replace(/(?<=.{2,})\/$/, "")];
-      if (route[0] !== undefined) {
+      var route = this.routes[to.replace(/\/$/, "")];
+      if(route == undefined) {
+        route = this.routes["/"]
+      }
         this.currentNavigate = route[0];
         this.currentAnimation = route[1];
         this.animation(route[1]);
-      } else {
-        this.$router.replace("/");
-      }
     },
     hideAllAnimation: function(currentSlide) {
       var tempPoniter = this.$props.three;
@@ -112,16 +111,21 @@ export default {
           anime.men.move(0, -70, 2);
           break;
         case 2:
-          anime.men.dispose().then(() => {
-          }).catch(e => {
-    console.log(e);
-});
+          anime.men
+            .dispose()
+            .then(() => {})
+            .catch(e => {
+              console.log(e);
+            });
           anime.head.start();
-          var prom = anime.bigLand.start(4.2, -2450, -2140).then(() => {
-            anime.star.start();
-          }).catch(e => {
-    console.log(e);
-});
+          var prom = anime.bigLand
+            .start(4.2, -2450, -2140)
+            .then(() => {
+              anime.star.start();
+            })
+            .catch(e => {
+              console.log(e);
+            });
           anime.midLand.start(2.6, -2400, -2100);
           anime.smallLand.start(1.5, -2300, -2070);
           anime.matthias.moveToStart();

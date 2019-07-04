@@ -86,9 +86,6 @@ Vue.directive('click-outside', {
 
 let control3 = new Controler()
 
-
-setTimeout(
-    () => {
         new Vue({
             el: '#app',
             router,
@@ -97,5 +94,3 @@ setTimeout(
                 // console.log(this)
             }
         })
-    },
-500);
