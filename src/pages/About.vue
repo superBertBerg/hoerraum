@@ -2,7 +2,7 @@
   <div id="about" class="transitionWrap">
     <transition name="slideSwitch">
       <div class="flexWrapImag" v-if="visible">
-        <router-link class="bigFontSize flexLMR start link" to="/about/gf/markus_schaefer">
+        <router-link class="midFontSize flexLMR start link" to="/about/gf/markus_schaefer">
           <h2 class="display">Markus Schäfer</h2>
         </router-link>
         <div class="midFontSize flexCenter centerImag">
@@ -17,7 +17,7 @@
             <span class="theRed">3</span>RRAUM
           </h1>
         </div>
-        <router-link class="bigFontSize flexLMR end link" to="/about/gf/matthias_krause">
+        <router-link class="midFontSize flexLMR end link" to="/about/gf/matthias_krause">
           <h2 class="display">Matthias Krause</h2>
         </router-link>
       </div>

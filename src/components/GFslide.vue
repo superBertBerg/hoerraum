@@ -2,6 +2,7 @@
   <div id="gfslide" class="transitionWrap">
     <div :class="{reverseD: isMatt}" class="gfWrapFlex midFontSize">
       <p v-html="message.p" class="preventSwipe gfTextWrap"></p>
+      <h2 class="name" v-html="message.h2"></h2>
       <router-link class="gfClickWrap" to="/about">
         <h2 class="display" v-html="message.h2"></h2>
       </router-link>
@@ -36,8 +37,16 @@
   width: 30%;
 }
 .display {
-  margin-bottom: 50px;
+  /* margin-bottom: 50px; */
+  
+  /* padding: 5%; */
   align-self: flex-end;
+}
+.name {
+  display: flex;
+  height: 10%;
+  justify-content: center;
+  align-items: center;
 }
 @media only screen and (max-width: 1024px) {
   .gfTextWrap {
@@ -52,7 +61,7 @@
   }
   .gfClickWrap {
     width: 90%;
-    height: 50%;
+    height: 40%;
     padding: 0px;
   }
   .gfWrapFlex {

@@ -150,7 +150,7 @@ export default {
         case 6:
           this.$props.three.markus.start();
           if (this.mob) {
-            this.moveFaces(0, 55, 0, -45);
+            this.moveFaces(0, 55, 0, -55);
           } else {
             this.moveFaces(125, 0, 125, 0);
           }
