@@ -29,8 +29,8 @@ Vue.use(VueMeta, {
 
 const router = new VueRouter({
     routes: [
-        { path: '/', component: Landing }, { path: '/info', component: Dive },
-        { path: '/info/dream', component: Landscape }, {
+        { path: '/', component: Landing }, { path: '/expose', component: Dive },
+        { path: '/expose/dream', component: Landscape }, {
             path: '/portfolio/',
             name: 'portfolio',
             component: Portfolio,

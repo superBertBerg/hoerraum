@@ -1,8 +1,8 @@
 {
     "desktop": {
         "/": [0, 0],
-        "/info": [1, 1],
-        "/info/dream": [2, 2],
+        "/expose": [1, 1],
+        "/expose/dream": [2, 2],
         "/portfolio": [3, 3],
         "/about": [4, 4],
         "/about/gf/markus_schaefer": [4, 6],
@@ -27,8 +27,8 @@
     },
     "mobile": {
         "/": [0, 0],
-        "/info": [1, 99],
-        "/info/dream": [2, 2],
+        "/expose": [1, 99],
+        "/expose/dream": [2, 2],
         "/portfolio": [3, 3],
         "/portfolio/die_drei_fragezeichen": [3, 10],
         "/portfolio/der_raeuber_hotzenplotz": [3, 11],
