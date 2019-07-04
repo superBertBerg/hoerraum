@@ -5,7 +5,7 @@
         <h1 class="padding">Hoerraum Media GbR • Binderstr. 24 • 20146 Hamburg</h1>
         <p class="padding">
           Telefon: +49 40 244 37 131
-          <br>Telefax: +49 40 244 37 133
+          <br />Telefax: +49 40 244 37 133
         </p>
         <p class="padding">info@hoerraum.media</p>
       </div>
@@ -15,7 +15,7 @@
         <p>HO3RRAUM Media GbR • Matthias Krauße & the content dome Gesellschaft für immersive Medien mbH • Binderstr. 24 • 20146 Hamburg</p>
         <p class="padding">
           GF: Markus Schäfer, Matthias Krauße
-          <br>USt-IdNr.: DE295596354
+          <br />USt-IdNr.: DE295596354
         </p>
         <p class="padding">Verantwortlicher i.S.d. Presserechts:</p>
         <p>Markus Schäfer, Matthias Krauße</p>
@@ -83,17 +83,24 @@
 }
 .flexer {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
-  height: 100%;
+  width: 100%;
 }
+
 .stickRight {
   position: absolute;
-  top: 0;
-  right: 0;
-  height: 100%;
-  padding-left: 20px;
-  padding-right: 20px;
+  top: auto;
+  right: auto;
+  height: auto;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 0;
+}
+.size {
+  width: 30%;
+  padding: 10px;
 }
 .highlight {
   color: #e9e9e9;
@@ -107,21 +114,6 @@
     margin-left: 10%;
     margin-right: 10%;
   }
-  .stickRight {
-    position: absolute;
-    top: auto;
-    right: auto;
-    height: auto;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 0;
-  }
-  .flexer {
-    flex-direction: row;
-    justify-content: center;
-    width: 100%;
-  }
   .size {
     width: 30%;
     padding: 10px;
@@ -134,14 +126,14 @@
 export default {
   data: function() {
     return {
-        ishow: false,
-        cshow: true
+      ishow: false,
+      cshow: true
     };
   },
   computed: {
     prevent: function() {
-      if(this.ishow) {
-        this.preventSwipe()
+      if (this.ishow) {
+        this.preventSwipe();
       }
     }
   },
@@ -159,22 +151,21 @@ export default {
       e.stopPropagation();
     },
     preventSwipe: function() {
-      var elements = document.getElementsByClassName('preventSwipe');
-      Array.from(elements).forEach((el) => {
-        el.addEventListener("wheel", this.stopPropagate)
+      var elements = document.getElementsByClassName("preventSwipe");
+      Array.from(elements).forEach(el => {
+        el.addEventListener("wheel", this.stopPropagate);
         el.addEventListener("touchstart", this.stopPropagate);
         el.addEventListener("touchend", this.stopPropagate);
-        
-      })
+      });
       return true;
     },
     removePrevent: function() {
-      var elements = document.getElementsByClassName('preventSwipe');
-      Array.from(elements).forEach((el) => {
-        el.removeEventListener("wheel", this.stopPropagate)
+      var elements = document.getElementsByClassName("preventSwipe");
+      Array.from(elements).forEach(el => {
+        el.removeEventListener("wheel", this.stopPropagate);
         el.removeEventListener("touchstart", this.stopPropagate);
         el.removeEventListener("touchend", this.stopPropagate);
-      })
+      });
     }
   },
   beforeRouteUpdate(to, from, next) {
