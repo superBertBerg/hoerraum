@@ -105,6 +105,10 @@
   }
 }
 @media only screen and (max-width: 768px) {
+  #dreiFragezeichen {
+    height: 75%;
+    margin-bottom: 5%;
+  }
   .roundedImg {
     width: 130px;
     height: 130px;

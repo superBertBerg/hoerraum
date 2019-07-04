@@ -95,7 +95,7 @@
 }
 .portFlexItem.width {
   align-self: center;
-  width: 60%;
+  width: 70%;
 }
 .img {
   max-height: 100%;
@@ -104,7 +104,7 @@
   padding-right: 50px;
 }
 .expand {
-  width: 60%;
+  width: 70%;
 }
 @media only screen and (max-width: 768px) {
   .portFlexItem.width {
