@@ -150,7 +150,7 @@ export default {
         case 6:
           this.$props.three.markus.start();
           if (this.mob) {
-            this.moveFaces(0, 55, 0, 30);
+            this.moveFaces(0, 55, 0, 55);
           } else {
             this.moveFaces(125, 0, 125, 0);
           }
@@ -161,7 +161,7 @@ export default {
         case 7:
           this.$props.three.matthias.start();
           if (this.mob) {
-            this.moveFaces(0, 30, 0, 55);
+            this.moveFaces(0, 55, 0, 55);
           } else {
             this.moveFaces(-125, 0, -125, 0);
           }

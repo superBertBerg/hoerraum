@@ -1,10 +1,10 @@
 <template>
   <div id="gfslide" class="transitionWrap">
     <div :class="{reverseD: isMatt}" class="gfWrapFlex midFontSize">
-      <h2 class="name" v-html="message.h2"></h2>
       <router-link class="gfClickWrap" to="/about">
         <!-- <h2 class="display" v-html="message.h2"></h2> -->
       </router-link>
+      <h2 class="name" v-html="message.h2"></h2>
       <p v-html="message.p" class="preventSwipe gfTextWrap"></p>
     </div>
   </div>
@@ -43,6 +43,10 @@
   align-self: flex-end;
 }
 .name {
+  display: flex;
+  height: 10%;
+  justify-content: center;
+  align-items: center;
 }
 @media only screen and (max-width: 1024px) {
   .gfTextWrap {
@@ -100,7 +104,7 @@ export default {
         ger: {
           h2: "Matthias Krause",
           p:
-            '<br>Liegt tatsächlich ein alter Goldschatz vor der Küste des Ferienortes von Justus, Peter und Bob? Prompt vergessen die drei ?<span class="theRed">?</span><span class="theBlue">?</span> ' +
+            'Liegt tatsächlich ein alter Goldschatz vor der Küste des Ferienortes von Justus, Peter und Bob? Prompt vergessen die drei ?<span class="theRed">?</span><span class="theBlue">?</span> ' +
             "ihren Ärger über den verregneten Urlaub und nehmen die Jagd nach den versunkenen Reichtümern auf. " +
             " Sie tauchen ein in die geheimnisvolle Geschichte des berühmtesten Dorfbewohners und heben ein dunkles " +
             "Geheimnis… <br>Autor André Marx, Hörspielbearbeitung Kai Schwind"
