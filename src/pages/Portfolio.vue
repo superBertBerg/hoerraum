@@ -36,32 +36,8 @@
       <h3
         v-show="!drfshow && !hotshow"
         class="portFlexItem width extrawurst paddigText midFontSize"
-      >Unser Spielfeld sind sog. ‚immersive‘ Medien. Medien also, in die man wirklich eintauchen kann. Das funktioniert z. B. in Planetarien, weil man dort in der 360°-runden und 180°-gewölbten Kuppel Bild und Ton viel intensiver wahrnimmt, als vor einer Kinoleinwand oder Mattscheibe.</h3>
+      >An keinem anderen Ort kann man gemeinschaftlich so gut in andere Welten eintauchen, wie in einem Dome (Medienkuppel). Die Darstellungsmöglichkeiten dort erlauben uns, Hörspiele, Musik, Theater etc. auf eine neue Erlebnisebene zu bringen. ZuhörerInnen und ZuschauerInnen fühlen sich mittendrin statt nur dabei.</h3>
       </transition>
-      <div v-show="!drfshow && !hotshow" class="portFlexItem width paddigText midFontSize">
-      <!-- <transition-group name="slideSwitchAb"> -->
-        <ul>
-          <li>
-            <h1>Unser Leistungsportfolio:</h1>
-          </li>
-          <li>
-            <h2>Produktion</h2>
-          </li>
-          <li>
-            <h2>Marketing</h2>
-          </li>
-          <li>
-            <h2>Vertrieb</h2>
-          </li>
-          <li>
-            <h2>Lizenzierung</h2>
-          </li>
-          <li>
-            <h2>Beratung</h2>
-          </li>
-        </ul>
-      <!-- </transition-group> -->
-      </div>
     </div>
   </div>
 </template>
@@ -177,12 +153,12 @@ export default {
     this.route(this.$router.currentRoute.name);
   },
   metaInfo: {
-    title: "Hoerraum - Leisungen und Portfolio",
+    title: "Hoerraum - Unsere Produktionen",
     meta: [
       {
         name: "description",
         content:
-          "Hoerraum - Produktionen für 'Immersive' Medien - Produktion - Marketing - Vertireb - Lizenzierung - Beratung"
+          "Hoerraum - Produktionen für 'Immersive' Medien - Produktion - Marketing - Vertrieb - Lizenzierung - Beratung"
       }
     ]
   }

@@ -3,12 +3,9 @@
     <div class="landFlexWrap">
       <div class="landFlexContainer paddigText">
         <div>
-          <p class="pageHeadline folio">3</p>
+          <p class="pageHeadline folio"><span class="theRed">3</span></p>
           <h3 class="midFontSize">
-            Sie steht u.a. für den qualitativen Anspruch unserer Produktionen: Mittels hochwertiger Technik schaffen wir dreidimensionale, räumliche Hörerlebnisse an sehr besonderen Orten - in Planetarien und Mediendomes. Dem Besucher wird so ein regelrechtes
-            <span
-              class="theRed"
-            >Eintauchen</span> in die Handlung ermöglicht - entweder ganz ohne visuelle Ablenkung oder mit visueller Begleitung ohne Sichtfeldbeschränkung
+            Sie steht u.a. für den qualitativen Anspruch unserer Produktionen: Mittels innovativer Technik schaffen wir dreidimensionale, räumliche Hörerlebnisse an sehr besonderen Orten – in Planetarien und Mediendomes. weil man dort in der 360°-runden und 180°-gewölbten Kuppel Bild und Ton viel intensiver wahrnimmt, als vor einer Kinoleinwand oder Mattscheibe.
           </h3>
         </div>
       </div>
@@ -57,7 +54,7 @@ export default {
       {
         name: "description",
         content:
-          "Hoerraum - Mittels hochwertiger Technik schaffen wir dreidimensionale, räumliche Hörerlebnisse an sehr besonderen Orten - in Planetarien und Mediendomes. Dem Besucher wird so ein regelrechtes in die Handlung ermöglicht"
+          "Hoerraum - Mittels innovativer Technik schaffen wir dreidimensionale, räumliche Hörerlebnisse an sehr besonderen Orten – in Planetarien und Mediendomes. weil man dort in der 360°-runden und 180°-gewölbten Kuppel Bild und Ton viel intensiver wahrnimmt, als vor einer Kinoleinwand oder Mattscheibe."
       }
     ]
   }

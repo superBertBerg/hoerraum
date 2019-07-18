@@ -2,10 +2,7 @@
   <div id="aboutOutline" class="transitionWrap">
     <div class="midFontSize aboutOutFlexWrap paddigText">
       <p>
-        „An keinem anderen Ort kann man gemeinschaftlich so gut in andere Welten
-        eintauchen, wie unter der Kuppel eines Planetariums. Der dreidimensionale Sound gibt uns dort die Möglichkeit,
-        das Hörspiel auf eine neue Erlebnisebene zu bringen. Der Zuhörer fühlt sich mittendrin statt nur dabei“,
-        erklären Krauße und Schäfer.
+        Wir unterhalten: Ob Family Entertainment, Musikshow oder Hörspielklassiker - wir machen Programme für ein großes Publikum.
       </p>
       <h1>
         HO<span class="theRed">3</span>RRAUM

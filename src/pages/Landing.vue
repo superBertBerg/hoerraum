@@ -5,7 +5,7 @@
         HO<span class="theRed">3</span>RRAUM
       </h1>
       <div class="midFontSize">
-        <h2 class="paddigText"> Wir produzieren Content für gemeinschaftliche Erlebnisse bei denen das Visuelle mal nicht die erste Geige spielt. <br>  Wir stehen also für das Gegenteil von Kopfhörer, VR-Brille und Einzelerlebnis. </h2>
+        <h2 class="paddigText">Wir schaffen Content für kollektive Hör-Erlebnisse.</h2>
       </div><div class="landFlexContainer paddigText start">
         </div>
     </div>
@@ -25,6 +25,7 @@
 <script>
 export default {
   metaInfo: {
+    title: 'Hoerraum - Content für kollektive Hör-Erlebnisse',
     meta: [
       { name: 'description', content: 'Hoerraum - Produziert Content für gemeinschaftliche Erlebnisse. 360Grad Hörerlebnisse in Planetarien und Mediendomes'}
     ]

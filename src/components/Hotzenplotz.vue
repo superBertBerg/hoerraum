@@ -3,11 +3,11 @@
     <div class="portDetFlexItem">
       <div class="imgContainer paddigText">
         <router-link to="/portfolio">
-        <img
-          class="roundedImg"
-          src="/static/images/portfolio/HO3RRAUM_Raeuber-Hotzenplotz-und-die-Mondrakete.png"
-          alt="Mediendom, Planetarium, Hoerraum, Räuber-Hotzenplotz-und-die-Mondrakete"
-        >
+          <img
+            class="roundedImg"
+            src="/static/images/portfolio/HO3RRAUM_Raeuber-Hotzenplotz-und-die-Mondrakete.png"
+            alt="Mediendom, Planetarium, Hoerraum, Räuber-Hotzenplotz-und-die-Mondrakete"
+          />
         </router-link>
       </div>
     </div>
@@ -77,6 +77,20 @@
 
 <script>
 export default {
+  metaInfo: {
+    title:
+      "Hoerraum - Unsere Produktionen, Der Räuber Hotzenplotz und die Mondrakete",
+    meta: [
+      {
+        name: "description",
+        content:
+          "Hoerraum - Was liegt näher als die Adaption eines der erfolgreichsten Kinderbuch-T" +
+          "hemen für die Kuppel eines Planetariums ? Noch dazu, wenn es sogar um eine Mondrak" +
+          "ete geht ? Dies war unser erster Gedanke, als 2018 quasi aus dem Nichts, nach über" +
+          " 40 Jahren ein neues Buch vom Räuber Hotzenplotz erschien."
+      }
+    ]
+  },
   data: function() {
     return {
       message: {
@@ -86,16 +100,19 @@ export default {
       ger: {
         h1: "Der Räuber Hotzenplotz und die Mondrakete",
         p:
-          "Was liegt näher als die Adaption eines der erfolgreichsten Kinderbuch-Themen" +
-          " für die Kuppel eines Planetariums ? Noch dazu, wenn es sogar um eine Mondra" +
-          "kete geht ? Dies war unser erster Gedanke, als 2018 quasi aus dem Nichts, na" +
-          "ch über 40 Jahren ein neues Buch vom Räuber Hotzenplotz erschien. Basis unse" +
-          "rer Produktion ist eine liebevolle und lebendige Hörspielfassung des WDR, da" +
-          "s wir mit Visualisierungen und Animationen der originalen Buch-Illustratione" +
-          "n ergänzen, und mit einem didaktischem Bonusteil zum Thema Raumfahrt anreich" +
-          "ern. Das Ergebnis ist ein knapp einstündiges 360°-Erlebnis, in das Kinder ab" +
-          " 5 Jahren und alle, die mit dem Räuber Hotzenplotz aufgewachsen sind, ab Her" +
-          "bst 2019 im Planetarium regelrecht eintauchen können ."
+          "Eigentlich hatte Ottfried Preußler mit der ersten Geschichte vom Räuber Hotzenplo" +
+          "tz lediglich etwas Abwechslung von der Arbeit an Krabat gesucht, am Ende verkauft" +
+          "en sich die drei Bände insgesamt 6Millionen-fach, die Bücher wurden in 34 Sprache" +
+          "n übersetzt und mehrfach verfilmt. Was liegt näher als die Adaption eines der erf" +
+          "olgreichsten Kinderbuch-Themen für die Kuppel eines Planetariums ? Noch dazu, wen" +
+          "n es sogar um eine Mondrakete geht ? Dies war unser erster Gedanke, als 2018 quas" +
+          "i aus dem Nichts, nach über 40 Jahren ein neues Buch vom Räuber Hotzenplotz ersch" +
+          "ien. Basis unserer Produktion ist eine liebevolle und lebendige Hörspielfassung d" +
+          "es WDR, die wir um Visualisierungen und Animationen der originalen Buch-Illustrat" +
+          "ionen erweitert haben, und mit einem didaktischem Bonusteil zum Thema Raumfahrt e" +
+          "rgänzen. Das Ergebnis ist ein einstündiges 360°-Erlebnis, in das Kinder ab 5 Jahr" +
+          "en und alle, die mit dem Räuber Hotzenplotz aufgewachsen sind, ab Herbst 2019 im " +
+          "Planetarium erleben können ."
       },
       eng: { h2: "", p: "" }
     };

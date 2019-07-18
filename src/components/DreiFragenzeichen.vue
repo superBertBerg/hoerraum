@@ -6,47 +6,71 @@
     </div>
     <div class="portDetFlexSubItem">
       <div class="imgContainer paddigText">
-        <a target="_blank" rel="noopener noreferrer" href="https://dreifragezeichen.de/live/planetarium">
-        <img
-          class="roundedImg"
-          src="/static/images/portfolio/HO3RRAUM_Das-Grab-der-Inka-Mumie.png"
-          alt="Die-Drei-Fragezeichen, Mediendom, Planetarium, Hoerraum, Das-Grab-der-Inka-Mumie"
-        />
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://dreifragezeichen.de/live/planetarium"
+        >
+          <img
+            class="roundedImg"
+            src="/static/images/portfolio/HO3RRAUM_Das-Grab-der-Inka-Mumie.png"
+            alt="Die-Drei-Fragezeichen, Mediendom, Planetarium, Hoerraum, Das-Grab-der-Inka-Mumie"
+          />
         </a>
-        <a target="_blank" rel="noopener noreferrer" href="https://dreifragezeichen.de/live/planetarium">
-        <img
-          class="roundedImg"
-          src="/static/images/portfolio/HO3RRAUM_Das-kalte-Auge.png"
-          alt="Die-Drei-Fragezeichen, Mediendom, Planetarium, Hoerraum, Das-kalte-Auge"
-        />
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://dreifragezeichen.de/live/planetarium"
+        >
+          <img
+            class="roundedImg"
+            src="/static/images/portfolio/HO3RRAUM_Das-kalte-Auge.png"
+            alt="Die-Drei-Fragezeichen, Mediendom, Planetarium, Hoerraum, Das-kalte-Auge"
+          />
         </a>
-        <a target="_blank" rel="noopener noreferrer" href="https://dreifragezeichen.de/live/planetarium">
-        <img
-          class="roundedImg"
-          src="/static/images/portfolio/HO3RRAUM_Das-versunkene-Schiff.png"
-          alt="Die-Drei-Fragezeichen, Mediendom, Planetarium, Hoerraum, Das-versunkene-Schiff"
-        />
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://dreifragezeichen.de/live/planetarium"
+        >
+          <img
+            class="roundedImg"
+            src="/static/images/portfolio/HO3RRAUM_Das-versunkene-Schiff.png"
+            alt="Die-Drei-Fragezeichen, Mediendom, Planetarium, Hoerraum, Das-versunkene-Schiff"
+          />
         </a>
-        <a target="_blank" rel="noopener noreferrer" href="https://dreifragezeichen.de/live/planetarium">
-        <img
-          class="roundedImg"
-          src="/static/images/portfolio/HO3RRAUM_Der-dreiaeugige-Totenkopf.png"
-          alt="Die-Drei-Fragezeichen, Mediendom, Planetarium, Hoerraum, Der-dreiaeugige-Totenkopf"
-        />
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://dreifragezeichen.de/live/planetarium"
+        >
+          <img
+            class="roundedImg"
+            src="/static/images/portfolio/HO3RRAUM_Der-dreiaeugige-Totenkopf.png"
+            alt="Die-Drei-Fragezeichen, Mediendom, Planetarium, Hoerraum, Der-dreiaeugige-Totenkopf"
+          />
         </a>
-        <a target="_blank" rel="noopener noreferrer" href="https://dreifragezeichen.de/live/planetarium">
-        <img
-          class="roundedImg"
-          src="/static/images/portfolio/HO3RRAUM_Die-Schwarze-Katze.png"
-          alt="Die-Drei-Fragezeichen, Mediendom, Planetarium, Hoerraum, Die-Schwarze-Katze"
-        />
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://dreifragezeichen.de/live/planetarium"
+        >
+          <img
+            class="roundedImg"
+            src="/static/images/portfolio/HO3RRAUM_Die-Schwarze-Katze.png"
+            alt="Die-Drei-Fragezeichen, Mediendom, Planetarium, Hoerraum, Die-Schwarze-Katze"
+          />
         </a>
-        <a target="_blank" rel="noopener noreferrer" href="https://dreifragezeichen.de/live/planetarium">
-        <img
-          class="roundedImg"
-          src="/static/images/portfolio/HO3RRAUM_und-der-Tornadojäger.png"
-          alt="Die-Drei-Fragezeichen, Mediendom, Planetarium, Hoerraum, und-der-Tornadojäger"
-        />
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://dreifragezeichen.de/live/planetarium"
+        >
+          <img
+            class="roundedImg"
+            src="/static/images/portfolio/HO3RRAUM_und-der-Tornadojäger.png"
+            alt="Die-Drei-Fragezeichen, Mediendom, Planetarium, Hoerraum, und-der-Tornadojäger"
+          />
         </a>
       </div>
     </div>
@@ -132,6 +156,21 @@
 
 <script>
 export default {
+  metaInfo: {
+    title: "Hoerraum - Unsere Produktionen",
+    meta: [
+      {
+        name: "description",
+        content:
+          "Hoerraum - 3 berühmte Detektive, 3 unveröffentlichte Geschichten, 3-dimesionaler Sound! – mit " +
+          "diesen USP-Bausteinen haben wir mittlerweile 2 Staffeln produziert, gemeinsam mit d" +
+          "em EUROPA-Label von Sony Music. In einer Art Evolutionsprozess haben wir mit unsere" +
+          "n Produktionen dabei eine neue Format-Kategorie geschaffen: Das immersive, illustri" +
+          "erte Hörspiel. Was als reine 3D-Audioproduktion unterm Sternenhimmel begann, ist he" +
+          "ute visuell von 360°-Projektionen begleitet."
+      }
+    ]
+  },
   data: function() {
     return {
       message: {
@@ -141,18 +180,17 @@ export default {
       ger: {
         h1: "Die drei ???",
         p:
-          "3 berühmte Detektive, 3 unveröffentlichte Geschichten, 3-dimesionaler Sound!" +
-          " – mit diesen USP-Bausteinen haben wir mittlerweile 2 Staffeln produziert, g" +
-          "emeinsam mit dem EUROPA-Label von Sony Music. In einer Art Evolutionsprozess" +
-          " haben wir mit unseren Produktionen dabei eine neue Format-Kategorie geschaf" +
-          "fen: Das immersive, illustrierte Hörspiel. Was als reine 3D-Audioproduktion " +
-          "unterm Sternenhimmel begann, ist heute visuell von 360°-Projektionen begleit" +
-          "et. Das sieht mal abstrakt künstlerisch, mal mysteriös nebelig, mal semi-rea" +
-          "listisch aus, aber nie „filmisch“. So bleibt der Fokus immer auf dem Hörerle" +
-          "bnis, das Justus Jonas, Peter Shaw und Bob Andrews schon vor langer Zeit zu " +
-          'Kultfiguren gemacht hat. Weit über 200.000 Fans der drei ?<span class="theR' +
-          'ed">?</span><span class="theBlue">?</span> haben die bislang 6 Folgen in ' +
-          "7 deutschen Planetarien besucht."
+          "3 berühmte Detektive, 3 unveröffentlichte Geschichten, 3-dimesionaler Sound! – mit " +
+          "diesen USP-Bausteinen haben wir mittlerweile 2 Staffeln produziert, gemeinsam mit d" +
+          "em EUROPA-Label von Sony Music. In einer Art Evolutionsprozess haben wir mit unsere" +
+          "n Produktionen dabei eine neue Format-Kategorie geschaffen: Das immersive, illustri" +
+          "erte Hörspiel. Was als reine 3D-Audioproduktion unterm Sternenhimmel begann, ist he" +
+          "ute visuell von 360°-Projektionen begleitet. Das sieht mal abstrakt künstlerisch, m" +
+          "al mysteriös nebelig, mal semi-realistisch aus, aber nie „filmisch“. So bleibt der " +
+          "Fokus immer auf dem Hörerlebnis, das Justus Jonas, Peter Shaw und Bob Andrews schon" +
+          " vor langer Zeit zu Kultfiguren gemacht hat. Weit über 200.000 Fans der drei <span " +
+          "class='theRed'>?</span><span class='theBlue'>?</span>? haben die bislang 6 Folgen " +
+          "in 7 deutschen Planetarien besucht."
       },
       eng: { h2: "", p: "" }
     };

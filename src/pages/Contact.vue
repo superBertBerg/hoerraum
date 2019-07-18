@@ -2,7 +2,12 @@
   <div id="contact" class="transitionWrap">
     <div class="height textCenter flexBoxCon">
       <div v-show="cshow" class="infoFlex1 midFontSize">
-        <h1 class="padding">Hoerraum Media GbR • Binderstr. 24 • 20146 Hamburg</h1>
+        <p>
+          Wir produzieren, vermarkten, lizenzieren und beraten. <br>Haben Sie Interesse an einer
+          unserer Shows oder ein spannendes Thema für eine Neuproduktion? <br>Dann freuen wir uns
+          auf Ihre Kontaktaufnahme:
+        </p>
+        <h1 class="padding">HO<span class="theRed">3</span>RRAUM Media GbR • Binderstr. 24 • 20146 Hamburg</h1>
         <p class="padding">
           Telefon: +49 40 244 37 131
           <br />Telefax: +49 40 244 37 133
@@ -12,10 +17,22 @@
       <div v-show="ishow" class="preventSwipe infoFlex2 smallFontSize">
         <h1>Impressum</h1>
         <p class="padding">Angaben gemäß § 5 TMG:</p>
-        <p>HO3RRAUM Media GbR • Matthias Krauße & the content dome Gesellschaft für immersive Medien mbH • Binderstr. 24 • 20146 Hamburg</p>
-        <p class="padding">
-          GF: Markus Schäfer, Matthias Krauße
-          <br />USt-IdNr.: DE295596354
+        <p>
+          HO3RRAUM Media GbR • Matthias Krauße & the content dome Gesellschaft für immersive Medien mbH
+          <br />Binderstr. 24 • 20146 Hamburg
+        </p>
+        <p class="padding">Vertreten durch die Geschäftsführer:</p>
+        <p>Markus Schäfer, Matthias Krauße</p>
+        <p class="padding">Kontakt:</p>
+        <p>
+          Telefon: +49 40 244 37 131
+          <br />Telefax: +49 40 244 37 133
+          <br />E-Mail: info@hoerraum.media
+        </p>
+        <p class="padding">Umsatzsteuer:</p>
+        <p>
+          Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz:
+          <br />DE295596354
         </p>
         <p class="padding">Verantwortlicher i.S.d. Presserechts:</p>
         <p>Markus Schäfer, Matthias Krauße</p>

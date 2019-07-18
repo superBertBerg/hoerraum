@@ -96,11 +96,11 @@ export default {
           h2: "Markus Schäfer",
           p:
             "<br>• Werbekaufmann, Diplom-Betriebswirt, Marketing- und Content-Experte<br><br>" +
-            "• Arbeitet seit mehr als 30 Jahren in den Bereichen Content, Marken und Medien<br><br>" +
-            "• War angestellt bei BMG Ariola, The Walt Disney Company EMEA, [PIAS] Recordings<br><br>" +
-            "• Als selbstständiger Unternehmer seit 2002 u.a. tätig für OTTO Group, InBev, STAGE Entertainment, G+J, Warner Strategic Marketing, Union Investment, Reeperbahnfestival<br><br>" +
-            '• Hat 2013 <a href="https://www.thecontentdome.de/#/">the content dome GmbH</a> gegründet und „Tabaluga und die Zeichen der Zeit“ als 360°-Erlebnis produziert<br><br>' +
-            "• Und hat noch einiges vor ! ...<br><br><br>"
+            "• arbeitet seit mehr als 30 Jahren in den Bereichen Content, Marken und Medien<br><br>" +
+            "• war angestellt bei BMG Ariola, The Walt Disney Company EMEA, [PIAS] Recordings<br><br>" +
+            "• als selbstständiger Unternehmer seit 2002 u.a. tätig für OTTO Group, InBev, STAGE Entertainment, G+J, Warner Strategic Marketing, Union Investment, Reeperbahnfestival<br><br>" +
+            "• hat 2013 the content dome GmbH gegründet und „Tabaluga und die Zeichen der Zeit“ als 360°-Erlebnis produziert<br><br>" +
+            "<br><br><br>"
         },
         eng: { h2: "", p: "" }
       },
@@ -108,10 +108,11 @@ export default {
         ger: {
           h2: "Matthias Krause",
           p:
-            'Liegt tatsächlich ein alter Goldschatz vor der Küste des Ferienortes von Justus, Peter und Bob? Prompt vergessen die drei ?<span class="theRed">?</span><span class="theBlue">?</span> ' +
-            "ihren Ärger über den verregneten Urlaub und nehmen die Jagd nach den versunkenen Reichtümern auf. " +
-            " Sie tauchen ein in die geheimnisvolle Geschichte des berühmtesten Dorfbewohners und heben ein dunkles " +
-            "Geheimnis… <br>Autor André Marx, Hörspielbearbeitung Kai Schwind"
+            "<br>• Rechtsanwalt, Medien- und Lizenz-Experte<br><br>" +
+            "• startete seine Tätigkeit im Medienbereich zunächst als Trickfilmer, Produktions – und Herstellungsleiter (Mitarbeit u.a. „Werner-beinhart“, „Der kleene Punker“, „Die Ottfianten“<br><br>" +
+            "• ab 1993 in der Musikindustrie als Anwalt bei BMG Ariola und SONY MUSIC," +
+            "• seit 2012 mit eigener Kanzlei in Hamburg<br><br>" +
+            "<br><br><br>"
         },
         eng: { h2: "", p: "" }
       }

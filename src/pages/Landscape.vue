@@ -4,9 +4,7 @@
     <div class="landFlexWrap">
         <div class="landFlexContainer paddigText">
           <h3 class="midFontSize">
-            Alle setzen auf Bewegtbild. Wir setzen auf die Magie der
-            <span class="theRed">Töne</span>,
-            <span class="theRed">Klänge</span> und des gesprochenen Wortes, die Bilder zuallererst im Kopf entstehen läßt.
+            Dabei setzen wir auf die Magie der <span class="theRed">Töne</span>, <span class="theRed">Klänge</span> und des gesprochenen Wortes, die Bilder zuallererst im Kopf entstehen lässt.
           </h3>
         </div>
     </div>
@@ -62,11 +60,10 @@
 
 <script>
 export default {
-  props: ["id"],
   metaInfo: {
     title: 'Hoerraum - Die Magie der Töne',
     meta: [
-      { name: 'description', content: 'Hoerraum - die Magie der Töne, Klänge und des gesprochen Wortes.'}
+      { name: 'description', content: 'Hoerraum - die Magie der Töne und Klänge des gesprochen Wortes.'}
     ]
   }
 };
