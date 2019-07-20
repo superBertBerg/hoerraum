@@ -84,9 +84,12 @@ const router = new VueRouter({
 // });
 
 
-let control3 = new Controler()
+let control3
 let vueApp
 
+if (!window.__NOWEBGL__) {
+    control3 = new Controler();
+}
 window.__READY__ = true;
 
 function checkIfStart() {

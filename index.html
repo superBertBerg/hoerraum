@@ -126,6 +126,23 @@ a:hover {
     window.__READY__ = false;
     window.__START__ = false;
 
+    function isWebGLAvailable () {
+
+      try {
+      
+        var canvas = document.createElement( 'canvas' );
+        return !! ( window.WebGLRenderingContext && ( canvas.getContext( 'webgl' ) || canvas.getContext( 'experimental-webgl' ) ) );
+      
+      } catch ( e ) {
+      
+        return false;
+      
+      }
+
+    }
+    console.log(isWebGLAvailable(), !isWebGLAvailable())
+    window.__NOWEBGL__ = !isWebGLAvailable()
+    // window.__NOWEBGL__ = isWebGLAvailable()
     
     function start() {
         var starter = document.getElementById("starter")
@@ -158,8 +175,15 @@ a:hover {
             }, 40);
         }
     }
+    if(window.__NOWEBGL__) {
+      window.__START__ = true
+      document.addEventListener("DOMContentLoaded", function(event) {
+        start()
+      });
+    } else {
+      readyToStart();
+    }
     
-    readyToStart();
 </script>
 <body id="body" style="position: fixed; height: 100%; width: 100%; margin: 0; background-color: #131313; color: #e9e9e9;">
     <div id="load">

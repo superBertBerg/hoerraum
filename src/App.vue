@@ -90,118 +90,120 @@ export default {
       }
     },
     animation: function(to) {
-      this.hideAllAnimation(to);
-      let anime = this.$props.three;
-      switch (to) {
-        case 0:
-          anime.line.start();
-          anime.matthias.moveToStart();
-          anime.markus.moveToStart();
-          setTimeout(() => {
-            if (this.$router.currentRoute.name == "landing")
-              this.$router.push("/expose/dream");
-          }, 3000);
-          break;
-        case 1:
-          if (window.__MOB__) {
-            anime.men.expose(1.5);
-          } else {
-            anime.men.expose();
-          }
-          anime.matthias.moveToStart();
-          anime.markus.moveToStart();
+      if (!window.__NOWEBGL__) {
+        this.hideAllAnimation(to);
+        let anime = this.$props.three;
+        switch (to) {
+          case 0:
+            anime.line.start();
+            anime.matthias.moveToStart();
+            anime.markus.moveToStart();
+            setTimeout(() => {
+              if (this.$router.currentRoute.name == "landing")
+                this.$router.push("/expose/dream");
+            }, 3000);
+            break;
+          case 1:
+            if (window.__MOB__) {
+              anime.men.expose(1.5);
+            } else {
+              anime.men.expose();
+            }
+            anime.matthias.moveToStart();
+            anime.markus.moveToStart();
 
-          break;
-        case 2:
-          anime.men
-            .dispose()
-            .then(() => {})
-            .catch(e => {});
-          anime.head.start();
-          anime.bigLand
-            .start(4.2, -2450, -2140)
-            .then(() => {
-              anime.star.start();
-            })
-            .catch(e => {
-              anime.star.start();
-            });
-          anime.midLand.start(2.6, -2400, -2100);
-          anime.smallLand.start(1.5, -2300, -2070);
-          anime.matthias.moveToStart();
-          anime.markus.moveToStart();
-          // prom
-          break;
-        case 3:
-          anime.matthias.moveToStart();
-          anime.markus.moveToStart();
-          break;
-        case 4:
-          anime.matthias.start();
-          anime.markus.start();
-          if (window.__MOB__) {
-            this.moveFaces(0, -45, 0, 55, 1);
-          } else {
-            this.moveFaces(125, 0, -125, 0, 1);
-          }
-          break;
-        case 5:
-          anime.ellipse.start();
-          anime.ellipse.deSpread(2, 2);
-          anime.matthias.moveToStart();
-          anime.markus.moveToStart();
-          break;
-        case 6:
-          anime.mattImg.stop();
-          anime.markus
-            .start()
-            .then(() => {
-              anime.markImg.show(window.__MOB__);
-              anime.markus.hide(2);
-            })
-            .catch(e => {
-              anime.markImg.show(window.__MOB__);
-              anime.markus.hide(2);
-            });
-          if (window.__MOB__) {
-            this.moveFaces(0, 55, 0, 55, 2);
-            // anime.matthias.moveToStart(0);
-          } else {
-            this.moveFaces(125, 0, 125, 0, 1);
-            // anime.matthias.moveToStart(0.8);
-          }
-          break;
-        case 7:
-          anime.markImg.stop();
-          anime.matthias
-            .start()
-            .then(() => {
-              anime.mattImg.show(window.__MOB__);
-              anime.matthias.hide(2);
-            })
-            .catch(e => {
-              anime.mattImg.show(window.__MOB__);
-              anime.matthias.hide(2);
-            });
-          if (window.__MOB__) {
-            this.moveFaces(0, 55, 0, 55, 3);
-            // anime.markus.moveToStart(0);
-          } else {
-            this.moveFaces(-125, 0, -125, 0, 1);
-            // anime.markus.moveToStart(0.8);
-          }
-          break;
-        case 8:
-          anime.ellipse.start();
-          anime.ellipse.spread(2, 2);
-          anime.matthias.moveToStart();
-          anime.markus.moveToStart();
-          break;
-        default:
-          anime.matthias.moveToStart();
-          anime.markus.moveToStart();
+            break;
+          case 2:
+            anime.men
+              .dispose()
+              .then(() => {})
+              .catch(e => {});
+            anime.head.start();
+            anime.bigLand
+              .start(4.2, -2450, -2140)
+              .then(() => {
+                anime.star.start();
+              })
+              .catch(e => {
+                anime.star.start();
+              });
+            anime.midLand.start(2.6, -2400, -2100);
+            anime.smallLand.start(1.5, -2300, -2070);
+            anime.matthias.moveToStart();
+            anime.markus.moveToStart();
+            // prom
+            break;
+          case 3:
+            anime.matthias.moveToStart();
+            anime.markus.moveToStart();
+            break;
+          case 4:
+            anime.matthias.start();
+            anime.markus.start();
+            if (window.__MOB__) {
+              this.moveFaces(0, -45, 0, 55, 1);
+            } else {
+              this.moveFaces(125, 0, -125, 0, 1);
+            }
+            break;
+          case 5:
+            anime.ellipse.start();
+            anime.ellipse.deSpread(2, 2);
+            anime.matthias.moveToStart();
+            anime.markus.moveToStart();
+            break;
+          case 6:
+            anime.mattImg.stop();
+            anime.markus
+              .start()
+              .then(() => {
+                anime.markImg.show(window.__MOB__);
+                anime.markus.hide(2);
+              })
+              .catch(e => {
+                anime.markImg.show(window.__MOB__);
+                anime.markus.hide(2);
+              });
+            if (window.__MOB__) {
+              this.moveFaces(0, 55, 0, 55, 2);
+              // anime.matthias.moveToStart(0);
+            } else {
+              this.moveFaces(125, 0, 125, 0, 1);
+              // anime.matthias.moveToStart(0.8);
+            }
+            break;
+          case 7:
+            anime.markImg.stop();
+            anime.matthias
+              .start()
+              .then(() => {
+                anime.mattImg.show(window.__MOB__);
+                anime.matthias.hide(2);
+              })
+              .catch(e => {
+                anime.mattImg.show(window.__MOB__);
+                anime.matthias.hide(2);
+              });
+            if (window.__MOB__) {
+              this.moveFaces(0, 55, 0, 55, 3);
+              // anime.markus.moveToStart(0);
+            } else {
+              this.moveFaces(-125, 0, -125, 0, 1);
+              // anime.markus.moveToStart(0.8);
+            }
+            break;
+          case 8:
+            anime.ellipse.start();
+            anime.ellipse.spread(2, 2);
+            anime.matthias.moveToStart();
+            anime.markus.moveToStart();
+            break;
+          default:
+            anime.matthias.moveToStart();
+            anime.markus.moveToStart();
 
-          break;
+            break;
+        }
       }
     },
     moveFaces: function(xMat, yMat, xMark, yMark, state) {
