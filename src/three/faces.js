@@ -48,7 +48,7 @@ export default class Face {
         this.uFace = {
             uTime: { value: 0 },
             uRandom: { value: 1.0 },
-            uDepth: { value: 2.0 },
+            uDepth: { value: 4.0 },
             uSize: { value: 5.0 },
             uX: { value: 1.0 },
             uY: { value: 1.0 },
@@ -80,8 +80,6 @@ export default class Face {
                 }
 
             }
-
-            // console.log('numVisible', numVisible, this.numPoints);
         }
 
         const material = new THREE.RawShaderMaterial({
@@ -183,14 +181,6 @@ export default class Face {
         }
     }
 
-    show(size = 0.8, time = 1.0) {
-        TweenLite.fromTo(this.uFace.uSize, time, { value: 0.1 }, { value: size });
-        TweenLite.to(this.uFace.uRandom, time, { value: 3.0 });
-        TweenLite.fromTo(this.uFace.uDepth, time * 1.5, { value: 40.0 }, { value: 4.0 });
-
-        // this.addListeners();
-    }
-
     hide(time = 0.8) {
         if (!this.controler.scene.getObjectByName(this.name)) return;
         return new Promise((resolve, reject) => {
@@ -212,16 +202,24 @@ export default class Face {
         this.mesh.parent.remove(this.mesh);
     }
 
-    start(size = 0.8) {
-
-        if (this.mesh) {
-
+    start(size = 0.8, time = 1.0) {
+        this.stop()
+        return new Promise((resolve, reject) => {
+        if (this.mesh && !this.controler.scene.getObjectByName(this.name)) {
             this.uFace.uSize.value = 5.0;
             this.uFace.uX.value = 1.0;
             this.uFace.uY.value = 1.0;
             this.controler.scene.add(this.mesh)
-            this.show(size)
+            TweenLite.fromTo(this.uFace.uSize, time, { value: 0.1 }, { value: size,
+                onComplete: () => {
+                    resolve();
+                } });
+            TweenLite.to(this.uFace.uRandom, time, { value: 3.0 });
+            TweenLite.fromTo(this.uFace.uDepth, time * 1.5, { value: 40.0 }, { value: 4.0 });
+        } else {
+            reject("nothing to start")
         }
+    });
     }
 
     move(xto, yto, time = 0.8) {
@@ -238,7 +236,7 @@ export default class Face {
     setScale(sym) {
         this.mesh.scale.set(sym, sym, 1);
     }
-    dispose(x = 0.2, y=0.2, size=15, time = 0.8) {
+    dispose(size=15, time = 0.8) {
         return new Promise((resolve, reject) => {
             if (this.mesh && this.controler.scene.getObjectByName(this.name)) {
                 TweenLite.fromTo(this.uFace.uSize, time, { value: this.uFace.uSize.value }, {
@@ -260,7 +258,37 @@ export default class Face {
                 reject("no mesh for dispose")
             }
             });
-
+    }
+    expose(size=0.8, time = 0.8) {
+        if (this.mesh) {
+            // this.uFace.uSize.value = 5.0;
+            this.uFace.uX.value = 1.0;
+            this.uFace.uY.value = 1.0;
+            this.uFace.uRandom.value = 3.0;
+            this.uFace.uDepth.value = 4.0;
+            this.controler.scene.add(this.mesh)
+        }
+        return new Promise((resolve, reject) => {
+            if (this.mesh && this.controler.scene.getObjectByName(this.name)) {
+                TweenLite.fromTo(this.uFace.uSize, time, { value: this.uFace.uSize.value }, {
+                    ease: Power4.easeIn, 
+                    value: size,
+                    onComplete: () => {
+                        resolve();
+                    }
+                 });
+                 TweenLite.fromTo(this.uFace.uX, time, { value: 0.01 }, {
+                    ease: Power4.easeIn, 
+                    value: 1.0
+                 });
+                 TweenLite.fromTo(this.uFace.uY, time, { value: 0.01 }, {
+                    ease: Power4.easeIn, 
+                    value: 1.0
+                 });
+            } else {
+                reject("no mesh for dispose")
+            }
+            });
     }
 
     // ---------------------------------------------------------------------------------------------
@@ -271,7 +299,6 @@ export default class Face {
         if (!this.mesh) return;
 
         const scale = this.controler.fovHeight / this.height;
-        // console.log(scale)
         // this.mesh.scale.set(0, scale, 1);
         // this.hitArea.scale.set(scale, scale, 1);
     }

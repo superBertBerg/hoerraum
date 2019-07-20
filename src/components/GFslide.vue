@@ -106,7 +106,7 @@ export default {
       },
       matthias: {
         ger: {
-          h2: "Matthias Krause",
+          h2: "Matthias Krauße",
           p:
             "<br>• Rechtsanwalt, Medien- und Lizenz-Experte<br><br>" +
             "• startete seine Tätigkeit im Medienbereich zunächst als Trickfilmer, Produktions – und Herstellungsleiter (Mitarbeit u.a. „Werner-beinhart“, „Der kleene Punker“, „Die Ottfianten“<br><br>" +
@@ -119,12 +119,11 @@ export default {
     };
   },
   methods: {
-    changeContent: function() {
-      if (this.$route.params.id === "markus_schaefer") {
+    changeContent: function(check) {
+      if (check) {
         this.message.h2 = this.markus.ger.h2;
         this.message.p = this.markus.ger.p;
         this.isMatt = false;
-        console.log(this);
       } else {
         this.message.p = this.matthias.ger.p;
         this.message.h2 = this.matthias.ger.h2;
@@ -151,8 +150,13 @@ export default {
       });
     }
   },
+  watch: {
+    '$route' (to, from) {
+      (to.path.includes("markus_schaefer")) ? this.changeContent(true) : this.changeContent(false);
+    }
+  },
   created: function() {
-    this.changeContent();
+    this.changeContent(this.$route.params.id === "markus_schaefer");
   },
   mounted: function() {
     this.preventSwipe();

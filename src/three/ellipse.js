@@ -76,6 +76,7 @@ export default class Ellipse {
         });
         this.mesh = new THREE.Mesh(square, mat);
         this.mesh.name = this.name;
+        this.mesh.position.set(0,10,0)
     }
 
     update(delta) {
@@ -100,7 +101,6 @@ export default class Ellipse {
     stop() {
         if (!this.controler.scene.getObjectByName(this.name)) return;
         this.mesh.parent.remove(this.mesh);
-        console.log("ellipse stoped")
     }
 
     start(time = 0.8) {

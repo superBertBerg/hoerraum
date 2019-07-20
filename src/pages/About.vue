@@ -2,20 +2,19 @@
   <div id="about" class="transitionWrap">
     <transition name="slideSwitch">
       <div class="flexWrapImag" v-if="visible">
-        <router-link class="midFontSize flexLMR start link" to="/about/gf/markus_schaefer">
-          <h2 class="display">Markus Schäfer</h2>
+        <router-link class="midFontSize flexLMR starts link" to="/about/gf/markus_schaefer">
+          <h2 class="name">Markus Schäfer</h2>
         </router-link>
         <div class="midFontSize flexCenter centerImag">
           <p>
             Wir unterhalten: Ob Family Entertainment, Musikshow oder Hörspielklassiker - wir machen Programme für ein großes Publikum.
           </p>
           <h1>
-            HO
-            <span class="theRed">3</span>RRAUM
+            HO<span class="theRed">3</span>RRAUM
           </h1>
         </div>
         <router-link class="midFontSize flexLMR end link" to="/about/gf/matthias_krause">
-          <h2 class="display">Matthias Krause</h2>
+          <h2 class="name">Matthias Krause</h2>
         </router-link>
       </div>
     </transition>
@@ -33,9 +32,9 @@
 }
 .flexLMR {
   display: flex;
-  width: 35%;
+  width: 60%;
 }
-.start {
+.starts {
   justify-content: flex-start;
 }
 .end {
@@ -49,7 +48,13 @@
 .display {
   display: none;
 }
-
+.name {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 50px;
+}
 @media only screen and (max-width: 768px) {
   .flexLMR {
     width: 5%;
@@ -71,6 +76,9 @@
   }
   .display {
     display: block;
+  }
+  .name {
+    margin-bottom: 0;
   }
 }
 </style>

@@ -2,14 +2,18 @@
   <div id="menu" v-click-outside="closeMenu">
     
     <!-- <span style="font-size:30px;cursor:pointer" v-on:click="toggleNav()">&#9776;</span> -->
-    <div class="sideNav midFontSize" v-bind:class="{open: toggled}">
+    <div class="sideNav" v-bind:class="{open: toggled}">
       <!-- <a href="#" class="closebtn" v-on:click="closeNav(this)">&times;</a> -->
-      <router-link to="/">Start</router-link>
-      <router-link to="/expose">Die <span class="theRed">3</span></router-link>
-      <router-link to="/expose/dream">- - <span class="theRed">-</span> - -</router-link>
-      <router-link to="/portfolio">Produktionen</router-link>
-      <router-link to="/about">Über uns</router-link>
-      <router-link to="/info/detail/contact">Kontakt</router-link>
+      <router-link class="midFontSize" to="/">Start</router-link>
+      <router-link class="midFontSize" to="/expose">Die <span class="theRed">3</span></router-link>
+      <!-- <router-link to="/expose/dream">- - <span class="theRed">-</span> - -</router-link> -->
+      <router-link class="midFontSize" to="/portfolio">Produktionen</router-link>
+      <router-link v-show="production" class="subLink smallFontSize" to="/portfolio/die_drei_fragezeichen">Die drei <span class="theRed">?</span><span class="theBlue">?</span>?</router-link>
+      <router-link v-show="production" class="subLink last smallFontSize" to="/portfolio/der_raeuber_hotzenplotz">Der Räuber Hotzenplotz</router-link>
+      <router-link class="midFontSize" to="/about">Über uns</router-link>
+      <router-link v-show="about" class="subLink smallFontSize" to="/about/gf/markus_schaefer">Markus Schäfer</router-link>
+      <router-link v-show="about" class="subLink last smallFontSize" to="/about/gf/matthias_krause">Matthias Krauße</router-link>
+      <router-link class="midFontSize" to="/info/detail/contact">Kontakt</router-link>
     </div>
     <div class="hamburger" v-on:click="toggleNav()" v-bind:class="{openH: toggled}">
       <span class="hamburger__top-bun"></span>
@@ -81,13 +85,12 @@
     background-color: black;
     height: 100%;
     width: auto;
-
     padding: 10px;
     z-index: 1;
     top: 0;
     left: 0;
     overflow-x: hidden;
-    transition: 0.25s;
+    transition: all 0.25s;
     transform: translateX(-250px)
 }
 .sideNav.open {
@@ -99,6 +102,12 @@
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
+}
+.subLink {
+  /* text-align: left; */
+}
+.last {
+  margin-bottom: 20px;
 }
 @media only screen and (max-width: 500px) {
     /* Menu */
@@ -125,7 +134,9 @@
 export default {
   data: function() {
     return {
-      toggled: false
+      toggled: false,
+      about: false,
+      production: false
     };
   },
   methods: {
@@ -140,6 +151,12 @@ export default {
       if (this.toggled) {
         this.toggled = false;
       }
+    }
+  },
+  watch: {
+    '$route' (to, from) {
+      (to.path.includes("portfolio")) ? this.production = true : this.production = false;
+      (to.path.includes("about")) ? this.about = true : this.about = false;
     }
   },
   directives: {

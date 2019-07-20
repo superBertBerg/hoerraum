@@ -117,10 +117,6 @@
 .roundedImg {
   width: 200px;
   height: 200px;
-  /* border-radius: 50%; */
-  /* padding: 10px; */
-  /* margin: 10px; */
-  /* border: 1px solid white; */
 }
 @media only screen and (max-width: 1100px) {
   .roundedImg {
@@ -142,6 +138,7 @@
     justify-content: normal;
   }
   .portDetFlexSubItem {
+    display: block;
     width: 100%;
     align-items: flex-start;
   }

@@ -25,6 +25,9 @@ export default class ImgOnPlane {
         this.mesh.scale.set(this.scaling, this.scaling, 1)
         this.mesh.name = this.name
     }
+    setScale(sym) {
+        this.mesh.scale.set(sym, sym, 1);
+    }
     hide() {
         if (!this.controler.scene.getObjectByName(this.name)) return;
         return new Promise((resolve, reject) => {
@@ -71,6 +74,29 @@ export default class ImgOnPlane {
                     this.mesh.position, this.animation.time, { x: this.animation.xfrom }, {
                         ease: Circ.easeOut,
                         x: this.animation.xto
+                    });
+            });
+        }
+    }
+    show(mob) {
+        if (this.mesh) {
+            if (this.controler.scene.getObjectByName(this.name)) return;
+            this.controler.scene.add(this.mesh);
+            if(mob) {
+                this.mesh.position.x = this.animation.xto
+                this.mesh.position.y = this.animation.yto
+            } else {
+                this.mesh.position.x = this.animation.xfrom
+                this.mesh.position.y = this.animation.yfrom
+            }
+            return new Promise((resolve, reject) => {
+                this.mesh.position.z = 0
+                TweenLite.fromTo(
+                    this.mesh.material, 5, { opacity: this.animation.opacityfrom }, {
+                        opacity: this.animation.opacityto,
+                        onComplete: () => {
+                            resolve()
+                        }
                     });
             });
         }

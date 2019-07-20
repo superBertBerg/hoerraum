@@ -1,8 +1,9 @@
 <template>
   <div id="contact" class="transitionWrap">
     <div class="height textCenter flexBoxCon">
-      <div v-show="cshow" class="infoFlex1 midFontSize">
+      <div v-show="cshow" class="preventSwipe infoFlex1 midFontSize">
         <p>
+          <br><br>
           Wir produzieren, vermarkten, lizenzieren und beraten. <br>Haben Sie Interesse an einer
           unserer Shows oder ein spannendes Thema für eine Neuproduktion? <br>Dann freuen wir uns
           auf Ihre Kontaktaufnahme:
@@ -10,9 +11,11 @@
         <h1 class="padding">HO<span class="theRed">3</span>RRAUM Media GbR • Binderstr. 24 • 20146 Hamburg</h1>
         <p class="padding">
           Telefon: +49 40 244 37 131
-          <br />Telefax: +49 40 244 37 133
+          <br>Telefax: +49 40 244 37 133
         </p>
         <p class="padding">info@hoerraum.media</p>
+        <br>
+        <br>
       </div>
       <div v-show="ishow" class="preventSwipe infoFlex2 smallFontSize">
         <h1>Impressum</h1>
@@ -80,9 +83,7 @@
 .infoFlex1 {
   display: flex;
   flex-direction: column;
-  height: 50%;
-  justify-content: center;
-  align-items: center;
+  height: 42%;
   overflow-y: auto;
   margin-left: 25%;
   margin-right: 25%;

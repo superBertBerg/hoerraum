@@ -14,10 +14,141 @@
     <!-- <base href="https://hoerraum.media" /> -->
 
 </head>
+<style>
+#load {
+    position: absolute;
+    display: flex;
+    z-index: 100;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    font-size: 1em;
+    font-family: monospace; 
+}
+#loadTxt {
+  padding: 50px;
+}
+.marg {
+    margin-top: 20px
+}
+.red {
+    color: red;
+}
+.dnone {
+    display: none;
+}
+.start {
+  cursor: pointer;
+  padding: 50px;
+}
+.lds-ripple {
+  display: inline-block;
+  position: relative;
+  transform: translateY(50px);
+  width: 64px;
+  height: 64px;
+}
+.lds-ripple div {
+  position: absolute;
+  border: 4px solid #fff;
+  opacity: 1;
+  border-radius: 50%;
+}
+.animated {
+  animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+.finish {
+  top: -1px;
+  left: -1px;
+  width: 58px;
+  height: 58px;
+  opacity: 0.5;
+}
+.translate {
+  transition: all 0.5s ease;
+  transform: translateY(-58px)
+}
+.lds-ripple div:nth-child(2) {
+  animation-delay: -0.5s;
+}
+a {
+    text-decoration: none;
+    color: #818181;
+    text-align: center;
+    transition: 0.25s;
+}
 
-<body style="position: fixed; height: 100%; width: 100%;">
+a:hover {
+    color: #f1f1f1;
+}
+@keyframes lds-ripple {
+  0% {
+    top: 28px;
+    left: 28px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    top: -1px;
+    left: -1px;
+    width: 58px;
+    height: 58px;
+    opacity: 0;
+  }
+}
+</style>
+<script>
+    // TOTDO DOM READY
+    window.__READY__ = false;
+    window.__START__ = false;
+
+    
+    function start() {
+        var starter = document.getElementById("starter")
+        var load = document.getElementById("load")
+        var body = document.getElementById("body")
+        window.__START__ = true;
+        starter.removeEventListener("click", start)
+        body.removeChild(load)
+
+    }
+    function readyToStart() {
+        if(window.__READY__) {
+            //show start
+            var rippler = document.getElementById("rippler")
+            var loadtxt = document.getElementById("loadTxt")
+            var starter = document.getElementById("starter")
+            var an1 = document.getElementById("an1")
+            var an2 = document.getElementById("an2")
+            rippler.removeChild(an2)
+            an1.classList.add("finish")
+            an1.classList.remove("animated")
+            
+            loadtxt.classList.add("dnone")
+            starter.classList.remove("dnone")
+            starter.classList.add("translate")
+            starter.addEventListener("click", start)
+        } else {
+            setTimeout(() => {
+                readyToStart();
+            }, 40);
+        }
+    }
+    
+    readyToStart();
+</script>
+<body id="body" style="position: fixed; height: 100%; width: 100%; margin: 0; background-color: #131313; color: #e9e9e9;">
+    <div id="load">
+            <div id="rippler" class="lds-ripple"><div id="an1" class="animated"></div><div id="an2" class="animated"></div></div>
+            <div id="loadTxt" class="marg">LOADING .<span class="red">.</span>.</div>
+            <div id="starter" class="start marg dnone"><a>Start</a></div>
+    </div>
     <div id="app"></div>
     <div id="host"></div>
 </body>
+
 
 </html>

@@ -29,7 +29,7 @@ Vue.use(VueMeta, {
 
 const router = new VueRouter({
     routes: [
-        { path: '/', component: Landing }, { path: '/expose', component: Dive },
+        { path: '/', name: 'landing', component: Landing }, { path: '/expose', component: Dive },
         { path: '/expose/dream', component: Landscape }, {
             path: '/portfolio/',
             name: 'portfolio',
@@ -85,8 +85,13 @@ Vue.directive('click-outside', {
 
 
 let control3 = new Controler()
+let vueApp
 
-        new Vue({
+window.__READY__ = true;
+
+function checkIfStart() {
+    if(window.__START__) {
+        vueApp = new Vue({
             el: '#app',
             router,
             render: h => h(App, { props: { three: control3 } }),
@@ -94,3 +99,10 @@ let control3 = new Controler()
                 // console.log(this)
             }
         })
+    } else {
+        setTimeout(() => {
+            checkIfStart()
+        }, 40);
+    }
+}
+checkIfStart();

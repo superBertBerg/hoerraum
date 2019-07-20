@@ -5,7 +5,6 @@ import Line from './line';
 import Face from './faces';
 import Star from './stars';
 import Landscape from './landscape';
-import FractalTree from './fractal';
 import ImgOnPlane from './image';
 import BigStars from './bigStar';
 import * as config from './config/config.json'
@@ -33,6 +32,8 @@ export default class Controler {
         this.ellipse = new Ellipse(this, 'ellipse', config.ellipse)
         this.star = new Star(this, 'stars', config.stars)
         this.head = new ImgOnPlane(this, 'head', config.head)
+        this.markImg = new ImgOnPlane(this, 'markImg', config.markImg)
+        this.mattImg = new ImgOnPlane(this, 'mattImg', config.mattImg)
         var t1 = performance.now();
         // this.initTrack()
         // this.fracTree = new FractalTree(this)

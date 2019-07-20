@@ -39,7 +39,6 @@ export default {
       currentAnimation: 0,
       transitonEffect: "slideSwitch",
 
-      mob: false,
       scrolled: false,
       touchSwipe: {
         startX: 0,
@@ -53,7 +52,7 @@ export default {
   },
   methods: {
     calcRoutes: function() {
-      if (this.mob) {
+      if (window.__MOB__) {
         this.routes = routeConf.mobile;
         this.hide = routeConf.mobile.hide;
         this.maxNavDepth = routeConf.mobile.maxNavDepth;
@@ -69,12 +68,12 @@ export default {
     },
     validPath: function(to, from) {
       var route = this.routes[to.replace(/\/$/, "")];
-      if(route == undefined) {
-        route = this.routes["/"]
+      if (route == undefined) {
+        route = this.routes["/"];
       }
-        this.currentNavigate = route[0];
-        this.currentAnimation = route[1];
-        this.animation(route[1]);
+      this.currentNavigate = route[0];
+      this.currentAnimation = route[1];
+      this.animation(route[1]);
     },
     hideAllAnimation: function(currentSlide) {
       var tempPoniter = this.$props.three;
@@ -98,33 +97,34 @@ export default {
           anime.line.start();
           anime.matthias.moveToStart();
           anime.markus.moveToStart();
-          anime.men.moveToStart();
+          setTimeout(() => {
+            if (this.$router.currentRoute.name == "landing")
+              this.$router.push("/expose/dream");
+          }, 3000);
           break;
         case 1:
-          if (this.mob) {
-            anime.men.start(1.4);
+          if (window.__MOB__) {
+            anime.men.expose(1.5);
           } else {
-            anime.men.start();
+            anime.men.expose();
           }
           anime.matthias.moveToStart();
           anime.markus.moveToStart();
-          anime.men.move(0, -70, 2);
+
           break;
         case 2:
           anime.men
             .dispose()
             .then(() => {})
-            .catch(e => {
-              console.log(e);
-            });
+            .catch(e => {});
           anime.head.start();
-          var prom = anime.bigLand
+          anime.bigLand
             .start(4.2, -2450, -2140)
             .then(() => {
               anime.star.start();
             })
             .catch(e => {
-              console.log(e);
+              anime.star.start();
             });
           anime.midLand.start(2.6, -2400, -2100);
           anime.smallLand.start(1.5, -2300, -2070);
@@ -135,16 +135,14 @@ export default {
         case 3:
           anime.matthias.moveToStart();
           anime.markus.moveToStart();
-          anime.men.moveToStart();
           break;
         case 4:
           anime.matthias.start();
           anime.markus.start();
-          anime.men.moveToStart();
-          if (this.mob) {
-            this.moveFaces(0, -45, 0, 55);
+          if (window.__MOB__) {
+            this.moveFaces(0, -45, 0, 55, 1);
           } else {
-            this.moveFaces(125, 0, -125, 0);
+            this.moveFaces(125, 0, -125, 0, 1);
           }
           break;
         case 5:
@@ -152,52 +150,88 @@ export default {
           anime.ellipse.deSpread(2, 2);
           anime.matthias.moveToStart();
           anime.markus.moveToStart();
-          anime.men.moveToStart();
           break;
         case 6:
-          anime.markus.start();
-          if (this.mob) {
-            this.moveFaces(0, 55, 0, 55);
+          anime.mattImg.stop();
+          anime.markus
+            .start()
+            .then(() => {
+              anime.markImg.show(window.__MOB__);
+              anime.markus.hide(2);
+            })
+            .catch(e => {
+              anime.markImg.show(window.__MOB__);
+              anime.markus.hide(2);
+            });
+          if (window.__MOB__) {
+            this.moveFaces(0, 55, 0, 55, 2);
+            // anime.matthias.moveToStart(0);
           } else {
-            this.moveFaces(125, 0, 125, 0);
+            this.moveFaces(125, 0, 125, 0, 1);
+            // anime.matthias.moveToStart(0.8);
           }
-          anime.matthias.moveToStart();
-          anime.men.moveToStart();
           break;
         case 7:
-          anime.matthias.start();
-          if (this.mob) {
-            this.moveFaces(0, 55, 0, 55);
+          anime.markImg.stop();
+          anime.matthias
+            .start()
+            .then(() => {
+              anime.mattImg.show(window.__MOB__);
+              anime.matthias.hide(2);
+            })
+            .catch(e => {
+              anime.mattImg.show(window.__MOB__);
+              anime.matthias.hide(2);
+            });
+          if (window.__MOB__) {
+            this.moveFaces(0, 55, 0, 55, 3);
+            // anime.markus.moveToStart(0);
           } else {
-            this.moveFaces(-125, 0, -125, 0);
+            this.moveFaces(-125, 0, -125, 0, 1);
+            // anime.markus.moveToStart(0.8);
           }
-          anime.markus.moveToStart();
-          anime.men.moveToStart();
           break;
         case 8:
           anime.ellipse.start();
           anime.ellipse.spread(2, 2);
           anime.matthias.moveToStart();
           anime.markus.moveToStart();
-          anime.men.moveToStart();
           break;
         default:
           anime.matthias.moveToStart();
           anime.markus.moveToStart();
-          anime.men.moveToStart();
+
           break;
       }
     },
-    moveFaces: function(xMat, yMat, xMark, yMark) {
+    moveFaces: function(xMat, yMat, xMark, yMark, state) {
       let anime = this.$props.three;
-      anime.matthias.move(xMat, yMat);
-      anime.markus.move(xMark, yMark);
-      if (this.mob) {
+      switch (state) {
+        case 1:
+          anime.markus.move(xMark, yMark);
+          anime.matthias.move(xMat, yMat);
+          break;
+        case 2:
+          anime.matthias.stop();
+          // anime.markus.move(xMark, yMark);
+          anime.matthias.move(xMat, yMat, 0);
+          break;
+        case 3:
+          anime.markus.move(xMark, yMark, 0);
+          anime.matthias.move(xMat, yMat);
+          break;
+      }
+
+      if (window.__MOB__) {
         anime.matthias.setScale(0.3);
         anime.markus.setScale(0.3);
+        anime.markImg.setScale(3.4);
+        anime.mattImg.setScale(3.4);
       } else {
         anime.matthias.setScale(0.5);
         anime.markus.setScale(0.5);
+        anime.markImg.setScale(5.5);
+        anime.mattImg.setScale(5.5);
       }
     },
     keyCalc(event) {
@@ -264,12 +298,12 @@ export default {
     },
     onResize: function() {
       if (window.innerWidth < 769) {
-        this.mob = true;
+        window.__MOB__ = true;
       } else {
-        this.mob = false;
+        window.__MOB__ = false;
       }
       this.calcRoutes();
-      this.animation(this.currentAnimation);
+      this.validPath(this.$router.currentRoute.path);
     },
     // REFRAC
     getKeyByValue(object, value) {

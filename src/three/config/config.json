@@ -33,7 +33,7 @@
     ],
     "men": {
         "x": 0,
-        "y": 100,
+        "y": -70,
         "pointDivisor": 3,
         "mobMultipyDivisor": 2,
         "threshold": 0,
@@ -91,6 +91,32 @@
         "opacityto": 1,
         "time": 3
     },
+    "markImg": {
+        "imgPath": "static/images/realMark.png",
+        "scale": 5.5,
+        "xfrom": 125,
+        "xto": 0,
+        "yfrom": 0,
+        "yto": 55,
+        "zfrom": 5,
+        "zto": 0,
+        "opacityfrom": 0,
+        "opacityto": 1,
+        "time": 0
+    },
+    "mattImg": {
+        "imgPath": "static/images/realMatt.png",
+        "scale": 5.5,
+        "xfrom": -125,
+        "xto": 0,
+        "yfrom": 0,
+        "yto": 55,
+        "zfrom": 5,
+        "zto": 0,
+        "opacityfrom": 0,
+        "opacityto": 1,
+        "time": 0
+    },
     "matthias": {
         "x": 125,
         "y": 0,
@@ -111,8 +137,8 @@
     },
     "ellipse": {
         "instances": 200,
-        "xfact": 100,
-        "yfact": 45,
+        "xfact": 140,
+        "yfact": 70,
         "zfact": -60,
         "diffStart": 0.6,
         "diffDest": 1.4

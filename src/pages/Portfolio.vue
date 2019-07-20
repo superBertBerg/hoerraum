@@ -142,7 +142,6 @@ export default {
       }
     }
   },
-
   beforeRouteUpdate(to, from, next) {
     this.route(to.name);
     next();
