@@ -92,7 +92,7 @@
         "time": 3
     },
     "markImg": {
-        "imgPath": "static/images/realMark.png",
+        "imgPath": "static/images/arlo3.jpg",
         "scale": 5.5,
         "xfrom": 125,
         "xto": 0,
@@ -105,7 +105,7 @@
         "time": 0
     },
     "mattImg": {
-        "imgPath": "static/images/realMatt.png",
+        "imgPath": "static/images/arlo4.jpg",
         "scale": 5.5,
         "xfrom": -125,
         "xto": 0,

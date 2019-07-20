@@ -69,19 +69,19 @@ const router = new VueRouter({
 
 
 // Custom Directive
-Vue.directive('click-outside', {
-    bind: function(el, binding, vnode) {
-        this.event = function(event) {
-            if (!(el == event.target || el.contains(event.target))) {
-                vnode.context[binding.expression](event);
-            }
-        };
-        document.body.addEventListener('click', this.event)
-    },
-    unbind: function(el) {
-        document.body.removeEventListener('click', this.event)
-    },
-});
+// Vue.directive('click-outside', {
+//     bind: function(el, binding, vnode) {
+//         this.event = function(event) {
+//             if (!(el == event.target || el.contains(event.target))) {
+//                 vnode.context[binding.expression](event);
+//             }
+//         };
+//         document.body.addEventListener('click', this.event)
+//     },
+//     unbind: function(el) {
+//         document.body.removeEventListener('click', this.event)
+//     },
+// });
 
 
 let control3 = new Controler()
