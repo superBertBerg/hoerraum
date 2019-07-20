@@ -38,7 +38,7 @@
         "mobMultipyDivisor": 2,
         "threshold": 0,
         "scale": 0.5,
-        "imgPath": "static/images/Menneken3.png"
+        "imgPath": "static/images/Menneken.png"
     },
     "smallland": {
         "amplitude": 35,
@@ -92,7 +92,7 @@
         "time": 3
     },
     "markImg": {
-        "imgPath": "static/images/arlo3.jpg",
+        "imgPath": "static/images/markus.jpg",
         "scale": 5.5,
         "xfrom": 125,
         "xto": 0,
@@ -105,7 +105,7 @@
         "time": 0
     },
     "mattImg": {
-        "imgPath": "static/images/arlo4.jpg",
+        "imgPath": "static/images/matthias.jpg",
         "scale": 5.5,
         "xfrom": -125,
         "xto": 0,
@@ -124,7 +124,7 @@
         "mobMultipyDivisor": 2,
         "threshold": 0,
         "scale": 0.7,
-        "imgPath": "static/images/matthias_final.png"
+        "imgPath": "static/images/matthias-effekt.jpg"
     },
     "markus": {
         "x": -125,
@@ -133,7 +133,7 @@
         "mobMultipyDivisor": 2,
         "threshold": 0,
         "scale": 0.7,
-        "imgPath": "static/images/markus_final.png"
+        "imgPath": "static/images/markus-effekt.jpg"
     },
     "ellipse": {
         "instances": 200,
