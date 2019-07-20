@@ -109,7 +109,7 @@ body {
     overflow: hidden;
     background-color: #131313;
     color: #e9e9e9;
-    font-family: 'nHelvi77';
+    /* font-family: 'nHelvi77'; */
 }
 
 ol,
@@ -285,13 +285,6 @@ path {
 
 
 /* Fontsizes */
-
-@font-face {
-    font-family: 'nHelvi77';
-    src: url('../fonts/neuehelveticacondensedbq-roman-webfont.woff2') format('woff2'), url('../fonts/neuehelveticacondensedbq-roman-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
 
 .folio {
     font-family: folio-condensed, sans-serif;
