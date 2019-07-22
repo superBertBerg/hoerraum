@@ -6,15 +6,11 @@
           <h2 class="name">Markus Schäfer</h2>
         </router-link>
         <div class="midFontSize flexCenter centerImag">
-          <p>
-            Wir unterhalten: Ob Family Entertainment, Musikshow oder Hörspielklassiker - wir machen Programme für ein großes Publikum.
-          </p>
-          <h1>
-            HO<span class="theRed">3</span>RRAUM
-          </h1>
+          <p>Wir unterhalten: Ob Family Entertainment, Musikshow oder Hörspielklassiker - wir machen Programme für ein großes Publikum.</p>
+          <h1 style="display: none">hoerraum</h1>
         </div>
         <router-link class="midFontSize flexLMR end link" to="/about/gf/matthias_krause">
-          <h2 class="name">Matthias Krauße</h2>
+          <h2 class="name">Matthias Kraußpe</h2>
         </router-link>
       </div>
     </transition>

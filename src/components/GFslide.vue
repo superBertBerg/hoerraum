@@ -110,7 +110,7 @@ export default {
           p:
             "<br>• Rechtsanwalt, Medien- und Lizenz-Experte<br><br>" +
             "• startete seine Tätigkeit im Medienbereich zunächst als Trickfilmer, Produktions – und Herstellungsleiter (Mitarbeit u.a. bei „Werner-beinhart“, „Der kleene Punker“, „Die Ottfianten“<br><br>" +
-            "• ab 1993 in der Musikindustrie als Anwalt bei BMG Ariola und SONY MUSIC," +
+            "• ab 1993 in der Musikindustrie als Anwalt bei BMG Ariola und SONY MUSIC" +
             "• seit 2012 mit eigener Kanzlei in Hamburg<br><br>" +
             "<br><br><br>"
         },

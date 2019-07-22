@@ -2,7 +2,7 @@
   <div id="hotzenplotz" class="preventSwipe overFlow">
     <div class="portDetFlexItem">
       <div class="imgContainer paddigText">
-        <a href="https://www.hotzenplotz-planetarium.de">
+        <a href="http://hotzenplotz-planetarium.de">
           <img
             class="roundedImg"
             src="/static/images/portfolio/HO3RRAUM_Raeuber-Hotzenplotz-und-die-Mondrakete.png"
@@ -114,7 +114,7 @@ export default {
           "i aus dem Nichts, nach über 40 Jahren ein neues Buch vom Räuber Hotzenplotz ersch" +
           "ien.<br>Basis unserer Produktion ist eine liebevolle und lebendige Hörspielfassung d" +
           "es WDR, die wir um Visualisierungen und Animationen der originalen Buch-Illustrat" +
-          "ionen erweitert, und mit einem didaktischem Bonusteil zum Thema Raumfahrt e" +
+          "ionen erweitert, und mit einem didaktischen Bonusteil zum Thema Raumfahrt e" +
           "rgänzt haben. Das Ergebnis ist ein einstündiges 360°-Erlebnis, für Kinder ab 5 Jahr" +
           "en und alle, die mit dem Räuber Hotzenplotz aufgewachsen sind - ab Herbst 2019 im " +
           "Planetarium.",
