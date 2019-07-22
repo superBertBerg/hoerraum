@@ -12,7 +12,7 @@ function resolve(dir) {
 }
 
 module.exports = {
-    mode: 'development',
+    mode: 'production',
     entry: ['./src/index.js'],
     module: {
         rules: [

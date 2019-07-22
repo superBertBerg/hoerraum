@@ -4,8 +4,8 @@
       <p>
         Wir unterhalten: Ob Family Entertainment, Musikshow oder Hörspielklassiker - wir machen Programme für ein großes Publikum.
       </p>
-      <h1>
-        HO<span class="theRed">3</span>RRAUM
+      <h1 style="display: none">
+        hoerraum
       </h1>
     </div>
   </div>

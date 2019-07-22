@@ -314,7 +314,7 @@ path {
 
 .copyRight {
     font-family: folio-condensed, sans-serif;
-    font-size: 0.8em;
+    font-size: 1em;
 }
 /* Media Querys */
 
@@ -385,6 +385,10 @@ path {
     }
     .bottomMarg {
         margin-bottom: 100px
+    }
+    .copyRight {
+        font-family: folio-condensed, sans-serif;
+        font-size: 0.8em;
     }
 }
 
