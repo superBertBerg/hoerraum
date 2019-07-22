@@ -92,7 +92,7 @@
         "time": 3
     },
     "markImg": {
-        "imgPath": "static/images/markus.jpg",
+        "imgPath": "static/images/markus.png",
         "scale": 5.5,
         "xfrom": 125,
         "xto": 0,
@@ -133,7 +133,7 @@
         "mobMultipyDivisor": 2,
         "threshold": 0,
         "scale": 0.7,
-        "imgPath": "static/images/markus-effekt.jpg"
+        "imgPath": "static/images/markus-effekt.png"
     },
     "ellipse": {
         "instances": 200,

@@ -312,7 +312,10 @@ path {
     font-size: 1.3em;
 }
 
-
+.copyRight {
+    font-family: folio-condensed, sans-serif;
+    font-size: 0.8em;
+}
 /* Media Querys */
 
 

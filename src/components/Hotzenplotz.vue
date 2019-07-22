@@ -2,19 +2,20 @@
   <div id="hotzenplotz" class="preventSwipe overFlow">
     <div class="portDetFlexItem">
       <div class="imgContainer paddigText">
-        <router-link to="/portfolio">
+        <a href="https://www.hotzenplotz-planetarium.de">
           <img
             class="roundedImg"
             src="/static/images/portfolio/HO3RRAUM_Raeuber-Hotzenplotz-und-die-Mondrakete.png"
             alt="Mediendom, Planetarium, Hoerraum, Räuber-Hotzenplotz-und-die-Mondrakete"
           />
-        </router-link>
+        </a>
       </div>
     </div>
-    <div class="portDetFlexItem midFontSize">
+    <div class="portDetFlexItem">
       <div>
-        <h1 class="paddigText dis" v-html="message.h1"></h1>
-        <p class="paddigText" v-html="message.p"></p>
+        <h1 class="paddigText dis midFontSize" v-html="message.h1"></h1>
+        <p class="paddigText midFontSize" v-html="message.p"></p>
+        <p class="copyRight paddingTop" v-html="message.copy"></p>
       </div>
     </div>
   </div>
@@ -56,6 +57,9 @@
   max-height: 100%;
   max-width: 100%;
 }
+.paddingTop {
+  padding-top: 20px;
+}
 @media only screen and (max-width: 768px) {
   #hotzenplotz {
     display: block;
@@ -95,24 +99,30 @@ export default {
     return {
       message: {
         h1: "",
-        p: ""
+        p: "",
+        copy: ""
       },
       ger: {
         h1: "Der Räuber Hotzenplotz und die Mondrakete",
         p:
-          "Eigentlich hatte Ottfried Preußler mit der ersten Geschichte vom Räuber Hotzenplo" +
-          "tz lediglich etwas Abwechslung von der Arbeit an Krabat gesucht, am Ende verkauft" +
-          "en sich die drei Bände insgesamt 6Millionen-fach, die Bücher wurden in 34 Sprache" +
-          "n übersetzt und mehrfach verfilmt. Was liegt näher als die Adaption eines der erf" +
+          "Eigentlich hatte Otfried Preußler mit der ersten Geschichte vom Räuber Hotzenplo" +
+          "tz lediglich etwas Abwechslung von der Arbeit an \"Krabat\" gesucht, am Ende verkauft" +
+          "en sich die drei Bände insgesamt 6 Millionen mal, die Bücher wurden in 34 Sprache" +
+          "n übersetzt und mehrfach verfilmt.<br>Was liegt näher als die Adaption eines der erf" +
           "olgreichsten Kinderbuch-Themen für die Kuppel eines Planetariums ? Noch dazu, wen" +
           "n es sogar um eine Mondrakete geht ? Dies war unser erster Gedanke, als 2018 quas" +
           "i aus dem Nichts, nach über 40 Jahren ein neues Buch vom Räuber Hotzenplotz ersch" +
-          "ien. Basis unserer Produktion ist eine liebevolle und lebendige Hörspielfassung d" +
+          "ien.<br>Basis unserer Produktion ist eine liebevolle und lebendige Hörspielfassung d" +
           "es WDR, die wir um Visualisierungen und Animationen der originalen Buch-Illustrat" +
-          "ionen erweitert haben, und mit einem didaktischem Bonusteil zum Thema Raumfahrt e" +
-          "rgänzen. Das Ergebnis ist ein einstündiges 360°-Erlebnis, in das Kinder ab 5 Jahr" +
-          "en und alle, die mit dem Räuber Hotzenplotz aufgewachsen sind, ab Herbst 2019 im " +
-          "Planetarium erleben können ."
+          "ionen erweitert, und mit einem didaktischem Bonusteil zum Thema Raumfahrt e" +
+          "rgänzt haben. Das Ergebnis ist ein einstündiges 360°-Erlebnis, für Kinder ab 5 Jahr" +
+          "en und alle, die mit dem Räuber Hotzenplotz aufgewachsen sind - ab Herbst 2019 im " +
+          "Planetarium.",
+        copy: 
+          "„Der Räuber Hotzenplotz und die Mondrakete“ von Otfried Preußler, erzählt von Susanne" +
+          " Preußler-Bitsch nach einem Theaterstück von Otfried Preußler, mit Illustrationen von" +
+          " Thorsten Saleina nach Motiven von F.J.Tripp.<br> © 2018 Thienemann in der <a href='https://www.thienemann-esslinger.de/verlag/'>Thienemann-Ess" +
+          "linger Verlag</a> GmbH, Stuttgart"
       },
       eng: { h2: "", p: "" }
     };
@@ -155,6 +165,7 @@ export default {
   created: function() {
     this.message.h1 = this.ger.h1;
     this.message.p = this.ger.p;
+    this.message.copy = this.ger.copy;
     this.changeContent(this.$route.params.id);
   },
   mounted() {

@@ -98,7 +98,7 @@ export default {
             "<br>• Werbekaufmann, Diplom-Betriebswirt, Marketing- und Content-Experte<br><br>" +
             "• arbeitet seit mehr als 30 Jahren in den Bereichen Content, Marken und Medien<br><br>" +
             "• war angestellt bei BMG Ariola, The Walt Disney Company EMEA, [PIAS] Recordings<br><br>" +
-            "• als selbstständiger Unternehmer seit 2002 u.a. tätig für OTTO Group, InBev, STAGE Entertainment, G+J, Warner Strategic Marketing, Union Investment, Reeperbahnfestival<br><br>" +
+            "• als selbstständiger Berater seit 2002 u.a. tätig für OTTO Group, InBev, STAGE Entertainment, G+J, Warner Strategic Marketing, Union Investment, Reeperbahnfestival<br><br>" +
             "• hat 2013 the content dome GmbH gegründet und „Tabaluga und die Zeichen der Zeit“ als 360°-Erlebnis produziert<br><br>" +
             "<br><br><br>"
         },
@@ -109,7 +109,7 @@ export default {
           h2: "Matthias Krauße",
           p:
             "<br>• Rechtsanwalt, Medien- und Lizenz-Experte<br><br>" +
-            "• startete seine Tätigkeit im Medienbereich zunächst als Trickfilmer, Produktions – und Herstellungsleiter (Mitarbeit u.a. „Werner-beinhart“, „Der kleene Punker“, „Die Ottfianten“<br><br>" +
+            "• startete seine Tätigkeit im Medienbereich zunächst als Trickfilmer, Produktions – und Herstellungsleiter (Mitarbeit u.a. bei „Werner-beinhart“, „Der kleene Punker“, „Die Ottfianten“<br><br>" +
             "• ab 1993 in der Musikindustrie als Anwalt bei BMG Ariola und SONY MUSIC," +
             "• seit 2012 mit eigener Kanzlei in Hamburg<br><br>" +
             "<br><br><br>"

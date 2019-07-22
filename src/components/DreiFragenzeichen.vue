@@ -1,8 +1,9 @@
 <template>
-  <div id="dreiFragezeichen" class="portDetFlexItem overFlow preventSwipe midFontSize">
-    <div class="portDetFlexSubItem">
-      <h1 v-html="message.h1" style="display: none"></h1>
-      <p class="paddigText" v-html="message.p"></p>
+  <div id="dreiFragezeichen" class="portDetFlexItem overFlow preventSwipe">
+    <div class="portDetFlexSubItem wCopy">
+      <h1 class="midFontSize" v-html="message.h1" style="display: none"></h1>
+      <p class="paddigText midFontSize" v-html="message.p"></p>
+      <p class="copyRight paddingTop" v-html="message.copy"></p>
     </div>
     <div class="portDetFlexSubItem">
       <div class="imgContainer paddigText">
@@ -118,6 +119,13 @@
   width: 200px;
   height: 200px;
 }
+.portDetFlexSubItem.wCopy {
+  justify-content: center;
+  flex-direction: column;
+}
+.paddingTop {
+  padding-top: 20px
+}
 @media only screen and (max-width: 1100px) {
   .roundedImg {
     width: 150px;
@@ -125,6 +133,10 @@
   }
 }
 @media only screen and (max-width: 768px) {
+  .portDetFlexSubItem .wCopy {
+    justify-content: normal;
+    flex-direction: column;
+  }
   #dreiFragezeichen {
     height: 75%;
     margin-bottom: 5%;
@@ -172,22 +184,24 @@ export default {
     return {
       message: {
         h1: "",
-        p: ""
+        p: "",
+        copy: ""
       },
       ger: {
         h1: "Die drei ???",
         p:
-          "3 berühmte Detektive, 3 unveröffentlichte Geschichten, 3-dimesionaler Sound! – mit " +
-          "diesen USP-Bausteinen haben wir mittlerweile 2 Staffeln produziert, gemeinsam mit d" +
-          "em EUROPA-Label von Sony Music. In einer Art Evolutionsprozess haben wir mit unsere" +
+          "3 berühmte Detektive, 3 unveröffentlichte Geschichten, 3-dimensionaler Sound! – mit " +
+          "diesen USP-Bausteinen haben wir mittlerweile zwei Staffeln produziert, gemeinsam mit d" +
+          "em EUROPA-Label von Sony Music.<br>In einer Art Evolutionsprozess haben wir mit unsere" +
           "n Produktionen dabei eine neue Format-Kategorie geschaffen: Das immersive, illustri" +
-          "erte Hörspiel. Was als reine 3D-Audioproduktion unterm Sternenhimmel begann, ist he" +
+          "erte Hörspiel. Was als reine 3D-Audioproduktion unterm Sternenhimmel begann, wird he" +
           "ute visuell von 360°-Projektionen begleitet. Das sieht mal abstrakt künstlerisch, m" +
           "al mysteriös nebelig, mal semi-realistisch aus, aber nie „filmisch“. So bleibt der " +
           "Fokus immer auf dem Hörerlebnis, das Justus Jonas, Peter Shaw und Bob Andrews schon" +
-          " vor langer Zeit zu Kultfiguren gemacht hat. Weit über 200.000 Fans der drei <span " +
+          " vor langer Zeit zu Kultfiguren gemacht hat.<br>Weit über 200.000 Fans der drei <span " +
           "class='theRed'>?</span><span class='theBlue'>?</span>? haben die bislang 6 Folgen " +
-          "in 7 deutschen Planetarien besucht."
+          "in 7 deutschen Planetarien besucht.",
+        copy: "„Die drei <span class='theRed'>?</span><span class='theBlue'>?</span>?“ ist eine eingetragene Marke der <a href='https://www.kosmos.de/'>Franckh-Kosmos</a> Verlags-GmbH &amp; Co.KG"
       },
       eng: { h2: "", p: "" }
     };
@@ -230,6 +244,7 @@ export default {
   created: function() {
     this.message.h1 = this.ger.h1;
     this.message.p = this.ger.p;
+    this.message.copy = this.ger.copy;
     this.changeContent(this.$route.params.id);
   },
   mounted() {

@@ -36,7 +36,7 @@
       <h3
         v-show="!drfshow && !hotshow"
         class="portFlexItem width extrawurst paddigText midFontSize"
-      >An keinem anderen Ort kann man gemeinschaftlich so gut in andere Welten eintauchen, wie in einem Dome (Medienkuppel). Die Darstellungsmöglichkeiten dort erlauben uns, Hörspiele, Musik, Theater etc. auf eine neue Erlebnisebene zu bringen. ZuhörerInnen und ZuschauerInnen fühlen sich mittendrin statt nur dabei.</h3>
+      >An keinem anderen Ort kann man gemeinschaftlich so gut in andere Welten eintauchen, wie in einem Dome (Medienkuppel).<br>Die Darstellungsmöglichkeiten dort erlauben uns, Hörspiele, Musik, Theater etc. auf eine neue Erlebnisebene zu bringen. ZuhörerInnen und ZuschauerInnen fühlen sich mittendrin statt nur dabei.</h3>
       </transition>
     </div>
   </div>

@@ -5,7 +5,7 @@
         <div>
           <p class="pageHeadline folio"><span class="theRed">3</span></p>
           <h3 class="midFontSize">
-            Sie steht u.a. für den qualitativen Anspruch unserer Produktionen: Mittels innovativer Technik schaffen wir dreidimensionale, räumliche Hörerlebnisse an sehr besonderen Orten – in Planetarien und Mediendomes. weil man dort in der 360°-runden und 180°-gewölbten Kuppel Bild und Ton viel intensiver wahrnimmt, als vor einer Kinoleinwand oder Mattscheibe.
+            Sie steht u.a. für den qualitativen Anspruch unserer Produktionen: Mittels innovativer Technik schaffen wir dreidimensionale, räumliche Hörerlebnisse an sehr besonderen Orten – in Planetarien und Mediendomes, denn in der 360°-runden und 180°-gewölbten Kuppel nimmt man Bild und Ton viel intensiver wahr, als vor einer Kinoleinwand oder Mattscheibe.
           </h3>
         </div>
       </div>

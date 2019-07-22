@@ -14,7 +14,7 @@
           </h1>
         </div>
         <router-link class="midFontSize flexLMR end link" to="/about/gf/matthias_krause">
-          <h2 class="name">Matthias Krause</h2>
+          <h2 class="name">Matthias Krauße</h2>
         </router-link>
       </div>
     </transition>
